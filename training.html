@@ -1,0 +1,3121 @@
+<!-- /index.html (reviewed & fixed) -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="FutureXcel Training & Placement - practical cohort programs: Full-Stack, Data, Cloud/DevOps, QA Automation, AI/ML with simple teaching and job support." />
+  <meta name="keywords"
+    content="IT training programs, placement services, full-stack development training, data science training, cloud DevOps training, FutureXcel" />
+  <meta name="author" content="FutureXcel Technologies" />
+  <meta name="theme-color" content="#0d1b2a" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Training | FutureXcel Technologies</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./assets/Favico.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="./styles.css" rel="stylesheet" />
+  <style>
+    /* Training page specific styles - common styles are in styles.css */
+
+    /* Consistent section spacing and container alignment */
+    section {
+      position: relative;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: clamp(15px, 4vw, 20px);
+      padding-right: clamp(15px, 4vw, 20px);
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Consistent section padding */
+    section.py-5 {
+      padding-top: clamp(3rem, 6vw, 4rem);
+      padding-bottom: clamp(3rem, 6vw, 4rem);
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden
+    }
+
+    .skip-link:focus {
+      position: fixed;
+      left: 10px;
+      top: 10px;
+      z-index: 2000;
+      padding: .5rem 1rem;
+      background: #000;
+      color: #fff;
+      border-radius: 8px
+    }
+
+    .navbar {
+      background: rgba(255, 255, 255, .95);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, .08);
+      transition: background .3s, box-shadow .3s
+    }
+
+    .navbar.scrolled {
+      background: #fff;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .12)
+    }
+
+    .navbar-brand img {
+      height: 50px;
+      width: auto;
+      display: block;
+      transition: filter .2s
+    }
+
+    .navbar .nav-link {
+      color: #0d1b2a;
+      padding: .55rem 1rem;
+      margin: 0 .25rem;
+      border-radius: 6px;
+      transition: all .3s;
+      font-weight: 500;
+      text-decoration: none !important
+    }
+
+    .navbar .nav-link:hover,
+    .navbar .nav-link:focus {
+      background: var(--fx-gradient);
+      color: #fff !important;
+      transform: translateY(-2px)
+    }
+
+    .navbar .nav-link.active {
+      background: var(--fx-gradient);
+      color: #fff !important;
+      font-weight: 600
+    }
+
+    .dropdown-menu {
+      border-radius: 12px;
+      padding: .6rem 0;
+      border: 0;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, .12);
+      animation: fadeDown .25s ease
+    }
+
+    .dropdown-item {
+      padding: .55rem 1.1rem;
+      transition: all .18s ease;
+      text-decoration: none !important
+    }
+
+    .dropdown-item:hover {
+      background: var(--fx-gradient);
+      color: #fff;
+      padding-left: 1.45rem
+    }
+
+    .dropdown-item.active {
+      background: var(--fx-gradient);
+      color: #fff !important;
+      font-weight: 600;
+      padding-left: 1.45rem
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-8px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .hero-train {
+      position: relative;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden
+    }
+
+    #heroCarousel {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      max-height: 100%;
+      overflow: hidden;
+    }
+
+    #heroCarousel .carousel-item {
+      height: 100%;
+    }
+
+    #heroCarousel .carousel-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: black;
+      filter: brightness(.5);
+    }
+
+    .hero-train::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, rgba(0, 86, 210, .85) 0%, rgba(0, 150, 136, .55) 40%, rgba(13, 27, 42, .9) 100%);
+      mix-blend-mode: overlay;
+      z-index: 1;
+    }
+
+    .hero-train .inner {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      padding: 80px 0 70px
+    }
+
+    /* Ensure all text in hero-train is white, but exclude buttons */
+    .hero-train h1,
+    .hero-train h2,
+    .hero-train h3,
+    .hero-train h4,
+    .hero-train h5,
+    .hero-train h6,
+    .hero-train p,
+    .hero-train .lead {
+      color: #ffffff !important;
+    }
+
+    /* Ensure btn-contrast in hero has dark text on white background - override any white text rules */
+    .hero-train .btn-contrast,
+    .hero-train .btn-pill.btn-contrast {
+      color: #0d1b2a !important;
+      background: #ffffff !important;
+    }
+
+    .hero-train .btn-contrast *,
+    .hero-train .btn-pill.btn-contrast *,
+    .hero-train .btn-contrast i,
+    .hero-train .btn-pill.btn-contrast i {
+      color: #0d1b2a !important;
+    }
+
+    .hero-train .btn-contrast:hover,
+    .hero-train .btn-pill.btn-contrast:hover {
+      color: #0d1b2a !important;
+      background: #f8f9fa !important;
+    }
+
+    .hero-train .btn-contrast:hover *,
+    .hero-train .btn-pill.btn-contrast:hover *,
+    .hero-train .btn-contrast:hover i,
+    .hero-train .btn-pill.btn-contrast:hover i {
+      color: #0d1b2a !important;
+    }
+
+    .hero-train h1 {
+      font-weight: 800;
+      font-size: clamp(2.2rem, 2rem + 2.4vw, 3.4rem);
+      line-height: 1.08;
+      color: #ffffff !important;
+    }
+
+    .hero-train p.lead {
+      max-width: 860px;
+      font-size: clamp(1rem, 1rem + .4vw, 1.2rem);
+      opacity: .95;
+      color: #ffffff !important;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1rem
+    }
+
+    .hero-badges .hb {
+      background: rgba(255, 255, 255, .14);
+      border: 1px solid rgba(255, 255, 255, .35);
+      color: #fff;
+      font-size: .65rem;
+      font-weight: 700;
+      padding: .45rem .75rem;
+      border-radius: 999px
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.8rem
+    }
+
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      border-radius: 999px;
+      padding: 16px 34px;
+      font-weight: 700;
+      font-size: .95rem;
+      text-decoration: none;
+      line-height: 1;
+      border: 0;
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s, filter .25s, box-shadow .25s
+    }
+
+    .btn-pill i {
+      font-size: 1.1rem
+    }
+
+    /* Button Style 1: Primary Gradient (Blue to Teal) - Light Mode */
+    .btn-brand {
+      background: var(--fx-gradient);
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 14px rgba(0, 86, 210, 0.3);
+    }
+
+    .btn-brand:hover {
+      background: linear-gradient(90deg, #0066e6, #00a896);
+      box-shadow: 0 6px 20px rgba(0, 86, 210, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .btn-brand i {
+      color: #fff;
+    }
+
+    /* Button Style 2: White Background - Light Mode */
+    .btn-contrast {
+      background: #ffffff;
+      color: #0d1b2a;
+      border: none;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-contrast:hover {
+      background: #f8f9fa;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .btn-contrast i {
+      color: #0d1b2a;
+    }
+
+    /* Button Style 3: Transparent with White Border - Light Mode */
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #fff;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline i {
+      color: #fff;
+    }
+
+    .btn-pill:hover {
+      transform: translateY(-5px);
+      filter: brightness(1.07);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, .35)
+    }
+
+    .btn-pill:focus-visible {
+      outline: 3px solid rgba(255, 255, 255, .6);
+      outline-offset: 2px
+    }
+
+    .btn-pill::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 2px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, .5), rgba(255, 255, 255, 0));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0;
+      transition: .35s
+    }
+
+    .btn-pill:hover::after {
+      opacity: 1
+    }
+
+    /* Section titles/subtitles use shared `.section-title` / `.section-sub` from styles.css */
+
+    .fxc-card {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, .06);
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, .06);
+      height: 100%;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: visible;
+    }
+
+    /* Mix of horizontal and vertical effects */
+    .fxc-card:nth-child(odd)::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background: var(--fx-gradient);
+      border-radius: 16px 0 0 16px;
+      transition: height 0.3s ease;
+    }
+
+    .fxc-card:nth-child(even)::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--fx-gradient);
+      border-radius: 16px 16px 0 0;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .fxc-card:hover {
+      border-color: rgba(0, 86, 210, 0.2);
+      box-shadow: 0 8px 24px rgba(0, 86, 210, 0.08);
+      transform: translateY(-4px);
+    }
+
+    .fxc-card:nth-child(odd):hover::before {
+      height: 100%;
+    }
+
+    .fxc-card:nth-child(even):hover::before {
+      transform: scaleX(1);
+    }
+
+    html.theme-dark .fxc-card {
+      background: #101c2d;
+      border-color: rgba(255, 255, 255, .08);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .5)
+    }
+
+    html.theme-dark .fxc-card:hover {
+      border-color: rgba(0, 86, 210, 0.3);
+      box-shadow: 0 8px 24px rgba(0, 86, 210, 0.15);
+    }
+
+    .track-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--fx-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.3rem;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, .12);
+      margin-bottom: .6rem
+    }
+
+    .syllabus-acc .accordion-button {
+      font-weight: 600
+    }
+
+    .syllabus-acc .accordion-button:not(.collapsed) {
+      background: var(--fx-gradient);
+      color: #fff !important;
+    }
+
+    .syllabus-acc .accordion-button:not(.collapsed) * {
+      color: #ffffff !important;
+    }
+
+    .syllabus-acc {
+      margin-top: 0;
+    }
+
+    .syllabus-acc .accordion-item {
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      border: 1px solid rgba(0, 0, 0, .08)
+    }
+
+    html.theme-dark .syllabus-acc .accordion-item {
+      border-color: rgba(255, 255, 255, .12)
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: clamp(16px, 3vw, 24px);
+      margin-top: 0;
+      width: 100%;
+      align-items: stretch;
+    }
+
+    .tstep {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, .06);
+      border-radius: 18px;
+      padding: clamp(16px, 2vw, 20px);
+      position: relative;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, .06);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: visible;
+      width: 100%;
+      box-sizing: border-box;
+      height: 100%;
+    }
+
+    /* Mix of horizontal and vertical effects */
+    .tstep:nth-child(odd)::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background: var(--fx-gradient);
+      border-radius: 18px 0 0 18px;
+      transition: height 0.3s ease;
+    }
+
+    .tstep:nth-child(even)::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--fx-gradient);
+      border-radius: 18px 18px 0 0;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .tstep:hover {
+      border-color: rgba(0, 86, 210, 0.2);
+      box-shadow: 0 8px 24px rgba(0, 86, 210, 0.08);
+      transform: translateY(-4px);
+    }
+
+    .tstep:nth-child(odd):hover::before {
+      height: 100%;
+    }
+
+    .tstep:nth-child(even):hover::before {
+      transform: scaleX(1);
+    }
+
+    .tstep .num {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .6px;
+      background: #0f172a;
+      color: #fff;
+      padding: .35rem .55rem;
+      border-radius: 6px
+    }
+
+    .tstep h6 {
+      font-weight: 700;
+      margin: 0 0 .35rem;
+      color: #0f172a
+    }
+
+    .tstep p {
+      font-size: .75rem;
+      line-height: 1.4;
+      margin: 0;
+      color: #475569
+    }
+
+    html.theme-dark .tstep {
+      background: #101c2d;
+      border-color: rgba(255, 255, 255, .08);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .5)
+    }
+
+    html.theme-dark .tstep:hover {
+      border-color: rgba(0, 86, 210, 0.3);
+      box-shadow: 0 8px 24px rgba(0, 86, 210, 0.15);
+    }
+
+    html.theme-dark .tstep .num {
+      background: var(--fx-gradient) !important;
+      background-image: var(--fx-gradient) !important;
+      color: #ffffff !important;
+      opacity: 1 !important;
+      border: none !important;
+      box-shadow: 0 4px 12px rgba(0, 86, 210, 0.4) !important;
+    }
+
+    html.theme-dark .tstep h6 {
+      color: #f9fafb
+    }
+
+    html.theme-dark .tstep p {
+      color: #b8c3d4
+    }
+
+    .metrics-band {
+      background: var(--fx-gradient);
+      color: #fff;
+      padding: 40px 0;
+      position: relative;
+      overflow: hidden
+    }
+
+    .metrics-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--fx-radial);
+      opacity: .5
+    }
+
+    /* Ensure all text in metrics-band is white */
+    .metrics-band *,
+    .metrics-band h1,
+    .metrics-band h2,
+    .metrics-band h3,
+    .metrics-band h4,
+    .metrics-band h5,
+    .metrics-band h6,
+    .metrics-band p,
+    .metrics-band span,
+    .metrics-band div {
+      color: #ffffff !important;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 30px;
+      text-align: center;
+      position: relative;
+      z-index: 1
+    }
+
+    .metric h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 0;
+      color: #ffffff !important;
+    }
+
+    .metric p {
+      margin: .25rem 0 0;
+      font-size: .7rem;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #ffffff !important;
+    }
+
+    .metric,
+    .metric * {
+      color: #ffffff !important;
+    }
+
+    .cap-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(16px, 2.5vw, 24px);
+      margin-top: 0;
+      width: 100%;
+      align-items: stretch;
+    }
+
+    @media (max-width: 1200px) {
+      .cap-gallery {
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(16px, 2vw, 20px);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .cap-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: clamp(14px, 2vw, 18px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cap-gallery {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .cap-gallery .cap-item:nth-last-child(-n+2),
+      .cap-gallery .cap-item:nth-last-child(2),
+      .cap-gallery .cap-item:nth-last-child(1) {
+        grid-column: 1;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .cap-gallery {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+    }
+
+    .cap-item {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, .06);
+      border-radius: 14px;
+      padding: clamp(18px, 2.5vw, 22px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .05);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      min-height: 140px;
+      align-items: flex-start;
+      position: relative;
+      overflow: visible;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Horizontal effect for even items, vertical for odd */
+    .cap-item:nth-child(odd)::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background: var(--fx-gradient);
+      border-radius: 14px 0 0 14px;
+      transition: height 0.3s ease;
+    }
+
+    .cap-item:nth-child(even)::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--fx-gradient);
+      border-radius: 14px 14px 0 0;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .cap-item:hover {
+      border-color: rgba(0, 86, 210, 0.2);
+      box-shadow: 0 8px 24px rgba(0, 86, 210, 0.08);
+      transform: translateY(-4px);
+    }
+
+    .cap-item:nth-child(odd):hover::before {
+      height: 100%;
+    }
+
+    .cap-item:nth-child(even):hover::before {
+      transform: scaleX(1);
+    }
+
+    .cap-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--fx-gradient);
+      color: #fff;
+      font-size: .85rem;
+      font-weight: 700;
+      padding: .5rem 1rem;
+      border-radius: 999px;
+      margin-bottom: .25rem
+    }
+
+    .cap-tag * {
+      color: #ffffff !important;
+    }
+
+    .cap-item h6 {
+      font-weight: 700;
+      margin: 0;
+      font-size: 1rem;
+      color: #0f172a;
+      line-height: 1.3
+    }
+
+    .cap-item p {
+      font-size: .85rem;
+      color: #475569;
+      margin: 0;
+      line-height: 1.5;
+      flex-grow: 1
+    }
+
+    html.theme-dark .cap-item {
+      background: #101c2d;
+      border-color: rgba(255, 255, 255, .08);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .5)
+    }
+
+    html.theme-dark .cap-item:hover {
+      border-color: rgba(0, 86, 210, 0.3);
+      box-shadow: 0 8px 24px rgba(0, 86, 210, 0.15);
+    }
+
+    html.theme-dark .cap-item h6 {
+      color: #f9fafb
+    }
+
+    html.theme-dark .cap-item p {
+      color: #b8c3d4
+    }
+
+    .faq .accordion-button:not(.collapsed) {
+      background: var(--fx-gradient);
+      color: #fff !important;
+    }
+
+    .faq .accordion-button:not(.collapsed) * {
+      color: #ffffff !important;
+    }
+
+    .faq {
+      margin-top: 0;
+    }
+
+    .faq .accordion-item {
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      border: 1px solid rgba(0, 0, 0, .08)
+    }
+
+    html.theme-dark .faq .accordion-item {
+      border-color: rgba(255, 255, 255, .12)
+    }
+
+    .enroll {
+      background: var(--fx-gradient);
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px
+    }
+
+    /* Ensure all text in enroll section is white */
+    .enroll *,
+    .enroll h1,
+    .enroll h2,
+    .enroll h3,
+    .enroll h4,
+    .enroll h5,
+    .enroll h6,
+    .enroll p,
+    .enroll span,
+    .enroll div {
+      color: #ffffff !important;
+    }
+
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      border-radius: 999px;
+      padding: 12px 28px;
+      font-weight: 700;
+      letter-spacing: .2px;
+      color: #0f172a;
+      background: #fff;
+      border: 1.5px solid rgba(15, 23, 42, .08);
+      text-decoration: none;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, .12);
+      transition: transform .2s, box-shadow .25s
+    }
+
+    .btn-cta:hover,
+    .btn-cta:focus-visible {
+      transform: translateY(-2px);
+      background: #fff;
+      color: #0b1220;
+      border-color: rgba(15, 23, 42, .18);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, .18)
+    }
+
+    footer {
+      background: var(--fx-dark);
+      color: #f1f5f9 !important;
+      padding: 18px 0 !important;
+    }
+
+    footer h5 {
+      color: #fff;
+      margin-bottom: 8px !important;
+      font-size: inherit !important;
+    }
+
+    footer h1,
+    footer h2,
+    footer h3,
+    footer h4,
+    footer h5,
+    footer h6 {
+      color: #ffffff !important;
+    }
+
+    footer p,
+    footer span,
+    footer div,
+    footer address,
+    footer .copyright,
+    footer small,
+    footer .text-muted {
+      color: #e5e7eb !important;
+      font-size: 0.9rem !important;
+      line-height: 1.55 !important;
+    }
+
+    footer a {
+      color: #e5e7eb !important;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 4px !important;
+      font-size: 0.9rem !important;
+      transition: color 0.2s ease;
+    }
+
+    footer a:hover {
+      color: #fff !important;
+      text-decoration: underline
+    }
+
+    .footer-rule {
+      border-color: rgba(255, 255, 255, .25) !important;
+      margin: 1rem 0
+    }
+
+    .copyright {
+      font-size: .9rem
+    }
+
+    /* Footer contact spacing + social icons row */
+    footer address {
+      margin-bottom: .5rem
+    }
+
+    /* Fix footer contact phone spacing */
+    footer address.mb-0 {
+      margin-bottom: 0.25rem !important;
+      line-height: 1.4;
+    }
+
+    footer address.mb-0 a {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      line-height: 1.4;
+    }
+
+    footer address.mb-0 br {
+      line-height: 1.4;
+    }
+
+    footer .social {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 10px !important;
+      flex-wrap: wrap !important;
+    }
+
+    footer .social a {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 32px !important;
+      height: 32px !important;
+      border-radius: 50% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      text-decoration: none !important;
+    }
+
+    footer .social a i {
+      font-size: 1.25rem !important;
+      line-height: 1 !important;
+      transition: transform .2s ease, filter .2s ease;
+      will-change: transform, filter;
+    }
+
+    /* Hover: soft white glow + slight lift */
+    footer .social a:hover i,
+    footer .social a:focus-visible i {
+      transform: translateY(-1px);
+      filter:
+        drop-shadow(0 0 4px rgba(255, 255, 255, 0.45)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.35));
+    }
+
+    /* Dark mode footer - ensure all text is visible */
+    html.theme-dark footer {
+      background: #070d18;
+      color: #f1f5f9 !important;
+    }
+
+    html.theme-dark footer h1,
+    html.theme-dark footer h2,
+    html.theme-dark footer h3,
+    html.theme-dark footer h4,
+    html.theme-dark footer h5,
+    html.theme-dark footer h6 {
+      color: #ffffff !important;
+    }
+
+    html.theme-dark footer p,
+    html.theme-dark footer span,
+    html.theme-dark footer div,
+    html.theme-dark footer address,
+    html.theme-dark footer .copyright,
+    html.theme-dark footer small,
+    html.theme-dark footer .text-muted {
+      color: #e5e7eb !important;
+    }
+
+    html.theme-dark footer a {
+      color: #e5e7eb !important;
+    }
+
+    html.theme-dark footer a:hover,
+    html.theme-dark footer a:focus {
+      color: #ffffff !important;
+      text-decoration: underline;
+    }
+
+    html.theme-dark footer .social a {
+      color: #e5e7eb !important;
+    }
+
+    html.theme-dark footer .social a:hover,
+    html.theme-dark footer .social a:focus {
+      color: #ffffff !important;
+    }
+
+    /* Stronger glow on dark footer backgrounds */
+    footer[style],
+    footer {
+      --fx-footer-glow1: rgba(255, 255, 255, 0.55);
+      --fx-footer-glow2: rgba(255, 255, 255, 0.40);
+    }
+
+    html.theme-dark footer .social a:hover i,
+    html.theme-dark footer .social a:focus-visible i {
+      filter:
+        drop-shadow(0 0 5px var(--fx-footer-glow1)) drop-shadow(0 0 12px var(--fx-footer-glow2));
+    }
+
+    /* Accessibility: no motion */
+    @media (prefers-reduced-motion: reduce) {
+      footer .social a i {
+        transition: none;
+      }
+
+      footer .social a:hover i,
+      footer .social a:focus-visible i {
+        transform: none;
+      }
+    }
+
+    /* Ensure generic footer links don't override social layout */
+    footer a {
+      margin-bottom: 6px;
+    }
+
+    footer .social a {
+      margin-bottom: 0 !important;
+    }
+
+    /* Layout shells reused across sections */
+    .overview-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+      gap: clamp(1.5rem, 4vw, 2.5rem);
+      align-items: flex-start;
+      margin-top: 1.5rem;
+      width: 100%;
+    }
+
+    @media (max-width: 991.98px) {
+      .overview-wrap {
+        grid-template-columns: 1fr;
+        gap: clamp(1.5rem, 3vw, 2rem);
+      }
+    }
+
+    .overview-intro h3 {
+      font-weight: 700;
+      margin-bottom: .75rem;
+    }
+
+    .overview-intro p {
+      color: #4b5563;
+      font-size: .98rem;
+    }
+
+    .overview-intro ul {
+      padding-left: 1.1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .overview-intro li+li {
+      margin-top: .25rem;
+    }
+
+    html.theme-dark .overview-intro p,
+    html.theme-dark .overview-intro li {
+      color: #cbd5f5;
+    }
+
+    .mini-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: .85rem;
+      margin-top: .75rem;
+    }
+
+    .mini-box {
+      border-radius: 14px;
+      padding: .75rem .9rem;
+      background: linear-gradient(135deg, rgba(0, 86, 210, .06), rgba(0, 150, 136, .05));
+      border: 1px solid rgba(15, 23, 42, .08);
+    }
+
+    .mini-box h6 {
+      margin: 0;
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .mini-box span {
+      display: block;
+      font-size: .78rem;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    html.theme-dark .mini-box {
+      background: radial-gradient(circle at top left, rgba(148, 163, 184, .16), rgba(15, 23, 42, .9));
+      border-color: rgba(148, 163, 184, .5);
+    }
+
+    html.theme-dark .mini-box span {
+      color: #e2e8f0;
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 576px) {
+      .feature-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .feature-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .feature-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .feature-item {
+      display: flex;
+      gap: .8rem;
+      padding: .75rem .9rem;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, .06);
+      border: 1px solid rgba(15, 23, 42, .04);
+    }
+
+    .feature-item i {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: var(--fx-gradient);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .feature-item h6 {
+      font-size: .95rem;
+      margin-bottom: 2px;
+      font-weight: 600;
+    }
+
+    .feature-item p {
+      margin: 0;
+      font-size: .82rem;
+      color: #6b7280;
+    }
+
+    html.theme-dark .feature-item {
+      background: #0f172a;
+      border-color: rgba(148, 163, 184, .4);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .7);
+    }
+
+    html.theme-dark .feature-item p {
+      color: #e5e7eb;
+    }
+
+    /* Track tabs + cards */
+    .tracks-section {
+      position: relative;
+    }
+
+    .track-nav {
+      border-bottom: 1px solid rgba(148, 163, 184, .4);
+      flex-wrap: wrap;
+      gap: .35rem;
+    }
+
+    .track-nav .nav-link {
+      border-radius: 999px;
+      padding: .35rem .95rem;
+      font-size: .83rem;
+      margin-bottom: .35rem;
+      color: #1f2937 !important;
+      background: transparent !important;
+      border: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .track-nav .nav-link * {
+      color: #1f2937 !important;
+    }
+
+    .track-nav .nav-link:hover {
+      background: rgba(0, 86, 210, 0.1) !important;
+      color: #1f2937 !important;
+      border-color: rgba(0, 86, 210, 0.2);
+    }
+
+    .track-nav .nav-link:hover * {
+      color: #1f2937 !important;
+    }
+
+    .track-nav .nav-link.active {
+      background: var(--fx-gradient) !important;
+      color: #ffffff !important;
+      border-color: transparent;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, .25);
+    }
+
+    .track-nav .nav-link.active * {
+      color: #ffffff !important;
+    }
+
+    html.theme-dark .track-nav .nav-link {
+      color: #e5e7eb !important;
+      border-color: rgba(148, 163, 184, .4);
+      background: rgba(15, 23, 42, .7) !important;
+    }
+
+    html.theme-dark .track-nav .nav-link * {
+      color: #e5e7eb !important;
+    }
+
+    html.theme-dark .track-nav .nav-link:hover {
+      background: rgba(0, 86, 210, 0.3) !important;
+      color: #ffffff !important;
+      border-color: rgba(0, 86, 210, 0.4);
+    }
+
+    html.theme-dark .track-nav .nav-link:hover * {
+      color: #ffffff !important;
+    }
+
+    html.theme-dark .track-nav .nav-link.active {
+      background: var(--fx-gradient) !important;
+      color: #ffffff !important;
+      border-color: transparent;
+    }
+
+    html.theme-dark .track-nav .nav-link.active * {
+      color: #ffffff !important;
+    }
+
+    .track-pane {
+      margin-top: 0;
+    }
+
+    .track-pane .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .track-pane .row>[class*="col-"] {
+      padding-left: clamp(8px, 1.5vw, 16px);
+      padding-right: clamp(8px, 1.5vw, 16px);
+      margin-bottom: clamp(12px, 2vw, 16px);
+    }
+
+    .track-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: clamp(1rem, 2vw, 1.25rem);
+      box-shadow: 0 6px 16px rgba(15, 23, 42, .08);
+      height: 100%;
+      border: 1px solid rgba(148, 163, 184, .3);
+      position: relative;
+      overflow: visible;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .track-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--fx-gradient);
+      border-radius: 18px 18px 0 0;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .track-card:hover {
+      border-color: rgba(0, 86, 210, 0.2);
+      box-shadow: 0 8px 24px rgba(0, 86, 210, 0.08);
+      transform: translateY(-4px);
+    }
+
+    .track-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .track-card>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .track-category-label {
+      font-size: .7rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-bottom: .35rem;
+      font-weight: 700;
+    }
+
+    .track-card h6 {
+      font-size: .95rem;
+      font-weight: 700;
+      margin-bottom: .35rem;
+    }
+
+    .track-card h6 i {
+      margin-right: .35rem;
+      color: var(--fx-blue);
+      transition: all 0.3s ease;
+    }
+
+    .track-card:hover h6 i {
+      transform: scale(1.1);
+      color: var(--fx-teal);
+    }
+
+    .track-card ul {
+      padding-left: 1rem;
+      margin: 0 0 .55rem;
+      font-size: .82rem;
+    }
+
+    .track-card li+li {
+      margin-top: .15rem;
+    }
+
+    .badge-soft {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: .2rem .6rem;
+      font-size: .7rem;
+      background: rgba(37, 99, 235, .1);
+      color: #1d4ed8;
+      font-weight: 600;
+    }
+
+    html.theme-dark .track-card {
+      background: #020617;
+      border-color: rgba(148, 163, 184, .5);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, .9);
+    }
+
+    html.theme-dark .track-card:hover {
+      border-color: rgba(0, 86, 210, 0.3);
+      box-shadow: 0 8px 24px rgba(0, 86, 210, 0.15);
+    }
+
+    html.theme-dark .track-card h6 i {
+      color: #38bdf8;
+    }
+
+    html.theme-dark .badge-soft {
+      background: rgba(59, 130, 246, .25);
+      color: #bfdbfe;
+    }
+
+    /* Career grid cards */
+    .career-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: clamp(1rem, 2.5vw, 1.5rem);
+      margin-top: 0;
+      width: 100%;
+      align-items: stretch;
+    }
+
+    .fxc-card--feature {
+      border-radius: 18px;
+      padding: clamp(1rem, 2vw, 1.25rem);
+      background: #fff;
+      border: 1px solid rgba(148, 163, 184, .35);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, .08);
+      height: 100%;
+      position: relative;
+      overflow: visible;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Mix of horizontal and vertical effects */
+    .fxc-card--feature:nth-child(odd)::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background: var(--fx-gradient);
+      border-radius: 18px 0 0 18px;
+      transition: height 0.3s ease;
+    }
+
+    .fxc-card--feature:nth-child(even)::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--fx-gradient);
+      border-radius: 18px 18px 0 0;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .fxc-card--feature:hover {
+      border-color: rgba(0, 86, 210, 0.2);
+      box-shadow: 0 8px 24px rgba(0, 86, 210, 0.08);
+      transform: translateY(-4px);
+    }
+
+    .fxc-card--feature:nth-child(odd):hover::before {
+      height: 100%;
+    }
+
+    .fxc-card--feature:nth-child(even):hover::before {
+      transform: scaleX(1);
+    }
+
+    .fxc-card--feature:hover .ch-icon {
+      transform: scale(1.05);
+    }
+
+    .fxc-card--feature>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .ch-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: var(--fx-gradient);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      margin-bottom: .35rem;
+      transition: transform 0.3s ease;
+    }
+
+    .fxc-card--feature ul {
+      padding-left: 1.1rem;
+    }
+
+    .career-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .25rem;
+      margin-top: .2rem;
+    }
+
+    html.theme-dark .fxc-card--feature {
+      background: #020617;
+      border-color: rgba(148, 163, 184, .5);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, .9);
+    }
+
+    html.theme-dark .fxc-card--feature:hover {
+      border-color: rgba(0, 86, 210, 0.3);
+      box-shadow: 0 8px 24px rgba(0, 86, 210, 0.15);
+    }
+
+    /* Capstone gallery tweaks */
+
+
+    /* FAQ / Syllabus minor polish */
+    .syllabus-acc .accordion-body ul,
+    .faq .accordion-body {
+      font-size: .86rem;
+    }
+
+    /* WhatsApp floating button styling (if not already in core.css) */
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      background-color: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, .3);
+      z-index: 1040;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 18px 34px rgba(0, 0, 0, .4);
+      color: #fff;
+    }
+
+    /* Small entrance animation for sections */
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section[id] {
+      animation: fadeSlideUp .6s ease both;
+    }
+
+    section[id]:nth-of-type(2) {
+      animation-delay: .05s;
+    }
+
+    section[id]:nth-of-type(3) {
+      animation-delay: .08s;
+    }
+
+    section[id]:nth-of-type(4) {
+      animation-delay: .11s;
+    }
+
+    /* Testimonials cards reuse feature card feel */
+    .testimonials-band {
+      background: #f9fafb;
+    }
+
+    html.theme-dark .testimonials-band {
+      background: #020617;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: clamp(1rem, 2.5vw, 1.5rem);
+      margin-top: 0;
+      width: 100%;
+      align-items: stretch;
+    }
+
+    .testimonial-card {
+      border-radius: 18px;
+      padding: clamp(1rem, 2vw, 1.25rem);
+      background: #fff;
+      border: 1px solid rgba(148, 163, 184, .35);
+      box-shadow: 0 4px 16px rgba(15, 23, 42, .08);
+      position: relative;
+      overflow: visible;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 100%;
+      box-sizing: border-box;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Mix of horizontal and vertical effects */
+    .testimonial-card:nth-child(odd)::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background: var(--fx-gradient);
+      border-radius: 18px 0 0 18px;
+      transition: height 0.3s ease;
+    }
+
+    .testimonial-card:nth-child(even)::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--fx-gradient);
+      border-radius: 18px 18px 0 0;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      border-color: rgba(0, 86, 210, 0.2);
+      box-shadow: 0 8px 24px rgba(0, 86, 210, 0.08);
+      transform: translateY(-4px);
+    }
+
+    .testimonial-card:nth-child(odd):hover::before {
+      height: 100%;
+    }
+
+    .testimonial-card:nth-child(even):hover::before {
+      transform: scaleX(1);
+    }
+
+    .testimonial-card>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-body {
+      font-size: .9rem;
+      color: #4b5563;
+      margin-bottom: .65rem;
+    }
+
+    .testimonial-meta {
+      display: flex;
+      flex-direction: column;
+      gap: .05rem;
+      font-size: .8rem;
+    }
+
+    .testimonial-name {
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .testimonial-role {
+      color: #6b7280;
+    }
+
+    .testimonial-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .25rem;
+      border-radius: 999px;
+      padding: .15rem .55rem;
+      font-size: .7rem;
+      background: rgba(16, 185, 129, .08);
+      color: #047857;
+      font-weight: 600;
+      margin-top: .3rem;
+    }
+
+    .testimonial-tag i {
+      font-size: .85rem;
+    }
+
+    html.theme-dark .testimonial-card {
+      background: #020617;
+      border-color: rgba(148, 163, 184, .6);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .95);
+    }
+
+    html.theme-dark .testimonial-card:hover {
+      border-color: rgba(0, 86, 210, 0.3);
+      box-shadow: 0 8px 24px rgba(0, 86, 210, 0.15);
+    }
+
+    html.theme-dark .testimonial-body {
+      color: #e5e7eb;
+    }
+
+    html.theme-dark .testimonial-name {
+      color: #f9fafb;
+    }
+
+    html.theme-dark .testimonial-role {
+      color: #9ca3af;
+    }
+
+    html.theme-dark .testimonial-tag {
+      background: rgba(16, 185, 129, .25);
+      color: #bbf7d0;
+    }
+
+    /* Fix bg-light sections in dark mode */
+    html.theme-dark .bg-light {
+      background: #0f1a2b !important;
+    }
+
+    html.theme-dark section.bg-light {
+      background: #0f1a2b !important;
+    }
+
+    /* Dark theme body background (match index.html) */
+    html.theme-dark body {
+      background: #0b1220;
+      color: #fff !important;
+    }
+
+    /* Dark theme navbar (match index.html) */
+    html.theme-dark .navbar,
+    html.theme-dark .navbar.bg-white {
+      background: rgba(10, 16, 28, .95) !important;
+    }
+
+    html.theme-dark .navbar .nav-link {
+      color: #fff !important;
+    }
+
+    html.theme-dark .navbar-brand img {
+      filter: brightness(0) invert(1);
+    }
+
+    /* ========== MOBILE RESPONSIVE STYLES ========== */
+    @media (max-width: 768px) {
+
+      /* Navbar */
+      .navbar {
+        padding: 0.5rem 0;
+      }
+
+      .navbar-brand img {
+        height: 40px;
+      }
+
+      .navbar .nav-link {
+        padding: 0.5rem 0.75rem;
+        margin: 0.15rem 0;
+        font-size: 0.9rem;
+      }
+
+      .dropdown-menu {
+        margin-top: 0.5rem;
+        border-radius: 8px;
+      }
+
+      .dropdown-item {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      /* Hero Section (hero-train) */
+      .hero-train {
+        min-height: 50vh;
+        overflow: visible;
+      }
+
+      .hero-train .inner {
+        padding: 40px 15px 50px;
+        width: 100%;
+        max-width: 100%;
+        overflow: visible;
+      }
+
+      .hero-train h1 {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        word-wrap: break-word;
+        hyphens: auto;
+      }
+
+      .hero-train p.lead {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        padding: 0;
+        word-wrap: break-word;
+      }
+
+      .hero-badges {
+        gap: 0.4rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+      }
+
+      .hero-badges .hb {
+        font-size: clamp(0.5rem, 2vw, 0.65rem);
+        padding: 0.35rem 0.6rem;
+        white-space: nowrap;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+        width: 100%;
+        padding: 0;
+      }
+
+      .btn-pill {
+        width: 100%;
+        max-width: 100%;
+        justify-content: center;
+        padding: 14px 20px;
+        font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+        min-height: 48px;
+        display: flex !important;
+        flex-shrink: 0;
+        white-space: nowrap;
+        box-sizing: border-box;
+      }
+
+      .btn-pill i {
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+
+      .btn-pill.btn-outline {
+        background: rgba(255, 255, 255, 0.15) !important;
+        border: 2px solid rgba(255, 255, 255, 0.9) !important;
+        color: #fff !important;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+      }
+
+      .btn-pill.btn-outline:hover,
+      .btn-pill.btn-outline:focus {
+        background: rgba(255, 255, 255, 0.25) !important;
+        border-color: #fff !important;
+        color: #fff !important;
+      }
+
+      /* Video Carousel */
+      #heroCarousel {
+        min-height: 50vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+
+      #heroCarousel .carousel-inner {
+        width: 100%;
+        height: 100%;
+        min-height: 50vh;
+      }
+
+      #heroCarousel .carousel-item {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: 50vh;
+        display: block !important;
+      }
+
+      #heroCarousel .carousel-item video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 50vh !important;
+        min-width: 100% !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        object-fit: cover !important;
+        object-position: center !important;
+      }
+
+      /* Ensure hero content is above video */
+      .hero-train .container {
+        position: relative;
+        z-index: 10;
+      }
+
+      .hero-train .inner {
+        position: relative;
+        z-index: 10;
+      }
+
+      /* Sections */
+      .section-title {
+        font-size: clamp(1.4rem, 4vw, 1.9rem);
+        margin-bottom: 15px;
+      }
+
+      .section-sub {
+        font-size: 0.9rem;
+      }
+
+      /* Container padding override for mobile */
+      .container {
+        padding-left: clamp(12px, 4vw, 20px);
+        padding-right: clamp(12px, 4vw, 20px);
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      /* Ensure sections don't overflow */
+      section#capstones {
+        overflow-x: hidden;
+        width: 100%;
+      }
+
+      section#capstones .container {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      /* Cards and grids */
+      .timeline-grid {
+        grid-template-columns: 1fr;
+        gap: clamp(12px, 3vw, 16px);
+        margin-top: 0;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: clamp(1rem, 3vw, 1.25rem);
+      }
+
+      .career-grid {
+        grid-template-columns: 1fr;
+        gap: clamp(1rem, 3vw, 1.25rem);
+      }
+
+      .cap-gallery {
+        grid-template-columns: 1fr;
+        gap: clamp(14px, 3vw, 18px);
+      }
+
+      .tstep {
+        padding: 16px 14px;
+      }
+
+      .cap-item {
+        padding: clamp(16px, 2.5vw, 20px);
+        min-height: auto;
+      }
+
+      .track-nav {
+        flex-wrap: wrap;
+        gap: 0.3rem;
+      }
+
+      .track-nav .nav-link {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.7rem;
+      }
+
+      /* Footer */
+      footer {
+        padding: 24px 0;
+      }
+
+      footer .row {
+        --bs-gutter-y: 1.5rem;
+      }
+
+      /* WhatsApp Float */
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 15px;
+        bottom: 15px;
+      }
+
+      .whatsapp-float i {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-train {
+        min-height: 45vh;
+      }
+
+      .hero-train .inner {
+        padding: 35px 12px 45px;
+      }
+
+      .hero-train h1 {
+        font-size: clamp(1.4rem, 7vw, 2rem);
+        margin-bottom: 0.75rem;
+      }
+
+      .hero-train p.lead {
+        font-size: clamp(0.85rem, 3.5vw, 1rem);
+        margin-bottom: 1.25rem;
+      }
+
+      .hero-badges .hb {
+        font-size: 0.5rem;
+        padding: 0.3rem 0.5rem;
+      }
+
+      .hero-actions {
+        gap: 0.65rem;
+        margin-top: 1.25rem;
+      }
+
+      .btn-pill {
+        padding: 12px 18px;
+        font-size: 0.85rem;
+        min-height: 46px;
+      }
+
+      .container {
+        padding-left: clamp(12px, 4vw, 16px);
+        padding-right: clamp(12px, 4vw, 16px);
+      }
+
+      #heroCarousel {
+        min-height: 45vh;
+      }
+
+      #heroCarousel .carousel-item {
+        min-height: 45vh;
+      }
+
+      #heroCarousel .carousel-item video {
+        min-height: 45vh !important;
+      }
+    }
+
+    /* Fix horizontal overflow */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      overflow-x: hidden;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Ensure images don't overflow */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Prevent content from being hidden */
+    main {
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+
+    /* Ensure all grids are responsive */
+    .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .row>* {
+      padding-left: clamp(8px, 1.5vw, 16px);
+      padding-right: clamp(8px, 1.5vw, 16px);
+    }
+
+    /* Ensure all buttons are visible on mobile */
+    @media screen and (max-width: 991px) {
+      .hero-actions {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        z-index: 100 !important;
+      }
+
+      .hero-actions a,
+      .hero-actions .btn-pill {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+      }
+
+      .hero-train .inner {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#trainingHome" class="skip-link">Skip to content</a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top" role="navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/" aria-label="FutureXcel Home">
+        <img src="./assets/logo.png" alt="FutureXcel Logo" decoding="async" fetchpriority="high" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navbarNav" class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav fw-semibold">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">Services</a>
+            <ul class="dropdown-menu shadow border-0 rounded-3" aria-labelledby="servicesDropdown">
+              <li><a class="dropdown-item" href="/services-endpoint">Modern Endpoint Management</a></li>
+              <li><a class="dropdown-item" href="/services-helpdesk">IT Help Desk Outsourcing</a></li>
+              <li><a class="dropdown-item" href="/services-software">Custom Software Development</a></li>
+              <li><a class="dropdown-item" href="/services-research">Research &amp; Development</a></li>
+              <li><a class="dropdown-item" href="/services-consulting">IT Consulting &amp; Support</a></li>
+              <li><a class="dropdown-item" href="/services-data">Data Engineering &amp; Analytics</a></li>
+              <li><a class="dropdown-item" href="/services-ml">Machine Learning Solutions</a></li>
+              <li><a class="dropdown-item" href="/services-cloud">DevOps &amp; Cloud Services</a></li>
+              <li><a class="dropdown-item" href="/services-training">Training &amp; Placement</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/training">Training</a></li>
+          <li class="nav-item"><a class="nav-link" href="/careers">Careers</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+        </ul>
+        <div class="d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
+          <button id="themeToggle" class="btn btn-sm btn-outline-dark rounded-pill d-inline-flex align-items-center"
+            type="button" aria-pressed="false" title="Toggle dark mode">
+            <i class="bi bi-moon-stars me-1" aria-hidden="true"></i><span class="visually-hidden">Toggle dark
+              mode</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main id="trainingHome">
+    <header class="hero hero-train" style="--hero-image: url('./assets/hero1.jpg');">
+      <div class="container">
+        <div class="inner">
+          <span class="eyebrow">Training</span>
+          <div class="hero-badges"><span class="hb">FULL‑STACK</span><span class="hb">DATA</span><span
+              class="hb">DEVOPS</span><span class="hb">QA</span><span class="hb">AI / ML</span></div>
+          <h1 class="mt-1">Practical Training with Job Support.</h1>
+          <p class="lead">12 week programs with live classes, hands-on labs, a real project, simple clear
+            explanations, weekly help, interview practice and support for job search. Good for final year students,
+            fresh graduates and career changers.</p>
+          <div class="hero-actions">
+            <a href="#overview" class="btn-pill btn-brand" data-scroll><i class="bi bi-mortarboard"></i> Overview</a>
+            <a href="#tracks" class="btn-pill btn-contrast" data-scroll><i class="bi bi-grid"></i> Tracks</a>
+            <a href="#apply" class="btn-pill btn-outline" data-scroll><i class="bi bi-send"></i> Apply</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="py-5" id="overview">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-mortarboard-fill me-2"></i>Program Overview</h2>
+          <p class="section-sub">Why our format works</p>
+        </div>
+        <div class="overview-wrap">
+          <div class="overview-intro">
+            <h3>Simple plan. Real build.</h3>
+            <p>You learn by building one project that grows each week. We add code quality, tests, deploy, logs and
+              small design thinking in clear order. We keep language simple. You get weekly feedback and help fixing
+              mistakes fast.</p>
+            <p>We mix short live calls, focused lab time and quick review steps. This lowers overwhelm and keeps
+              steady progress. Career support starts early (resume + interview drills) so you are ready by demo
+              week.</p>
+            <ul>
+              <li>Daily micro goals so you always know next task.</li>
+              <li>Issue tracker template to log bugs and fixes.</li>
+              <li>Weekly skill map so gaps are visible early.</li>
+              <li>Optional extra practice packs (DSA / SQL / Git).</li>
+              <li>Simple project docs pattern (README + arch sketch).</li>
+            </ul>
+            <div class="mini-metrics">
+              <div class="mini-box">
+                <h6>12 Weeks</h6><span>Total plan</span>
+              </div>
+              <div class="mini-box">
+                <h6>1 Project</h6><span>Portfolio core</span>
+              </div>
+              <div class="mini-box">
+                <h6>Weekly</h6><span>1:1 check</span>
+              </div>
+              <div class="mini-box">
+                <h6>Job Help</h6><span>Resume & mock</span>
+              </div>
+            </div>
+          </div>
+          <div class="feature-list">
+            <div class="feature-item"><i class="bi bi-people"></i>
+              <div>
+                <h6>Live + Lab Mix</h6>
+                <p>Short live
+                  explain + hands-on lab tasks with chat support.</p>
+              </div>
+            </div>
+            <div class="feature-item"><i class="bi bi-diagram-3"></i>
+              <div>
+                <h6>Architecture Steps</h6>
+                <p>Add layers
+                  week by week: data, API, auth, deploy, observe.</p>
+              </div>
+            </div>
+            <div class="feature-item"><i class="bi bi-braces"></i>
+              <div>
+                <h6>Clean Code Habits</h6>
+                <p>Git branches,
+                  reviews, tests, static checks start early.</p>
+              </div>
+            </div>
+            <div class="feature-item"><i class="bi bi-bar-chart-line"></i>
+              <div>
+                <h6>Metrics & Logs</h6>
+                <p>Simple
+                  logging, tracing and dashboards to spot issues.</p>
+              </div>
+            </div>
+            <div class="feature-item"><i class="bi bi-lightbulb"></i>
+              <div>
+                <h6>Mentor Support</h6>
+                <p>Weekly check
+                  sheet + clear next focus and blockers removed.</p>
+              </div>
+            </div>
+            <div class="feature-item"><i class="bi bi-briefcase"></i>
+              <div>
+                <h6>Career Track</h6>
+                <p>Resume trim,
+                  LinkedIn tune, mock rounds and offer tips.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reduce track cards per tab from 5 to 3 -->
+    <section class="py-5 bg-light tracks-section" id="tracks">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-grid-1x2-fill me-2"></i>Learning Tracks</h2>
+          <p class="section-sub">Pick focus area that matches job goal</p>
+        </div>
+        <ul class="nav track-nav mb-3" id="trackTabs" role="tablist">
+          <li class="nav-item"><a class="nav-link active" data-bs-toggle="pill" href="#devTrack" role="tab"
+              aria-selected="true">Full‑Stack</a></li>
+          <li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#dataTrack" role="tab"
+              aria-selected="false">Data / AI</a></li>
+          <li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#devopsTrack" role="tab"
+              aria-selected="false">DevOps</a></li>
+          <li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#qaTrack" role="tab"
+              aria-selected="false">QA</a></li>
+          <li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#mobileTrack" role="tab"
+              aria-selected="false">Mobile / UI</a></li>
+          <li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#securityTrack" role="tab"
+              aria-selected="false">Security</a></li>
+          <li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#addonTrack" role="tab"
+              aria-selected="false">Add‑Ons</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane fade show active track-pane" id="devTrack" role="tabpanel">
+            <div class="row g-3 g-md-4">
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">ENGINEERING</p>
+                  <h6><i class="fa-solid fa-code"></i> Full‑Stack (.NET / React)</h6>
+                  <ul>
+                    <li>REST APIs & EF Core</li>
+                    <li>React hooks & auth</li>
+                    <li>Unit tests & CI/CD</li>
+                  </ul><span class="badge-soft">Project: Shop App</span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">ENGINEERING</p>
+                  <h6><i class="fa-solid fa-code"></i> Full‑Stack (Java / Spring)</h6>
+                  <ul>
+                    <li>Spring Boot APIs</li>
+                    <li>Security & JWT</li>
+                    <li>React UI basics</li>
+                  </ul><span class="badge-soft">Project: Booking App</span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">ENGINEERING</p>
+                  <h6><i class="fa-solid fa-code"></i> Frontend (React)</h6>
+                  <ul>
+                    <li>Hooks & state</li>
+                    <li>Forms & API</li>
+                    <li>Testing (RTL)</li>
+                  </ul><span class="badge-soft">Project: Dashboard</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade track-pane" id="dataTrack" role="tabpanel">
+            <div class="row g-3 g-md-4">
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">DATA</p>
+                  <h6><i class="fa-solid fa-database"></i> Data Eng (Python)</h6>
+                  <ul>
+                    <li>Airflow ETL</li>
+                    <li>SQL models</li>
+                    <li>Quality checks</li>
+                  </ul><span class="badge-soft">Project: IoT Pipeline</span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">DATA</p>
+                  <h6><i class="fa-solid fa-brain"></i> Data Science</h6>
+                  <ul>
+                    <li>Pandas clean</li>
+                    <li>Explore & charts</li>
+                    <li>Model compare</li>
+                  </ul><span class="badge-soft">Project: Prediction</span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">AI / ML</p>
+                  <h6><i class="fa-solid fa-brain"></i> AI / ML Basics</h6>
+                  <ul>
+                    <li>Feature prep</li>
+                    <li>Train + evaluate</li>
+                    <li>Deploy API</li>
+                  </ul><span class="badge-soft">Project: Model API</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade track-pane" id="devopsTrack" role="tabpanel">
+            <div class="row g-3 g-md-4">
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">DEVOPS</p>
+                  <h6><i class="fa-solid fa-cloud"></i> Cloud & DevOps</h6>
+                  <ul>
+                    <li>Terraform modules</li>
+                    <li>Docker deploy</li>
+                    <li>Monitoring basics</li>
+                  </ul><span class="badge-soft">Project: Multi Env</span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">DEVOPS</p>
+                  <h6><i class="fa-solid fa-cubes"></i> Containers Focus</h6>
+                  <ul>
+                    <li>K8s basics</li>
+                    <li>Helm templates</li>
+                    <li>Scaling checks</li>
+                  </ul><span class="badge-soft">Project: MicroSvc Set</span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">DEVOPS</p>
+                  <h6><i class="fa-solid fa-code-branch"></i> CI/CD Flow</h6>
+                  <ul>
+                    <li>Pipeline stages</li>
+                    <li>Test gates</li>
+                    <li>Rollback plan</li>
+                  </ul><span class="badge-soft">Project: Pipeline Kit</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade track-pane" id="qaTrack" role="tabpanel">
+            <div class="row g-3 g-md-4">
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">QUALITY</p>
+                  <h6><i class="fa-solid fa-vials"></i> QA Automation</h6>
+                  <ul>
+                    <li>Web tests</li>
+                    <li>API tests</li>
+                    <li>Load tests</li>
+                  </ul><span class="badge-soft">Project: Test Dash</span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">QUALITY</p>
+                  <h6><i class="fa-solid fa-vials"></i> Playwright Focus</h6>
+                  <ul>
+                    <li>Locators</li>
+                    <li>Parallel runs</li>
+                    <li>Trace view</li>
+                  </ul><span class="badge-soft">Project: Web Suite</span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">QUALITY</p>
+                  <h6><i class="fa-solid fa-vials"></i> API Contract</h6>
+                  <ul>
+                    <li>Spec validate</li>
+                    <li>Schema tests</li>
+                    <li>Perf probe</li>
+                  </ul><span class="badge-soft">Project: API Guard</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade track-pane" id="mobileTrack" role="tabpanel">
+            <div class="row g-3 g-md-4">
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">MOBILE</p>
+                  <h6><i class="fa-solid fa-mobile-screen-button"></i> Mobile (Flutter)</h6>
+                  <ul>
+                    <li>Widgets & state</li>
+                    <li>Navigation & API</li>
+                    <li>Basic tests</li>
+                  </ul><span class="badge-soft">Project: Task App</span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">UI / UX</p>
+                  <h6><i class="fa-solid fa-pen-nib"></i> UI / UX Starter</h6>
+                  <ul>
+                    <li>User flows</li>
+                    <li>Wireframes</li>
+                    <li>Design tokens</li>
+                  </ul><span class="badge-soft">Project: App Mock</span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">MOBILE</p>
+                  <h6><i class="fa-solid fa-mobile"></i> Mobile (React Native)</h6>
+                  <ul>
+                    <li>Core components</li>
+                    <li>State manage</li>
+                    <li>APK build</li>
+                  </ul><span class="badge-soft">Project: Notes App</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade track-pane" id="securityTrack" role="tabpanel">
+            <div class="row g-3 g-md-4">
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">SECURITY</p>
+                  <h6><i class="fa-solid fa-shield-halved"></i> Secure Engineering</h6>
+                  <ul>
+                    <li>Threat basics</li>
+                    <li>Secrets & scans</li>
+                    <li>Secure config</li>
+                  </ul><span class="badge-soft">Module Add‑On</span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">SECURITY</p>
+                  <h6><i class="fa-solid fa-shield"></i> Cybersecurity Basics</h6>
+                  <ul>
+                    <li>Common risks</li>
+                    <li>Access control</li>
+                    <li>Hardening</li>
+                  </ul><span class="badge-soft">Project: Secure API</span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">SECURITY</p>
+                  <h6><i class="fa-solid fa-shield"></i> API Protection</h6>
+                  <ul>
+                    <li>Rate limit</li>
+                    <li>Audit trail</li>
+                    <li>Alert hook</li>
+                  </ul><span class="badge-soft">Project: API Shield</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade track-pane" id="addonTrack" role="tabpanel">
+            <div class="row g-3 g-md-4">
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">ADD‑ON</p>
+                  <h6><i class="fa-solid fa-lightbulb"></i> Interview Boost</h6>
+                  <ul>
+                    <li>DSA drills</li>
+                    <li>System sketch</li>
+                    <li>Behavior talk</li>
+                  </ul><span class="badge-soft">Extra Pack</span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">ADD‑ON</p>
+                  <h6><i class="fa-solid fa-chart-line"></i> Analytics / BI</h6>
+                  <ul>
+                    <li>Dashboard build</li>
+                    <li>DAX basics</li>
+                    <li>Story tips</li>
+                  </ul><span class="badge-soft">Extra Pack</span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="track-card">
+                  <p class="track-category-label">ADD‑ON</p>
+                  <h6><i class="fa-solid fa-lightbulb"></i> Git Mastery</h6>
+                  <ul>
+                    <li>Branch pattern</li>
+                    <li>Conflict fix</li>
+                    <li>Tag & release</li>
+                  </ul><span class="badge-soft">Extra Pack</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5" id="syllabus">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-journal-text me-2"></i>Syllabus Snapshot</h2>
+          <p class="section-sub">12 week example plan</p>
+        </div>
+        <div class="accordion syllabus-acc" id="syllabusAcc">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="wk1h"><button class="accordion-button" type="button"
+                data-bs-toggle="collapse" data-bs-target="#wk1" aria-expanded="true" aria-controls="wk1">Weeks 1–2 •
+                Setup & Basics</button></h2>
+            <div id="wk1" class="accordion-collapse collapse show" aria-labelledby="wk1h" data-bs-parent="#syllabusAcc">
+              <div class="accordion-body small">
+                <ul class="mb-0">
+                  <li>Tools & git flow</li>
+                  <li>Language basics</li>
+                  <li>Project scaffold</li>
+                  <li>First tests & CI</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="wk2h"><button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#wk2" aria-expanded="false" aria-controls="wk2">Weeks 3–4 •
+                Core Build</button></h2>
+            <div id="wk2" class="accordion-collapse collapse" aria-labelledby="wk2h" data-bs-parent="#syllabusAcc">
+              <div class="accordion-body small">
+                <ul class="mb-0">
+                  <li>Data models & store</li>
+                  <li>API design & errors</li>
+                  <li>Auth basics</li>
+                  <li>Static checks</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="wk3h"><button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#wk3" aria-expanded="false" aria-controls="wk3">Weeks 5–6 •
+                Integration</button></h2>
+            <div id="wk3" class="accordion-collapse collapse" aria-labelledby="wk3h" data-bs-parent="#syllabusAcc">
+              <div class="accordion-body small">
+                <ul class="mb-0">
+                  <li>Async & queue basics</li>
+                  <li>Infra as code intro</li>
+                  <li>Unit + integration tests</li>
+                  <li>Deploy flow</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="wk4h"><button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#wk4" aria-expanded="false" aria-controls="wk4">Weeks 7–8 •
+                Quality & Metrics</button></h2>
+            <div id="wk4" class="accordion-collapse collapse" aria-labelledby="wk4h" data-bs-parent="#syllabusAcc">
+              <div class="accordion-body small">
+                <ul class="mb-0">
+                  <li>Structured logs</li>
+                  <li>Metrics & simple charts</li>
+                  <li>Load tests</li>
+                  <li>Cost check</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="wk5h"><button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#wk5" aria-expanded="false" aria-controls="wk5">Weeks 9–10 •
+                Project Polish</button></h2>
+            <div id="wk5" class="accordion-collapse collapse" aria-labelledby="wk5h" data-bs-parent="#syllabusAcc">
+              <div class="accordion-body small">
+                <ul class="mb-0">
+                  <li>Feature freeze</li>
+                  <li>Security review</li>
+                  <li>Demo refine</li>
+                  <li>Docs & readme</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="wk6h"><button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#wk6" aria-expanded="false" aria-controls="wk6">Weeks 11–12 •
+                Career Prep</button></h2>
+            <div id="wk6" class="accordion-collapse collapse" aria-labelledby="wk6h" data-bs-parent="#syllabusAcc">
+              <div class="accordion-body small">
+                <ul class="mb-0">
+                  <li>Mock interviews</li>
+                  <li>Resume & LinkedIn</li>
+                  <li>Referrals & outreach</li>
+                  <li>Final demo</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-light" id="timeline">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-diagram-3 me-2"></i>Cohort Timeline</h2>
+          <p class="section-sub">Key weekly goals</p>
+        </div>
+        <div class="timeline-grid">
+          <div class="tstep"><span class="num">W1</span>
+            <h6>Setup</h6>
+            <p>Tools ready, repo created.</p>
+          </div>
+          <div class="tstep"><span class="num">W2–3</span>
+            <h6>Core Build</h6>
+            <p>Data + API + basic UI.</p>
+          </div>
+          <div class="tstep"><span class="num">W4–5</span>
+            <h6>Integration</h6>
+            <p>Auth, queues, infra.</p>
+          </div>
+          <div class="tstep"><span class="num">W6–7</span>
+            <h6>Quality</h6>
+            <p>Reviews, tests, metrics.</p>
+          </div>
+          <div class="tstep"><span class="num">W8–9</span>
+            <h6>Polish</h6>
+            <p>Optimize & secure.</p>
+          </div>
+          <div class="tstep"><span class="num">W10–11</span>
+            <h6>Finish</h6>
+            <p>Docs & demo.</p>
+          </div>
+          <div class="tstep"><span class="num">W12</span>
+            <h6>Career</h6>
+            <p>Interviews & offers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5" id="careerServices">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-person-workspace me-2"></i>Career Help</h2>
+          <p class="section-sub">Interview • Resume • Coaching • Placement</p>
+        </div>
+        <div class="career-grid">
+          <!-- Core interview and profile -->
+          <div class="fxc-card--feature">
+            <div class="ch-icon"><i class="bi bi-chat-quote"></i></div>
+            <h6 class="fw-bold mb-1">Interview Practice</h6>
+            <p class="small mb-2">Simple drills for coding, design and problem talk.</p>
+            <ul class="small mb-2">
+              <li>Timed code rounds</li>
+              <li>Design whiteboard</li>
+              <li>Scenario fixes</li>
+              <li>Behavior answers</li>
+            </ul>
+            <div class="career-cta"><span class="badge-soft">Mock rounds</span><span class="badge-soft">Tips</span>
+            </div>
+          </div>
+          <div class="fxc-card--feature">
+            <div class="ch-icon"><i class="bi bi-file-earmark-text"></i></div>
+            <h6 class="fw-bold mb-1">Resume & Profile</h6>
+            <p class="small mb-2">Clear points with numbers and action words.</p>
+            <ul class="small mb-2">
+              <li>Metric rewrite</li>
+              <li>Keyword check</li>
+              <li>LinkedIn tune</li>
+              <li>Repo clean up</li>
+            </ul>
+            <div class="career-cta"><span class="badge-soft">ATS‑friendly</span><span class="badge-soft">LinkedIn</span>
+            </div>
+          </div>
+
+          <!-- Coaching and planning -->
+          <div class="fxc-card--feature">
+            <div class="ch-icon"><i class="bi bi-person-check"></i></div>
+            <h6 class="fw-bold mb-1">1:1 Coaching</h6>
+            <p class="small mb-2">Weekly call to remove blockers and adjust plan.</p>
+            <ul class="small mb-2">
+              <li>Goal sheet</li>
+              <li>Gap fix steps</li>
+              <li>Mini tasks</li>
+              <li>Progress stats</li>
+            </ul>
+            <div class="career-cta"><span class="badge-soft">Personal plan</span><span class="badge-soft">Support</span>
+            </div>
+          </div>
+          <div class="fxc-card--feature">
+            <div class="ch-icon"><i class="bi bi-calendar-event"></i></div>
+            <h6 class="fw-bold mb-1">Weekly Planner</h6>
+            <p class="small mb-2">Plan sprints and track deliverables with simple checklists.</p>
+            <ul class="small mb-2">
+              <li>Sprint goals</li>
+              <li>Daily tasks</li>
+              <li>Blocker notes</li>
+              <li>Review points</li>
+            </ul>
+            <div class="career-cta"><span class="badge-soft">Structure</span><span class="badge-soft">Consistency</span>
+            </div>
+          </div>
+
+          <!-- Portfolio and job support -->
+          <div class="fxc-card--feature">
+            <div class="ch-icon"><i class="bi bi-stars"></i></div>
+            <h6 class="fw-bold mb-1">Portfolio Help</h6>
+            <p class="small mb-2">Show project clearly and fast.</p>
+            <ul class="small mb-2">
+              <li>Demo flow</li>
+              <li>Readme outline</li>
+              <li>Arch diagram</li>
+              <li>Quality checks</li>
+            </ul>
+            <div class="career-cta"><span class="badge-soft">Showcase</span><span class="badge-soft">Quality</span>
+            </div>
+          </div>
+          <div class="fxc-card--feature">
+            <div class="ch-icon"><i class="bi bi-diagram-3"></i></div>
+            <h6 class="fw-bold mb-1">Job Support</h6>
+            <p class="small mb-2">Help with outreach and offer talk.</p>
+            <ul class="small mb-2">
+              <li>Referral connect</li>
+              <li>Recruiter scripts</li>
+              <li>Offer compare</li>
+              <li>Negotiation tips</li>
+            </ul>
+            <div class="career-cta"><span class="badge-soft">Referrals</span><span class="badge-soft">Negotiation</span>
+            </div>
+          </div>
+
+          <!-- Community and growth -->
+          <div class="fxc-card--feature">
+            <div class="ch-icon"><i class="bi bi-people-fill"></i></div>
+            <h6 class="fw-bold mb-1">Community & Networking</h6>
+            <p class="small mb-2">Peer support, referral circles and mentor AMAs.</p>
+            <ul class="small mb-2">
+              <li>Peer reviews</li>
+              <li>Referral circle</li>
+              <li>AMA sessions</li>
+              <li>Job channels</li>
+            </ul>
+            <div class="career-cta"><span class="badge-soft">Community</span><span class="badge-soft">Referrals</span>
+            </div>
+          </div>
+          <div class="fxc-card--feature">
+            <div class="ch-icon"><i class="bi bi-infinity"></i></div>
+            <h6 class="fw-bold mb-1">Growth After</h6>
+            <p class="small mb-2">90 day plan and next skill steps.</p>
+            <ul class="small mb-2">
+              <li>Onboard plan</li>
+              <li>Skill ladder</li>
+              <li>Community chat</li>
+              <li>Review cycle</li>
+            </ul>
+            <div class="career-cta"><span class="badge-soft">Onboarding</span><span class="badge-soft">90‑day
+                plan</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="metrics-band" id="metrics">
+      <div class="container">
+        <div class="metrics-grid">
+          <div class="metric">
+            <h3>300+</h3>
+            <p>People Trained</p>
+          </div>
+          <div class="metric">
+            <h3>85%</h3>
+            <p>Job Rate</p>
+          </div>
+          <div class="metric">
+            <h3>6 Weeks</h3>
+            <p>Avg Offer Time</p>
+          </div>
+          <div class="metric">
+            <h3>40%</h3>
+            <p>Career Shifts</p>
+          </div>
+          <div class="metric">
+            <h3>3 Regions</h3>
+            <p>US | India | Canada</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 testimonials-band" id="stories">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-chat-heart-fill me-2"></i>Success Stories</h2>
+          <p class="section-sub">Short notes from recent learners</p>
+        </div>
+        <div class="testimonials-grid">
+          <article class="testimonial-card">
+            <p class="testimonial-body">“The weekly project plan and code reviews made things clear. I went from basic
+              Java to a Spring + React offer in under three months.”</p>
+            <div class="testimonial-meta">
+              <span class="testimonial-name">Aditi Sharma</span>
+              <span class="testimonial-role">Full‑Stack Engineer • Pune</span>
+              <span class="testimonial-tag"><i class="bi bi-briefcase-fill"></i> First job offer</span>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <p class="testimonial-body">“Labs, feedback and resume help were very focused. The data capstone was the
+              main topic in all three of my interviews.”</p>
+            <div class="testimonial-meta">
+              <span class="testimonial-name">Mohammed Ali</span>
+              <span class="testimonial-role">Data Engineer • Hyderabad</span>
+              <span class="testimonial-tag"><i class="bi bi-graph-up-arrow"></i> Career switch</span>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <p class="testimonial-body">“I work full‑time, so small weekly goals and mock rounds helped. Got a better
+              offer with DevOps + cloud work.”</p>
+            <div class="testimonial-meta">
+              <span class="testimonial-name">Daniel Thomas</span>
+              <span class="testimonial-role">DevOps Engineer • Toronto</span>
+              <span class="testimonial-tag"><i class="bi bi-stars"></i> Promotion & hike</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-light" id="capstones">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-stars me-2"></i>Sample Projects</h2>
+          <p class="section-sub">Portfolio items that show skill</p>
+        </div>
+        <div class="cap-gallery">
+          <div class="cap-item"><span class="cap-tag"><i class="bi bi-basket"></i>Shop</span>
+            <h6>Shop Platform</h6>
+            <p>Products, cart, checkout, roles and fake payment.</p>
+          </div>
+          <div class="cap-item"><span class="cap-tag"><i class="bi bi-cpu"></i>IoT</span>
+            <h6>Device Data Pipeline</h6>
+            <p>Stream ingest, warehouse store, anomaly check and dashboard.</p>
+          </div>
+          <div class="cap-item"><span class="cap-tag"><i class="bi bi-cloud-upload"></i>Infra</span>
+            <h6>Multi Env Infra</h6>
+            <p>Terraform, containers, blue/green deploy and cost watch.</p>
+          </div>
+          <div class="cap-item"><span class="cap-tag"><i class="bi bi-shield-lock"></i>Security</span>
+            <h6>Secure API Gateway</h6>
+            <p>JWT auth, rate limit, secret rotate and scan automation.</p>
+          </div>
+          <div class="cap-item"><span class="cap-tag"><i class="bi bi-robot"></i>ML</span>
+            <h6>Predictive Maintenance</h6>
+            <p>Features, model train, score view and simple inference API.</p>
+          </div>
+          <div class="cap-item"><span class="cap-tag"><i class="bi bi-bar-chart"></i>BI</span>
+            <h6>Analytics Suite</h6>
+            <p>Data model, semantic layer and KPI dashboards by role.</p>
+          </div>
+          <div class="cap-item"><span class="cap-tag"><i class="bi bi-chat-dots"></i>Support Bot</span>
+            <h6>Chat Help Bot</h6>
+            <p>Simple RAG prompt flow, FAQ source ingest and answer log.</p>
+          </div>
+          <div class="cap-item"><span class="cap-tag"><i class="bi bi-graph-up"></i>Monitor</span>
+            <h6>Log Monitor Tool</h6>
+            <p>Parse logs, detect spikes, send alert and show mini dashboard.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5" id="faq">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-question-circle-fill me-2"></i>FAQ</h2>
+          <p class="section-sub">Simple answers</p>
+        </div>
+        <div class="accordion faq" id="faqAcc">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="f1h"><button class="accordion-button" type="button"
+                data-bs-toggle="collapse" data-bs-target="#f1" aria-expanded="true" aria-controls="f1">Who can
+                join?</button></h2>
+            <div id="f1" class="accordion-collapse collapse show" aria-labelledby="f1h" data-bs-parent="#faqAcc">
+              <div class="accordion-body small">Final year students, new grads, career changers or early professionals.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="f2h"><button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#f2" aria-expanded="false" aria-controls="f2">Time per
+                week?</button></h2>
+            <div id="f2" class="accordion-collapse collapse" aria-labelledby="f2h" data-bs-parent="#faqAcc">
+              <div class="accordion-body small">About 8–10 live hours plus 10–12 project hours. We adapt for working
+                people.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="f3h"><button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#f3" aria-expanded="false" aria-controls="f3">Need
+                experience?</button></h2>
+            <div id="f3" class="accordion-collapse collapse" aria-labelledby="f3h" data-bs-parent="#faqAcc">
+              <div class="accordion-body small">Basic programming helps. We send prep links after you apply.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="f4h"><button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#f4" aria-expanded="false" aria-controls="f4">Do you give
+                certificate?</button></h2>
+            <div id="f4" class="accordion-collapse collapse" aria-labelledby="f4h" data-bs-parent="#faqAcc">
+              <div class="accordion-body small">Yes, based on project quality and steady progress. We also give a
+                reference letter when earned.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="f5h"><button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#f5" aria-expanded="false" aria-controls="f5">How do referrals
+                work?</button></h2>
+            <div id="f5" class="accordion-collapse collapse" aria-labelledby="f5h" data-bs-parent="#faqAcc">
+              <div class="accordion-body small">You must finish the project well, show interview readiness and be
+                professional in sessions.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fx-cta" id="apply" aria-labelledby="fx-cta-title">
+      <div class="container">
+        <div class="fx-cta__inner">
+          <h2 id="fx-cta-title">Ready to start your training journey?</h2>
+          <p class="fx-cta__lead">Next batch starts soon. Apply to get prep material and a clear roadmap to placement.
+          </p>
+          <div class="fx-cta__actions">
+            <a href="/contact" class="btn-cta btn-cta--primary"><i class="bi bi-envelope"></i> Contact Us</a>
+            <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20your%20services."
+              target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta--secondary"><i
+                class="bi bi-whatsapp"></i> Chat on WhatsApp</a>
+          </div>
+          <p class="fx-cta__note">Response time: usually within 24 hours.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-md-4">
+          <h5>About Us</h5>
+          <p class="mb-2">FutureXcel Technologies is a technology services partner specializing in custom software
+            development, IT consulting &amp; support, data engineering &amp; AI, cloud/DevOps, and training &amp;
+            placement programs.</p>
+          <p class="mb-2">From 24/7 IT support and managed services to product engineering and cloud modernization, we
+            help teams ship faster and operate securely with measurable outcomes.</p>
+          <p class="mb-0">We serve startups and enterprises across the United States, Canada, and India with a focus on
+            reliability, security, and great customer experience.</p>
+        </div>
+
+        <div class="col-md-3">
+          <h5>Services</h5>
+          <a href="/services-endpoint">Modern Endpoint Management</a>
+          <a href="/services-helpdesk">IT Help Desk Outsourcing</a>
+          <a href="/services-software">Custom Software Development</a>
+          <a href="/services-research">Research &amp; Development</a>
+          <a href="/services-consulting">IT Consulting &amp; Support</a>
+          <a href="/services-data">Data Engineering &amp; Analytics</a>
+          <a href="/services-ml">Machine Learning Solutions</a>
+          <a href="/services-cloud">DevOps &amp; Cloud Services</a>
+          <a href="/services-training">Training &amp; Placement</a>
+        </div>
+
+        <div class="col-md-2">
+          <h5>Quick Links</h5>
+          <a href="/">Home</a>
+          <a href="/training">Training</a>
+          <a href="/careers">Careers</a>
+          <a href="/about">About Us</a>
+          <a href="/contact">Contact</a>
+          <hr class="footer-rule d-md-none" aria-hidden="true" />
+        </div>
+
+        <div class="col-md-3">
+          <h5>Contact</h5>
+          <address class="mb-1">Email: <a href="mailto:info@futurexceltech.com">info@futurexceltech.com</a></address>
+          <address class="mb-0">Phone:<br>
+            <a href="tel:+918625040777">+91 862-504-0777</a><br>
+            <a href="tel:+17177499910">+1 717-749-9910</a><br>
+            <a href="tel:+12172181585">+1 217-218-1585</a>
+          </address>
+          <address class="mb-2">H.No. 4-10-312, Abdul Kalam Road<br><span style="white-space: nowrap;">Gali No. 1, Near
+              Bus Stand, Ekbal Nagar</span><br>Purna,
+            Parbhani, Maharashtra - 431511</address>
+          <div class="social mt-2" aria-label="Social links">
+            <a href="https://www.instagram.com/futurexcel_technologies/#" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/futurexcel-technologies/" target="_blank"
+              rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.facebook.com/share/16yvQLBep4/" target="_blank" rel="noopener noreferrer"
+              aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20your%20services."
+              target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <hr class="footer-rule" />
+      <p class="text-center mb-0 copyright">&copy; <span id="year"></span> FutureXcel Technologies. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+
+
+  <a class="whatsapp-float"
+    href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I'd%20like%20to%20apply%20for%20training."
+    target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><i class="bi bi-whatsapp fs-3"></i></a>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="./main.js"></script>
+  
+  <!-- Chatbot Integration -->
+  <link rel="stylesheet" href="chatbot.css">
+  <script src="chatbot.js"></script>
+  
+  <script>
+    // Training page specific JS (if any)
+    document.addEventListener('DOMContentLoaded', function () {
+      // Page-specific functionality can go here
+    });
+  </script>
+</body>
+
+</html>

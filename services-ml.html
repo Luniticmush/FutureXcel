@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description"
+    content="FutureXcel Technologies - Machine Learning Solutions: model lifecycle, evaluation, retrieval, automation, responsible AI." />
+  <meta name="keywords"
+    content="machine learning, ML solutions, AI services, model development, responsible AI, FutureXcel" />
+  <meta name="author" content="FutureXcel Technologies" />
+  <title>Machine Learning Solutions | FutureXcel Technologies</title>
+  <meta name="theme-color" content="#0d1b2a" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./assets/Favico.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link href="./styles.css" rel="stylesheet" />
+  <style>
+    /* Services-ml page specific styles - common styles are in styles.css */
+    .navbar {
+      background: rgba(255, 255, 255, .95);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, .08);
+      transition: background .3s, box-shadow .3s
+    }
+
+    .navbar.scrolled {
+      background: #fff;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .12)
+    }
+
+    .navbar-brand img {
+      height: 50px;
+      width: auto;
+      display: block;
+      transition: filter .2s ease
+    }
+
+    .navbar .navbar-toggler {
+      border: 0
+    }
+
+    .navbar .nav-link {
+      color: #0d1b2a;
+      padding: .55rem 1rem;
+      margin: 0 .25rem;
+      border-radius: 6px;
+      transition: all .3s ease;
+      font-weight: 500
+    }
+
+    .navbar .nav-link:hover,
+    .navbar .nav-link:focus {
+      background: var(--fx-gradient);
+      color: #fff !important;
+      transform: translateY(-2px)
+    }
+
+    .navbar .nav-link.active {
+      background: var(--fx-gradient);
+      color: #fff !important;
+      font-weight: 600
+    }
+
+    .dropdown-menu {
+      border-radius: 12px;
+      padding: .6rem 0;
+      border: 0;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, .12);
+      animation: fadeDown .25s ease
+    }
+
+    .dropdown-item {
+      padding: .55rem 1.1rem;
+      transition: all .18s ease
+    }
+
+    .dropdown-item:hover {
+      background: var(--fx-gradient);
+      color: #fff;
+      padding-left: 1.45rem
+    }
+
+    .dropdown-item.active {
+      background: var(--fx-gradient);
+      color: #fff !important;
+      font-weight: 600;
+      padding-left: 1.45rem
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-8px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* Remove nav underlines/box-shadows */
+    .navbar .nav-link,
+    .navbar .nav-link:hover,
+    .navbar .nav-link:focus,
+    .navbar .nav-link:active,
+    .navbar .dropdown-toggle,
+    .navbar .dropdown-item {
+      box-shadow: none !important;
+      text-decoration: none !important;
+      border: none !important
+    }
+
+    .navbar .nav-link.active,
+    .navbar .dropdown-toggle.active {
+      background: var(--fx-gradient) !important;
+      color: #fff !important;
+      font-weight: 600
+    }
+
+    /* Hero video carousel */
+    .hero-wrap {
+      position: relative;
+      height: 48vh;
+      min-height: 320px;
+      overflow: hidden;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      padding: 0 16px;
+      text-align: center;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, .6);
+    }
+
+    .hero-title {
+      font-weight: 800;
+      font-size: clamp(1.8rem, 5vw, 3.25rem);
+    }
+
+    .hero-sub {
+      font-size: clamp(.95rem, 2vw, 1.2rem);
+      margin-top: .5rem;
+    }
+
+    #heroCarousel {
+      max-height: 600px;
+      overflow: hidden;
+    }
+
+    #heroCarousel .carousel-item video {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+      background: black;
+    }
+
+    .section-title {
+      font-weight: 800;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      margin-bottom: 1.2rem;
+      background: var(--fx-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .ml-card {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, .06);
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, .06);
+      height: 100%;
+      transition: .25s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ml-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, .12);
+    }
+
+    .ml-card i {
+      font-size: 2rem;
+      color: var(--fx-orange);
+      margin-bottom: .6rem;
+    }
+
+    /* Unified footer from index.html */
+    footer {
+      background: var(--fx-dark);
+      color: #f1f5f9 !important;
+      padding: 18px 0 !important;
+    }
+
+    footer h1,
+    footer h2,
+    footer h3,
+    footer h4,
+    footer h5,
+    footer h6 {
+      color: #ffffff !important
+    }
+
+    footer h5 {
+      margin-bottom: 8px !important;
+      font-size: inherit !important;
+    }
+
+    footer p,
+    footer span,
+    footer div,
+    footer address,
+    footer .copyright,
+    footer small,
+    footer .text-muted {
+      color: #e5e7eb !important;
+      font-size: 0.9rem !important;
+      line-height: 1.55 !important;
+    }
+
+    footer a {
+      color: #e5e7eb !important;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 4px !important;
+      font-size: 0.9rem !important;
+      transition: color .2s ease
+    }
+
+    footer a:hover {
+      color: #fff !important;
+      text-decoration: underline
+    }
+
+    footer .social a {
+      color: #e5e7eb !important
+    }
+
+    footer .social a:hover {
+      color: #fff !important
+    }
+
+    .footer-rule {
+      border-color: rgba(255, 255, 255, .25) !important;
+      margin: 1rem 0
+    }
+
+    .copyright {
+      font-size: .9rem
+    }
+
+    footer address {
+      margin-bottom: .5rem
+    }
+
+    footer .social {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 10px !important;
+      flex-wrap: wrap !important;
+    }
+
+    footer .social a {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 32px !important;
+      height: 32px !important;
+      border-radius: 50% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      text-decoration: none !important;
+    }
+
+    footer .social a i {
+      font-size: 1.25rem !important;
+      line-height: 1 !important;
+      transition: transform .2s ease, filter .2s ease;
+      will-change: transform, filter;
+    }
+
+    /* Hover: soft white glow + slight lift */
+    footer .social a:hover i,
+    footer .social a:focus-visible i {
+      transform: translateY(-1px);
+      filter:
+        drop-shadow(0 0 4px rgba(255, 255, 255, 0.45)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.35));
+    }
+
+    /* Stronger glow on dark footer backgrounds */
+    footer[style],
+    footer,
+    html.theme-dark footer {
+      --fx-footer-glow1: rgba(255, 255, 255, 0.55);
+      --fx-footer-glow2: rgba(255, 255, 255, 0.40);
+    }
+
+    html.theme-dark footer .social a:hover i,
+    html.theme-dark footer .social a:focus-visible i {
+      filter:
+        drop-shadow(0 0 5px var(--fx-footer-glow1)) drop-shadow(0 0 12px var(--fx-footer-glow2));
+    }
+
+    /* Accessibility: no motion */
+    @media (prefers-reduced-motion: reduce) {
+      footer .social a i {
+        transition: none;
+      }
+
+      footer .social a:hover i,
+      footer .social a:focus-visible i {
+        transform: none;
+      }
+    }
+
+    footer a {
+      margin-bottom: 4px !important;
+    }
+
+    footer .social a {
+      margin-bottom: 0 !important;
+    }
+
+    html.theme-dark body {
+      background: #0b1220;
+      color: #fff !important;
+    }
+
+    html.theme-dark .navbar,
+    html.theme-dark .navbar.bg-white {
+      background: rgba(10, 16, 28, .95) !important;
+    }
+
+    html.theme-dark .navbar .nav-link {
+      color: #fff !important;
+    }
+
+    html.theme-dark .navbar-brand img {
+      filter: brightness(0)invert(1);
+    }
+
+    html.theme-dark .ml-card {
+      background: #0f1a2b;
+      border-color: rgba(255, 255, 255, .06);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .5);
+    }
+
+    html.theme-dark .section-title {
+      -webkit-text-fill-color: #fff;
+      color: #fff;
+      background: none;
+    }
+
+    html.theme-dark footer {
+      background: #070d18;
+    }
+
+    html.theme-dark .footer-rule {
+      border-color: #2a3447;
+    }
+
+    html.theme-dark .hero-overlay,
+    html.theme-dark .hero-overlay .hero-title,
+    html.theme-dark .hero-overlay .hero-sub {
+      color: #fff !important;
+    }
+
+    /* ========== MOBILE OPTIMIZATION FOR 390x844 ========== */
+    @media screen and (max-width:991px) {
+      body {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .container {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .hero-wrap {
+        min-height: 50vh;
+        height: 50vh;
+      }
+
+      #heroCarousel {
+        min-height: 50vh;
+        height: 50vh;
+      }
+
+      #heroCarousel .carousel-item video {
+        height: 50vh;
+        min-height: 50vh;
+      }
+
+      .hero-overlay {
+        padding: 0 12px;
+      }
+
+      .hero-title {
+        font-size: clamp(1.6rem, 6vw, 2.2rem) !important;
+        line-height: 1.2;
+        margin-bottom: .75rem;
+      }
+
+      .hero-sub {
+        font-size: clamp(.85rem, 3vw, 1rem) !important;
+        line-height: 1.5;
+        padding: 0 8px;
+      }
+
+      .section-title {
+        font-size: clamp(1.4rem, 4vw, 1.8rem);
+        margin-bottom: 1rem;
+      }
+
+      .ml-card {
+        padding: 18px 16px;
+        margin-bottom: 16px;
+      }
+
+      .ml-card i {
+        font-size: 1.75rem;
+        margin-bottom: .75rem;
+      }
+
+      .ml-card h6 {
+        font-size: 1rem;
+        margin-bottom: .5rem;
+      }
+
+      .ml-card p {
+        font-size: .875rem;
+        line-height: 1.5;
+      }
+
+      footer {
+        padding: 24px 0;
+      }
+
+      footer h5 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+
+      footer p,
+      footer a {
+        font-size: .9rem;
+      }
+    }
+
+    @media screen and (width:390px) and (height:844px),
+    screen and (width:390px) and (min-height:800px),
+    screen and (min-width:390px) and (max-width:428px) {
+      .hero-wrap {
+        min-height: auto !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        padding-bottom: 30px !important;
+      }
+
+      #heroCarousel {
+        min-height: auto !important;
+        height: auto !important;
+        max-height: none !important;
+      }
+
+      #heroCarousel .carousel-item video {
+        height: auto !important;
+        min-height: auto !important;
+      }
+
+      .hero-overlay {
+        padding: 0 16px 160px !important;
+        position: relative !important;
+        overflow: visible !important;
+      }
+
+      .hero-title {
+        font-size: 1.9rem !important;
+      }
+
+      .hero-sub {
+        font-size: .95rem !important;
+      }
+
+      .hero-actions {
+        flex-direction: column !important;
+        gap: .55rem !important;
+        margin-top: .7rem !important;
+        display: flex !important;
+        width: 100% !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+
+      .hero-actions a,
+      .hero-actions .btn-pill {
+        width: 100% !important;
+        padding: 10px 16px !important;
+        font-size: .84rem !important;
+        min-height: 40px !important;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        flex-shrink: 0 !important;
+      }
+
+      .container {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .section-title {
+        font-size: 1.65rem;
+      }
+
+      .ml-card {
+        padding: 20px 18px;
+      }
+    }
+
+    @media screen and (max-width:480px) {
+      .hero-wrap {
+        min-height: auto !important;
+        height: auto !important;
+        overflow: visible !important;
+      }
+
+      #heroCarousel .carousel-item video {
+        height: auto !important;
+        min-height: auto !important;
+      }
+
+      .hero-overlay {
+        padding-bottom: 140px !important;
+        overflow: visible !important;
+      }
+
+      .hero-actions {
+        flex-direction: column !important;
+        gap: .55rem !important;
+        display: flex !important;
+        width: 100% !important;
+      }
+
+      .hero-actions a,
+      .hero-actions .btn-pill {
+        width: 100% !important;
+        padding: 10px 16px !important;
+        font-size: .84rem !important;
+        min-height: 40px !important;
+      }
+
+      .container {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .hero-title {
+        font-size: 1.5rem !important;
+      }
+
+      .hero-sub {
+        font-size: .85rem !important;
+      }
+    }
+
+    /* Fix footer contact phone spacing */
+    footer address.mb-0 {
+      margin-bottom: 0.25rem !important;
+      line-height: 1.4;
+    }
+
+    footer address.mb-0 a {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      line-height: 1.4;
+    }
+
+    footer address.mb-0 br {
+      line-height: 1.4;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" role="navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/"><img src="./assets/logo.png" height="50" alt="FutureXcel Logo" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav"
+        aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div id="nav" class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav fw-semibold">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle active" href="#" id="servicesDropdown"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+            <ul class="dropdown-menu border-0 rounded-3 shadow" aria-labelledby="servicesDropdown">
+              <li><a class="dropdown-item" href="/services-endpoint">Modern Endpoint Management</a></li>
+              <li><a class="dropdown-item" href="/services-helpdesk">IT Help Desk Outsourcing</a></li>
+              <li><a class="dropdown-item" href="/services-software">Custom Software Development</a></li>
+              <li><a class="dropdown-item" href="/services-research">Research &amp; Development</a></li>
+              <li><a class="dropdown-item" href="/services-consulting">IT Consulting &amp; Support</a></li>
+              <li><a class="dropdown-item" href="/services-data">Data Engineering &amp; Analytics</a></li>
+              <li><a class="dropdown-item" href="/services-ml">Machine Learning Solutions</a></li>
+              <li><a class="dropdown-item" href="/services-cloud">DevOps &amp; Cloud Services</a></li>
+              <li><a class="dropdown-item" href="/services-training">Training &amp; Placement</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/training">Training</a></li>
+          <li class="nav-item"><a class="nav-link" href="/careers">Careers</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+        </ul>
+        <div class="d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
+          <button id="themeToggle" class="btn btn-sm btn-outline-dark rounded-pill d-inline-flex align-items-center"
+            type="button" aria-pressed="false" title="Toggle dark mode">
+            <i class="bi bi-moon-stars me-1" aria-hidden="true"></i><span class="visually-hidden">Toggle dark
+              mode</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <header class="hero" style="--hero-image: url('./assets/hero2.jpg');">
+    <div class="container">
+      <div class="inner">
+        <span class="eyebrow">Services</span>
+        <h1 class="hero-title">Machine Learning Solutions</h1>
+        <p class="hero-sub">Applying practical ML & retrieval patterns with observability and responsible controls from
+          day one.</p>
+        <div class="hero-highlights" aria-label="Service highlights">
+          <span class="hero-highlight"><i class="bi bi-search"></i><span>RAG &amp; Retrieval</span></span>
+          <span class="hero-highlight"><i class="bi bi-graph-up"></i><span>Evaluation &amp; Monitoring</span></span>
+          <span class="hero-highlight"><i class="bi bi-shield-check"></i><span>Responsible AI</span></span>
+        </div>
+        <div class="hero-actions">
+          <a href="/contact" class="btn-pill btn-brand"><i class="bi bi-cpu-fill"></i> Plan an ML Project</a>
+          <a href="#capabilities" class="btn-pill btn-outline" data-scroll><i class="bi bi-graph-up"></i> View
+            Capabilities</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="py-5">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 id="capabilities" class="section-title"><i class="bi bi-cpu-fill me-2"></i>Core Capabilities</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="ml-card"><i class="bi bi-diagram-3"></i>
+            <h6 class="fw-bold">Model Architecture</h6>
+            <p class="small mb-0">Selection & shaping (classification, retrieval, generation) optimized for cost &
+              latency.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="ml-card"><i class="bi bi-hdd-network"></i>
+            <h6 class="fw-bold">Feature & Data Pipeline</h6>
+            <p class="small mb-0">Curated datasets, versioning, drift monitoring, and repeatable transformations.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="ml-card"><i class="bi bi-graph-up"></i>
+            <h6 class="fw-bold">Evaluation & Metrics</h6>
+            <p class="small mb-0">Offline/online evals, A/B tests, custom metrics (coverage, relevance, toxicity).</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="ml-card"><i class="bi bi-search"></i>
+            <h6 class="fw-bold">Retrieval & RAG</h6>
+            <p class="small mb-0">Vector stores, chunking, ranking, multi-hop enrichment & caching strategies.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="ml-card"><i class="bi bi-shield-check"></i>
+            <h6 class="fw-bold">Responsible AI</h6>
+            <p class="small mb-0">Guardrails, PII handling, prompt risk filters, audit trails & fallback patterns.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="ml-card"><i class="bi bi-gear"></i>
+            <h6 class="fw-bold">MLOps & Lifecycle</h6>
+            <p class="small mb-0">CI for models, deployment rollouts, canaries, model registry & observability.</p>
+          </div>
+        </div>
+      </div>
+      <hr class="my-5" />
+      <div class="text-center mb-4">
+        <h2 class="section-title"><i class="bi bi-rocket-takeoff me-2"></i>Engagement Examples</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="ml-card">
+            <h6 class="fw-bold">Retrieval Upgrade Sprint</h6>
+            <p class="small mb-0">Improve relevance & latency; evaluate embeddings, re-rankers & memory strategies.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="ml-card">
+            <h6 class="fw-bold">Evaluation Harness Build</h6>
+            <p class="small mb-0">Implement automated metrics pipeline to inform tuning & safe releases.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="ml-card">
+            <h6 class="fw-bold">Responsible AI Hardening</h6>
+            <p class="small mb-0">Threat modeling, policy definitions, risk filters & monitoring dashboards.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="ml-card">
+            <h6 class="fw-bold">Feature Store & Reuse</h6>
+            <p class="small mb-0">Unify feature definitions, versioning, and governance for multi-model adoption.</p>
+          </div>
+        </div>
+      </div>
+      <hr class="my-5" />
+    </div>
+
+    <!-- CTA (Unified across all pages) -->
+    <section class="fx-cta" aria-labelledby="fx-cta-title">
+      <div class="container">
+        <div class="fx-cta__inner">
+          <h2 id="fx-cta-title">Plan an ML initiative</h2>
+          <p class="fx-cta__lead">Describe objectives - we'll outline a lean path to measurable value.</p>
+          <div class="fx-cta__actions">
+            <a href="/contact" class="btn-cta btn-cta--primary"><i class="bi bi-envelope"></i> Contact Us</a>
+            <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20your%20services."
+              target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta--secondary"><i
+                class="bi bi-whatsapp"></i> Chat on WhatsApp</a>
+          </div>
+          <p class="fx-cta__note">Response time: usually within 24 hours.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-md-4">
+          <h5>About Us</h5>
+          <p class="mb-2">FutureXcel Technologies is a technology services partner specializing in custom software
+            development, IT consulting &amp; support, data engineering &amp; AI, cloud/DevOps, and training &amp;
+            placement programs.</p>
+          <p class="mb-2">From 24/7 IT support and managed services to product engineering and cloud modernization, we
+            help teams ship faster and operate securely with measurable outcomes.</p>
+          <p class="mb-0">We serve startups and enterprises across the United States, Canada, and India with a focus on
+            reliability, security, and great customer experience.</p>
+        </div>
+
+        <div class="col-md-3">
+          <h5>Services</h5>
+          <a href="/services-endpoint">Modern Endpoint Management</a>
+          <a href="/services-helpdesk">IT Help Desk Outsourcing</a>
+          <a href="/services-software">Custom Software Development</a>
+          <a href="/services-research">Research &amp; Development</a>
+          <a href="/services-consulting">IT Consulting &amp; Support</a>
+          <a href="/services-data">Data Engineering &amp; Analytics</a>
+          <a href="/services-ml">Machine Learning Solutions</a>
+          <a href="/services-cloud">DevOps &amp; Cloud Services</a>
+          <a href="/services-training">Training &amp; Placement</a>
+        </div>
+
+        <div class="col-md-2">
+          <h5>Quick Links</h5>
+          <a href="/">Home</a>
+          <a href="/training">Training</a>
+          <a href="/careers">Careers</a>
+          <a href="/about">About Us</a>
+          <a href="/contact">Contact</a>
+          <hr class="footer-rule d-md-none" aria-hidden="true" />
+        </div>
+
+        <div class="col-md-3">
+          <h5>Contact</h5>
+          <address class="mb-1">Email: <a href="mailto:info@futurexceltech.com">info@futurexceltech.com</a></address>
+          <address class="mb-0">Phone:<br>
+            <a href="tel:+918625040777">+91 862-504-0777</a><br>
+            <a href="tel:+17177499910">+1 717-749-9910</a><br>
+            <a href="tel:+12172181585">+1 217-218-1585</a>
+          </address>
+          <address class="mb-2">H.No. 4-10-312, Abdul Kalam Road<br>Gali No. 1, Near Bus Stand, Ekbal Nagar<br>Purna, Parbhani, Maharashtra - 431511</address>
+          <div class="social mt-2" aria-label="Social links">
+            <a href="https://www.instagram.com/futurexcel_technologies/#" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/futurexcel-technologies/" target="_blank"
+              rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.facebook.com/share/16yvQLBep4/" target="_blank" rel="noopener noreferrer"
+              aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20your%20services."
+              target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <hr class="footer-rule" />
+      <p class="text-center mb-0 copyright">&copy; <span id="year"></span> FutureXcel Technologies. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="./main.js"></script>
+  
+  <!-- Chatbot Integration -->
+  <link rel="stylesheet" href="chatbot.css">
+  <script src="chatbot.js"></script>
+
+  <!-- WhatsApp Float Button -->
+  <a class="whatsapp-float"
+    href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I'm%20interested%20in%20Machine%20Learning%20Solutions."
+    target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><i class="bi bi-whatsapp fs-3"></i></a>
+</body>
+
+</html>

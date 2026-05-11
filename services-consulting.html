@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description"
+    content="FutureXcel Technologies - 24/7 IT Consulting & Support Services: Tier 1-3 technical support, after-hours coverage, omnichannel help desk, SLA-backed managed services with 50-70% cost savings." />
+  <meta name="keywords"
+    content="IT consulting, 24/7 technical support, after hours IT support, help desk outsourcing, managed IT services, SLA support, omnichannel support, FutureXcel" />
+  <meta name="author" content="FutureXcel Technologies" />
+  <title>IT Consulting & Support | FutureXcel Technologies | 24/7 Technical Support Services</title>
+  <meta name="theme-color" content="#0d1b2a" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./assets/Favico.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="./styles.css" rel="stylesheet" />
+
+  <style>
+    /* ========== PROFESSIONAL CARD DESIGNS ========== */
+
+    /* Main Service Card */
+    .cs-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .cs-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--fx-gradient);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .cs-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0, 86, 210, 0.1);
+      border-color: rgba(0, 86, 210, 0.2);
+    }
+
+    .cs-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .cs-card .card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: rgba(0, 86, 210, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      transition: all 0.25s ease;
+    }
+
+    .cs-card .card-icon i {
+      font-size: 1.2rem;
+      color: var(--fx-blue);
+      transition: color 0.25s ease;
+    }
+
+    .cs-card:hover .card-icon {
+      background: var(--fx-gradient);
+    }
+
+    .cs-card:hover .card-icon i {
+      color: #fff;
+    }
+
+    .cs-card h6 {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: #0f172a;
+      line-height: 1.4;
+    }
+
+    .cs-card p {
+      color: #64748b;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      margin: 0;
+      flex-grow: 1;
+    }
+
+    .cs-card ul {
+      color: #64748b;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .cs-card li {
+      margin-bottom: 6px;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .cs-card li::before {
+      content: "\2022";
+      position: absolute;
+      left: 6px;
+      color: var(--fx-blue);
+      font-weight: 700;
+      font-size: 1.2em;
+    }
+
+    /* SLA Timeline Style (compact) */
+    .sla-timeline {
+      border-left: 2px solid var(--fx-blue);
+      padding-left: 14px;
+      margin: 0 auto;
+      max-width: 640px;
+    }
+
+    .sla-item {
+      position: relative;
+      padding: 12px 14px 12px 18px;
+      margin-bottom: 10px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      transition: all 0.2s ease;
+    }
+
+    .sla-item::before {
+      content: "";
+      position: absolute;
+      left: -25px;
+      top: 16px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid var(--fx-blue);
+      box-shadow: 0 0 0 3px rgba(0, 86, 210, 0.12);
+    }
+
+    .sla-item:hover {
+      transform: translateX(3px);
+      box-shadow: 0 4px 12px rgba(0, 86, 210, 0.12);
+      border-color: rgba(0, 86, 210, 0.18);
+    }
+
+    .sla-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .sla-meta i {
+      color: var(--fx-blue);
+      font-size: 0.95rem;
+    }
+
+    .sla-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 2px;
+      line-height: 1.3;
+    }
+
+    .sla-desc {
+      color: #64748b;
+      font-size: 0.85rem;
+      margin: 0 0 8px 0;
+      line-height: 1.5;
+    }
+
+    .sla-bar {
+      height: 6px;
+      border-radius: 999px;
+      background: #e2e8f0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .sla-bar span {
+      display: block;
+      height: 100%;
+      background: var(--fx-gradient);
+      width: var(--progress, 100%);
+      transition: width 0.25s ease;
+    }
+
+    .sla-item:hover .sla-bar span {
+      width: calc(var(--progress, 100%) + 4%);
+    }
+
+    .sla-guarantee-box {
+      background: #0f172a;
+      color: #e5e7eb;
+      border-radius: 10px;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .sla-guarantee-box .sla-badge-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: var(--fx-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #fff;
+      font-size: 1.1rem;
+    }
+
+    .sla-guarantee-box h5 {
+      margin: 0 0 2px 0;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .sla-guarantee-box p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+    }
+
+    /* Reason Card - Professional Minimal */
+    .reason-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      height: 100%;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .reason-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--fx-gradient);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.25s ease;
+      border-radius: 12px 0 0 12px;
+    }
+
+    .reason-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0, 86, 210, 0.1);
+      border-color: rgba(0, 86, 210, 0.2);
+    }
+
+    .reason-card:hover::before {
+      transform: scaleY(1);
+    }
+
+    .reason-card h6 {
+      font-weight: 600;
+      font-size: 0.9375rem;
+      margin-bottom: 8px;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .reason-card h6 i {
+      font-size: 0.9rem;
+      color: var(--fx-blue);
+    }
+
+    .reason-card p {
+      color: #64748b;
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Highlight Box - Professional */
+    .highlight-box {
+      background: rgba(0, 86, 210, 0.04);
+      border: 1px solid rgba(0, 86, 210, 0.12);
+      border-radius: 12px;
+      padding: 20px;
+      position: relative;
+    }
+
+    .highlight-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--fx-gradient);
+      border-radius: 12px 12px 0 0;
+    }
+
+    .highlight-box p {
+      margin: 0;
+      color: #334155;
+      line-height: 1.65;
+      font-size: 0.9375rem;
+    }
+
+    .highlight-box strong {
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    /* Coverage Box - Professional */
+    .coverage-box {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: all 0.25s ease;
+    }
+
+    .coverage-box:hover {
+      box-shadow: 0 4px 12px rgba(0, 86, 210, 0.1);
+      border-color: rgba(0, 86, 210, 0.2);
+    }
+
+    .coverage-box h5 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .coverage-box .day-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 40px;
+      height: 40px;
+      padding: 0 10px;
+      border-radius: 8px;
+      background: var(--fx-gradient);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.75rem;
+      margin: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .coverage-box .day-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 86, 210, 0.2);
+    }
+
+    .coverage-box .time-label {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-top: 12px;
+    }
+
+    .coverage-box ul {
+      padding-left: 0;
+      list-style: none;
+      margin-top: 8px;
+    }
+
+    .coverage-box li {
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+      color: #64748b;
+      font-size: 0.8125rem;
+    }
+
+    .coverage-box li::before {
+      content: "\2022";
+      position: absolute;
+      left: 6px;
+      color: var(--fx-blue);
+      font-weight: 700;
+      font-size: 1.2em;
+    }
+
+    /* Channel Pills - Professional */
+    .channel-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      justify-content: center;
+    }
+
+    .channel {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      color: #0f172a;
+      font-weight: 500;
+      font-size: 0.875rem;
+      transition: all 0.25s ease;
+    }
+
+    .channel i {
+      font-size: 1rem;
+      color: var(--fx-blue);
+      transition: color 0.25s ease;
+    }
+
+    .channel:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 86, 210, 0.12);
+      border-color: rgba(0, 86, 210, 0.3);
+      background: rgba(0, 86, 210, 0.04);
+    }
+
+    .channel:hover i {
+      color: var(--fx-blue);
+    }
+
+    /* Industry Badge - Professional */
+    .industry-badge {
+      text-align: center;
+      padding: 16px 12px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: all 0.25s ease;
+    }
+
+    .industry-badge:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0, 86, 210, 0.1);
+      border-color: rgba(0, 86, 210, 0.2);
+    }
+
+    .industry-badge i {
+      font-size: 1.5rem;
+      color: var(--fx-blue);
+      margin-bottom: 8px;
+      display: block;
+      transition: color 0.25s ease;
+    }
+
+    .industry-badge span {
+      font-weight: 500;
+      font-size: 0.8125rem;
+      color: #0f172a;
+    }
+
+    .industry-badge:hover i {
+      color: var(--fx-teal);
+    }
+
+    /* Tool Badges - Professional Tag Style */
+    .tool-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .tool-badge {
+      padding: 8px 14px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.8125rem;
+      color: #0f172a;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tool-badge i {
+      font-size: 0.875rem;
+      color: var(--fx-blue);
+    }
+
+    .tool-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 86, 210, 0.12);
+      border-color: rgba(0, 86, 210, 0.3);
+      background: rgba(0, 86, 210, 0.04);
+    }
+
+    /* FAQ Accordion - Professional Style */
+    .faq-accordion .accordion-item {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px !important;
+      margin-bottom: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      transition: all 0.25s ease;
+    }
+
+    .faq-accordion .accordion-item:hover {
+      box-shadow: 0 2px 6px rgba(0, 86, 210, 0.08);
+      border-color: rgba(0, 86, 210, 0.2);
+    }
+
+    .faq-accordion .accordion-button {
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: #0f172a;
+      background: #ffffff;
+      padding: 14px 18px;
+      border-radius: 8px;
+      transition: all 0.25s ease;
+    }
+
+    .faq-accordion .accordion-button::after {
+      background-size: 0.875rem;
+      transition: transform 0.25s ease;
+    }
+
+    .faq-accordion .accordion-button:not(.collapsed) {
+      background: rgba(0, 86, 210, 0.04);
+      color: var(--fx-blue);
+      box-shadow: none;
+    }
+
+    .faq-accordion .accordion-button:focus {
+      box-shadow: none;
+      border-color: transparent;
+    }
+
+    .faq-accordion .accordion-body {
+      padding: 0 18px 16px;
+      color: #64748b;
+      line-height: 1.65;
+      font-size: 0.875rem;
+      background: #ffffff;
+    }
+
+    /* Row Alignment Fix */
+    .row.g-4 {
+      --bs-gutter-x: 1.5rem;
+      --bs-gutter-y: 1.5rem;
+    }
+
+    .row.g-4>[class*="col-"] {
+      display: flex;
+    }
+
+    .row.g-4>[class*="col-"]>.cs-card,
+    .row.g-4>[class*="col-"]>.reason-card,
+    .row.g-4>[class*="col-"]>.coverage-box {
+      width: 100%;
+    }
+
+    /* Subtle Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .cs-card,
+    .reason-card,
+    .sla-stat,
+    .industry-badge {
+      animation: fadeIn 0.4s ease both;
+    }
+
+    /* ========== DARK MODE ========== */
+    html.theme-dark .cs-card,
+    html.theme-dark .reason-card,
+    html.theme-dark .sla-stat,
+    html.theme-dark .coverage-box,
+    html.theme-dark .industry-badge,
+    html.theme-dark .tool-badge,
+    html.theme-dark .channel {
+      background: #1e293b;
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    html.theme-dark .cs-card:hover,
+    html.theme-dark .reason-card:hover,
+    html.theme-dark .sla-item {
+      background: #1e293b;
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    }
+
+    html.theme-dark .sla-item::before {
+      background: #1e293b;
+      border-color: #7dd3fc;
+      box-shadow: 0 0 0 4px rgba(125, 211, 252, 0.15);
+    }
+
+    html.theme-dark .sla-item:hover {
+      border-color: rgba(125, 211, 252, 0.25);
+      box-shadow: 0 8px 22px rgba(0, 86, 210, 0.25);
+    }
+
+    html.theme-dark .sla-meta {
+      color: #e5e7eb;
+    }
+
+    html.theme-dark .sla-meta i {
+      color: #7dd3fc;
+    }
+
+    html.theme-dark .sla-value {
+      color: #f8fafc;
+    }
+
+    html.theme-dark .sla-desc {
+      color: #cbd5e1;
+    }
+
+    html.theme-dark .sla-bar {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    html.theme-dark .sla-bar span {
+      background: var(--fx-gradient);
+    }
+
+    html.theme-dark .sla-guarantee-box {
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+    }
+
+    html.theme-dark .sla-guarantee-box h5 {
+      color: #fff;
+    }
+
+    html.theme-dark .sla-guarantee-box p {
+      color: #cbd5e1;
+    }
+
+    html.theme-dark .channel:hover,
+    html.theme-dark .industry-badge:hover,
+    html.theme-dark .tool-badge:hover {
+      background: rgba(0, 86, 210, 0.15);
+      border-color: rgba(125, 211, 252, 0.3);
+    }
+
+    html.theme-dark .cs-card h6,
+    html.theme-dark .reason-card h6,
+    html.theme-dark .industry-badge span,
+    html.theme-dark .tool-badge,
+    html.theme-dark .coverage-box .time-label {
+      color: #f1f5f9;
+    }
+
+    html.theme-dark .cs-card p,
+    html.theme-dark .cs-card ul,
+    html.theme-dark .cs-card li,
+    html.theme-dark .reason-card p,
+    html.theme-dark .sla-stat .stat-label,
+    html.theme-dark .coverage-box li {
+      color: #94a3b8;
+    }
+
+    html.theme-dark .cs-card .card-icon {
+      background: rgba(0, 102, 255, 0.15);
+    }
+
+    html.theme-dark .cs-card .card-icon i {
+      color: #7dd3fc;
+    }
+
+    html.theme-dark .cs-card:hover .card-icon {
+      background: var(--fx-gradient);
+    }
+
+    html.theme-dark .cs-card:hover .card-icon i {
+      color: #fff;
+    }
+
+    html.theme-dark .channel i,
+    html.theme-dark .industry-badge i {
+      color: #7dd3fc;
+    }
+
+    html.theme-dark .highlight-box {
+      background: rgba(0, 102, 255, 0.08);
+      border-color: rgba(125, 211, 252, 0.15);
+    }
+
+    html.theme-dark .highlight-box::before {
+      background: var(--fx-gradient);
+    }
+
+    html.theme-dark .highlight-box p {
+      color: #cbd5e1;
+    }
+
+    html.theme-dark .highlight-box strong {
+      color: #f1f5f9;
+    }
+
+    html.theme-dark .faq-accordion .accordion-item {
+      background: #1e293b;
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    html.theme-dark .faq-accordion .accordion-button {
+      background: #1e293b;
+      color: #f1f5f9;
+    }
+
+    html.theme-dark .faq-accordion .accordion-button:not(.collapsed) {
+      background: linear-gradient(135deg, rgba(0, 102, 255, 0.15), rgba(0, 184, 163, 0.1));
+      color: #7dd3fc;
+    }
+
+    html.theme-dark .faq-accordion .accordion-body {
+      background: #0f1a2b;
+      color: #cbd5e1;
+    }
+
+    /* Navbar dark mode */
+    html.theme-dark .navbar,
+    html.theme-dark .navbar.bg-white {
+      background: rgba(10, 16, 28, .95) !important;
+    }
+
+    html.theme-dark .navbar .nav-link {
+      color: #fff !important;
+    }
+
+    html.theme-dark .navbar-brand img {
+      filter: brightness(0) invert(1);
+    }
+
+    html.theme-dark .dropdown-menu {
+      background: #111a2a;
+      color: #fff;
+    }
+
+    html.theme-dark .dropdown-item {
+      color: #fff !important;
+    }
+
+    html.theme-dark .dropdown-item:hover {
+      background: var(--fx-gradient);
+      color: #fff !important;
+    }
+
+    /* Animation */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .cs-card,
+    .reason-card,
+    .sla-item,
+    .highlight-box {
+      animation: fadeUp .5s ease both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .cs-card,
+      .reason-card,
+      .sla-item,
+      .highlight-box {
+        animation: none;
+      }
+    }
+
+    /* ========== RESPONSIVE STYLES ========== */
+    @media (max-width: 991px) {
+
+      .cs-card,
+      .reason-card,
+      .coverage-box {
+        padding: 18px;
+      }
+
+      .cs-card .card-icon {
+        width: 36px;
+        height: 36px;
+      }
+
+      .cs-card .card-icon i {
+        font-size: 1.1rem;
+      }
+
+      .sla-item {
+        padding: 16px;
+      }
+
+      .sla-value {
+        font-size: 1.25rem;
+      }
+
+      .sla-desc {
+        font-size: 0.85rem;
+      }
+
+      .sla-guarantee-box {
+        padding: 18px;
+      }
+    }
+
+    @media (max-width: 767px) {
+
+      .cs-card,
+      .reason-card,
+      .coverage-box {
+        padding: 16px;
+      }
+
+      .cs-card .card-icon {
+        width: 36px;
+        height: 36px;
+        margin-bottom: 12px;
+      }
+
+      .cs-card .card-icon i {
+        font-size: 1rem;
+      }
+
+      .cs-card h6 {
+        font-size: 0.9375rem;
+        margin-bottom: 8px;
+      }
+
+      .cs-card p,
+      .cs-card ul {
+        font-size: 0.8125rem;
+      }
+
+      .channel {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 14px;
+      }
+
+      .sla-item {
+        padding: 14px;
+      }
+
+      .sla-item::before {
+        left: -27px;
+      }
+
+      .sla-value {
+        font-size: 1.15rem;
+      }
+
+      .sla-desc {
+        font-size: 0.8rem;
+      }
+
+      .sla-guarantee-box {
+        padding: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .sla-guarantee-box .sla-badge-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+      }
+
+      .sla-guarantee-box h5 {
+        font-size: 0.95rem;
+      }
+
+      .sla-guarantee-box p {
+        font-size: 0.8rem;
+      }
+
+      .tool-badge {
+        padding: 7px 12px;
+        font-size: 0.75rem;
+      }
+
+      .industry-badge {
+        padding: 14px 10px;
+      }
+
+      .industry-badge i {
+        font-size: 1.25rem;
+      }
+
+      .industry-badge span {
+        font-size: 0.75rem;
+      }
+
+      .reason-card {
+        padding: 16px;
+      }
+
+      .reason-card h6 {
+        font-size: 0.875rem;
+      }
+
+      .reason-card p {
+        font-size: 0.75rem;
+      }
+
+      .highlight-box {
+        padding: 18px;
+      }
+
+      .highlight-box p {
+        font-size: 0.875rem;
+      }
+
+      .coverage-box .day-badge {
+        min-width: 36px;
+        height: 36px;
+        font-size: 0.6875rem;
+        padding: 0 8px;
+      }
+
+      .faq-accordion .accordion-button {
+        padding: 12px 16px;
+        font-size: 0.875rem;
+      }
+
+      .faq-accordion .accordion-body {
+        padding: 0 16px 14px;
+        font-size: 0.8125rem;
+      }
+    }
+
+    /* Ensure proper card alignment in all grids */
+    .row.g-4>[class*="col-"] .cs-card,
+    .row.g-4>[class*="col-"] .reason-card,
+    .row.g-3>[class*="col-"] .industry-badge {
+      height: 100%;
+    }
+
+    /* Fix footer contact phone spacing */
+    footer address.mb-0 {
+      margin-bottom: 0.25rem !important;
+      line-height: 1.4;
+    }
+
+    footer address.mb-0 a {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      line-height: 1.4;
+    }
+
+    footer address.mb-0 br {
+      line-height: 1.4;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top" role="navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/" aria-label="FutureXcel Home">
+        <img src="./assets/logo.png" alt="FutureXcel Technologies Logo" decoding="async" fetchpriority="high" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="navbarNav" class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav fw-semibold">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">Services</a>
+            <ul class="dropdown-menu shadow border-0 rounded-3" aria-labelledby="servicesDropdown">
+              <li><a class="dropdown-item" href="/services-endpoint">Modern Endpoint Management</a></li>
+              <li><a class="dropdown-item" href="/services-helpdesk">IT Help Desk Outsourcing</a></li>
+              <li><a class="dropdown-item" href="/services-software">Custom Software Development</a></li>
+              <li><a class="dropdown-item" href="/services-research">Research &amp; Development</a></li>
+              <li><a class="dropdown-item" href="/services-consulting">IT Consulting &amp; Support</a></li>
+              <li><a class="dropdown-item" href="/services-data">Data Engineering &amp; Analytics</a></li>
+              <li><a class="dropdown-item" href="/services-ml">Machine Learning Solutions</a></li>
+              <li><a class="dropdown-item" href="/services-cloud">DevOps &amp; Cloud Services</a></li>
+              <li><a class="dropdown-item" href="/services-training">Training &amp; Placement</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/training">Training</a></li>
+          <li class="nav-item"><a class="nav-link" href="/careers">Careers</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
+          <button id="themeToggle" class="btn btn-sm btn-outline-dark rounded-pill d-inline-flex align-items-center"
+            type="button" aria-pressed="false" title="Toggle dark mode">
+            <i class="bi bi-moon-stars me-1" aria-hidden="true"></i><span class="visually-hidden">Toggle dark
+              mode</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- Hero -->
+    <header class="hero" style="--hero-image: url('./assets/hero2.jpg');">
+      <div class="container">
+        <div class="inner">
+          <span class="eyebrow">Services</span>
+          <h1 class="hero-title">24/7 IT Consulting &amp; Support</h1>
+          <p class="hero-sub">Outsource your IT support with confidence. Our <strong>24/7 technical support</strong>
+            covers weekdays, weekends, and holidays &mdash; backed by strict SLA adherence and experienced
+            professionals.</p>
+
+          <div class="hero-highlights" aria-label="Service highlights">
+            <span class="hero-highlight"><i class="bi bi-clock-history"></i><span>24/7/365 Coverage</span></span>
+            <span class="hero-highlight"><i class="bi bi-headset"></i><span>Omnichannel Support</span></span>
+            <span class="hero-highlight"><i class="bi bi-shield-check"></i><span>SLA Guaranteed</span></span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="/contact" class="btn-pill btn-brand"><i class="bi bi-envelope"></i> Request Custom Quote</a>
+            <a href="#services" class="btn-pill btn-outline" data-scroll><i class="bi bi-grid-3x3-gap"></i> View
+              Services</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Intro Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-telephone-inbound me-2"></i>Stay Open 24/7 With Our IT Support
+            Services</h2>
+          <p class="section-sub mx-auto" style="max-width: 850px">We offer 24/7 IT consulting and support services
+            covering weekdays, weekends, and holidays. We guarantee <strong>100% response rate</strong> backed by an
+            SLA. We ensure no calls, tickets, or chats are ever missed.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <div class="highlight-box h-100">
+              <p class="mb-3"><strong>FutureXcel IT Support</strong> operates as an extension of your team with trained
+                agents ready to handle incoming calls, emails, chats, and tickets on your behalf. We take complete
+                ownership of your support function so you can focus on growing your business.</p>
+              <p class="mb-0">Our services are backed by strict <strong>SLA adherence</strong> and a team of experienced
+                professionals. We ensure total satisfaction and deliver delightful customer experiences. We resolve all
+                basic issues, create support tickets in <strong>your</strong> ticketing system, and escalate critical
+                matters to your in-house or third-party escalation teams.</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="cs-card h-100">
+              <div class="card-icon"><i class="bi bi-graph-down-arrow"></i></div>
+              <h6>Significant Cost Savings</h6>
+              <ul>
+                <li><strong>50% to 70%</strong> lower cost compared to in-house teams</li>
+                <li>No overhead expenses</li>
+                <li>Simple, affordable pricing</li>
+                <li>No hidden charges</li>
+                <li>Transparent billing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What We Offer Section -->
+    <section id="services" class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-grid-1x2-fill me-2"></i>What We Offer Under 24/7 IT Support</h2>
+          <p class="section-sub mx-auto" style="max-width: 800px">Comprehensive IT support services tailored to your
+            business needs.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="cs-card">
+              <div class="card-icon"><i class="bi bi-headset"></i></div>
+              <h6>Tier 1 &amp; Tier 2 Support</h6>
+              <p>First-line and advanced technical support for end-users. Password resets, software installations,
+                troubleshooting, and escalation handling.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="cs-card">
+              <div class="card-icon"><i class="bi bi-pc-display"></i></div>
+              <h6>Service Desk Operations</h6>
+              <p>Complete service desk management including ticket logging, categorization, prioritization, resolution
+                tracking, and SLA monitoring.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="cs-card">
+              <div class="card-icon"><i class="bi bi-moon-stars"></i></div>
+              <h6>After-Hours Support</h6>
+              <p>Coverage from 5:00 PM to 10:00 AM on weekdays, plus 24-hour coverage on weekends and holidays of your
+                choice.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="cs-card">
+              <div class="card-icon"><i class="bi bi-phone-vibrate"></i></div>
+              <h6>Omnichannel Support</h6>
+              <p>Handle support requests via phone calls, emails, live chats, social media, and ticket notifications
+                &mdash; all included in the same cost.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="cs-card">
+              <div class="card-icon"><i class="bi bi-arrow-up-right-circle"></i></div>
+              <h6>Escalation Management</h6>
+              <p>Multi-level escalation to on-call engineers and respective teams. Prioritize critical issues and
+                resolve them quickly with proper documentation.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="cs-card">
+              <div class="card-icon"><i class="bi bi-clipboard-data"></i></div>
+              <h6>Reporting &amp; Analytics</h6>
+              <p>Custom reporting, quality monitoring, ticket analytics, and performance dashboards to track SLA
+                compliance and support metrics.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4 mt-3">
+          <div class="col-md-6 col-lg-3">
+            <div class="cs-card">
+              <div class="card-icon"><i class="bi bi-building"></i></div>
+              <h6>Enterprise IT Support</h6>
+              <p>General help desk, application support, network troubleshooting, and infrastructure monitoring.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="cs-card">
+              <div class="card-icon"><i class="bi bi-hospital"></i></div>
+              <h6>Healthcare IT Support</h6>
+              <p>Patient support systems, appointment management, EHR support, and HIPAA-compliant handling.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="cs-card">
+              <div class="card-icon"><i class="bi bi-cart3"></i></div>
+              <h6>E-commerce Support</h6>
+              <p>Order processing, inventory support, payment troubleshooting, and customer service for online stores.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="cs-card">
+              <div class="card-icon"><i class="bi bi-airplane"></i></div>
+              <h6>Travel &amp; Hospitality</h6>
+              <p>Reservation booking, guest support, travel desk operations, and vacation rental assistance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coverage Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-calendar-check me-2"></i>Flexible Coverage Options</h2>
+          <p class="section-sub mx-auto" style="max-width: 800px">Customize your support coverage to match your business
+            needs &mdash; hours of the day and days of the week.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="coverage-box h-100">
+              <h5 class="fw-bold mb-3"><i class="bi bi-moon me-2 text-primary"></i>After-Hours Coverage</h5>
+              <div class="d-flex flex-wrap justify-content-center mb-3">
+                <div class="day-badge">Mon</div>
+                <div class="day-badge">Tue</div>
+                <div class="day-badge">Wed</div>
+                <div class="day-badge">Thu</div>
+                <div class="day-badge">Fri</div>
+              </div>
+              <p class="time-label text-center">5:00 PM to 10:00 AM (Next Day)</p>
+              <hr>
+              <div class="d-flex flex-wrap justify-content-center mb-3">
+                <div class="day-badge">Sat</div>
+                <div class="day-badge">Sun</div>
+                <div class="day-badge">Holidays</div>
+              </div>
+              <p class="time-label text-center">24 Hours / Day</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="coverage-box h-100">
+              <h5 class="fw-bold mb-3"><i class="bi bi-sun me-2 text-warning"></i>24/7 Full Coverage</h5>
+              <ul class="mb-0" style="font-size: .95rem; line-height: 1.8; color: #64748b;">
+                <li>Answer calls, emails, chat & social channels</li>
+                <li>Log new tickets and update existing tickets</li>
+                <li>Triage & resolve customer issues</li>
+                <li>Gather data & update ticket for L2 escalation</li>
+                <li>Prioritize critical issues & resolve them quickly</li>
+                <li>Multi-level escalation to respective teams</li>
+                <li>Acknowledge & resolve issues within SLA</li>
+                <li>Custom plans available per your requirement</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Omnichannel Section -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-broadcast me-2"></i>Omnichannel Support</h2>
+          <p class="section-sub mx-auto" style="max-width: 800px">We respond to support requests across all channels
+            &mdash; all included in the same cost.</p>
+        </div>
+
+        <ul class="channel-list">
+          <li class="channel"><i class="bi bi-telephone-fill"></i>Phone Calls</li>
+          <li class="channel"><i class="bi bi-chat-dots-fill"></i>Live Chats</li>
+          <li class="channel"><i class="bi bi-envelope-fill"></i>Emails</li>
+          <li class="channel"><i class="bi bi-bell-fill"></i>Notification Alerts</li>
+          <li class="channel"><i class="bi bi-ticket-perforated-fill"></i>Tickets</li>
+          <li class="channel"><i class="bi bi-facebook"></i>Social Media</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SLA Section -->
+    <section class="py-4">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-stopwatch me-2"></i>Guaranteed SLA Response Times</h2>
+          <p class="section-sub mx-auto" style="max-width: 800px">Our services are backed by guaranteed SLA compliance
+            &mdash; crucial for contract renewals and customer satisfaction.</p>
+        </div>
+
+        <div class="sla-timeline">
+          <div class="sla-item" style="--progress: 85%;">
+            <div class="sla-meta"><i class="bi bi-telephone-fill"></i>Phone Response</div>
+            <div class="sla-value">&lt; 5 Rings</div>
+            <p class="sla-desc mb-2">Immediate call pickup guarantee, measured on live and recorded lines.</p>
+            <div class="sla-bar"><span></span></div>
+          </div>
+
+          <div class="sla-item" style="--progress: 70%;">
+            <div class="sla-meta"><i class="bi bi-envelope-fill"></i>Email Response</div>
+            <div class="sla-value">&lt; 15 Minutes</div>
+            <p class="sla-desc mb-2">Quick acknowledgment and triage with documented next steps.</p>
+            <div class="sla-bar"><span></span></div>
+          </div>
+
+          <div class="sla-item" style="--progress: 90%;">
+            <div class="sla-meta"><i class="bi bi-bell-fill"></i>Notification Response</div>
+            <div class="sla-value">&lt; 5 Minutes</div>
+            <p class="sla-desc mb-2">Rapid alert acknowledgment for tickets, chats, and paging systems.</p>
+            <div class="sla-bar"><span></span></div>
+          </div>
+        </div>
+
+        <div class="sla-guarantee-box mt-4">
+          <div class="sla-badge-icon"><i class="bi bi-shield-check"></i></div>
+          <div>
+            <h5 class="mb-1">100% SLA Compliance Guarantee</h5>
+            <p class="mb-0">Real-time monitoring, proactive escalation paths, and weekly reviews ensure we meet or
+              exceed your SLA commitments across every channel.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-star-fill me-2"></i>Why Choose FutureXcel</h2>
+          <p class="section-sub mx-auto" style="max-width: 800px">Here are 7 reasons why clients prefer FutureXcel over
+            the competition:</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="reason-card">
+              <h6><i class="bi bi-file-earmark-x text-danger me-2"></i>No Forced Contracts</h6>
+              <p>We don't believe in time-bound contracts. We only request a one-month notice in advance. Disconnect
+                anytime.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="reason-card">
+              <h6><i class="bi bi-tools text-primary me-2"></i>Bring Your Own Tools</h6>
+              <p>We work directly with your business applications, CRM, and other tools &mdash; no data transferred to
+                external platforms.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="reason-card">
+              <h6><i class="bi bi-shield-check text-success me-2"></i>Years of Trust</h6>
+              <p>We've been helping businesses lower costs and deliver delightful customer experiences with proven
+                expertise.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="reason-card">
+              <h6><i class="bi bi-incognito text-secondary me-2"></i>100% White-Labeled</h6>
+              <p>We handle all the behind-the-scenes work with no reference to FutureXcel. Your brand, your customers.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="reason-card">
+              <h6><i class="bi bi-sliders text-info me-2"></i>Flexible Coverage</h6>
+              <p>Tailor the service coverage to your preference &mdash; select the hours of the day and days of the week
+                that suit you best.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="reason-card">
+              <h6><i class="bi bi-check2-circle text-success me-2"></i>SLA Compliance</h6>
+              <p>We guarantee full compliance with client SLAs &mdash; crucial factors in contract renewals and customer
+                satisfaction.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="reason-card">
+              <h6><i class="bi bi-rocket-takeoff text-warning me-2"></i>Go-Live in 1 Week</h6>
+              <p>We can help you go live in 5-7 working days with fully trained and ready agents. Train-The-Trainer for
+                easy knowledge transfer.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="reason-card">
+              <h6><i class="bi bi-robot text-danger me-2"></i>No Bots or Voicemails</h6>
+              <p>No frustrating bots or voicemails. Our support reps keep your customers happy and your business
+                growing.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="reason-card">
+              <h6><i class="bi bi-mortarboard text-primary me-2"></i>Custom Training</h6>
+              <p>Our team is fully trained on your business, applications, and SOPs before going live. We don't just
+                take messages &mdash; we resolve issues!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BYOT Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-laptop me-2"></i>Bring Your Own CRM &amp; Tools</h2>
+          <p class="section-sub mx-auto" style="max-width: 850px">You need not worry about moving away from your
+            existing tools. We work directly with your business applications, CRM, help desk, ticket management,
+            billing, admin panels, and more &mdash; eliminating any duplication of work.</p>
+        </div>
+
+        <div class="tool-grid">
+          <div class="tool-badge"><i class="bi bi-microsoft me-2"></i>Microsoft Teams</div>
+          <div class="tool-badge"><i class="bi bi-microsoft me-2"></i>Office 365</div>
+          <div class="tool-badge"><i class="bi bi-cloud me-2"></i>Salesforce CRM</div>
+          <div class="tool-badge"><i class="bi bi-gear me-2"></i>Zoho Help Desk</div>
+          <div class="tool-badge"><i class="bi bi-hexagon me-2"></i>HubSpot</div>
+          <div class="tool-badge"><i class="bi bi-chat-square me-2"></i>Slack</div>
+          <div class="tool-badge"><i class="bi bi-headset me-2"></i>Zendesk</div>
+          <div class="tool-badge"><i class="bi bi-inbox me-2"></i>Freshdesk</div>
+          <div class="tool-badge"><i class="bi bi-kanban me-2"></i>Monday.com</div>
+          <div class="tool-badge"><i class="bi bi-bar-chart me-2"></i>Pipedrive</div>
+          <div class="tool-badge"><i class="bi bi-database me-2"></i>Oracle NetSuite</div>
+          <div class="tool-badge"><i class="bi bi-microsoft me-2"></i>Dynamics 365</div>
+          <div class="tool-badge"><i class="bi bi-box me-2"></i>ServiceNow</div>
+          <div class="tool-badge"><i class="bi bi-ticket me-2"></i>Jira Service Desk</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-building me-2"></i>Industries We Serve</h2>
+          <p class="section-sub mx-auto" style="max-width: 800px">Our IT support services are tailored for various
+            industries with specific requirements.</p>
+        </div>
+
+        <div class="row g-3 justify-content-center">
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="industry-badge">
+              <i class="bi bi-hospital"></i>
+              <span>Healthcare</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="industry-badge">
+              <i class="bi bi-gear"></i>
+              <span>Manufacturing</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="industry-badge">
+              <i class="bi bi-airplane"></i>
+              <span>Travel</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="industry-badge">
+              <i class="bi bi-cart3"></i>
+              <span>E-commerce</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="industry-badge">
+              <i class="bi bi-cup-straw"></i>
+              <span>Hospitality</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="industry-badge">
+              <i class="bi bi-bank"></i>
+              <span>Finance</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="industry-badge">
+              <i class="bi bi-truck"></i>
+              <span>Logistics</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="industry-badge">
+              <i class="bi bi-cpu"></i>
+              <span>Technology</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="industry-badge">
+              <i class="bi bi-shop"></i>
+              <span>Retail</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="industry-badge">
+              <i class="bi bi-mortarboard"></i>
+              <span>Education</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-question-circle me-2"></i>Frequently Asked Questions</h2>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="accordion faq-accordion" id="faqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                    What is 24/7 IT support outsourcing?
+                  </button>
+                </h3>
+                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    24/7 IT support outsourcing is a service that operates around the clock, handling incoming calls,
+                    emails, chats, or tickets from your customers or employees. We ensure that your business can provide
+                    technical support even when your offices are closed.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq2">
+                    Is your service white-labeled?
+                  </button>
+                </h3>
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    Yes, our services are 100% white-labeled. We greet all callers using your company's name and work
+                    completely behind the scenes with no reference to FutureXcel.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq3">
+                    How will your team access our email, tickets, and business applications?
+                  </button>
+                </h3>
+                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    We work with all your existing business applications. Simply create an account for our team to log
+                    in and we're good to go. We have experience with all popular business applications including
+                    Zendesk, Freshdesk, ServiceNow, Jira, Salesforce, and more.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq4">
+                    Will you just answer calls and take messages or provide full support?
+                  </button>
+                </h3>
+                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    We are a full-service support provider. We don't just answer calls and take messages &mdash;
+                    machines can do that. We custom train our team so that we can offer the same level of support as
+                    your in-house team. We resolve issues, not just log them.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq5">
+                    What happens during weekends, state & federal holidays?
+                  </button>
+                </h3>
+                <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    We offer 24-hour coverage during weekends and holidays. Feel free to share your list of state and
+                    federal holidays. We will offer 24-hour coverage on those days. You are free to select the holidays
+                    of your choice.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq6">
+                    How quickly can we go live?
+                  </button>
+                </h3>
+                <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    We can help you go live in 5-7 working days with fully trained and ready agents. We use a
+                    Train-The-Trainer approach for easy knowledge transfer and will manage all team training internally.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq7">
+                    Can small & mid-sized businesses afford your services?
+                  </button>
+                </h3>
+                <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    Yes, our pricing is designed to be affordable for small and mid-sized businesses. In fact, the
+                    majority of our clients are small businesses. We offer simple, transparent pricing with no hidden
+                    charges, and our clients typically save 50-70% compared to in-house support costs.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="fx-cta" aria-labelledby="fx-cta-title">
+      <div class="container">
+        <div class="fx-cta__inner">
+          <h2 id="fx-cta-title">Ready to Outsource Your IT Support?</h2>
+          <p class="fx-cta__lead">Request a custom quote today. We'll propose a tailored solution that fits your
+            business needs and budget.</p>
+          <div class="fx-cta__actions">
+            <a href="/contact" class="btn-cta btn-cta--primary"><i class="bi bi-envelope"></i> Request Quote</a>
+            <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20your%2024/7%20IT%20Support%20services."
+              target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta--secondary"><i
+                class="bi bi-whatsapp"></i> Chat on WhatsApp</a>
+          </div>
+          <p class="fx-cta__note">Response time: usually within 24 hours.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-md-4">
+          <h5>About Us</h5>
+          <p class="mb-2">FutureXcel Technologies is a technology services partner specializing in custom software
+            development, IT consulting &amp; support, data engineering &amp; AI, cloud/DevOps, and training &amp;
+            placement programs.</p>
+          <p class="mb-2">From 24/7 IT support and managed services to product engineering and cloud modernization, we
+            help teams ship faster and operate securely with measurable outcomes.</p>
+          <p class="mb-0">We serve startups and enterprises across the United States, Canada, and India with a focus on
+            reliability, security, and great customer experience.</p>
+        </div>
+
+        <div class="col-md-3">
+          <h5>Services</h5>
+          <a href="/services-endpoint">Modern Endpoint Management</a>
+          <a href="/services-helpdesk">IT Help Desk Outsourcing</a>
+          <a href="/services-software">Custom Software Development</a>
+          <a href="/services-research">Research &amp; Development</a>
+          <a href="/services-consulting">IT Consulting &amp; Support</a>
+          <a href="/services-data">Data Engineering &amp; Analytics</a>
+          <a href="/services-ml">Machine Learning Solutions</a>
+          <a href="/services-cloud">DevOps &amp; Cloud Services</a>
+          <a href="/services-training">Training &amp; Placement</a>
+        </div>
+
+        <div class="col-md-2">
+          <h5>Quick Links</h5>
+          <a href="/">Home</a>
+          <a href="/training">Training</a>
+          <a href="/careers">Careers</a>
+          <a href="/about">About Us</a>
+          <a href="/contact">Contact</a>
+          <hr class="footer-rule d-md-none" aria-hidden="true" />
+        </div>
+
+        <div class="col-md-3">
+          <h5>Contact</h5>
+          <address class="mb-1">Email: <a href="mailto:info@futurexceltech.com">info@futurexceltech.com</a></address>
+          <address class="mb-0">Phone:<br>
+            <a href="tel:+918625040777">+91 862-504-0777</a><br>
+            <a href="tel:+17177499910">+1 717-749-9910</a><br>
+            <a href="tel:+12172181585">+1 217-218-1585</a>
+          </address>
+          <address class="mb-2">H.No. 4-10-312, Abdul Kalam Road<br>Gali No. 1, Near Bus Stand, Ekbal Nagar<br>Purna, Parbhani, Maharashtra - 431511</address>
+          <div class="social mt-2" aria-label="Social links">
+            <a href="https://www.instagram.com/futurexcel_technologies/#" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/futurexcel-technologies/" target="_blank"
+              rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.facebook.com/share/16yvQLBep4/" target="_blank" rel="noopener noreferrer"
+              aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20your%20services."
+              target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <hr class="footer-rule" />
+      <p class="text-center mb-0 copyright">&copy; <span id="year"></span> FutureXcel Technologies. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+
+
+
+  <!-- WhatsApp Float Button -->
+  <a class="whatsapp-float"
+    href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I'm%20interested%20in%20IT%20Consulting%20and%20Support%20services."
+    target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><i class="bi bi-whatsapp fs-3"></i></a>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="./main.js"></script>
+  
+  <!-- Chatbot Integration -->
+  <link rel="stylesheet" href="chatbot.css">
+  <script src="chatbot.js"></script>
+</body>
+
+</html>

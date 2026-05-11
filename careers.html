@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="Join FutureXcel Technologies - Explore exciting career opportunities in software development, data engineering, DevOps, and more." />
+    <meta name="theme-color" content="#0d1b2a" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Careers | FutureXcel Technologies</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="preload" as="image" href="./assets/hero1.jpg" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/Favico.png" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+    <link href="./styles.css" rel="stylesheet" />
+
+    <style>
+        /* Unique Careers Page Design - Compact & Professional */
+
+        /* Fix: Ensure only one scrollbar for the entire page */
+        html {
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+        }
+
+        body {
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+            height: auto !important;
+        }
+
+        main,
+        #main-content {
+            overflow: visible !important;
+            overflow-y: visible !important;
+            overflow-x: hidden !important;
+            height: auto !important;
+            max-height: none !important;
+        }
+
+        .container {
+            overflow: visible !important;
+            overflow-y: visible !important;
+        }
+
+        section {
+            overflow: visible !important;
+            overflow-y: visible !important;
+        }
+
+        .navbar .nav-link,
+        .navbar .nav-link:hover,
+        .navbar .nav-link:focus,
+        .navbar .dropdown-toggle,
+        .navbar .dropdown-item {
+            box-shadow: none !important;
+            text-decoration: none !important;
+        }
+
+        /* Hero Section - Match index.html */
+        .hero {
+            position: relative;
+            min-height: 45vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        #heroCarousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        #heroCarousel .carousel-inner {
+            width: 100%;
+            height: 100%;
+        }
+
+        #heroCarousel .carousel-item {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 100%;
+        }
+
+        #heroCarousel .carousel-item video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            object-position: center;
+            background: black;
+            filter: brightness(0.5);
+            display: block;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 86, 210, 0.75) 0%, rgba(0, 150, 136, 0.6) 50%, rgba(13, 27, 42, 0.9) 100%);
+            z-index: 1;
+            opacity: 1;
+        }
+
+        .hero .inner {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            padding: 20px 0 20px;
+            text-align: left;
+        }
+
+        .hero h1 {
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            font-size: clamp(2.25rem, 2rem + 2vw, 3.25rem);
+            margin-bottom: 0.5rem;
+            margin-top: 0;
+            color: #ffffff;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5), 0 4px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p.lead {
+            max-width: 720px;
+            font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+            line-height: 1.65;
+            color: #ffffff;
+            margin: 0.5rem 0;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4), 0 1px 5px rgba(0, 0, 0, 0.3);
+            font-weight: 400;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+            justify-content: flex-start;
+        }
+
+        .hero-badges .hb {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            padding: 0.5rem 0.875rem;
+            border-radius: 999px;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .hero-badges .hb:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            margin-bottom: 0;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        /* Careers Section - Compact Design */
+        #careers {
+            scroll-margin-top: 90px;
+            padding: 40px 0;
+            background: #ffffff;
+        }
+
+        html.theme-dark #careers {
+            background: #0b1220;
+        }
+
+        .section-title {
+            font-weight: 700;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 0.5rem;
+            text-align: center;
+            color: #0d1b2a;
+        }
+
+        /* Section title with icons (centered) */
+        .section-title.section-title-icons {
+            /* Override global .section-title (inline-block !important) */
+            display: flex !important;
+            align-items: center;
+            justify-content: center !important;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            width: 100% !important;
+            text-align: center !important;
+        }
+
+        .section-title.section-title-icons .sti-icon {
+            font-size: 1.1em;
+            line-height: 1;
+            transform: translateY(0.02em);
+            opacity: 0.95;
+            /* Override global .section-title i spacing */
+            margin: 0 !important;
+        }
+
+        html.theme-dark .section-title {
+            color: #fff;
+        }
+
+        html.theme-dark .section-title.section-title-icons .sti-icon {
+            opacity: 0.95;
+        }
+
+        .section-sub {
+            color: #64748b;
+            font-size: 0.95rem;
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 2rem;
+        }
+
+        html.theme-dark .section-sub {
+            color: #94a3b8;
+        }
+
+        /* Compact Search & Filter */
+        .jobs-toolbar {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .search-wrapper i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        .jobs-toolbar .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.75rem;
+            border-radius: 50px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #0d1b2a;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        html.theme-dark .jobs-toolbar .form-control {
+            background: #1e293b;
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .jobs-toolbar .form-control:focus {
+            border-color: var(--fx-blue);
+            box-shadow: 0 0 0 3px rgba(0, 86, 210, 0.1);
+            outline: none;
+            background: #fff;
+        }
+
+        html.theme-dark .jobs-toolbar .form-control:focus {
+            background: #1e293b;
+            border-color: var(--fx-blue);
+            box-shadow: 0 0 0 3px rgba(0, 86, 210, 0.2);
+        }
+
+        .filter-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .filter-pill {
+            border: 1px solid #e2e8f0;
+            background: #ffffff;
+            color: #475569;
+            border-radius: 20px;
+            padding: 0.4rem 1rem;
+            font-weight: 500;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        html.theme-dark .filter-pill {
+            background: #1e293b;
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+        }
+
+        .filter-pill:hover,
+        .filter-pill[aria-pressed="true"] {
+            background: var(--fx-gradient);
+            color: #fff !important;
+            border-color: transparent;
+            transform: translateY(-1px);
+        }
+
+        html.theme-dark .filter-pill:hover,
+        html.theme-dark .filter-pill[aria-pressed="true"] {
+            background: var(--fx-gradient) !important;
+            color: #fff !important;
+            border-color: transparent !important;
+            transform: translateY(-1px);
+        }
+
+        /* Compact Job Cards - New Design */
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .job-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .job-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-color: var(--fx-blue);
+        }
+
+        html.theme-dark .job-card {
+            background: #1e293b;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        html.theme-dark .job-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+            border-color: var(--fx-blue);
+        }
+
+        .job-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .job-icon-wrapper {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(0, 86, 210, 0.1), rgba(0, 150, 136, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .job-card:hover .job-icon-wrapper {
+            background: var(--fx-gradient);
+            transform: scale(1.1);
+        }
+
+        html.theme-dark .job-icon-wrapper {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        html.theme-dark .job-card:hover .job-icon-wrapper {
+            background: var(--fx-gradient);
+            transform: scale(1.1);
+        }
+
+        .job-icon {
+            color: var(--fx-blue);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .job-card:hover .job-icon {
+            color: #fff;
+        }
+
+        html.theme-dark .job-icon {
+            color: #60a5fa;
+        }
+
+        html.theme-dark .job-card:hover .job-icon {
+            color: #fff;
+        }
+
+        .job-title-wrapper {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .job-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #0d1b2a;
+            margin: 0 0 4px 0;
+            line-height: 1.3;
+        }
+
+        html.theme-dark .job-title {
+            color: #fff;
+        }
+
+        .job-meta {
+            color: #64748b;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        html.theme-dark .job-meta {
+            color: #94a3b8;
+        }
+
+        .job-summary {
+            color: #475569;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 12px 0;
+            flex-grow: 1;
+        }
+
+        html.theme-dark .job-summary {
+            color: #cbd5e1;
+        }
+
+        .tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin: 12px 0;
+        }
+
+        .tag {
+            background: #f1f5f9;
+            color: #475569;
+            border: none;
+            border-radius: 6px;
+            padding: 0.25rem 0.6rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .tag:hover {
+            background: rgba(0, 86, 210, 0.1);
+            color: var(--fx-blue);
+            transform: translateY(-1px);
+        }
+
+        html.theme-dark .tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+        }
+
+        html.theme-dark .tag:hover {
+            background: rgba(0, 86, 210, 0.3);
+            color: #60a5fa;
+            transform: translateY(-1px);
+        }
+
+        .job-actions {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        html.theme-dark .job-actions {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .job-actions .btn-brand {
+            width: 100%;
+            padding: 0.6rem 1rem;
+            font-size: 0.875rem;
+            border-radius: 8px;
+        }
+
+        /* Compact Modals */
+        .modal-custom .modal-dialog {
+            max-width: 700px;
+            margin: 1.75rem auto;
+        }
+
+        .modal-custom .modal-content {
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        /* Custom scrollbar for modal - less prominent */
+        .modal-custom .modal-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .modal-custom .modal-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .modal-custom .modal-content::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+        }
+
+        .modal-custom .modal-content::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        html.theme-dark .modal-custom .modal-content::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        html.theme-dark .modal-custom .modal-content::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .modal-custom .modal-header {
+            background: var(--fx-gradient);
+            color: #fff;
+            border: 0;
+            padding: 1rem 1.25rem;
+            border-radius: 0.5rem 0.5rem 0 0;
+        }
+
+        .modal-custom .modal-title {
+            font-weight: 600;
+            font-size: 1.15rem;
+        }
+
+        .modal-custom .modal-body {
+            padding: 1.25rem;
+        }
+
+        html.theme-dark .modal-content {
+            background: #1e293b;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-custom .modal-body h6 {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            color: #0d1b2a;
+        }
+
+        html.theme-dark .modal-custom .modal-body h6 {
+            color: #fff;
+        }
+
+        .modal-custom .modal-body ul {
+            padding-left: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-custom .modal-body li {
+            margin-bottom: 0.4rem;
+            line-height: 1.5;
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        html.theme-dark .modal-custom .modal-body li {
+            color: #cbd5e1;
+        }
+
+        .modal-custom .modal-footer {
+            border-top: 1px solid #e2e8f0;
+            padding: 0.75rem 1.25rem;
+        }
+
+        html.theme-dark .modal-custom .modal-footer {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Prevent body scroll when modal is open */
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        /* Ensure modal backdrop prevents scrolling */
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1040;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-custom .modal-footer .btn-brand {
+            padding: 0.6rem 1.25rem;
+            font-size: 0.875rem;
+            border-radius: 8px;
+        }
+
+        /* Dark Mode */
+        html.theme-dark body {
+            background: #0b1220;
+            color: #fff;
+        }
+
+        html.theme-dark .navbar,
+        html.theme-dark .navbar.bg-white {
+            background: rgba(10, 16, 28, .95) !important;
+        }
+
+        html.theme-dark .navbar .nav-link {
+            color: #fff !important;
+        }
+
+        html.theme-dark .navbar .navbar-toggler-icon {
+            filter: invert(1) grayscale(100%);
+        }
+
+        html.theme-dark .dropdown-menu {
+            background: #111a2a;
+            border: 0;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, .6);
+        }
+
+        html.theme-dark .dropdown-item {
+            color: #fff !important;
+        }
+
+        html.theme-dark .dropdown-item:hover {
+            background: var(--fx-gradient);
+            color: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 45vh;
+            }
+
+            .hero .inner {
+                padding: 20px 0 20px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: clamp(1.8rem, 5vw, 2.5rem);
+            }
+
+            .hero-badges {
+                gap: 0.4rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .hero-badges .hb {
+                font-size: 0.6rem;
+                padding: 0.35rem 0.6rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.75rem;
+                padding: 0 10px;
+            }
+
+            .btn-pill {
+                width: 100%;
+                justify-content: center;
+                padding: 14px 24px;
+                font-size: 0.9rem;
+                min-height: 48px;
+            }
+
+            .jobs-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .job-card {
+                padding: 18px;
+            }
+
+            #careers {
+                padding: 40px 0;
+            }
+
+            .modal-custom .modal-dialog {
+                margin: 1rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+
+        /* Fix footer contact phone spacing */
+        footer address.mb-0 {
+            margin-bottom: 0.25rem !important;
+            line-height: 1.4;
+        }
+
+        footer address.mb-0 a {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            line-height: 1.4;
+        }
+
+        footer address.mb-0 br {
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top" role="navigation">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/" aria-label="FutureXcel Home">
+                <img src="./assets/logo.png" alt="FutureXcel Logo" decoding="async" fetchpriority="high" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav fw-semibold">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                        <ul class="dropdown-menu shadow border-0 rounded-3" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="/services-endpoint">Modern Endpoint Management</a></li>
+                            <li><a class="dropdown-item" href="/services-helpdesk">IT Help Desk Outsourcing</a></li>
+                            <li><a class="dropdown-item" href="/services-software">Custom Software Development</a></li>
+                            <li><a class="dropdown-item" href="/services-research">Research &amp; Development</a></li>
+                            <li><a class="dropdown-item" href="/services-consulting">IT Consulting &amp; Support</a>
+                            </li>
+                            <li><a class="dropdown-item" href="/services-data">Data Engineering &amp; Analytics</a></li>
+                            <li><a class="dropdown-item" href="/services-ml">Machine Learning Solutions</a></li>
+                            <li><a class="dropdown-item" href="/services-cloud">DevOps &amp; Cloud Services</a></li>
+                            <li><a class="dropdown-item" href="/services-training">Training &amp; Placement</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/training">Training</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/careers">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
+                    <button id="themeToggle"
+                        class="btn btn-sm btn-outline-dark rounded-pill d-inline-flex align-items-center" type="button"
+                        aria-pressed="false" title="Toggle dark mode">
+                        <i class="bi bi-moon-stars me-1" aria-hidden="true"></i>
+                        <span class="visually-hidden">Toggle dark mode</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" style="--hero-image: url('./assets/hero2.jpg');">
+            <div class="container">
+                <div class="inner">
+                    <span class="eyebrow">Careers</span>
+                    <div class="hero-badges">
+                        <span class="hb">REMOTE</span><span class="hb">FULL-TIME</span><span
+                            class="hb">PART-TIME</span><span class="hb">FLEXIBLE</span><span class="hb">GROWTH</span>
+                    </div>
+                    <h1 data-aos="fade-up" class="mt-1">Join FutureXcel<br class="d-none d-md-block" />Build Your Career
+                        with Us</h1>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">
+                        Explore exciting career opportunities that empower growth, continuous learning, and innovation.
+                        Join a team that's shaping tomorrow's digital landscape.
+                    </p>
+                    <div class="hero-actions" data-aos="fade-up" data-aos-delay="200">
+                        <a href="mailto:hr@futurexceltech.com?subject=Resume%20Submission%20-%20FutureXcel%20Careers"
+                            class="btn-pill btn-brand">
+                            <i class="bi bi-envelope-at"></i> Send Resume
+                        </a>
+                        <a href="#careers" class="btn-pill btn-contrast" data-scroll>
+                            <i class="bi bi-briefcase"></i> View Open Positions
+                        </a>
+                        <a href="/contact" class="btn-pill btn-outline">
+                            <i class="bi bi-envelope"></i> Talk to Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Careers Section -->
+        <section id="careers" class="py-5">
+            <div class="container">
+                <h2 class="section-title section-title-icons" data-aos="fade-up">
+                    <i class="bi bi-briefcase-fill sti-icon" aria-hidden="true"></i>
+                    <span>Open Positions</span>
+                </h2>
+                <p class="section-sub" data-aos="fade-up" data-aos-delay="80">
+                    Join our global engineering team to build secure, scalable, and modern enterprise solutions.
+                </p>
+
+                <!-- Search and Filter -->
+                <div class="jobs-toolbar" data-aos="fade-up" data-aos-delay="120">
+                    <div class="search-wrapper">
+                        <i class="bi bi-search"></i>
+                        <input id="jobSearch" class="form-control" type="search"
+                            placeholder="Search jobs by title, skills, or keywords..." aria-label="Search jobs">
+                    </div>
+                    <div class="filter-pills">
+                        <button class="filter-pill" data-filter="all" aria-pressed="true" type="button">All</button>
+                        <button class="filter-pill" data-filter="backend" type="button">Backend</button>
+                        <button class="filter-pill" data-filter="frontend" type="button">Frontend</button>
+                        <button class="filter-pill" data-filter="fullstack" type="button">Full-Stack</button>
+                        <button class="filter-pill" data-filter="data" type="button">Data</button>
+                        <button class="filter-pill" data-filter="ml" type="button">ML/AI</button>
+                        <button class="filter-pill" data-filter="devops" type="button">DevOps</button>
+                        <button class="filter-pill" data-filter="remote" type="button">Remote</button>
+                        <button class="filter-pill" data-filter="parttime" type="button">Part-time</button>
+                    </div>
+                </div>
+
+                <!-- Jobs Grid -->
+                <div class="jobs-grid" id="jobsGrid">
+                    <!-- Job 1 -->
+                    <article class="job-card" data-tags="fullstack remote parttime dotnet backend frontend"
+                        data-aos="fade-up">
+                        <div class="job-header">
+                            <div class="job-icon-wrapper">
+                                <i class="bi bi-code-slash job-icon"></i>
+                            </div>
+                            <div class="job-title-wrapper">
+                                <h5 class="job-title">Full Stack .NET Developer</h5>
+                                <p class="job-meta">Remote • 8-12 years • Part-time</p>
+                            </div>
+                        </div>
+                        <p class="job-summary">
+                            Build scalable web applications with ASP.NET Core and modern front-end frameworks.
+                        </p>
+                        <div class="tags-row">
+                            <span class="tag">C#</span>
+                            <span class="tag">.NET Core</span>
+                            <span class="tag">React</span>
+                            <span class="tag">TypeScript</span>
+                        </div>
+                        <div class="job-actions">
+                            <a class="btn btn-brand" data-bs-toggle="modal" data-bs-target="#fxJob1">View Details</a>
+                        </div>
+                    </article>
+
+                    <!-- Job 2 -->
+                    <article class="job-card" data-tags="backend remote parttime dotnet apis sql" data-aos="fade-up"
+                        data-aos-delay="50">
+                        <div class="job-header">
+                            <div class="job-icon-wrapper">
+                                <i class="bi bi-hdd-network job-icon"></i>
+                            </div>
+                            <div class="job-title-wrapper">
+                                <h5 class="job-title">Senior Backend .NET Developer</h5>
+                                <p class="job-meta">Remote • 6-10 years • Part-time</p>
+                            </div>
+                        </div>
+                        <p class="job-summary">
+                            Design and build high-performance REST services in ASP.NET Core with microservices
+                            architecture.
+                        </p>
+                        <div class="tags-row">
+                            <span class="tag">ASP.NET Core</span>
+                            <span class="tag">EF Core</span>
+                            <span class="tag">SQL Server</span>
+                            <span class="tag">Microservices</span>
+                        </div>
+                        <div class="job-actions">
+                            <a class="btn btn-brand" data-bs-toggle="modal" data-bs-target="#fxJob2">View Details</a>
+                        </div>
+                    </article>
+
+                    <!-- Job 3 -->
+                    <article class="job-card" data-tags="frontend remote parttime react typescript" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <div class="job-header">
+                            <div class="job-icon-wrapper">
+                                <i class="bi bi-layout-text-sidebar-reverse job-icon"></i>
+                            </div>
+                            <div class="job-title-wrapper">
+                                <h5 class="job-title">Frontend Engineer</h5>
+                                <p class="job-meta">Remote • 3-6 years • Part-time</p>
+                            </div>
+                        </div>
+                        <p class="job-summary">
+                            Create beautiful, responsive user interfaces with React and TypeScript.
+                        </p>
+                        <div class="tags-row">
+                            <span class="tag">React</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">Redux</span>
+                        </div>
+                        <div class="job-actions">
+                            <a class="btn btn-brand" data-bs-toggle="modal" data-bs-target="#fxJob3">View Details</a>
+                        </div>
+                    </article>
+
+                    <!-- Job 4 -->
+                    <article class="job-card" data-tags="devops remote parttime aws ci/cd" data-aos="fade-up"
+                        data-aos-delay="150">
+                        <div class="job-header">
+                            <div class="job-icon-wrapper">
+                                <i class="bi bi-cloud-check job-icon"></i>
+                            </div>
+                            <div class="job-title-wrapper">
+                                <h5 class="job-title">DevOps Engineer</h5>
+                                <p class="job-meta">Remote • 4-8 years • Part-time</p>
+                            </div>
+                        </div>
+                        <p class="job-summary">
+                            Design and maintain CI/CD pipelines, automate infrastructure with Terraform and Kubernetes.
+                        </p>
+                        <div class="tags-row">
+                            <span class="tag">AWS</span>
+                            <span class="tag">Kubernetes</span>
+                            <span class="tag">Terraform</span>
+                            <span class="tag">Docker</span>
+                        </div>
+                        <div class="job-actions">
+                            <a class="btn btn-brand" data-bs-toggle="modal" data-bs-target="#fxJob4">View Details</a>
+                        </div>
+                    </article>
+
+                    <!-- Job 5 -->
+                    <article class="job-card" data-tags="data remote parttime sql python spark" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div class="job-header">
+                            <div class="job-icon-wrapper">
+                                <i class="bi bi-database-fill-check job-icon"></i>
+                            </div>
+                            <div class="job-title-wrapper">
+                                <h5 class="job-title">Data Engineer</h5>
+                                <p class="job-meta">Remote • 5-9 years • Part-time</p>
+                            </div>
+                        </div>
+                        <p class="job-summary">
+                            Build reliable data pipelines with Spark and Databricks for data quality and governance.
+                        </p>
+                        <div class="tags-row">
+                            <span class="tag">Azure Data</span>
+                            <span class="tag">Spark</span>
+                            <span class="tag">Databricks</span>
+                            <span class="tag">Python</span>
+                        </div>
+                        <div class="job-actions">
+                            <a class="btn btn-brand" data-bs-toggle="modal" data-bs-target="#fxJob5">View Details</a>
+                        </div>
+                    </article>
+
+                    <!-- Job 6 -->
+                    <article class="job-card" data-tags="healthcare fhir dotnet azure remote parttime"
+                        data-aos="fade-up" data-aos-delay="250">
+                        <div class="job-header">
+                            <div class="job-icon-wrapper">
+                                <i class="bi bi-activity job-icon"></i>
+                            </div>
+                            <div class="job-title-wrapper">
+                                <h5 class="job-title">Healthcare Interoperability Developer</h5>
+                                <p class="job-meta">Remote • 5+ years • Part-time</p>
+                            </div>
+                        </div>
+                        <p class="job-summary">
+                            Build and secure FHIR-based APIs for CMS Interoperability in Azure using .NET 8.
+                        </p>
+                        <div class="tags-row">
+                            <span class="tag">.NET 8</span>
+                            <span class="tag">FHIR</span>
+                            <span class="tag">Azure</span>
+                            <span class="tag">Healthcare</span>
+                        </div>
+                        <div class="job-actions">
+                            <a class="btn btn-brand" data-bs-toggle="modal" data-bs-target="#fxJob6">View Details</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Modals -->
+            <div class="modal fade" id="fxJob1" tabindex="-1" aria-labelledby="fxJob1Title" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-custom">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 id="fxJob1Title" class="modal-title"><i class="bi bi-code-slash me-2"></i> Full Stack
+                                .NET Developer</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="mb-3"><strong>Experience:</strong> 8-12 years | <strong>Location:</strong> Remote
+                                | <strong>Type:</strong> Part-time</p>
+                            <h6>What You'll Do</h6>
+                            <ul>
+                                <li>Build scalable web applications with ASP.NET Core and React/Angular</li>
+                                <li>Design REST APIs with clean architecture and reusable components</li>
+                                <li>Integrate front-end with secure APIs (OAuth2, OIDC, JWT)</li>
+                                <li>Optimize performance and implement caching strategies</li>
+                                <li>Automate CI/CD with GitHub Actions/Azure DevOps</li>
+                            </ul>
+                            <h6>You Should Have</h6>
+                            <ul>
+                                <li>Strong expertise in C#, .NET 6/7/8, ASP.NET Core, EF Core, SQL Server</li>
+                                <li>TypeScript + React/Angular, state management, and testing frameworks</li>
+                                <li>API design: pagination, filters, versioning, and caching</li>
+                                <li>Cloud and DevOps basics, containers, and Git workflows</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-brand" target="_blank" rel="noopener noreferrer"
+                                href="mailto:hr@futurexceltech.com?subject=Application%20-%20Full%20Stack%20.NET%20Developer">
+                                <i class="bi bi-send me-1"></i> Apply Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="fxJob2" tabindex="-1" aria-labelledby="fxJob2Title" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-custom">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 id="fxJob2Title" class="modal-title"><i class="bi bi-hdd-network me-2"></i> Senior
+                                Backend .NET Developer</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="mb-3"><strong>Experience:</strong> 6-10 years | <strong>Location:</strong> Remote
+                                | <strong>Type:</strong> Part-time</p>
+                            <h6>What You'll Do</h6>
+                            <ul>
+                                <li>Design and build high-performance REST services in ASP.NET Core</li>
+                                <li>Model data, tune queries, and apply caching strategies</li>
+                                <li>Implement microservices and event-driven patterns</li>
+                                <li>Secure APIs (OAuth2, JWT) and enforce policies/rate limits</li>
+                            </ul>
+                            <h6>You Should Have</h6>
+                            <ul>
+                                <li>C#, ASP.NET Core, EF Core, SQL Server expertise</li>
+                                <li>Messaging: Kafka/RabbitMQ/Azure Service Bus</li>
+                                <li>Hands-on experience with Docker, Kubernetes, and CI/CD pipelines</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-brand" target="_blank" rel="noopener noreferrer"
+                                href="mailto:hr@futurexceltech.com?subject=Application%20-%20Senior%20Backend%20.NET%20Developer">
+                                <i class="bi bi-send me-1"></i> Apply Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="fxJob3" tabindex="-1" aria-labelledby="fxJob3Title" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-custom">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 id="fxJob3Title" class="modal-title"><i
+                                    class="bi bi-layout-text-sidebar-reverse me-2"></i> Frontend Engineer</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="mb-3"><strong>Experience:</strong> 3-6 years | <strong>Location:</strong> Remote |
+                                <strong>Type:</strong> Part-time
+                            </p>
+                            <h6>What You'll Do</h6>
+                            <ul>
+                                <li>Build user-friendly React + TypeScript interfaces</li>
+                                <li>Create reusable components and consistent design systems</li>
+                                <li>Manage state with Redux/RTK or React Query</li>
+                                <li>Ensure responsiveness, accessibility, and Core Web Vitals</li>
+                            </ul>
+                            <h6>You Should Have</h6>
+                            <ul>
+                                <li>React, TypeScript, semantic HTML, and modern CSS expertise</li>
+                                <li>REST/GraphQL integration and authentication flows</li>
+                                <li>Testing with Jest + RTL; Storybook basics</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-brand" target="_blank" rel="noopener noreferrer"
+                                href="mailto:hr@futurexceltech.com?subject=Application%20-%20Frontend%20Engineer">
+                                <i class="bi bi-send me-1"></i> Apply Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="fxJob4" tabindex="-1" aria-labelledby="fxJob4Title" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-custom">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 id="fxJob4Title" class="modal-title"><i class="bi bi-cloud-check me-2"></i> DevOps
+                                Engineer</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="mb-3"><strong>Experience:</strong> 4-8 years | <strong>Location:</strong> Remote |
+                                <strong>Type:</strong> Part-time
+                            </p>
+                            <h6>What You'll Do</h6>
+                            <ul>
+                                <li>Design and maintain CI/CD pipelines (GitHub Actions/Azure DevOps)</li>
+                                <li>Automate infrastructure with Terraform/CloudFormation</li>
+                                <li>Containerize and deploy to Kubernetes (HPA, Ingress, probes)</li>
+                                <li>Monitor with Prometheus/Grafana or ELK/EFK</li>
+                            </ul>
+                            <h6>You Should Have</h6>
+                            <ul>
+                                <li>CI/CD, Docker, Kubernetes, Terraform hands-on skills</li>
+                                <li>AWS/Azure fundamentals and networking basics</li>
+                                <li>Scripting in Bash/PowerShell/Python</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-brand" target="_blank" rel="noopener noreferrer"
+                                href="mailto:hr@futurexceltech.com?subject=Application%20-%20DevOps%20Engineer">
+                                <i class="bi bi-send me-1"></i> Apply Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="fxJob5" tabindex="-1" aria-labelledby="fxJob5Title" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-custom">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 id="fxJob5Title" class="modal-title"><i class="bi bi-database-fill-check me-2"></i> Data
+                                Engineer</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="mb-3"><strong>Experience:</strong> 5-9 years | <strong>Location:</strong> Remote |
+                                <strong>Type:</strong> Part-time
+                            </p>
+                            <h6>What You'll Do</h6>
+                            <ul>
+                                <li>Build reliable batch/stream pipelines with Spark/Databricks</li>
+                                <li>Ingest from APIs/files/RDBMS with schema evolution</li>
+                                <li>Optimize Parquet/Delta, partitioning, and Z-Ordering</li>
+                                <li>Orchestrate with Airflow/ADF and add observability</li>
+                            </ul>
+                            <h6>You Should Have</h6>
+                            <ul>
+                                <li>Strong SQL and Spark (PySpark/Scala) expertise</li>
+                                <li>Azure/AWS data stack proficiency</li>
+                                <li>Delta/Parquet internals and performance tuning</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-brand" target="_blank" rel="noopener noreferrer"
+                                href="mailto:hr@futurexceltech.com?subject=Application%20-%20Data%20Engineer">
+                                <i class="bi bi-send me-1"></i> Apply Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="fxJob6" tabindex="-1" aria-labelledby="fxJob6Title" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-custom">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 id="fxJob6Title" class="modal-title"><i class="bi bi-activity me-2"></i> Healthcare
+                                Interoperability Developer</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="mb-3"><strong>Experience:</strong> 5+ years | <strong>Location:</strong> Remote |
+                                <strong>Type:</strong> Part-time
+                            </p>
+                            <p class="mb-3"><strong>Project Overview:</strong> Support CMS Interoperability Mandate for
+                                healthcare payer. Build FHIR-based APIs using .NET 8 and Azure.</p>
+                            <h6>Key Responsibilities</h6>
+                            <ul>
+                                <li>Design/develop RESTful APIs in C#/.NET 8 aligned to FHIR R4</li>
+                                <li>Deploy/manage FHIR services via Azure Health Data Services</li>
+                                <li>Configure APIM, Azure Functions, and Azure AD</li>
+                                <li>Implement SMART on FHIR and OAuth2 authentication</li>
+                            </ul>
+                            <h6>Must-Have Skills</h6>
+                            <ul>
+                                <li>5+ years C#/.NET (including .NET 6/8)</li>
+                                <li>Hands-on FHIR R4 APIs; HL7 v2/v3 familiarity</li>
+                                <li>Azure APIM, Functions, Azure AD integration</li>
+                                <li>SMART on FHIR, OAuth2, healthcare data security</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-brand" target="_blank" rel="noopener noreferrer"
+                                href="mailto:hr@futurexceltech.com?subject=Application%20-%20Healthcare%20Interoperability%20Developer">
+                                <i class="bi bi-send me-1"></i> Apply Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA (Unified across all pages) -->
+        <section class="fx-cta" aria-labelledby="fx-cta-title">
+            <div class="container">
+                <div class="fx-cta__inner">
+                    <h2 id="fx-cta-title">Looking for your next opportunity?</h2>
+                    <p class="fx-cta__lead">Share your profile and we’ll reach out when a role matches your skills.</p>
+                    <div class="fx-cta__actions">
+                        <a href="/contact" class="btn-cta btn-cta--primary"><i class="bi bi-envelope"></i> Contact
+                            Us</a>
+                        <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20your%20services."
+                            target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta--secondary"><i
+                                class="bi bi-whatsapp"></i> Chat on WhatsApp</a>
+                    </div>
+                    <p class="fx-cta__note">Response time: usually within 24 hours.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact">
+            <div class="container">
+                <div class="row g-4 align-items-start">
+                    <div class="col-md-4">
+                        <h5>About Us</h5>
+                        <p class="mb-2">FutureXcel Technologies is a technology services partner specializing in custom
+                            software development, IT consulting &amp; support, data engineering &amp; AI, cloud/DevOps,
+                            and training &amp; placement programs.</p>
+                        <p class="mb-2">From 24/7 IT support and managed services to product engineering and cloud
+                            modernization, we help teams ship faster and operate securely with measurable outcomes.</p>
+                        <p class="mb-0">We serve startups and enterprises across the United States, Canada, and India
+                            with a focus on reliability, security, and great customer experience.</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h5>Services</h5>
+                        <a href="/services-endpoint">Modern Endpoint Management</a>
+                        <a href="/services-helpdesk">IT Help Desk Outsourcing</a>
+                        <a href="/services-software">Custom Software Development</a>
+                        <a href="/services-research">Research &amp; Development</a>
+                        <a href="/services-consulting">IT Consulting &amp; Support</a>
+                        <a href="/services-data">Data Engineering &amp; Analytics</a>
+                        <a href="/services-ml">Machine Learning Solutions</a>
+                        <a href="/services-cloud">DevOps &amp; Cloud Services</a>
+                        <a href="/services-training">Training &amp; Placement</a>
+                    </div>
+
+                    <div class="col-md-2">
+                        <h5>Quick Links</h5>
+                        <a href="/">Home</a>
+                        <a href="/training">Training</a>
+                        <a href="/careers">Careers</a>
+                        <a href="/about">About Us</a>
+                        <a href="/contact">Contact</a>
+                        <hr class="footer-rule d-md-none" aria-hidden="true" />
+                    </div>
+
+                    <div class="col-md-3">
+                        <h5>Contact</h5>
+                        <address class="mb-1">Email: <a
+                                href="mailto:info@futurexceltech.com">info@futurexceltech.com</a></address>
+                        <address class="mb-0">Phone:<br>
+                            <a href="tel:+918625040777">+91 862-504-0777</a><br>
+                            <a href="tel:+17177499910">+1 717-749-9910</a><br>
+                            <a href="tel:+12172181585">+1 217-218-1585</a>
+                        </address>
+                        <address class="mb-2">H.No. 4-10-312, Abdul Kalam Road<br>Gali No. 1, Near Bus Stand, Ekbal
+                            Nagar<br>Purna, Parbhani, Maharashtra - 431511</address>
+                        <div class="social mt-2" aria-label="Social links">
+                            <a href="https://www.instagram.com/futurexcel_technologies/#" target="_blank"
+                                rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/futurexcel-technologies/" target="_blank"
+                                rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="https://www.facebook.com/share/16yvQLBep4/" target="_blank"
+                                rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20your%20services."
+                                target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i
+                                    class="bi bi-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="footer-rule" />
+                <p class="text-center mb-0 copyright">&copy; <span id="year"></span> FutureXcel Technologies. All rights
+                    reserved.</p>
+            </div>
+        </footer>
+
+
+
+
+        <a class="whatsapp-float"
+            href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27d%20like%20to%20chat%20about%20your%20services."
+            target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+            <i class="bi bi-whatsapp fs-3"></i>
+        </a>
+    </main>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script defer src="./main.js"></script>
+    
+    <!-- Chatbot Integration -->
+    <link rel="stylesheet" href="chatbot.css">
+    <script src="chatbot.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.AOS) {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+                });
+            }
+
+            const root = document.getElementById('careers');
+            if (!root) return;
+            const qEl = root.querySelector('#jobSearch');
+            const pills = Array.from(root.querySelectorAll('.filter-pill'));
+            const cards = Array.from(root.querySelectorAll('#jobsGrid .job-card'));
+            let active = 'all';
+
+            const norm = s => (s || '').toLowerCase().trim();
+
+            const apply = () => {
+                const q = norm(qEl && qEl.value);
+                cards.forEach(c => {
+                    const tags = norm(c.getAttribute('data-tags')).split(/\s+/);
+                    const text = norm(c.innerText);
+                    const okText = !q || text.includes(q);
+                    const okTag = active === 'all' || tags.includes(active);
+                    c.style.display = okText && okTag ? '' : 'none';
+                });
+            };
+
+            if (qEl) qEl.addEventListener('input', apply);
+
+            pills.forEach(p => p.addEventListener('click', () => {
+                pills.forEach(x => x.setAttribute('aria-pressed', 'false'));
+                p.setAttribute('aria-pressed', 'true');
+                active = p.dataset.filter || 'all';
+                apply();
+            }));
+
+            apply();
+        });
+    </script>
+</body>
+
+</html>

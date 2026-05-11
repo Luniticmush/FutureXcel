@@ -1,0 +1,2404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="About FutureXcel Technologies – who we are, our mission, values, approach, and tech toolkit." />
+  <meta name="keywords"
+    content="FutureXcel Technologies, about us, software development company, IT services, technology solutions" />
+  <meta name="author" content="FutureXcel Technologies" />
+  <meta name="theme-color" content="#0d1b2a" />
+  <meta name="color-scheme" content="light dark" />
+  <title>About Us | FutureXcel Technologies</title>
+
+  <!-- Resource Hints -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="./assets/hero1.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./assets/Favico.png" />
+
+  <!-- Google Fonts - Professional Typography (Inter) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS: Vendors -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+
+  <!-- CSS: App -->
+  <link href="./styles.css" rel="stylesheet" />
+
+  <!-- Page-specific styles -->
+  <style>
+    /* About page specific styles - common styles are in styles.css */
+
+    /* ========== HERO SECTION - Match index.html design ========== */
+    .hero {
+      position: relative;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    #heroCarousel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    #heroCarousel .carousel-inner {
+      width: 100%;
+      height: 100%;
+    }
+
+    #heroCarousel .carousel-item {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+    }
+
+    #heroCarousel .carousel-item video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      object-position: center;
+      background: black;
+      filter: brightness(0.5);
+      display: block;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 86, 210, 0.75) 0%, rgba(0, 150, 136, 0.6) 50%, rgba(13, 27, 42, 0.9) 100%);
+      z-index: 1;
+      opacity: 1;
+    }
+
+    .hero .inner {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      padding: 70px 0 60px;
+      text-align: left;
+    }
+
+    .hero h1 {
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      font-size: clamp(2.25rem, 2rem + 2vw, 3.25rem);
+      margin-bottom: 0.75rem;
+      color: #ffffff;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5), 0 4px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero p.lead {
+      max-width: 720px;
+      font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      line-height: 1.65;
+      color: #ffffff;
+      margin: 0;
+      text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4), 0 1px 5px rgba(0, 0, 0, 0.3);
+      font-weight: 400;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      justify-content: flex-start;
+    }
+
+    .hero-badges .hb {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      padding: 0.5rem 0.875rem;
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+    }
+
+    .hero-badges .hb:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 999px;
+      padding: 12px 28px;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      text-decoration: none;
+      line-height: 1.5;
+      border: 0;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .btn-pill i {
+      font-size: 1.0625rem;
+      transition: transform 0.3s ease;
+    }
+
+    /* Button Style 1: Primary Gradient (Blue to Teal) - Light Mode */
+    .btn-brand {
+      background: var(--fx-gradient);
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 14px rgba(0, 86, 210, 0.3);
+    }
+
+    .btn-brand:hover {
+      background: linear-gradient(90deg, #0066e6, #00a896);
+      box-shadow: 0 6px 20px rgba(0, 86, 210, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .btn-brand i {
+      color: #fff;
+    }
+
+    /* Button Style 2: White Background - Light Mode */
+    .btn-contrast {
+      background: #ffffff;
+      color: #0d1b2a;
+      border: none;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-contrast:hover {
+      background: #f8f9fa;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .btn-contrast i {
+      color: #0d1b2a;
+    }
+
+    /* Button Style 3: Transparent with White Border - Light Mode */
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #fff;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline i {
+      color: #fff;
+    }
+
+    /* ========== MAIN CONTENT SECTIONS ========== */
+    .section-title {
+      font-weight: 600;
+      font-size: clamp(1.5rem, 2.5vw, 1.9rem);
+      margin-bottom: 10px;
+      background: var(--fx-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    html.theme-dark .section-title {
+      -webkit-text-fill-color: #fff !important;
+      background: none !important;
+    }
+
+    .section-sub {
+      color: #6b7280;
+      font-size: 0.95rem;
+      font-weight: 400;
+    }
+
+    /* ========== ABOUT CARDS - Professional Design ========== */
+    .about-card {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .about-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--fx-gradient);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .about-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+      border-color: rgba(0, 86, 210, 0.15);
+    }
+
+    .about-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .about-card .icon-wrap {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin: 0 auto 16px;
+      color: #fff;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .vision .icon-wrap {
+      background: linear-gradient(135deg, #0056d2, #0066e6);
+    }
+
+    .mission .icon-wrap {
+      background: linear-gradient(135deg, #ff6f00, #ff8c00);
+    }
+
+    .about-card:hover .icon-wrap {
+      transform: scale(1.1);
+    }
+
+    .about-card h5 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+
+    .about-card p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #475569;
+      margin-bottom: 14px;
+    }
+
+    /* Bullet list - Professional Design */
+    .bullet-list {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin: 0 auto;
+      max-width: 90%;
+    }
+
+    .bullet-list li {
+      margin-bottom: 8px;
+      padding-left: 22px;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      color: #64748b;
+    }
+
+    .bullet-list li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--fx-blue);
+      font-weight: 700;
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .bullet-list li:hover {
+      transform: translateX(4px);
+      color: inherit;
+    }
+
+    .bullet-list li:hover::before {
+      transform: scale(1.2);
+    }
+
+    /* ========== VALUE CARDS - Professional Design ========== */
+    .value-card-modern {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .value-card-modern::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--fx-gradient);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .value-card-modern:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+      border-color: rgba(0, 86, 210, 0.15);
+    }
+
+    .value-card-modern:hover::before {
+      transform: scaleX(1);
+    }
+
+    .icon-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: #fff;
+      margin: 0 auto 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .bg-blue {
+      background: linear-gradient(135deg, #0056d2, #0066e6);
+    }
+
+    .bg-teal {
+      background: linear-gradient(135deg, #009688, #00b2a9);
+    }
+
+    .bg-orange {
+      background: linear-gradient(135deg, #ff6f00, #ff8c00);
+    }
+
+    .bg-purple {
+      background: linear-gradient(135deg, #9c27b0, #ba68c8);
+    }
+
+    .value-card-modern:hover .icon-circle {
+      transform: scale(1.1);
+    }
+
+    .value-card-modern h6 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+
+    .value-card-modern p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: #64748b;
+      margin: 0;
+    }
+
+    /* ========== PROCESS STEPS - Professional Design ========== */
+    .process-step {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-left: 4px solid var(--fx-blue);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .process-step::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--fx-gradient);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .process-step:hover,
+    .process-step:focus-within {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+      border-color: rgba(0, 86, 210, 0.15);
+    }
+
+    .process-step:hover::before {
+      transform: scaleX(1);
+    }
+
+    .process-step .icon {
+      font-size: 1.75rem;
+      color: var(--fx-orange);
+      margin-bottom: 14px;
+      transition: transform 0.3s ease;
+      display: block;
+    }
+
+    .process-step:hover .icon {
+      transform: scale(1.1);
+    }
+
+    .process-step h6 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+
+    .process-step p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: #64748b;
+      margin: 0;
+    }
+
+    /* Tech Toolkit carousel */
+    .logo-carousel {
+      overflow: hidden;
+      width: 100%;
+      padding: 30px 0;
+      position: relative;
+    }
+
+    .logo-carousel::before,
+    .logo-carousel::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .logo-carousel::before {
+      left: 0;
+      background: linear-gradient(to right, #f8fafc, transparent);
+    }
+
+    .logo-carousel::after {
+      right: 0;
+      background: linear-gradient(to left, #f8fafc, transparent);
+    }
+
+    html.theme-dark .logo-carousel::before {
+      background: linear-gradient(to right, #0b1220, transparent);
+    }
+
+    html.theme-dark .logo-carousel::after {
+      background: linear-gradient(to left, #0b1220, transparent);
+    }
+
+    .logo-track {
+      display: flex;
+      animation: scroll 110s linear infinite;
+    }
+
+    .logo-item {
+      perspective: 1000px;
+      margin: 0 20px;
+      flex: 0 0 auto;
+    }
+
+    .flip-card {
+      width: 80px;
+      height: 80px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform .6s;
+    }
+
+    .logo-item:hover .flip-card {
+      transform: rotateY(180deg);
+    }
+
+    .flip-front,
+    .flip-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+    }
+
+    .flip-back {
+      background: transparent;
+      border-radius: 10px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Unified styles for both light and dark mode */
+    .flip-front {
+      background: #ffffff !important;
+      background-color: #ffffff !important;
+      border: 1px solid rgba(0, 0, 0, 0.1) !important;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .logo-item:hover .flip-front {
+      background: #ffffff !important;
+      background-color: #ffffff !important;
+      border-color: rgba(0, 86, 210, 0.3) !important;
+      box-shadow: 0 4px 12px rgba(0, 86, 210, 0.15) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    .flip-front img {
+      height: 45px;
+      width: auto;
+      transition: all 0.3s ease;
+      max-width: 90%;
+      filter: grayscale(20%);
+      opacity: 1;
+      object-fit: contain;
+      display: block !important;
+      visibility: visible !important;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Override for dark mode - remove all filters */
+    html.theme-dark .flip-front img {
+      filter: none !important;
+      -webkit-filter: none !important;
+    }
+
+    .logo-item:hover .flip-front img {
+      filter: grayscale(0%);
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    .flip-back {
+      color: #fff;
+      font-weight: bold;
+      transform: rotateY(180deg);
+      font-size: .85rem;
+      text-align: center;
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Tech logos brand colors */
+    .brand-csharp {
+      background: #68217A;
+    }
+
+    .brand-java {
+      background: #f89820;
+    }
+
+    .brand-python {
+      background: #3776ab;
+    }
+
+    .brand-js {
+      background: #f7df1e;
+      color: #000;
+    }
+
+    .brand-ts {
+      background: #3178c6;
+    }
+
+    .brand-react {
+      background: #61dafb;
+      color: #000;
+    }
+
+    .brand-angular {
+      background: #dd0031;
+    }
+
+    .brand-node {
+      background: #3c873a;
+    }
+
+    .brand-dotnet {
+      background: #512bd4;
+    }
+
+    .brand-php {
+      background: #8993be;
+    }
+
+    .brand-go {
+      background: #00add8;
+    }
+
+    .brand-ruby {
+      background: #cc342d;
+    }
+
+    .brand-swift {
+      background: #f05138;
+    }
+
+    .brand-kotlin {
+      background: linear-gradient(135deg, #7f52ff, #ff6b6b);
+    }
+
+    .brand-html {
+      background: #e34f26;
+    }
+
+    .brand-css {
+      background: #264de4;
+    }
+
+    .brand-bootstrap {
+      background: #7952b3;
+    }
+
+    .brand-tailwind {
+      background: #06b6d4;
+    }
+
+    .brand-docker {
+      background: #2496ed;
+    }
+
+    .brand-k8s {
+      background: #326ce5;
+    }
+
+    .brand-aws {
+      background: #ff9900;
+    }
+
+    .brand-azure {
+      background: #0078d4;
+    }
+
+    .brand-gcp {
+      background: #4285f4;
+    }
+
+    .brand-git {
+      background: #f05032;
+    }
+
+    .brand-github {
+      background: #24292f;
+    }
+
+    .brand-gitlab {
+      background: #fc6d26;
+    }
+
+    .brand-mongo {
+      background: #47a248;
+    }
+
+    .brand-mysql {
+      background: #4479a1;
+    }
+
+    .brand-postgres {
+      background: #336791;
+    }
+
+    .brand-redis {
+      background: #d82c20;
+    }
+
+    /* CTA is standardized site-wide in styles.css via `.fx-cta` */
+
+
+    html.theme-dark .flip-back {
+      color: #fff !important;
+    }
+
+    /* ========== DARK MODE: Tech Toolkit - Same as light mode ========== */
+    /* Force white background in dark mode to match light mode */
+    html.theme-dark .flip-front,
+    html.theme-dark .logo-item .flip-front,
+    html.theme-dark .flip-card .flip-front,
+    html.theme-dark .logo-item .flip-card .flip-front,
+    html.theme-dark section#stack .flip-front,
+    html.theme-dark section#stack .logo-item .flip-front,
+    html.theme-dark section#stack .flip-card .flip-front,
+    html.theme-dark #stack .flip-front,
+    html.theme-dark #stack .logo-item .flip-front,
+    html.theme-dark #stack .flip-card .flip-front {
+      background: #ffffff !important;
+      background-color: #ffffff !important;
+      background-image: none !important;
+      border: 1px solid rgba(0, 0, 0, 0.1) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    /* Dark mode images - ensure full visibility - remove all filters that might hide them */
+    html.theme-dark .flip-front img,
+    html.theme-dark .logo-item .flip-front img,
+    html.theme-dark .flip-card .flip-front img,
+    html.theme-dark section#stack .flip-front img,
+    html.theme-dark section#stack .logo-item .flip-front img,
+    html.theme-dark #stack .flip-front img,
+    html.theme-dark #stack .logo-item .flip-front img,
+    html.theme-dark .flip-front img[src],
+    html.theme-dark .logo-item img,
+    html.theme-dark .flip-card img,
+    html.theme-dark img[src*="devicon"] {
+      filter: none !important;
+      opacity: 1 !important;
+      display: block !important;
+      visibility: visible !important;
+      -webkit-filter: none !important;
+      max-width: 90% !important;
+      height: 45px !important;
+      width: auto !important;
+      object-fit: contain !important;
+      position: relative !important;
+      z-index: 1 !important;
+      color: #000 !important;
+    }
+
+    /* Dark mode hover - same as light mode */
+    html.theme-dark .logo-item:hover .flip-front,
+    html.theme-dark .logo-item:focus .flip-front,
+    html.theme-dark .logo-item:active .flip-front,
+    html.theme-dark .logo-item:hover .flip-card .flip-front,
+    html.theme-dark section#stack .logo-item:hover .flip-front,
+    html.theme-dark #stack .logo-item:hover .flip-front {
+      background: #ffffff !important;
+      background-color: #ffffff !important;
+      background-image: none !important;
+      border-color: rgba(0, 86, 210, 0.3) !important;
+      box-shadow: 0 4px 12px rgba(0, 86, 210, 0.15) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    html.theme-dark .logo-item:hover .flip-front img,
+    html.theme-dark .logo-item:focus .flip-front img,
+    html.theme-dark .logo-item:active .flip-front img,
+    html.theme-dark .logo-item:hover .flip-card .flip-front img,
+    html.theme-dark section#stack .logo-item:hover .flip-front img,
+    html.theme-dark #stack .logo-item:hover .flip-front img {
+      filter: none !important;
+      opacity: 1 !important;
+      transform: scale(1.05) !important;
+      display: block !important;
+      visibility: visible !important;
+      -webkit-filter: none !important;
+      position: relative !important;
+      z-index: 1 !important;
+    }
+
+
+    /* Dark mode: ensure flip-back text is visible - preserve brand backgrounds */
+    html.theme-dark .flip-back {
+      font-weight: bold !important;
+      opacity: 1 !important;
+    }
+
+    /* Most brand backgrounds are dark/medium - use white text */
+    html.theme-dark .flip-back.brand-csharp,
+    html.theme-dark .flip-back.brand-python,
+    html.theme-dark .flip-back.brand-ts,
+    html.theme-dark .flip-back.brand-angular,
+    html.theme-dark .flip-back.brand-node,
+    html.theme-dark .flip-back.brand-dotnet,
+    html.theme-dark .flip-back.brand-php,
+    html.theme-dark .flip-back.brand-go,
+    html.theme-dark .flip-back.brand-ruby,
+    html.theme-dark .flip-back.brand-swift,
+    html.theme-dark .flip-back.brand-kotlin,
+    html.theme-dark .flip-back.brand-html,
+    html.theme-dark .flip-back.brand-css,
+    html.theme-dark .flip-back.brand-bootstrap,
+    html.theme-dark .flip-back.brand-tailwind,
+    html.theme-dark .flip-back.brand-docker,
+    html.theme-dark .flip-back.brand-k8s,
+    html.theme-dark .flip-back.brand-azure,
+    html.theme-dark .flip-back.brand-gcp,
+    html.theme-dark .flip-back.brand-git,
+    html.theme-dark .flip-back.brand-github,
+    html.theme-dark .flip-back.brand-gitlab,
+    html.theme-dark .flip-back.brand-mongo,
+    html.theme-dark .flip-back.brand-mysql,
+    html.theme-dark .flip-back.brand-postgres,
+    html.theme-dark .flip-back.brand-redis {
+      color: #ffffff !important;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+    }
+
+    /* Light/medium backgrounds - use dark text */
+    html.theme-dark .flip-back.brand-java,
+    html.theme-dark .flip-back.brand-js,
+    html.theme-dark .flip-back.brand-react,
+    html.theme-dark .flip-back.brand-aws {
+      color: #000000 !important;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6) !important;
+      font-weight: 800 !important;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .logo-item {
+        margin: 0 15px;
+      }
+
+      .flip-card {
+        width: 70px;
+        height: 70px;
+      }
+
+      .flip-front img {
+        height: 40px;
+      }
+
+      .logo-carousel::before,
+      .logo-carousel::after {
+        width: 50px;
+      }
+    }
+
+    /* ========== DARK MODE SUPPORT ========== */
+    html.theme-dark .about-card {
+      background: #101c2d;
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+    }
+
+    html.theme-dark .about-card:hover {
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.7);
+    }
+
+    html.theme-dark .about-card h5,
+    html.theme-dark .about-card p {
+      color: #e5e7eb;
+    }
+
+    html.theme-dark .value-card-modern {
+      background: #101c2d;
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+    }
+
+    html.theme-dark .value-card-modern:hover {
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.7);
+    }
+
+    html.theme-dark .value-card-modern h6,
+    html.theme-dark .value-card-modern p {
+      color: #e5e7eb;
+    }
+
+    html.theme-dark .process-step {
+      background: #101c2d;
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+    }
+
+    html.theme-dark .process-step:hover {
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.7);
+    }
+
+    html.theme-dark .process-step h6,
+    html.theme-dark .process-step p {
+      color: #e5e7eb;
+    }
+
+    html.theme-dark #values {
+      background: #0b1220 !important;
+    }
+
+    /* Dark mode: Tech Toolkit section background */
+    html.theme-dark #stack,
+    html.theme-dark section#stack,
+    html.theme-dark section#stack.bg-light {
+      background: #0b1220 !important;
+    }
+
+    html.theme-dark #stack.bg-light {
+      background: #0b1220 !important;
+    }
+
+    /* Ensure section title and subtitle are visible in dark mode */
+    html.theme-dark #stack .section-title {
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
+      background: none !important;
+    }
+
+    html.theme-dark #stack .section-title i {
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
+    }
+
+    html.theme-dark #stack .section-sub {
+      color: #e5e7eb !important;
+      opacity: 1 !important;
+    }
+
+    /* Dark mode: ensure logo track and items are visible */
+    html.theme-dark .logo-track {
+      background: transparent;
+    }
+
+    html.theme-dark .logo-item {
+      background: transparent;
+    }
+
+    html.theme-dark .logo-carousel {
+      background: transparent;
+    }
+
+    /* FINAL OVERRIDE: Force images to be visible in dark mode */
+    html.theme-dark #stack img,
+    html.theme-dark section#stack img,
+    html.theme-dark .logo-carousel img,
+    html.theme-dark .logo-track img,
+    html.theme-dark .flip-card img {
+      opacity: 1 !important;
+      visibility: visible !important;
+      display: block !important;
+      filter: none !important;
+      -webkit-filter: none !important;
+    }
+
+
+    .flip-back {
+      color: #fff;
+      font-weight: bold;
+      transform: rotateY(180deg);
+      font-size: .85rem;
+      text-align: center;
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Tech logos brand colors */
+    .brand-csharp {
+      background: #68217A;
+    }
+
+    .brand-java {
+      background: #f89820;
+    }
+
+    .brand-python {
+      background: #3776ab;
+    }
+
+    .brand-js {
+      background: #f7df1e;
+      color: #000;
+    }
+
+    .brand-ts {
+      background: #3178c6;
+    }
+
+    .brand-react {
+      background: #61dafb;
+      color: #000;
+    }
+
+    .brand-angular {
+      background: #dd0031;
+    }
+
+    .brand-node {
+      background: #3c873a;
+    }
+
+    .brand-dotnet {
+      background: #512bd4;
+    }
+
+    .brand-php {
+      background: #8993be;
+    }
+
+    .brand-go {
+      background: #00add8;
+    }
+
+    .brand-ruby {
+      background: #cc342d;
+    }
+
+    .brand-swift {
+      background: #f05138;
+    }
+
+    .brand-kotlin {
+      background: linear-gradient(135deg, #7f52ff, #ff6b6b);
+    }
+
+    .brand-html {
+      background: #e34f26;
+    }
+
+    .brand-css {
+      background: #264de4;
+    }
+
+    .brand-bootstrap {
+      background: #7952b3;
+    }
+
+    .brand-tailwind {
+      background: #06b6d4;
+    }
+
+    .brand-docker {
+      background: #2496ed;
+    }
+
+    .brand-k8s {
+      background: #326ce5;
+    }
+
+    .brand-aws {
+      background: #ff9900;
+    }
+
+    .brand-azure {
+      background: #0078d4;
+    }
+
+    .brand-gcp {
+      background: #4285f4;
+    }
+
+    .brand-git {
+      background: #f05032;
+    }
+
+    .brand-github {
+      background: #24292f;
+    }
+
+    .brand-gitlab {
+      background: #fc6d26;
+    }
+
+    .brand-mongo {
+      background: #47a248;
+    }
+
+    .brand-mysql {
+      background: #4479a1;
+    }
+
+    .brand-postgres {
+      background: #336791;
+    }
+
+    .brand-redis {
+      background: #d82c20;
+    }
+
+    /* Dark navbar logo */
+    html.theme-dark .navbar-brand img {
+      filter: brightness(0) invert(1);
+    }
+
+
+    /* Footer color fix: place at the very end of your CSS */
+    /* brighter, readable "dark white" */
+    footer {
+      color: #f1f5f9 !important;
+    }
+
+    footer h5 {
+      color: #ffffff !important;
+    }
+
+    footer p,
+    footer address,
+    footer .copyright,
+    footer small,
+    footer .text-muted {
+      color: #e5e7eb !important;
+    }
+
+    footer a {
+      color: #e5e7eb !important;
+      text-decoration: none;
+    }
+
+    footer a:hover,
+    footer a:focus {
+      color: #ffffff !important;
+      text-decoration: underline;
+    }
+
+    /* ensure the hr isn’t too dim next to brighter text */
+    footer .footer-rule {
+      border-color: rgba(255, 255, 255, 0.25) !important;
+    }
+
+    footer .social a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    footer .social a i {
+      transition: transform .2s ease, filter .2s ease;
+      will-change: transform, filter;
+      /* why: smoother hover */
+    }
+
+    /* Hover: soft white glow + slight lift */
+    footer .social a:hover i,
+    footer .social a:focus-visible i {
+      transform: translateY(-1px);
+      filter:
+        drop-shadow(0 0 4px rgba(255, 255, 255, 0.45)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.35));
+    }
+
+    /* Stronger glow on dark footer backgrounds */
+    footer[style],
+    footer,
+    html.theme-dark footer {
+      --fx-footer-glow1: rgba(255, 255, 255, 0.55);
+      --fx-footer-glow2: rgba(255, 255, 255, 0.40);
+    }
+
+    html.theme-dark footer .social a:hover i,
+    html.theme-dark footer .social a:focus-visible i {
+      filter:
+        drop-shadow(0 0 5px var(--fx-footer-glow1)) drop-shadow(0 0 12px var(--fx-footer-glow2));
+    }
+
+    /* Accessibility: no motion */
+    @media (prefers-reduced-motion: reduce) {
+      footer .social a i {
+        transition: none;
+      }
+
+      footer .social a:hover i,
+      footer .social a:focus-visible i {
+        transform: none;
+      }
+    }
+
+    /* === FINAL FIX: Remove all nav underline (normal, active, focus, dropdown, dark mode) === */
+
+    /* All navbar links and dropdown toggles */
+    .navbar .nav-link,
+    .navbar .nav-link:hover,
+    .navbar .nav-link:focus,
+    .navbar .nav-link:active,
+    .navbar .nav-link.show,
+    .navbar .dropdown-toggle,
+    .navbar .dropdown-toggle:hover,
+    .navbar .dropdown-toggle:focus,
+    .navbar .dropdown-item,
+    .navbar .dropdown-item:hover,
+    .navbar .dropdown-item:focus {
+      text-decoration: none !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Active / open link (e.g., About Us, Services when dropdown open) */
+    .navbar .nav-link.active,
+    .navbar .nav-link.show,
+    .navbar .nav-link[aria-expanded="true"] {
+      text-decoration: none !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Dark mode consistency */
+    html.theme-dark .navbar .nav-link,
+    html.theme-dark .navbar .nav-link:hover,
+    html.theme-dark .navbar .nav-link:focus,
+    html.theme-dark .navbar .nav-link.active,
+    html.theme-dark .navbar .dropdown-toggle,
+    html.theme-dark .navbar .dropdown-toggle:hover,
+    html.theme-dark .navbar .dropdown-toggle:focus {
+      text-decoration: none !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    /* ========== MOBILE OPTIMIZATION FOR 390x844 ========== */
+    @media screen and (max-width: 991px) {
+      body {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .container {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .hero {
+        min-height: 45vh;
+      }
+
+      #heroCarousel {
+        min-height: 45vh;
+        height: 45vh;
+      }
+
+      #heroCarousel .carousel-item video {
+        height: 45vh;
+        min-height: 45vh;
+      }
+
+      .hero .inner {
+        padding: 40px 15px 50px;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        color: #ffffff !important;
+      }
+
+      .hero p.lead {
+        font-size: clamp(0.85rem, 2.5vw, 1rem);
+        line-height: 1.6;
+        font-weight: 400;
+        color: #ffffff !important;
+      }
+
+      .hero-badges {
+        gap: 0.4rem;
+        margin-top: 0.8rem;
+      }
+
+      .hero-badges .hb {
+        font-size: 0.65rem;
+        padding: 0.35rem 0.6rem;
+      }
+
+      .hero-actions {
+        gap: 0.6rem;
+        margin-top: 1.2rem;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-pill {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+        justify-content: center;
+      }
+
+      .section-title {
+        font-size: clamp(1.4rem, 4vw, 1.8rem);
+        margin-bottom: 1rem;
+      }
+
+      footer {
+        padding: 24px 0;
+      }
+
+      footer h5 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+
+      footer p,
+      footer a {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media screen and (width: 390px) and (height: 844px),
+    screen and (width: 390px) and (min-height: 800px),
+    screen and (min-width: 390px) and (max-width: 428px) {
+      .hero {
+        min-height: auto !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        padding-bottom: 30px !important;
+      }
+
+      #heroCarousel {
+        min-height: auto !important;
+        height: auto !important;
+        max-height: none !important;
+      }
+
+      #heroCarousel .carousel-item video {
+        height: auto !important;
+        min-height: auto !important;
+      }
+
+      .hero .inner {
+        padding: 45px 18px 160px !important;
+        overflow: visible !important;
+      }
+
+      .hero-actions {
+        flex-direction: column !important;
+        gap: 0.55rem !important;
+        margin-top: 0.7rem !important;
+        display: flex !important;
+        width: 100% !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+
+      .hero-actions a,
+      .hero-actions .btn-pill {
+        width: 100% !important;
+        padding: 10px 16px !important;
+        font-size: 0.84rem !important;
+        min-height: 40px !important;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        flex-shrink: 0 !important;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+        font-weight: 600;
+        color: #ffffff !important;
+      }
+
+      .hero p.lead {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        font-weight: 400;
+        color: #ffffff !important;
+      }
+
+      .container {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .section-title {
+        font-size: 1.65rem;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .hero {
+        min-height: auto !important;
+        height: auto !important;
+        overflow: visible !important;
+      }
+
+      #heroCarousel {
+        min-height: auto !important;
+        height: auto !important;
+      }
+
+      #heroCarousel .carousel-item video {
+        height: auto !important;
+        min-height: auto !important;
+      }
+
+      .hero .inner {
+        padding: 35px 12px 140px !important;
+        overflow: visible !important;
+      }
+
+      .hero-actions {
+        flex-direction: column !important;
+        gap: 0.55rem !important;
+        display: flex !important;
+        width: 100% !important;
+      }
+
+      .hero-actions a,
+      .hero-actions .btn-pill {
+        width: 100% !important;
+        padding: 10px 16px !important;
+        font-size: 0.84rem !important;
+        min-height: 40px !important;
+      }
+
+      .hero h1 {
+        font-size: 1.4rem;
+        line-height: 1.2;
+        font-weight: 600;
+        color: #ffffff !important;
+      }
+
+      .hero p.lead {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        font-weight: 400;
+        color: #ffffff !important;
+      }
+
+      .hero-badges {
+        gap: 0.35rem;
+      }
+
+      .hero-badges .hb {
+        font-size: 0.6rem;
+        padding: 0.3rem 0.5rem;
+      }
+
+      .hero-actions {
+        gap: 0.5rem;
+      }
+
+      .btn-pill {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+      }
+
+      .container {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+    }
+
+    /* Fix footer contact phone spacing */
+    footer address.mb-0 {
+      margin-bottom: 0.25rem !important;
+      line-height: 1.4;
+    }
+
+    footer address.mb-0 a {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      line-height: 1.4;
+    }
+
+    footer address.mb-0 br {
+      line-height: 1.4;
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="#about" class="skip-link">Skip to content</a>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top" role="navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/" aria-label="FutureXcel Home">
+        <img src="./assets/logo.png" alt="FutureXcel Technologies Logo" decoding="async" fetchpriority="high"
+          loading="eager" data-logo-light="./assets/logo.png" data-logo-dark="./assets/logo.png" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav fw-semibold">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">Services</a>
+            <ul class="dropdown-menu shadow border-0 rounded-3" aria-labelledby="servicesDropdown">
+              <li><a class="dropdown-item" href="/services-endpoint">Modern Endpoint Management</a></li>
+              <li><a class="dropdown-item" href="/services-helpdesk">IT Help Desk Outsourcing</a></li>
+              <li><a class="dropdown-item" href="/services-software">Custom Software Development</a></li>
+              <li><a class="dropdown-item" href="/services-research">Research &amp; Development</a></li>
+              <li><a class="dropdown-item" href="/services-consulting">IT Consulting &amp; Support</a></li>
+              <li><a class="dropdown-item" href="/services-data">Data Engineering &amp; Analytics</a></li>
+              <li><a class="dropdown-item" href="/services-ml">Machine Learning Solutions</a></li>
+              <li><a class="dropdown-item" href="/services-cloud">DevOps &amp; Cloud Services</a></li>
+              <li><a class="dropdown-item" href="/services-training">Training &amp; Placement</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="/training">Training</a></li>
+          <li class="nav-item"><a class="nav-link" href="/careers">Careers</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+        </ul>
+
+        <!-- Dark mode toggle -->
+        <div class="d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
+          <button id="themeToggle" class="btn btn-sm btn-outline-dark rounded-pill d-inline-flex align-items-center"
+            type="button" aria-pressed="false" title="Toggle dark mode">
+            <i class="bi bi-moon-stars me-1" aria-hidden="true"></i>
+            <span class="visually-hidden">Toggle dark mode</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <!-- HERO -->
+    <header class="hero" style="--hero-image: url('./assets/hero2.jpg');">
+      <div class="container">
+        <div class="inner">
+          <span class="eyebrow">Who we are</span>
+          <div class="hero-badges">
+            <span class="hb">INNOVATION</span>
+            <span class="hb">EXCELLENCE</span>
+            <span class="hb">CRAFTSMANSHIP</span>
+            <span class="hb">GLOBAL REACH</span>
+          </div>
+          <h1 class="mt-1">About FutureXcel</h1>
+          <p class="lead">Engineers, data enthusiasts, and DevOps builders - solving real problems with craftsmanship.
+            We bring together innovation, engineering, and continuous learning to create digital solutions that empower
+            businesses and professionals worldwide.</p>
+          <div class="hero-actions">
+            <a href="#about" class="btn-pill btn-brand" data-scroll><i class="bi bi-people-fill"></i> Learn More</a>
+            <a href="/contact" class="btn-pill btn-contrast"><i class="bi bi-chat-dots"></i> Talk to Us</a>
+            <a href="#values" class="btn-pill btn-outline" data-scroll><i class="bi bi-heart-pulse-fill"></i> Our
+              Values</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-5 bg-light">
+      <div class="container about-kv" data-aos="fade-up">
+        <div class="text-center mb-5">
+          <h2 class="section-title"><i class="bi bi-people-fill me-2"></i>Who We Are</h2>
+          <p class="section-sub mx-auto" style="max-width: 820px;">
+            At <strong>FutureXcel Technologies</strong>, we bring together innovation, engineering, and continuous
+            learning
+            to create digital solutions that empower businesses and professionals worldwide.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Vision -->
+          <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
+            <div class="about-card vision d-flex flex-column h-100 hover-dynamic">
+              <div class="icon-wrap" aria-hidden="true"><i class="bi bi-binoculars-fill"></i></div>
+              <h5 class="fw-bold mt-3">Our Vision</h5>
+              <p class="mt-2" style="font-size:0.95rem;">
+                To shape a future where technology becomes a catalyst for innovation, inclusivity, and growth.
+              </p>
+              <ul class="bullet-list mt-3 flex-grow-1">
+                <li>Empower businesses to innovate faster</li>
+                <li>Bridge talent gaps with training</li>
+                <li>Drive human-centric &amp; ethical innovation</li>
+                <li>Achieve global reach with local impact</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Mission -->
+          <div class="col-md-6" data-aos="fade-left" data-aos-delay="200">
+            <div class="about-card mission d-flex flex-column h-100 hover-dynamic">
+              <div class="icon-wrap" aria-hidden="true"><i class="bi bi-flag-fill"></i></div>
+              <h5 class="fw-bold mt-3">Our Mission</h5>
+              <p class="mt-2" style="font-size:0.95rem;">
+                To deliver scalable, secure, and practical solutions while nurturing talent
+                and driving sustainable impact.
+              </p>
+              <ul class="bullet-list mt-3 flex-grow-1">
+                <li>Build innovative, high-quality software</li>
+                <li>Accelerate digital transformation</li>
+                <li>Advance tech education globally</li>
+                <li>Empower careers with mentorship</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section id="values" class="py-5 bg-light">
+      <div class="container" data-aos="fade-up">
+        <div class="text-center mb-5">
+          <h2 class="section-title"><i class="bi bi-heart-pulse-fill me-2"></i>Core Values</h2>
+          <p class="section-sub mx-auto" style="max-width: 820px;">
+            Our values guide everything we do - from how we build software to how we mentor talent and collaborate with
+            partners.
+          </p>
+        </div>
+        <div class="row g-4 justify-content-center">
+
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="value-card-modern h-100 value-blue">
+              <div class="icon-circle bg-blue"><i class="bi bi-lightning-charge-fill"></i></div>
+              <h6 class="fw-bold mt-3">Ownership</h6>
+              <p class="small">We treat every feature like our own product and every bug like our own responsibility.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="value-card-modern h-100 value-teal">
+              <div class="icon-circle bg-teal"><i class="bi bi-compass-fill"></i></div>
+              <h6 class="fw-bold mt-3">Curiosity</h6>
+              <p class="small">We continuously explore new frameworks, tools, and approaches to stay ahead of the curve.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="value-card-modern h-100 value-orange">
+              <div class="icon-circle bg-orange"><i class="bi bi-people-fill"></i></div>
+              <h6 class="fw-bold mt-3">Empathy</h6>
+              <p class="small">We listen first and build technology that truly understands and serves people.</p>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="value-card-modern h-100 value-purple">
+              <div class="icon-circle bg-purple"><i class="bi bi-gem"></i></div>
+              <h6 class="fw-bold mt-3">Craftsmanship</h6>
+              <p class="small">Clean code, clear tests, and repeatable pipelines - quality is a habit, not a phase.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW WE WORK -->
+    <section id="process" class="py-5 bg-light">
+      <div class="container" data-aos="fade-up">
+        <div class="text-center mb-5">
+          <h2 class="section-title"><i class="bi bi-diagram-3-fill me-2"></i>How We Work - Four-Step Approach</h2>
+          <p class="section-sub mx-auto" style="max-width: 820px;">
+            A proven methodology that ensures predictable delivery, high quality, and alignment with your business
+            goals.
+          </p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="process-step h-100 step-blue hover-dynamic" tabindex="0" role="button" aria-label="Discover">
+              <i class="bi bi-search icon"></i>
+              <h6 class="fw-bold mb-2 mt-2">Discover</h6>
+              <p class="small mb-0">Short workshops to capture goals, risks, and success metrics.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="process-step h-100 step-teal hover-dynamic" tabindex="0" role="button" aria-label="Design">
+              <i class="bi bi-vector-pen icon"></i>
+              <h6 class="fw-bold mb-2 mt-2">Design</h6>
+              <p class="small mb-0">User-first wireframes, scalable architecture, and a clear backlog.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="process-step h-100 step-orange hover-dynamic" tabindex="0" role="button" aria-label="Develop">
+              <i class="bi bi-code-slash icon"></i>
+              <h6 class="fw-bold mb-2 mt-2">Develop</h6>
+              <p class="small mb-0">Agile sprints, pair programming, automated tests, CI/CD.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="process-step h-100 step-purple hover-dynamic" tabindex="0" role="button"
+              aria-label="Deliver and Improve">
+              <i class="bi bi-rocket-takeoff icon"></i>
+              <h6 class="fw-bold mb-2 mt-2">Deliver &amp; Improve</h6>
+              <p class="small mb-0">Cloud release, monitoring, feedback loop, next-sprint planning.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECH TOOLKIT -->
+    <section id="stack" class="py-5 bg-light">
+      <div class="container" data-aos="fade-up">
+        <div class="text-center mb-5">
+          <h2 class="section-title"><i class="bi bi-cpu-fill me-2"></i>Tech Toolkit</h2>
+          <p class="section-sub mx-auto" style="max-width: 820px;">
+            We leverage cutting-edge technologies and industry-standard tools to build robust, scalable, and
+            maintainable solutions.
+          </p>
+        </div>
+
+        <div class="logo-carousel">
+          <div class="logo-track">
+            <!-- First set of 30 Flip Cards -->
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
+                    alt="C# Programming Language" loading="lazy" />
+                </div>
+                <div class="flip-back brand-csharp">C#</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" /></div>
+                <div class="flip-back brand-java">Java</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+                </div>
+                <div class="flip-back brand-python">Python</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                    alt="JavaScript" /></div>
+                <div class="flip-back brand-js">JavaScript</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                    alt="TypeScript" /></div>
+                <div class="flip-back brand-ts">TypeScript</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+                </div>
+                <div class="flip-back brand-react">React</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
+                    alt="Angular" /></div>
+                <div class="flip-back brand-angular">Angular</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
+                </div>
+                <div class="flip-back brand-node">Node.js</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt=".NET" />
+                </div>
+                <div class="flip-back brand-dotnet">.NET</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" /></div>
+                <div class="flip-back brand-php">PHP</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg"
+                    alt="Go" /></div>
+                <div class="flip-back brand-go">Go</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" alt="Ruby" /></div>
+                <div class="flip-back brand-ruby">Ruby</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="Swift" />
+                </div>
+                <div class="flip-back brand-swift">Swift</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin" />
+                </div>
+                <div class="flip-back brand-kotlin">Kotlin</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+                </div>
+                <div class="flip-back brand-html">HTML5</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" /></div>
+                <div class="flip-back brand-css">CSS3</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+                    alt="Bootstrap" /></div>
+                <div class="flip-back brand-bootstrap">Bootstrap</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg"
+                    alt="Tailwind" /></div>
+                <div class="flip-back brand-tailwind">Tailwind</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" />
+                </div>
+                <div class="flip-back brand-docker">Docker</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg"
+                    alt="Kubernetes" /></div>
+                <div class="flip-back brand-k8s">Kubernetes</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg"
+                    alt="AWS" /></div>
+                <div class="flip-back brand-aws">AWS</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" />
+                </div>
+                <div class="flip-back brand-azure">Azure</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"
+                    alt="Google Cloud" /></div>
+                <div class="flip-back brand-gcp">Google Cloud</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" /></div>
+                <div class="flip-back brand-git">Git</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
+                </div>
+                <div class="flip-back brand-github">GitHub</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" alt="GitLab" />
+                </div>
+                <div class="flip-back brand-gitlab">GitLab</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                    alt="MongoDB" /></div>
+                <div class="flip-back brand-mongo">MongoDB</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+                </div>
+                <div class="flip-back brand-mysql">MySQL</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                    alt="PostgreSQL" /></div>
+                <div class="flip-back brand-postgres">PostgreSQL</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis" />
+                </div>
+                <div class="flip-back brand-redis">Redis</div>
+              </div>
+            </div>
+            <!-- Duplicate set for seamless infinite scroll -->
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
+                    alt="C# Programming Language" loading="lazy" />
+                </div>
+                <div class="flip-back brand-csharp">C#</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" /></div>
+                <div class="flip-back brand-java">Java</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+                </div>
+                <div class="flip-back brand-python">Python</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                    alt="JavaScript" /></div>
+                <div class="flip-back brand-js">JavaScript</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                    alt="TypeScript" /></div>
+                <div class="flip-back brand-ts">TypeScript</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+                </div>
+                <div class="flip-back brand-react">React</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
+                    alt="Angular" /></div>
+                <div class="flip-back brand-angular">Angular</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
+                </div>
+                <div class="flip-back brand-node">Node.js</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt=".NET" />
+                </div>
+                <div class="flip-back brand-dotnet">.NET</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" /></div>
+                <div class="flip-back brand-php">PHP</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg"
+                    alt="Go" /></div>
+                <div class="flip-back brand-go">Go</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" alt="Ruby" /></div>
+                <div class="flip-back brand-ruby">Ruby</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="Swift" />
+                </div>
+                <div class="flip-back brand-swift">Swift</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin" />
+                </div>
+                <div class="flip-back brand-kotlin">Kotlin</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+                </div>
+                <div class="flip-back brand-html">HTML5</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" /></div>
+                <div class="flip-back brand-css">CSS3</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+                    alt="Bootstrap" /></div>
+                <div class="flip-back brand-bootstrap">Bootstrap</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg"
+                    alt="Tailwind" /></div>
+                <div class="flip-back brand-tailwind">Tailwind</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" />
+                </div>
+                <div class="flip-back brand-docker">Docker</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg"
+                    alt="Kubernetes" /></div>
+                <div class="flip-back brand-k8s">Kubernetes</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg"
+                    alt="AWS" /></div>
+                <div class="flip-back brand-aws">AWS</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" />
+                </div>
+                <div class="flip-back brand-azure">Azure</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"
+                    alt="Google Cloud" /></div>
+                <div class="flip-back brand-gcp">Google Cloud</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" /></div>
+                <div class="flip-back brand-git">Git</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
+                </div>
+                <div class="flip-back brand-github">GitHub</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" alt="GitLab" />
+                </div>
+                <div class="flip-back brand-gitlab">GitLab</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                    alt="MongoDB" /></div>
+                <div class="flip-back brand-mongo">MongoDB</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+                </div>
+                <div class="flip-back brand-mysql">MySQL</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                    alt="PostgreSQL" /></div>
+                <div class="flip-back brand-postgres">PostgreSQL</div>
+              </div>
+            </div>
+            <div class="logo-item">
+              <div class="flip-card">
+                <div class="flip-front"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis" />
+                </div>
+                <div class="flip-back brand-redis">Redis</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA (Unified across all pages) -->
+    <section class="fx-cta" aria-labelledby="fx-cta-title">
+      <div class="container">
+        <div class="fx-cta__inner">
+          <h2 id="fx-cta-title">Ready to partner with us?</h2>
+          <p class="fx-cta__lead">Whether you need a prototype in weeks, a scalable platform, or a training program -
+            we’re ready to help.</p>
+          <div class="fx-cta__actions">
+            <a href="/contact" class="btn-cta btn-cta--primary"><i class="bi bi-envelope"></i> Contact Us</a>
+            <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20your%20services."
+              target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta--secondary"><i
+                class="bi bi-whatsapp"></i> Chat on WhatsApp</a>
+          </div>
+          <p class="fx-cta__note">Response time: usually within 24 hours.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-md-4">
+          <h5>About Us</h5>
+          <p class="mb-2">FutureXcel Technologies is a technology services partner specializing in custom software
+            development, IT consulting &amp; support, data engineering &amp; AI, cloud/DevOps, and training &amp;
+            placement programs.</p>
+          <p class="mb-2">From 24/7 IT support and managed services to product engineering and cloud modernization, we
+            help teams ship faster and operate securely with measurable outcomes.</p>
+          <p class="mb-0">We serve startups and enterprises across the United States, Canada, and India with a focus on
+            reliability, security, and great customer experience.</p>
+        </div>
+
+        <div class="col-md-3">
+          <h5>Services</h5>
+          <a href="/services-endpoint">Modern Endpoint Management</a>
+          <a href="/services-helpdesk">IT Help Desk Outsourcing</a>
+          <a href="/services-software">Custom Software Development</a>
+          <a href="/services-research">Research &amp; Development</a>
+          <a href="/services-consulting">IT Consulting &amp; Support</a>
+          <a href="/services-data">Data Engineering &amp; Analytics</a>
+          <a href="/services-ml">Machine Learning Solutions</a>
+          <a href="/services-cloud">DevOps &amp; Cloud Services</a>
+          <a href="/services-training">Training &amp; Placement</a>
+        </div>
+
+        <div class="col-md-2">
+          <h5>Quick Links</h5>
+          <a href="/">Home</a>
+          <a href="/training">Training</a>
+          <a href="/careers">Careers</a>
+          <a href="/about">About Us</a>
+          <a href="/contact">Contact</a>
+          <hr class="footer-rule d-md-none" aria-hidden="true" />
+        </div>
+
+        <div class="col-md-3">
+          <h5>Contact</h5>
+          <address class="mb-1">Email: <a href="mailto:info@futurexceltech.com">info@futurexceltech.com</a></address>
+          <address class="mb-0">Phone:<br>
+            <a href="tel:+918625040777">+91 862-504-0777</a><br>
+            <a href="tel:+17177499910">+1 717-749-9910</a><br>
+            <a href="tel:+12172181585">+1 217-218-1585</a>
+          </address>
+          <address class="mb-2">H.No. 4-10-312, Abdul Kalam Road<br>Gali No. 1, Near Bus Stand, Ekbal Nagar<br>Purna, Parbhani, Maharashtra - 431511</address>
+          <div class="social mt-2" aria-label="Social links">
+            <a href="https://www.instagram.com/futurexcel_technologies/#" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/futurexcel-technologies/" target="_blank"
+              rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.facebook.com/share/16yvQLBep4/" target="_blank" rel="noopener noreferrer"
+              aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20your%20services."
+              target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <hr class="footer-rule" />
+      <p class="text-center mb-0 copyright">&copy; <span id="year"></span> FutureXcel Technologies. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+
+
+
+  <!-- WhatsApp -->
+  <a class="whatsapp-float"
+    href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27d%20like%20to%20chat%20about%20your%20services."
+    target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <i class="bi bi-whatsapp fs-3"></i>
+  </a>
+
+  <!-- JS: Vendors -->
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- JS: App -->
+  <script defer src="./main.js"></script>
+  
+  <!-- Chatbot Integration -->
+  <link rel="stylesheet" href="chatbot.css">
+  <script src="chatbot.js"></script>
+</body>
+
+</html>

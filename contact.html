@@ -1,0 +1,2395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Contact FutureXcel Technologies – questions, project ideas, partnerships. We respond within one business day." />
+  <meta name="keywords"
+    content="FutureXcel Technologies, contact, get in touch, software development contact, IT consulting contact" />
+  <meta name="author" content="FutureXcel Technologies" />
+  <meta name="theme-color" content="#0d1b2a" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Contact Us | FutureXcel Technologies</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./assets/Favico.png" />
+
+  <!-- Vendors CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  <!-- Flag Icons from GitHub: https://github.com/lipis/flag-icons -->
+  <link href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css" rel="stylesheet" />
+
+  <!-- App CSS -->
+  <link href="./styles.css" rel="stylesheet" />
+
+  <!-- Page-specific styles -->
+  <style>
+    /* Contact page specific styles - common styles are in styles.css */
+
+    /* Contact Cards & Form */
+    .fxc-contact {
+      --fxc-blue: var(--fx-blue);
+      --fxc-teal: var(--fx-teal);
+      --fxc-orange: var(--fx-orange);
+      --fxc-card-bg: rgba(255, 255, 255, .94);
+      --fxc-border: rgba(0, 0, 0, .06);
+      --fxc-border-hover: rgba(0, 86, 210, .22);
+      --fxc-shadow: 0 10px 24px rgba(0, 0, 0, .08);
+    }
+
+    .fxc-card {
+      background: var(--fxc-card-bg);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--fxc-border);
+      box-shadow: var(--fxc-shadow);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .fxc-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--fxc-border-hover);
+    }
+
+    /* Small utility buttons (Open in Maps / Copy address) — keep them small & distinct */
+    .fxc-mini-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 700;
+      font-size: .85rem;
+      line-height: 1;
+      min-height: 34px;
+      text-decoration: none !important;
+      transition: transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+      border: 1px solid transparent;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .10);
+      user-select: none;
+      -webkit-user-select: none;
+      cursor: pointer;
+    }
+
+    .fxc-mini-btn:hover,
+    .fxc-mini-btn:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, .14);
+    }
+
+    .fxc-mini-btn--outline {
+      background: rgba(255, 255, 255, .92);
+      color: #0f172a;
+      border-color: rgba(15, 23, 42, .14);
+    }
+
+    .fxc-mini-btn--outline:hover,
+    .fxc-mini-btn--outline:focus-visible {
+      background: #ffffff;
+      border-color: rgba(0, 86, 210, .28);
+      color: #0b1220;
+    }
+
+    .fxc-mini-btn--solid {
+      background: #0d1b2a;
+      color: #ffffff;
+      border-color: #0d1b2a;
+    }
+
+    .fxc-mini-btn--solid:hover,
+    .fxc-mini-btn--solid:focus-visible {
+      background: #111f33;
+      border-color: #111f33;
+      color: #ffffff;
+    }
+
+    html.theme-dark .fxc-mini-btn {
+      box-shadow: 0 10px 22px rgba(0, 0, 0, .45);
+    }
+
+    html.theme-dark .fxc-mini-btn--outline {
+      background: rgba(255, 255, 255, .08);
+      color: rgba(255, 255, 255, .92);
+      border-color: rgba(255, 255, 255, .18);
+    }
+
+    html.theme-dark .fxc-mini-btn--outline:hover,
+    html.theme-dark .fxc-mini-btn--outline:focus-visible {
+      background: rgba(255, 255, 255, .12);
+      border-color: rgba(255, 255, 255, .28);
+      color: #ffffff;
+    }
+
+    html.theme-dark .fxc-mini-btn--solid {
+      background: rgba(255, 255, 255, .10);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, .18);
+    }
+
+    html.theme-dark .fxc-mini-btn--solid:hover,
+    html.theme-dark .fxc-mini-btn--solid:focus-visible {
+      background: rgba(255, 255, 255, .14);
+      border-color: rgba(255, 255, 255, .26);
+    }
+
+    /* Dark mode: contact cards background */
+    html.theme-dark .fxc-contact {
+      --fxc-card-bg: #111a2a;
+      --fxc-border: rgba(255, 255, 255, 0.1);
+      --fxc-border-hover: rgba(0, 86, 210, 0.4);
+      --fxc-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+      background: #0f1a2b !important;
+    }
+
+    html.theme-dark .fxc-card {
+      background: #111a2a !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+      color: #e5e7eb !important;
+    }
+
+    html.theme-dark .fxc-card:hover {
+      border-color: rgba(0, 86, 210, 0.4) !important;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    /* Dark mode: section background */
+    html.theme-dark .fxc-contact.bg-light {
+      background: #0f1a2b !important;
+    }
+
+    .fxc-iconwrap {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--fxc-blue), var(--fxc-teal));
+      color: #fff;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, .12);
+    }
+
+    .fxc-chip {
+      font-size: .75rem;
+      line-height: 1;
+      padding: .45rem .6rem;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(90deg, var(--fxc-blue), var(--fxc-teal));
+      box-shadow: 0 4px 10px rgba(0, 0, 0, .12);
+    }
+
+    /* Make form field borders more bold and visible */
+    .form-control,
+    .form-select {
+      border-width: 2px !important;
+      border-color: rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .input-group-text {
+      border-width: 2px !important;
+      border-color: rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      box-shadow: 0 0 0 .2rem rgba(255, 111, 0, .2);
+      border-color: #ff6f00;
+      border-width: 2px !important;
+    }
+
+    /* Country code custom dropdown with flag images */
+    .country-code-wrapper {
+      position: relative;
+      width: 140px;
+      flex: 0 0 140px;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .country-code-wrapper.dropdown-open {
+      z-index: 10000;
+    }
+
+    /* Allow dropdown to overflow form card */
+    .fxc-card.dropdown-open {
+      overflow: visible !important;
+    }
+
+    .input-group.dropdown-open {
+      overflow: visible !important;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Make phone input field expand to fill remaining space (same width as subject field) */
+    .input-group input[name="phone"] {
+      flex: 1;
+      min-width: 0;
+    }
+
+    #countryCode {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .country-code-button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      background: var(--bs-body-bg, #fff);
+      border: 2px solid var(--bs-border-color, rgba(0, 0, 0, 0.15));
+      border-radius: 0;
+      cursor: pointer;
+      user-select: none;
+      border-right: none;
+      height: 100%;
+      margin: 0;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .input-group .country-code-wrapper:first-child .country-code-button {
+      border-top-left-radius: 0.375rem;
+      border-bottom-left-radius: 0.375rem;
+    }
+
+    .country-code-button:hover {
+      border-color: #ff6f00;
+      border-width: 2px;
+    }
+
+    .country-code-button:focus {
+      outline: none;
+      border-color: #ff6f00;
+      box-shadow: 0 0 0 0.2rem rgba(255, 111, 0, 0.2);
+    }
+
+    .country-code-button .flag-display {
+      width: 20px;
+      height: 15px;
+      flex-shrink: 0;
+      border-radius: 2px;
+      object-fit: cover;
+    }
+
+    .country-code-button .code-display {
+      font-weight: 500;
+    }
+
+    .country-code-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: auto;
+      min-width: 280px;
+      width: max-content;
+      max-width: 320px;
+      margin-top: 0.25rem;
+      background: var(--bs-body-bg, #fff);
+      border: 2px solid var(--bs-border-color, rgba(0, 0, 0, 0.15));
+      border-radius: 0.375rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+      max-height: 300px;
+      overflow-y: auto;
+      z-index: 9999;
+      display: none;
+    }
+
+    .country-code-dropdown.show {
+      display: block;
+    }
+
+    .country-code-option {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.625rem 0.875rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      transition: background-color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .country-code-option:hover {
+      background-color: rgba(255, 111, 0, 0.1);
+    }
+
+    .country-code-option.highlighted {
+      background-color: rgba(255, 111, 0, 0.2);
+      font-weight: 500;
+    }
+
+    .country-code-option .flag {
+      width: 24px;
+      height: 18px;
+      flex-shrink: 0;
+      border-radius: 2px;
+      object-fit: cover;
+    }
+
+    .country-code-option .text {
+      flex: 1;
+    }
+
+    .country-code-dropdown::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .country-code-dropdown::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 5px;
+    }
+
+    .country-code-dropdown::-webkit-scrollbar-thumb {
+      background: #999;
+      border-radius: 5px;
+      border: 2px solid #f1f1f1;
+    }
+
+    .country-code-dropdown::-webkit-scrollbar-thumb:hover {
+      background: #777;
+    }
+
+    /* Dark mode support */
+    html.theme-dark .country-code-button {
+      background: #1e293b !important;
+      border-color: rgba(255, 255, 255, 0.25) !important;
+      border-width: 2px !important;
+      color: #ffffff !important;
+    }
+
+    html.theme-dark .country-code-button:focus {
+      border-color: #ff6f00 !important;
+      border-width: 2px !important;
+      box-shadow: 0 0 0 0.2rem rgba(255, 111, 0, 0.2) !important;
+    }
+
+    html.theme-dark .country-code-dropdown {
+      background: #1e293b;
+      border-color: rgba(255, 255, 255, 0.25);
+      border-width: 2px;
+    }
+
+    html.theme-dark .country-code-option {
+      color: #ffffff;
+    }
+
+    html.theme-dark .country-code-option:hover {
+      background-color: rgba(255, 111, 0, 0.2);
+    }
+
+    html.theme-dark .country-code-option.highlighted {
+      background-color: rgba(255, 111, 0, 0.3);
+      font-weight: 500;
+    }
+
+    html.theme-dark .country-code-dropdown::-webkit-scrollbar-track {
+      background: #1e293b;
+      border-radius: 5px;
+    }
+
+    html.theme-dark .country-code-dropdown::-webkit-scrollbar-thumb {
+      background: #64748b;
+      border-radius: 5px;
+      border: 2px solid #1e293b;
+    }
+
+    html.theme-dark .country-code-dropdown::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    @media (max-width: 768px) {
+      .country-code-wrapper {
+        width: 120px !important;
+        flex: 0 0 120px !important;
+      }
+
+      .country-code-button {
+        font-size: 0.9rem;
+        padding: 0.375rem 0.5rem;
+      }
+    }
+
+    .required::after {
+      content: " *";
+      color: #ff6f00;
+    }
+
+    .help {
+      font-size: .9rem;
+      color: #6b7280;
+    }
+
+    /* Marquee Why Choose Us */
+    .choose-us-marquee {
+      background: #f8f9fa;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .marquee-track {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    .marquee-inner {
+      display: flex;
+      width: max-content;
+      animation: scrollX 80s linear infinite;
+      gap: 1.5rem;
+      padding: 10px 0;
+    }
+
+    @keyframes scrollX {
+      0% {
+        transform: translateX(0%);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .highlight-card {
+      flex: 0 0 auto;
+      width: 280px;
+      min-height: 280px;
+      padding: 1.5rem;
+      border-radius: 16px;
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: transform .3s ease, background .3s ease;
+      position: relative;
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-6px);
+      color: #fff;
+    }
+
+    .highlight-card .icon-wrap {
+      font-size: 2rem;
+      color: var(--fx-orange);
+      margin-bottom: .75rem;
+      transition: color .3s ease;
+      line-height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .highlight-card .icon-wrap.favicon-wrap {
+      width: 2rem !important;
+      height: 2rem !important;
+      min-width: 2rem !important;
+      min-height: 2rem !important;
+      position: relative !important;
+      flex-shrink: 0 !important;
+      overflow: visible !important;
+    }
+
+    .highlight-card .icon-wrap.favicon-wrap img {
+      position: relative !important;
+      top: auto !important;
+      left: auto !important;
+    }
+
+    .highlight-card .icon-wrap img.favicon-icon,
+    .highlight-card .icon-wrap .favicon-icon {
+      width: 2rem !important;
+      height: 2rem !important;
+      min-width: 2rem !important;
+      min-height: 2rem !important;
+      max-width: 2rem !important;
+      max-height: 2rem !important;
+      object-fit: contain !important;
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      background: transparent !important;
+      border: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      position: relative !important;
+      z-index: 10 !important;
+      flex-shrink: 0 !important;
+      image-rendering: auto !important;
+      -webkit-font-smoothing: antialiased !important;
+    }
+
+    /* Override any icon styles when image is present */
+    .highlight-card .icon-wrap:has(img.favicon-icon) {
+      font-size: 0 !important;
+      line-height: 0 !important;
+    }
+
+    .highlight-card .icon-wrap img.favicon-icon {
+      font-size: 0 !important;
+    }
+
+    /* When icon-wrap contains an image, don't apply icon styles */
+    .highlight-card .icon-wrap:has(img) {
+      font-size: 0 !important;
+      color: transparent !important;
+    }
+
+    /* Fallback for browsers without :has() support */
+    .highlight-card .icon-wrap img {
+      font-size: 0 !important;
+    }
+
+    .highlight-card h6 {
+      font-weight: 700;
+      margin-bottom: .5rem;
+      font-size: 1.1rem;
+    }
+
+    .highlight-card p {
+      font-size: .92rem;
+      line-height: 1.5;
+      color: #555;
+      margin-bottom: 0;
+    }
+
+    .card-blue:hover {
+      background: var(--fx-blue);
+    }
+
+    .card-teal:hover {
+      background: var(--fx-teal);
+    }
+
+    .card-orange:hover {
+      background: var(--fx-orange);
+    }
+
+    .card-purple:hover {
+      background: #9c27b0;
+    }
+
+    .card-green:hover {
+      background: #43a047;
+    }
+
+    .card-dark:hover {
+      background: #37474f;
+    }
+
+    .card-blue:hover h6,
+    .card-blue:hover p,
+    .card-teal:hover h6,
+    .card-teal:hover p,
+    .card-orange:hover h6,
+    .card-orange:hover p,
+    .card-purple:hover h6,
+    .card-purple:hover p,
+    .card-green:hover h6,
+    .card-green:hover p,
+    .card-dark:hover h6,
+    .card-dark:hover p,
+    .card-blue:hover .icon-wrap,
+    .card-teal:hover .icon-wrap,
+    .card-orange:hover .icon-wrap,
+    .card-purple:hover .icon-wrap,
+    .card-green:hover .icon-wrap,
+    .card-dark:hover .icon-wrap {
+      color: #fff !important;
+    }
+
+    @media (max-width:768px) {
+      .highlight-card {
+        width: 240px;
+        padding: 1.25rem;
+      }
+
+      .highlight-card p {
+        font-size: .85rem;
+      }
+    }
+
+    /* CTA section */
+    .enroll {
+      background: var(--fx-gradient);
+      color: #fff;
+      padding: 70px 20px;
+      text-align: center
+    }
+
+    .enroll h1,
+    .enroll h2,
+    .enroll h3,
+    .enroll p,
+    .enroll span,
+    .enroll a:not(.btn-cta) {
+      color: #ffffff !important
+    }
+
+    /* --- Dark Mode Fixes: Why Choose Us (Marquee) --- */
+    html.theme-dark .choose-us-marquee {
+      background: #0f1a2b;
+    }
+
+    html.theme-dark .choose-us-marquee .text-muted {
+      color: #b6c2d9 !important;
+    }
+
+    /* Base card contrast in dark */
+    html.theme-dark .highlight-card {
+      background: #111a2a;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e6eef9;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+    }
+
+    html.theme-dark .highlight-card p {
+      color: #c9d5ea;
+    }
+
+    html.theme-dark .highlight-card .icon-wrap {
+      color: var(--fx-orange);
+    }
+
+    /* Ensure hover keeps high contrast on dark backgrounds */
+    html.theme-dark .card-blue:hover {
+      background: color-mix(in srgb, var(--fx-blue) 75%, #ffffff 25%);
+    }
+
+    html.theme-dark .card-teal:hover {
+      background: color-mix(in srgb, var(--fx-teal) 75%, #ffffff 25%);
+    }
+
+    html.theme-dark .card-orange:hover {
+      background: color-mix(in srgb, var(--fx-orange) 78%, #ffffff 22%);
+    }
+
+    html.theme.dark .card-purple:hover {
+      background: color-mix(in srgb, #9c27b0 78%, #ffffff 22%);
+    }
+
+    html.theme-dark .card-green:hover {
+      background: color-mix(in srgb, #43a047 78%, #ffffff 22%);
+    }
+
+    html.theme.dark .card-dark:hover {
+      background: color-mix(in srgb, #37474f 78%, #ffffff 22%);
+    }
+
+    /* On hover: force readable white text & icons */
+    html.theme-dark .highlight-card:hover h6,
+    html.theme-dark .highlight-card:hover p,
+    html.theme-dark .highlight-card:hover .icon-wrap {
+      color: #ffffff !important;
+    }
+
+    /* Slightly stronger lift on hover in dark mode */
+    html.theme-dark .highlight-card:hover {
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
+      transform: translateY(-6px);
+    }
+
+    /* Why Choose Us section -> just keep global dark mode, no overrides */
+    html.theme-dark .choose-us-marquee {
+      background: #0f1a2b;
+      /* same as global dark bg */
+    }
+
+    html.theme-dark .highlight-card {
+      background: #111a2a;
+      color: #e6eef9;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .45);
+    }
+
+    html.theme-dark .highlight-card p {
+      color: #c9d5ea;
+    }
+
+    /* === Force readable white text in Dark Mode (drop this at the END of your <style>) === */
+
+    /* Base text */
+    html.theme-dark body {
+      color: #fff !important;
+    }
+
+    html.theme-dark p,
+    html.theme.dark li,
+    html.theme-dark small,
+    html.theme-dark address,
+    html.theme-dark .lead,
+    html.theme-dark .modal-content,
+    html.theme-dark footer,
+    html.theme-dark .fxc-card,
+    html.theme-dark .highlight-card {
+      color: #fff !important;
+    }
+
+    /* Headings */
+    html.theme-dark h1,
+    html.theme-dark h2,
+    html.theme.dark h3,
+    html.theme-dark h4,
+    html.theme.dark h5,
+    html.theme-dark h6 {
+      color: #fff !important;
+    }
+
+    /* “Muted” text should still be light */
+    html.theme-dark .text-muted {
+      color: rgba(255, 255, 255, .78) !important;
+    }
+
+    /* Links (non-buttons) */
+    html.theme-dark a:not(.btn):not(.btn-pill):not(.btn-brand):not(.btn-contrast):not(.btn-outline):not(.btn-cta):not(.cta-btn) {
+      color: #fff !important;
+    }
+
+    html.theme-dark a:not(.btn):not(.btn-pill):not(.btn-brand):not(.btn-contrast):not(.btn-outline):not(.btn-cta):not(.cta-btn):hover,
+    html.theme-dark a:not(.btn):not(.btn-pill):not(.btn-brand):not(.btn-contrast):not(.btn-outline):not(.btn-cta):not(.cta-btn):focus {
+      color: #fff !important;
+      text-decoration: underline;
+    }
+
+    /* Form labels + inputs + input icons */
+    html.theme-dark .form-label {
+      color: #e5e7eb !important;
+    }
+
+    html.theme-dark .input-group-text {
+      background: #1e293b !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+      color: #e5e7eb !important;
+    }
+
+    html.theme-dark .form-control,
+    html.theme-dark .form-select {
+      background: #1e293b !important;
+      border-color: rgba(255, 255, 255, 0.25) !important;
+      border-width: 2px !important;
+      color: #ffffff !important;
+    }
+
+    html.theme-dark .input-group-text {
+      border-width: 2px !important;
+      border-color: rgba(255, 255, 255, 0.25) !important;
+    }
+
+    html.theme-dark .form-control:focus,
+    html.theme-dark .form-select:focus {
+      background: #1e293b !important;
+      border-color: #ff6f00 !important;
+      border-width: 2px !important;
+      color: #ffffff !important;
+      box-shadow: 0 0 0 .2rem rgba(255, 111, 0, .2) !important;
+    }
+
+    /* Form placeholders */
+    html.theme-dark .form-control::placeholder {
+      color: rgba(255, 255, 255, .6) !important;
+    }
+
+    /* Address and text in contact cards */
+    html.theme-dark .fxc-card address,
+    html.theme-dark .fxc-card .text-muted,
+    html.theme-dark .fxc-card small,
+    html.theme-dark .fxc-card p,
+    html.theme-dark .fxc-card span,
+    html.theme-dark .fxc-card div:not(.input-group-text):not(.fxc-iconwrap):not(.fxc-chip) {
+      color: #e5e7eb !important;
+    }
+
+    html.theme-dark .fxc-card h5,
+    html.theme-dark .fxc-card h6 {
+      color: #ffffff !important;
+    }
+
+    html.theme-dark .fxc-card a:not(.btn):not(.btn-pill):not(.btn-brand):not(.btn-contrast):not(.btn-outline):not(.btn-cta):not(.cta-btn) {
+      color: #60a5fa !important;
+    }
+
+    html.theme-dark .fxc-card a:not(.btn):not(.btn-pill):not(.btn-brand):not(.btn-contrast):not(.btn-outline):not(.btn-cta):not(.cta-btn):hover {
+      color: #93c5fd !important;
+    }
+
+    /* Section title: override gradient to pure white in dark */
+    html.theme-dark .section-title {
+      -webkit-text-fill-color: #fff !important;
+      color: #fff !important;
+      background: none !important;
+    }
+
+    /* Hero overlay text already white, but enforce */
+    html.theme-dark .hero-overlay,
+    html.theme-dark .hero-overlay .hero-title,
+    html.theme-dark .hero-overlay .hero-sub {
+      color: #fff !important;
+    }
+
+    /* Navbar links */
+    html.theme-dark .navbar .nav-link {
+      color: #fff !important;
+    }
+
+    html.theme.dark .navbar .nav-link:hover,
+    html.theme-dark .navbar .nav-link.active {
+      color: #fff !important;
+    }
+
+    /* Dropdown items */
+    html.theme-dark .dropdown-item {
+      color: #fff !important;
+    }
+
+    /* Footer links */
+    html.theme-dark footer a {
+      color: #fff !important;
+    }
+
+    html.theme.dark footer a:hover,
+    html.theme-dark footer a:focus {
+      color: #fff !important;
+      text-decoration: underline;
+    }
+
+    /* Footer color fix: place at the very end of your CSS */
+    footer {
+      color: #f1f5f9 !important;
+    }
+
+    footer h5 {
+      color: #ffffff !important;
+    }
+
+    footer p,
+    footer address,
+    footer .copyright,
+    footer small,
+    footer .text-muted {
+      color: #e5e7eb !important;
+    }
+
+    footer a {
+      color: #e5e7eb !important;
+      text-decoration: none;
+    }
+
+    footer a:hover,
+    footer a:focus {
+      color: #ffffff !important;
+      text-decoration: underline;
+    }
+
+    /* ensure the hr isn’t too dim next to brighter text */
+    footer .footer-rule {
+      border-color: rgba(255, 255, 255, 0.25) !important;
+    }
+
+    footer .social a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    footer .social a i {
+      transition: transform .2s ease, filter .2s ease;
+      will-change: transform, filter;
+      /* why: smoother hover */
+    }
+
+    /* Hover: soft white glow + slight lift */
+    footer .social a:hover i,
+    footer .social a:focus-visible i {
+      transform: translateY(-1px);
+      filter:
+        drop-shadow(0 0 4px rgba(255, 255, 255, 0.45)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.35));
+    }
+
+    /* Stronger glow on dark footer backgrounds */
+    footer[style],
+    footer,
+    html.theme-dark footer {
+      --fx-footer-glow1: rgba(255, 255, 255, 0.55);
+      --fx-footer-glow2: rgba(255, 255, 255, 0.40);
+    }
+
+    html.theme-dark footer .social a:hover i,
+    html.theme-dark footer .social a:focus-visible i {
+      filter:
+        drop-shadow(0 0 5px var(--fx-footer-glow1)) drop-shadow(0 0 12px var(--fx-footer-glow2));
+    }
+
+    /* Accessibility: no motion */
+    @media (prefers-reduced-motion: reduce) {
+      footer .social a i {
+        transition: none;
+      }
+
+      footer .social a:hover i,
+      footer .social a:focus-visible i {
+        transform: none;
+      }
+    }
+
+    /* === FINAL FIX: Remove all nav underline (normal, active, focus, dropdown, dark mode) === */
+
+    /* All navbar links and dropdown toggles */
+    .navbar .nav-link,
+    .navbar .nav-link:hover,
+    .navbar .nav-link:focus,
+    .navbar .nav-link:active,
+    .navbar .nav-link.show,
+    .navbar .dropdown-toggle,
+    .navbar .dropdown-toggle:hover,
+    .navbar .dropdown-toggle:focus,
+    .navbar .dropdown-item,
+    .navbar .dropdown-item:hover,
+    .navbar .dropdown-item:focus {
+      text-decoration: none !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Active / open link (e.g., About Us, Services when dropdown open) */
+    .navbar .nav-link.active,
+    .navbar .nav-link.show,
+    .navbar .nav-link[aria-expanded="true"] {
+      text-decoration: none !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Dark mode consistency */
+    html.theme-dark .navbar .nav-link,
+    html.theme-dark .navbar .nav-link:hover,
+    html.theme-dark .navbar .nav-link:focus,
+    html.theme-dark .navbar .nav-link.active,
+    html.theme-dark .navbar .dropdown-toggle,
+    html.theme-dark .navbar .dropdown-toggle:hover,
+    html.theme-dark .navbar .dropdown-toggle:focus {
+      text-decoration: none !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Override: unify active navbar styling to brand gradient (same as Home) */
+    .navbar .nav-link.active,
+    .navbar .dropdown-toggle.active {
+      background: var(--fx-gradient) !important;
+      color: #fff !important;
+    }
+
+    /* Prevent orange active state on Contact page */
+    html.theme-dark .navbar .nav-link.active,
+    html.theme-dark .navbar .dropdown-toggle.active {
+      background: var(--fx-gradient) !important;
+      color: #fff !important;
+    }
+
+    /* ========== MOBILE OPTIMIZATION FOR 390x844 ========== */
+    @media screen and (max-width:991px) {
+      body {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .container {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      footer {
+        padding: 24px 0;
+      }
+
+      footer h5 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+
+      footer p,
+      footer a {
+        font-size: .9rem;
+      }
+    }
+
+    @media screen and (width:390px) and (height:844px),
+    screen and (width:390px) and (min-height:800px),
+    screen and (min-width:390px) and (max-width:428px) {
+      .container {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+    }
+
+    @media screen and (max-width:480px) {
+      .container {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+    }
+
+    /* Toast Notification Styles */
+    .toast-notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      min-width: 300px;
+      max-width: 400px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      opacity: 0;
+      transform: translateX(400px);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .toast-notification.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .toast-notification .toast-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--fx-blue), var(--fx-teal));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .toast-notification .toast-content {
+      flex: 1;
+    }
+
+    .toast-notification .toast-title {
+      font-weight: 600;
+      font-size: 16px;
+      color: #0f172a;
+      margin: 0 0 4px 0;
+    }
+
+    .toast-notification .toast-message {
+      font-size: 14px;
+      color: #64748b;
+      margin: 0;
+    }
+
+    html.theme-dark .toast-notification {
+      background: #1e293b;
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    html.theme-dark .toast-notification .toast-title {
+      color: #ffffff;
+    }
+
+    html.theme-dark .toast-notification .toast-message {
+      color: #cbd5e1;
+    }
+
+    @media screen and (max-width: 576px) {
+      .toast-notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        min-width: auto;
+        max-width: none;
+      }
+    }
+
+    /* Thank You Modal Close Button */
+    #thankYouModal .modal-content button[data-bs-dismiss="modal"] {
+      width: auto !important;
+      min-width: auto !important;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Fix footer contact phone spacing */
+    footer address.mb-0 {
+      margin-bottom: 0.25rem !important;
+      line-height: 1.4;
+    }
+
+    footer address.mb-0 a {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      line-height: 1.4;
+    }
+
+    footer address.mb-0 br {
+      line-height: 1.4;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#contact" class="skip-link">Skip to content</a>
+
+  <!-- Toast Notification Container -->
+  <div id="toastNotification" class="toast-notification" role="alert" aria-live="polite" aria-atomic="true">
+    <div class="toast-icon">
+      <i class="bi bi-check-circle-fill"></i>
+    </div>
+    <div class="toast-content">
+      <div class="toast-title">Success!</div>
+      <div class="toast-message">Address has been copied to clipboard</div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top" role="navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/" aria-label="FutureXcel Home">
+        <img src="./assets/logo.png" alt="FutureXcel Technologies Logo" decoding="async" fetchpriority="high"
+          loading="eager" data-logo-light="./assets/logo.png" data-logo-dark="./assets/logo.png" />
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav fw-semibold">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">Services</a>
+            <ul class="dropdown-menu shadow border-0 rounded-3" aria-labelledby="servicesDropdown">
+              <li><a class="dropdown-item" href="/services-endpoint">Modern Endpoint Management</a></li>
+              <li><a class="dropdown-item" href="/services-helpdesk">IT Help Desk Outsourcing</a></li>
+              <li><a class="dropdown-item" href="/services-software">Custom Software Development</a></li>
+              <li><a class="dropdown-item" href="/services-research">Research &amp; Development</a></li>
+              <li><a class="dropdown-item" href="/services-consulting">IT Consulting &amp; Support</a></li>
+              <li><a class="dropdown-item" href="/services-data">Data Engineering &amp; Analytics</a></li>
+              <li><a class="dropdown-item" href="/services-ml">Machine Learning Solutions</a></li>
+              <li><a class="dropdown-item" href="/services-cloud">DevOps &amp; Cloud Services</a></li>
+              <li><a class="dropdown-item" href="/services-training">Training &amp; Placement</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="/training">Training</a></li>
+          <li class="nav-item"><a class="nav-link" href="/careers">Careers</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/contact">Contact</a></li>
+        </ul>
+
+        <!-- Dark mode toggle -->
+        <div class="d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
+          <button id="themeToggle" class="btn btn-sm btn-outline-dark rounded-pill d-inline-flex align-items-center"
+            type="button" aria-pressed="false" title="Toggle dark mode">
+            <i class="bi bi-moon-stars me-1" aria-hidden="true"></i>
+            <span class="visually-hidden">Toggle dark mode</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <!-- Hero -->
+    <header class="hero" style="--hero-image: url('./assets/hero1.jpg');">
+      <div class="container">
+        <div class="inner">
+          <span class="eyebrow">Contact FutureXcel</span>
+          <h1 class="hero-title">Let’s Build Something Great Together</h1>
+          <p class="hero-sub">Have a question, project idea, or partnership proposal? Reach out and our team will
+            respond within one business day.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-pill btn-brand"><i class="bi bi-chat-dots"></i> Contact Us</a>
+            <a href="tel:+918625040777" class="btn-pill btn-contrast"><i class="bi bi-telephone"></i> Call Us</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Contact -->
+    <section id="contact" class="py-5 bg-light fxc-contact position-relative overflow-hidden">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-down">
+          <h2 class="section-title"><i class="bi bi-telephone-fill me-2"></i> Get in Touch</h2>
+          <p class="lead text-muted m-0">One HQ. Fast replies. Tell us how we can help.</p>
+        </div>
+
+        <div class="row g-4 align-items-stretch">
+          <!-- HQ Card -->
+          <div class="col-lg-4 d-flex" data-aos="fade-right">
+            <div
+              class="fxc-card fxc-card--hq p-4 rounded-4 d-flex flex-column w-100 h-100 position-relative overflow-hidden">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="fxc-iconwrap"><i class="bi bi-buildings"></i></div>
+                  <h5 class="mb-0 fw-semibold">Head Office - Purna</h5>
+                </div>
+                <span class="fxc-chip">HQ</span>
+              </div>
+
+              <div class="mt-3 small text-muted">
+                <div class="d-flex align-items-start gap-2 mb-2">
+                  <i class="bi bi-geo-alt-fill fs-5"></i>
+                  <address class="mb-0" id="hqAddress">
+                    H.No. 4-10-312, Abdul Kalam Road, Gali No. 1, Near Bus Stand, Ekbal Nagar<br />
+                    Purna, Parbhani, Maharashtra - 431511
+                  </address>
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-telephone fs-6"></i>
+                  <div class="d-flex flex-column">
+                    <a href="tel:+918625040777" class="link-underline link-underline-opacity-0">+91 86250 40777</a>
+                    <a href="tel:+17177499910" class="link-underline link-underline-opacity-0 small">+1 717-749-9910</a>
+                    <a href="tel:+12172181585" class="link-underline link-underline-opacity-0 small">+1 217-218-1585</a>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-envelope fs-6"></i>
+                  <a href="mailto:info@futurexceltech.com"
+                    class="link-underline link-underline-opacity-0">info@futurexceltech.com</a>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-clock fs-6"></i>
+                  <span>Mon – Fri · 09:00–18:00 IST</span>
+                </div>
+              </div>
+
+              <div class="mt-4 d-flex flex-wrap gap-2">
+                <a class="fxc-mini-btn fxc-mini-btn--outline" target="_blank" rel="noopener noreferrer"
+                  href="https://www.google.com/maps/search/?api=1&query=H.No.%204-10-312%2C%20Abdul%20Kalam%20Road%2C%20Gali%20No.%201%2C%20Near%20Bus%20Stand%2C%20Ekbal%20Nagar%2C%20Purna%2C%20Parbhani%2C%20Maharashtra%20431511">
+                  <i class="bi bi-map me-1"></i> Open in Maps
+                </a>
+                <button type="button" class="fxc-mini-btn fxc-mini-btn--solid" id="copyAddressBtn">
+                  <i class="bi bi-clipboard-check me-1"></i> Copy address
+                </button>
+              </div>
+
+              <div class="mt-auto pt-3 d-flex gap-3">
+                <a href="https://www.instagram.com/futurexcel_technologies/#" target="_blank" rel="noopener noreferrer"
+                  aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/futurexcel-technologies/" target="_blank"
+                  rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.facebook.com/share/16yvQLBep4/" target="_blank" rel="noopener noreferrer"
+                  aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I'm%20interested%20in%20your%20programs."
+                  target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="col-lg-8 d-flex" data-aos="fade-left">
+            <div class="fxc-card p-4 rounded-4 d-flex flex-column w-100 h-100 position-relative overflow-hidden">
+              <h5 class="fw-semibold mb-3"><i class="bi bi-chat-square-text me-1"></i> Send Us a Message</h5>
+
+              <form id="contactForm" class="needs-validation mt-1" novalidate method="POST"
+                action="https://formsubmit.co/hr@futurexceltech.com">
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_subject" value="New Contact Form Submission from FutureXcel Website" />
+                <input type="hidden" name="_template" value="box" />
+                <input type="hidden" name="_next" value="" />
+                <input type="hidden" name="_autoresponse"
+                  value="Thank you for contacting FutureXcel Technologies! We have received your message and will get back to you within one business day." />
+                <input type="hidden" name="phone_full" id="phoneFull" />
+
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label required">Name</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-person"></i></span>
+                      <input type="text" class="form-control" name="name" required />
+                      <div class="invalid-feedback">Please enter your name.</div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label required">Email</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                      <input type="email" class="form-control" name="email" required />
+                      <div class="invalid-feedback">Please provide a valid email.</div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label required">Phone</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-phone"></i></span>
+                      <div class="country-code-wrapper">
+                        <select class="form-select" id="countryCode" aria-label="Country code">
+                          <option value="+93" data-iso="af">+93 (Afghanistan)</option>
+                          <option value="+355" data-iso="al">+355 (Albania)</option>
+                          <option value="+213" data-iso="dz">+213 (Algeria)</option>
+                          <option value="+376" data-iso="ad">+376 (Andorra)</option>
+                          <option value="+244" data-iso="ao">+244 (Angola)</option>
+                          <option value="+1264" data-iso="ai">+1264 (Anguilla)</option>
+                          <option value="+1268" data-iso="ag">+1268 (Antigua & Barbuda)</option>
+                          <option value="+54" data-iso="ar">+54 (Argentina)</option>
+                          <option value="+374" data-iso="am">+374 (Armenia)</option>
+                          <option value="+297" data-iso="aw">+297 (Aruba)</option>
+                          <option value="+61" data-iso="au">+61 (Australia)</option>
+                          <option value="+43" data-iso="at">+43 (Austria)</option>
+                          <option value="+994" data-iso="az">+994 (Azerbaijan)</option>
+                          <option value="+1242" data-iso="bs">+1242 (Bahamas)</option>
+                          <option value="+973" data-iso="bh">+973 (Bahrain)</option>
+                          <option value="+880" data-iso="bd">+880 (Bangladesh)</option>
+                          <option value="+1246" data-iso="bb">+1246 (Barbados)</option>
+                          <option value="+375" data-iso="by">+375 (Belarus)</option>
+                          <option value="+32" data-iso="be">+32 (Belgium)</option>
+                          <option value="+501" data-iso="bz">+501 (Belize)</option>
+                          <option value="+229" data-iso="bj">+229 (Benin)</option>
+                          <option value="+1441" data-iso="bm">+1441 (Bermuda)</option>
+                          <option value="+975" data-iso="bt">+975 (Bhutan)</option>
+                          <option value="+591" data-iso="bo">+591 (Bolivia)</option>
+                          <option value="+387" data-iso="ba">+387 (Bosnia & Herzegovina)</option>
+                          <option value="+267" data-iso="bw">+267 (Botswana)</option>
+                          <option value="+55" data-iso="br">+55 (Brazil)</option>
+                          <option value="+1284" data-iso="vg">+1284 (British Virgin Islands)</option>
+                          <option value="+673" data-iso="bn">+673 (Brunei)</option>
+                          <option value="+359" data-iso="bg">+359 (Bulgaria)</option>
+                          <option value="+226" data-iso="bf">+226 (Burkina Faso)</option>
+                          <option value="+257" data-iso="bi">+257 (Burundi)</option>
+                          <option value="+855" data-iso="kh">+855 (Cambodia)</option>
+                          <option value="+237" data-iso="cm">+237 (Cameroon)</option>
+                          <option value="+1" data-iso="ca">+1 (Canada)</option>
+                          <option value="+238" data-iso="cv">+238 (Cape Verde)</option>
+                          <option value="+1345" data-iso="ky">+1345 (Cayman Islands)</option>
+                          <option value="+236" data-iso="cf">+236 (Central African Republic)</option>
+                          <option value="+235" data-iso="td">+235 (Chad)</option>
+                          <option value="+56" data-iso="cl">+56 (Chile)</option>
+                          <option value="+86" data-iso="cn">+86 (China)</option>
+                          <option value="+57" data-iso="co">+57 (Colombia)</option>
+                          <option value="+269" data-iso="km">+269 (Comoros)</option>
+                          <option value="+242" data-iso="cg">+242 (Congo)</option>
+                          <option value="+243" data-iso="cd">+243 (Congo DR)</option>
+                          <option value="+682" data-iso="ck">+682 (Cook Islands)</option>
+                          <option value="+506" data-iso="cr">+506 (Costa Rica)</option>
+                          <option value="+225" data-iso="ci">+225 (Côte d'Ivoire)</option>
+                          <option value="+385" data-iso="hr">+385 (Croatia)</option>
+                          <option value="+53" data-iso="cu">+53 (Cuba)</option>
+                          <option value="+357" data-iso="cy">+357 (Cyprus)</option>
+                          <option value="+420" data-iso="cz">+420 (Czech Republic)</option>
+                          <option value="+45" data-iso="dk">+45 (Denmark)</option>
+                          <option value="+253" data-iso="dj">+253 (Djibouti)</option>
+                          <option value="+1767" data-iso="dm">+1767 (Dominica)</option>
+                          <option value="+1809" data-iso="do">+1809 (Dominican Republic)</option>
+                          <option value="+593" data-iso="ec">+593 (Ecuador)</option>
+                          <option value="+20" data-iso="eg">+20 (Egypt)</option>
+                          <option value="+503" data-iso="sv">+503 (El Salvador)</option>
+                          <option value="+240" data-iso="gq">+240 (Equatorial Guinea)</option>
+                          <option value="+291" data-iso="er">+291 (Eritrea)</option>
+                          <option value="+372" data-iso="ee">+372 (Estonia)</option>
+                          <option value="+251" data-iso="et">+251 (Ethiopia)</option>
+                          <option value="+500" data-iso="fk">+500 (Falkland Islands)</option>
+                          <option value="+298" data-iso="fo">+298 (Faroe Islands)</option>
+                          <option value="+679" data-iso="fj">+679 (Fiji)</option>
+                          <option value="+358" data-iso="fi">+358 (Finland)</option>
+                          <option value="+33" data-iso="fr">+33 (France)</option>
+                          <option value="+594" data-iso="gf">+594 (French Guiana)</option>
+                          <option value="+689" data-iso="pf">+689 (French Polynesia)</option>
+                          <option value="+241" data-iso="ga">+241 (Gabon)</option>
+                          <option value="+220" data-iso="gm">+220 (Gambia)</option>
+                          <option value="+995" data-iso="ge">+995 (Georgia)</option>
+                          <option value="+49" data-iso="de">+49 (Germany)</option>
+                          <option value="+233" data-iso="gh">+233 (Ghana)</option>
+                          <option value="+350" data-iso="gi">+350 (Gibraltar)</option>
+                          <option value="+30" data-iso="gr">+30 (Greece)</option>
+                          <option value="+299" data-iso="gl">+299 (Greenland)</option>
+                          <option value="+1473" data-iso="gd">+1473 (Grenada)</option>
+                          <option value="+590" data-iso="gp">+590 (Guadeloupe)</option>
+                          <option value="+1671" data-iso="gu">+1671 (Guam)</option>
+                          <option value="+502" data-iso="gt">+502 (Guatemala)</option>
+                          <option value="+224" data-iso="gn">+224 (Guinea)</option>
+                          <option value="+245" data-iso="gw">+245 (Guinea-Bissau)</option>
+                          <option value="+592" data-iso="gy">+592 (Guyana)</option>
+                          <option value="+509" data-iso="ht">+509 (Haiti)</option>
+                          <option value="+504" data-iso="hn">+504 (Honduras)</option>
+                          <option value="+852" data-iso="hk">+852 (Hong Kong)</option>
+                          <option value="+36" data-iso="hu">+36 (Hungary)</option>
+                          <option value="+354" data-iso="is">+354 (Iceland)</option>
+                          <option value="+91" data-iso="in" selected>+91 (India)</option>
+                          <option value="+62" data-iso="id">+62 (Indonesia)</option>
+                          <option value="+98" data-iso="ir">+98 (Iran)</option>
+                          <option value="+964" data-iso="iq">+964 (Iraq)</option>
+                          <option value="+353" data-iso="ie">+353 (Ireland)</option>
+                          <option value="+972" data-iso="il">+972 (Israel)</option>
+                          <option value="+39" data-iso="it">+39 (Italy)</option>
+                          <option value="+1876" data-iso="jm">+1876 (Jamaica)</option>
+                          <option value="+81" data-iso="jp">+81 (Japan)</option>
+                          <option value="+962" data-iso="jo">+962 (Jordan)</option>
+                          <option value="+7" data-iso="kz">+7 (Kazakhstan)</option>
+                          <option value="+254" data-iso="ke">+254 (Kenya)</option>
+                          <option value="+686" data-iso="ki">+686 (Kiribati)</option>
+                          <option value="+965" data-iso="kw">+965 (Kuwait)</option>
+                          <option value="+996" data-iso="kg">+996 (Kyrgyzstan)</option>
+                          <option value="+856" data-iso="la">+856 (Laos)</option>
+                          <option value="+371" data-iso="lv">+371 (Latvia)</option>
+                          <option value="+961" data-iso="lb">+961 (Lebanon)</option>
+                          <option value="+266" data-iso="ls">+266 (Lesotho)</option>
+                          <option value="+231" data-iso="lr">+231 (Liberia)</option>
+                          <option value="+218" data-iso="ly">+218 (Libya)</option>
+                          <option value="+423" data-iso="li">+423 (Liechtenstein)</option>
+                          <option value="+370" data-iso="lt">+370 (Lithuania)</option>
+                          <option value="+352" data-iso="lu">+352 (Luxembourg)</option>
+                          <option value="+853" data-iso="mo">+853 (Macau)</option>
+                          <option value="+389" data-iso="mk">+389 (Macedonia)</option>
+                          <option value="+261" data-iso="mg">+261 (Madagascar)</option>
+                          <option value="+265" data-iso="mw">+265 (Malawi)</option>
+                          <option value="+60" data-iso="my">+60 (Malaysia)</option>
+                          <option value="+960" data-iso="mv">+960 (Maldives)</option>
+                          <option value="+223" data-iso="ml">+223 (Mali)</option>
+                          <option value="+356" data-iso="mt">+356 (Malta)</option>
+                          <option value="+692" data-iso="mh">+692 (Marshall Islands)</option>
+                          <option value="+596" data-iso="mq">+596 (Martinique)</option>
+                          <option value="+222" data-iso="mr">+222 (Mauritania)</option>
+                          <option value="+230" data-iso="mu">+230 (Mauritius)</option>
+                          <option value="+262" data-iso="yt">+262 (Mayotte)</option>
+                          <option value="+52" data-iso="mx">+52 (Mexico)</option>
+                          <option value="+691" data-iso="fm">+691 (Micronesia)</option>
+                          <option value="+373" data-iso="md">+373 (Moldova)</option>
+                          <option value="+377" data-iso="mc">+377 (Monaco)</option>
+                          <option value="+976" data-iso="mn">+976 (Mongolia)</option>
+                          <option value="+382" data-iso="me">+382 (Montenegro)</option>
+                          <option value="+1664" data-iso="ms">+1664 (Montserrat)</option>
+                          <option value="+212" data-iso="ma">+212 (Morocco)</option>
+                          <option value="+258" data-iso="mz">+258 (Mozambique)</option>
+                          <option value="+95" data-iso="mm">+95 (Myanmar)</option>
+                          <option value="+264" data-iso="na">+264 (Namibia)</option>
+                          <option value="+674" data-iso="nr">+674 (Nauru)</option>
+                          <option value="+977" data-iso="np">+977 (Nepal)</option>
+                          <option value="+31" data-iso="nl">+31 (Netherlands)</option>
+                          <option value="+687" data-iso="nc">+687 (New Caledonia)</option>
+                          <option value="+64" data-iso="nz">+64 (New Zealand)</option>
+                          <option value="+505" data-iso="ni">+505 (Nicaragua)</option>
+                          <option value="+227" data-iso="ne">+227 (Niger)</option>
+                          <option value="+234" data-iso="ng">+234 (Nigeria)</option>
+                          <option value="+850" data-iso="kp">+850 (North Korea)</option>
+                          <option value="+47" data-iso="no">+47 (Norway)</option>
+                          <option value="+968" data-iso="om">+968 (Oman)</option>
+                          <option value="+92" data-iso="pk">+92 (Pakistan)</option>
+                          <option value="+680" data-iso="pw">+680 (Palau)</option>
+                          <option value="+970" data-iso="ps">+970 (Palestine)</option>
+                          <option value="+507" data-iso="pa">+507 (Panama)</option>
+                          <option value="+675" data-iso="pg">+675 (Papua New Guinea)</option>
+                          <option value="+595" data-iso="py">+595 (Paraguay)</option>
+                          <option value="+51" data-iso="pe">+51 (Peru)</option>
+                          <option value="+63" data-iso="ph">+63 (Philippines)</option>
+                          <option value="+48" data-iso="pl">+48 (Poland)</option>
+                          <option value="+351" data-iso="pt">+351 (Portugal)</option>
+                          <option value="+1787" data-iso="pr">+1787 (Puerto Rico)</option>
+                          <option value="+974" data-iso="qa">+974 (Qatar)</option>
+                          <option value="+262" data-iso="re">+262 (Réunion)</option>
+                          <option value="+40" data-iso="ro">+40 (Romania)</option>
+                          <option value="+7" data-iso="ru">+7 (Russia)</option>
+                          <option value="+250" data-iso="rw">+250 (Rwanda)</option>
+                          <option value="+290" data-iso="sh">+290 (Saint Helena)</option>
+                          <option value="+1869" data-iso="kn">+1869 (Saint Kitts & Nevis)</option>
+                          <option value="+1758" data-iso="lc">+1758 (Saint Lucia)</option>
+                          <option value="+508" data-iso="pm">+508 (Saint Pierre & Miquelon)</option>
+                          <option value="+1784" data-iso="vc">+1784 (Saint Vincent & Grenadines)</option>
+                          <option value="+685" data-iso="ws">+685 (Samoa)</option>
+                          <option value="+378" data-iso="sm">+378 (San Marino)</option>
+                          <option value="+239" data-iso="st">+239 (São Tomé & Príncipe)</option>
+                          <option value="+966" data-iso="sa">+966 (Saudi Arabia)</option>
+                          <option value="+221" data-iso="sn">+221 (Senegal)</option>
+                          <option value="+381" data-iso="rs">+381 (Serbia)</option>
+                          <option value="+248" data-iso="sc">+248 (Seychelles)</option>
+                          <option value="+232" data-iso="sl">+232 (Sierra Leone)</option>
+                          <option value="+65" data-iso="sg">+65 (Singapore)</option>
+                          <option value="+1721" data-iso="sx">+1721 (Sint Maarten)</option>
+                          <option value="+421" data-iso="sk">+421 (Slovakia)</option>
+                          <option value="+386" data-iso="si">+386 (Slovenia)</option>
+                          <option value="+677" data-iso="sb">+677 (Solomon Islands)</option>
+                          <option value="+252" data-iso="so">+252 (Somalia)</option>
+                          <option value="+27" data-iso="za">+27 (South Africa)</option>
+                          <option value="+82" data-iso="kr">+82 (South Korea)</option>
+                          <option value="+211" data-iso="ss">+211 (South Sudan)</option>
+                          <option value="+34" data-iso="es">+34 (Spain)</option>
+                          <option value="+94" data-iso="lk">+94 (Sri Lanka)</option>
+                          <option value="+249" data-iso="sd">+249 (Sudan)</option>
+                          <option value="+597" data-iso="sr">+597 (Suriname)</option>
+                          <option value="+268" data-iso="sz">+268 (Swaziland)</option>
+                          <option value="+46" data-iso="se">+46 (Sweden)</option>
+                          <option value="+41" data-iso="ch">+41 (Switzerland)</option>
+                          <option value="+963" data-iso="sy">+963 (Syria)</option>
+                          <option value="+886" data-iso="tw">+886 (Taiwan)</option>
+                          <option value="+992" data-iso="tj">+992 (Tajikistan)</option>
+                          <option value="+255" data-iso="tz">+255 (Tanzania)</option>
+                          <option value="+66" data-iso="th">+66 (Thailand)</option>
+                          <option value="+228" data-iso="tg">+228 (Togo)</option>
+                          <option value="+690" data-iso="tk">+690 (Tokelau)</option>
+                          <option value="+676" data-iso="to">+676 (Tonga)</option>
+                          <option value="+1868" data-iso="tt">+1868 (Trinidad & Tobago)</option>
+                          <option value="+216" data-iso="tn">+216 (Tunisia)</option>
+                          <option value="+90" data-iso="tr">+90 (Turkey)</option>
+                          <option value="+993" data-iso="tm">+993 (Turkmenistan)</option>
+                          <option value="+1649" data-iso="tc">+1649 (Turks & Caicos)</option>
+                          <option value="+688" data-iso="tv">+688 (Tuvalu)</option>
+                          <option value="+256" data-iso="ug">+256 (Uganda)</option>
+                          <option value="+380" data-iso="ua">+380 (Ukraine)</option>
+                          <option value="+971" data-iso="ae">+971 (United Arab Emirates)</option>
+                          <option value="+44" data-iso="gb">+44 (United Kingdom)</option>
+                          <option value="+1" data-iso="us">+1 (United States)</option>
+                          <option value="+598" data-iso="uy">+598 (Uruguay)</option>
+                          <option value="+998" data-iso="uz">+998 (Uzbekistan)</option>
+                          <option value="+678" data-iso="vu">+678 (Vanuatu)</option>
+                          <option value="+379" data-iso="va">+379 (Vatican City)</option>
+                          <option value="+58" data-iso="ve">+58 (Venezuela)</option>
+                          <option value="+84" data-iso="vn">+84 (Vietnam)</option>
+                          <option value="+1340" data-iso="vi">+1340 (US Virgin Islands)</option>
+                          <option value="+967" data-iso="ye">+967 (Yemen)</option>
+                          <option value="+260" data-iso="zm">+260 (Zambia)</option>
+                          <option value="+263" data-iso="zw">+263 (Zimbabwe)</option>
+                        </select>
+                        <button type="button" class="country-code-button" id="countryCodeButton"
+                          aria-label="Select country code">
+                          <img src="https://flagcdn.com/w20/in.png" alt="India" class="flag-display"
+                            id="countryCodeFlag" />
+                          <span class="code-display" id="countryCodeDisplay">+91</span>
+                          <i class="bi bi-chevron-down ms-auto" style="font-size: 0.75rem;"></i>
+                        </button>
+                        <div class="country-code-dropdown" id="countryCodeDropdown" tabindex="0"></div>
+                      </div>
+                      <input type="tel" class="form-control" name="phone" pattern="^[0-9()\-\\s]{7,20}$" required />
+                      <div class="invalid-feedback">Please enter a valid phone number.</div>
+                    </div>
+
+                    <div class="col-12">
+                      <label class="form-label required">Subject</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-tag"></i></span>
+                        <input type="text" class="form-control" name="subject" required />
+                        <div class="invalid-feedback">Subject is required.</div>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <label class="form-label required">Message</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-pencil-square"></i></span>
+                        <textarea class="form-control" rows="5" name="message" maxlength="500" required></textarea>
+                        <div class="invalid-feedback">Please enter a brief message (max 500 chars).</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="text-center">
+                    <button type="submit" class="btn-pill btn-brand mt-4">
+                      <i class="bi bi-send-fill me-1"></i> Send Message
+                    </button>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="choose-us-marquee py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title"><i class="bi bi-stars me-2"></i> Why Choose FutureXcel?</h2>
+          <p class="text-muted lead mb-0">Excellence, innovation, and customer-first thinking — in every line of code we
+            write.</p>
+        </div>
+
+        <div class="marquee-track">
+          <div class="marquee-inner d-flex align-items-stretch">
+            <div class="highlight-card card-blue">
+              <div class="icon-wrap"><i class="bi bi-lightbulb-fill"></i></div>
+              <h6>Creative Solutions</h6>
+              <p>We combine design and tech to build custom solutions that reflect your unique business identity. Every
+                pixel is crafted for purpose.</p>
+            </div>
+            <div class="highlight-card card-teal">
+              <div class="icon-wrap"><i class="bi bi-lightning-fill"></i></div>
+              <h6>Fast Turnaround</h6>
+              <p>With agile sprints and rapid prototyping, we deliver faster than typical dev teams — without
+                compromising quality or creativity.</p>
+            </div>
+            <div class="highlight-card card-orange">
+              <div class="icon-wrap"><i class="bi bi-shield-check"></i></div>
+              <h6>Secure &amp; Reliable</h6>
+              <p>Our solutions follow industry best practices for data privacy, performance, and security — built for
+                compliance and trust.</p>
+            </div>
+            <div class="highlight-card card-purple">
+              <div class="icon-wrap"><i class="bi bi-globe"></i></div>
+              <h6>Global Presence</h6>
+              <p>From startups in Chicago to firms in Hyderabad, we serve a global client base with multicultural
+                awareness and localized expertise.</p>
+            </div>
+            <div class="highlight-card card-green">
+              <div class="icon-wrap"><i class="bi bi-chat-dots-fill"></i></div>
+              <h6>1:1 Client Support</h6>
+              <p>We don’t hide behind tickets. You get direct communication, live updates, and rapid responses at every
+                phase of your project.</p>
+            </div>
+            <div class="highlight-card card-dark">
+              <div class="icon-wrap"><i class="bi bi-bar-chart-fill"></i></div>
+              <h6>Results-Driven</h6>
+              <p>Our goal isn't just to deploy code — it's to drive business outcomes like user growth, lead generation,
+                and ROI.</p>
+            </div>
+
+            <!-- Repeat for smooth infinite effect -->
+            <div class="highlight-card card-blue">
+              <div class="icon-wrap"><i class="bi bi-lightbulb-fill"></i></div>
+              <h6>Creative Solutions</h6>
+              <p>We combine design and tech to build custom solutions that reflect your unique business identity. Every
+                pixel is crafted for purpose.</p>
+            </div>
+            <div class="highlight-card card-teal">
+              <div class="icon-wrap"><i class="bi bi-lightning-fill"></i></div>
+              <h6>Fast Turnaround</h6>
+              <p>With agile sprints and rapid prototyping, we deliver faster than typical dev teams — without
+                compromising quality or creativity.</p>
+            </div>
+            <div class="highlight-card card-orange">
+              <div class="icon-wrap"><i class="bi bi-shield-check"></i></div>
+              <h6>Secure &amp; Reliable</h6>
+              <p>Our solutions follow industry best practices for data privacy, performance, and security — built for
+                compliance and trust.</p>
+            </div>
+            <div class="highlight-card card-purple">
+              <div class="icon-wrap"><i class="bi bi-globe"></i></div>
+              <h6>Global Presence</h6>
+              <p>From startups in Chicago to firms in Hyderabad, we serve a global client base with multicultural
+                awareness and localized expertise.</p>
+            </div>
+            <div class="highlight-card card-green">
+              <div class="icon-wrap"><i class="bi bi-chat-dots-fill"></i></div>
+              <h6>1:1 Client Support</h6>
+              <p>We don’t hide behind tickets. You get direct communication, live updates, and rapid responses at every
+                phase of your project.</p>
+            </div>
+            <div class="highlight-card card-dark">
+              <div class="icon-wrap"><i class="bi bi-bar-chart-fill"></i></div>
+              <h6>Results-Driven</h6>
+              <p>Our goal isn't just to deploy code — it's to drive business outcomes like user growth, lead generation,
+                and ROI.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Thank You Modal -->
+    <div class="modal fade" id="thankYouModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-4">
+          <i class="bi bi-check-circle-fill text-success display-4 mb-3"></i>
+          <h5 class="fw-bold">Thank You!</h5>
+          <p class="mb-0">We've received your message and will get back to you shortly.</p>
+          <div class="d-flex justify-content-center mt-3">
+            <button type="button" class="btn-pill btn-contrast" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA (Unified across all pages) -->
+    <section class="fx-cta" aria-labelledby="fx-cta-title">
+      <div class="container">
+        <div class="fx-cta__inner">
+          <h2 id="fx-cta-title">Ready to transform your idea into reality?</h2>
+          <p class="fx-cta__lead">Tell us what you’re building and we’ll map the fastest route to launch.</p>
+          <div class="fx-cta__actions">
+            <a href="/contact" class="btn-cta btn-cta--primary"><i class="bi bi-envelope"></i> Contact Us</a>
+            <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20your%20services."
+              target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta--secondary"><i
+                class="bi bi-whatsapp"></i> Chat on WhatsApp</a>
+          </div>
+          <p class="fx-cta__note">Response time: usually within 24 hours.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-md-4">
+          <h5>About Us</h5>
+          <p class="mb-2">FutureXcel Technologies is a technology services partner specializing in custom software
+            development, IT consulting &amp; support, data engineering &amp; AI, cloud/DevOps, and training &amp;
+            placement programs.</p>
+          <p class="mb-2">From 24/7 IT support and managed services to product engineering and cloud modernization, we
+            help teams ship faster and operate securely with measurable outcomes.</p>
+          <p class="mb-0">We serve startups and enterprises across the United States, Canada, and India with a focus on
+            reliability, security, and great customer experience.</p>
+        </div>
+
+        <div class="col-md-3">
+          <h5>Services</h5>
+          <a href="/services-endpoint">Modern Endpoint Management</a>
+          <a href="/services-helpdesk">IT Help Desk Outsourcing</a>
+          <a href="/services-software">Custom Software Development</a>
+          <a href="/services-research">Research &amp; Development</a>
+          <a href="/services-consulting">IT Consulting &amp; Support</a>
+          <a href="/services-data">Data Engineering &amp; Analytics</a>
+          <a href="/services-ml">Machine Learning Solutions</a>
+          <a href="/services-cloud">DevOps &amp; Cloud Services</a>
+          <a href="/services-training">Training &amp; Placement</a>
+        </div>
+
+        <div class="col-md-2">
+          <h5>Quick Links</h5>
+          <a href="/">Home</a>
+          <a href="/training">Training</a>
+          <a href="/careers">Careers</a>
+          <a href="/about">About Us</a>
+          <a href="/contact">Contact</a>
+          <hr class="footer-rule d-md-none" aria-hidden="true" />
+        </div>
+
+        <div class="col-md-3">
+          <h5>Contact</h5>
+          <address class="mb-1">Email: <a href="mailto:info@futurexceltech.com">info@futurexceltech.com</a></address>
+          <address class="mb-0">Phone:<br>
+            <a href="tel:+918625040777">+91 862-504-0777</a><br>
+            <a href="tel:+17177499910">+1 717-749-9910</a><br>
+            <a href="tel:+12172181585">+1 217-218-1585</a>
+          </address>
+          <address class="mb-2">H.No. 4-10-312, Abdul Kalam Road<br>Gali No. 1, Near Bus Stand, Ekbal Nagar<br>Purna,
+            Parbhani, Maharashtra - 431511</address>
+          <div class="social mt-2" aria-label="Social links">
+            <a href="https://www.instagram.com/futurexcel_technologies/#" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/futurexcel-technologies/" target="_blank"
+              rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.facebook.com/share/16yvQLBep4/" target="_blank" rel="noopener noreferrer"
+              aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20your%20services."
+              target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <hr class="footer-rule" />
+      <p class="text-center mb-0 copyright">&copy; <span id="year"></span> FutureXcel Technologies. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+
+
+
+  <!-- WhatsApp -->
+  <a class="whatsapp-float"
+    href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27d%20like%20to%20chat%20about%20your%20services."
+    target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <i class="bi bi-whatsapp fs-3"></i>
+  </a>
+
+  <!-- Vendors JS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- App JS -->
+  <script defer src="./main.js"></script>
+
+  <!-- Chatbot Integration -->
+  <link rel="stylesheet" href="chatbot.css">
+  <script src="chatbot.js"></script>
+
+  <!-- Contact page specific JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Country code to ISO code mapping for flags
+      const countryToISO = {
+        'Afghanistan': 'af', 'Albania': 'al', 'Algeria': 'dz', 'Andorra': 'ad', 'Angola': 'ao',
+        'Anguilla': 'ai', 'Antigua & Barbuda': 'ag', 'Argentina': 'ar', 'Armenia': 'am', 'Aruba': 'aw',
+        'Australia': 'au', 'Austria': 'at', 'Azerbaijan': 'az', 'Bahamas': 'bs', 'Bahrain': 'bh',
+        'Bangladesh': 'bd', 'Barbados': 'bb', 'Belarus': 'by', 'Belgium': 'be', 'Belize': 'bz',
+        'Benin': 'bj', 'Bermuda': 'bm', 'Bhutan': 'bt', 'Bolivia': 'bo', 'Bosnia & Herzegovina': 'ba',
+        'Botswana': 'bw', 'Brazil': 'br', 'British Virgin Islands': 'vg', 'Brunei': 'bn', 'Bulgaria': 'bg',
+        'Burkina Faso': 'bf', 'Burundi': 'bi', 'Cambodia': 'kh', 'Cameroon': 'cm', 'Canada': 'ca',
+        'Cape Verde': 'cv', 'Cayman Islands': 'ky', 'Central African Republic': 'cf', 'Chad': 'td', 'Chile': 'cl',
+        'China': 'cn', 'Colombia': 'co', 'Comoros': 'km', 'Congo': 'cg', 'Congo DR': 'cd',
+        'Cook Islands': 'ck', 'Costa Rica': 'cr', 'Côte d\'Ivoire': 'ci', 'Croatia': 'hr', 'Cuba': 'cu',
+        'Cyprus': 'cy', 'Czech Republic': 'cz', 'Denmark': 'dk', 'Djibouti': 'dj', 'Dominica': 'dm',
+        'Dominican Republic': 'do', 'Ecuador': 'ec', 'Egypt': 'eg', 'El Salvador': 'sv', 'Equatorial Guinea': 'gq',
+        'Eritrea': 'er', 'Estonia': 'ee', 'Ethiopia': 'et', 'Falkland Islands': 'fk', 'Faroe Islands': 'fo',
+        'Fiji': 'fj', 'Finland': 'fi', 'France': 'fr', 'French Guiana': 'gf', 'French Polynesia': 'pf',
+        'Gabon': 'ga', 'Gambia': 'gm', 'Georgia': 'ge', 'Germany': 'de', 'Ghana': 'gh',
+        'Gibraltar': 'gi', 'Greece': 'gr', 'Greenland': 'gl', 'Grenada': 'gd', 'Guadeloupe': 'gp',
+        'Guam': 'gu', 'Guatemala': 'gt', 'Guinea': 'gn', 'Guinea-Bissau': 'gw', 'Guyana': 'gy',
+        'Haiti': 'ht', 'Honduras': 'hn', 'Hong Kong': 'hk', 'Hungary': 'hu', 'Iceland': 'is',
+        'India': 'in', 'Indonesia': 'id', 'Iran': 'ir', 'Iraq': 'iq', 'Ireland': 'ie',
+        'Israel': 'il', 'Italy': 'it', 'Jamaica': 'jm', 'Japan': 'jp', 'Jordan': 'jo',
+        'Kazakhstan': 'kz', 'Kenya': 'ke', 'Kiribati': 'ki', 'Kuwait': 'kw', 'Kyrgyzstan': 'kg',
+        'Laos': 'la', 'Latvia': 'lv', 'Lebanon': 'lb', 'Lesotho': 'ls', 'Liberia': 'lr',
+        'Libya': 'ly', 'Liechtenstein': 'li', 'Lithuania': 'lt', 'Luxembourg': 'lu', 'Macau': 'mo',
+        'Macedonia': 'mk', 'Madagascar': 'mg', 'Malawi': 'mw', 'Malaysia': 'my', 'Maldives': 'mv',
+        'Mali': 'ml', 'Malta': 'mt', 'Marshall Islands': 'mh', 'Martinique': 'mq', 'Mauritania': 'mr',
+        'Mauritius': 'mu', 'Mayotte': 'yt', 'Mexico': 'mx', 'Micronesia': 'fm', 'Moldova': 'md',
+        'Monaco': 'mc', 'Mongolia': 'mn', 'Montenegro': 'me', 'Montserrat': 'ms', 'Morocco': 'ma',
+        'Mozambique': 'mz', 'Myanmar': 'mm', 'Namibia': 'na', 'Nauru': 'nr', 'Nepal': 'np',
+        'Netherlands': 'nl', 'New Caledonia': 'nc', 'New Zealand': 'nz', 'Nicaragua': 'ni', 'Niger': 'ne',
+        'Nigeria': 'ng', 'North Korea': 'kp', 'Norway': 'no', 'Oman': 'om', 'Pakistan': 'pk',
+        'Palau': 'pw', 'Palestine': 'ps', 'Panama': 'pa', 'Papua New Guinea': 'pg', 'Paraguay': 'py',
+        'Peru': 'pe', 'Philippines': 'ph', 'Poland': 'pl', 'Portugal': 'pt', 'Puerto Rico': 'pr',
+        'Qatar': 'qa', 'Réunion': 're', 'Romania': 'ro', 'Russia': 'ru', 'Rwanda': 'rw',
+        'Saint Helena': 'sh', 'Saint Kitts & Nevis': 'kn', 'Saint Lucia': 'lc', 'Saint Pierre & Miquelon': 'pm',
+        'Saint Vincent & Grenadines': 'vc', 'Samoa': 'ws', 'San Marino': 'sm', 'São Tomé & Príncipe': 'st',
+        'Saudi Arabia': 'sa', 'Senegal': 'sn', 'Serbia': 'rs', 'Seychelles': 'sc', 'Sierra Leone': 'sl',
+        'Singapore': 'sg', 'Sint Maarten': 'sx', 'Slovakia': 'sk', 'Slovenia': 'si', 'Solomon Islands': 'sb',
+        'Somalia': 'so', 'South Africa': 'za', 'South Korea': 'kr', 'South Sudan': 'ss', 'Spain': 'es',
+        'Sri Lanka': 'lk', 'Sudan': 'sd', 'Suriname': 'sr', 'Swaziland': 'sz', 'Sweden': 'se',
+        'Switzerland': 'ch', 'Syria': 'sy', 'Taiwan': 'tw', 'Tajikistan': 'tj', 'Tanzania': 'tz',
+        'Thailand': 'th', 'Togo': 'tg', 'Tokelau': 'tk', 'Tonga': 'to', 'Trinidad & Tobago': 'tt',
+        'Tunisia': 'tn', 'Turkey': 'tr', 'Turkmenistan': 'tm', 'Turks & Caicos': 'tc', 'Tuvalu': 'tv',
+        'Uganda': 'ug', 'Ukraine': 'ua', 'United Arab Emirates': 'ae', 'United Kingdom': 'gb', 'United States': 'us',
+        'Uruguay': 'uy', 'Uzbekistan': 'uz', 'Vanuatu': 'vu', 'Vatican City': 'va', 'Venezuela': 've',
+        'Vietnam': 'vn', 'US Virgin Islands': 'vi', 'Yemen': 'ye', 'Zambia': 'zm', 'Zimbabwe': 'zw'
+      };
+
+      // Get ISO code from country name
+      function getISOCode(countryName) {
+        return countryToISO[countryName] || 'us';
+      }
+
+      // Get flag image URL
+      function getFlagURL(isoCode) {
+        return `https://flagcdn.com/w20/${isoCode}.png`;
+      }
+
+      // Custom country code dropdown functionality
+      const countryCodeSelect = document.getElementById('countryCode');
+      const countryCodeButton = document.getElementById('countryCodeButton');
+      const countryCodeDropdown = document.getElementById('countryCodeDropdown');
+      const countryCodeFlag = document.getElementById('countryCodeFlag');
+      const countryCodeDisplay = document.getElementById('countryCodeDisplay');
+
+      if (countryCodeSelect && countryCodeButton && countryCodeDropdown) {
+        // Populate dropdown from select options
+        function populateDropdown() {
+          countryCodeDropdown.innerHTML = '';
+          const options = countryCodeSelect.querySelectorAll('option');
+
+          options.forEach(option => {
+            const value = option.value;
+            const text = option.textContent.trim();
+            // Extract country name from text like "+91 (India)"
+            const match = text.match(/\(([^)]+)\)/);
+            const countryName = match ? match[1] : '';
+            const isoCode = option.getAttribute('data-iso') || getISOCode(countryName);
+            const flagURL = getFlagURL(isoCode);
+
+            const optionDiv = document.createElement('div');
+            optionDiv.className = 'country-code-option';
+            optionDiv.setAttribute('data-value', value);
+            optionDiv.innerHTML = `
+              <img src="${flagURL}" alt="${countryName}" class="flag" onerror="this.src='https://flagcdn.com/w20/us.png'" />
+              <span class="text">${text}</span>
+            `;
+
+            optionDiv.addEventListener('click', () => {
+              countryCodeSelect.value = value;
+              countryCodeFlag.src = flagURL;
+              countryCodeFlag.alt = countryName;
+              countryCodeDisplay.textContent = value;
+              countryCodeDropdown.classList.remove('show');
+              const wrapper = countryCodeButton.closest('.country-code-wrapper');
+              const inputGroupEl = countryCodeButton.closest('.input-group');
+              const formCardEl = countryCodeButton.closest('.fxc-card');
+              if (wrapper) {
+                wrapper.classList.remove('dropdown-open');
+              }
+              if (inputGroupEl) {
+                inputGroupEl.classList.remove('dropdown-open');
+              }
+              if (formCardEl) {
+                formCardEl.classList.remove('dropdown-open');
+              }
+              countryCodeSelect.dispatchEvent(new Event('change'));
+            });
+
+            countryCodeDropdown.appendChild(optionDiv);
+          });
+        }
+
+        // Initialize dropdown
+        populateDropdown();
+
+        // Set initial display
+        const selectedOption = countryCodeSelect.options[countryCodeSelect.selectedIndex];
+        if (selectedOption) {
+          const text = selectedOption.textContent.trim();
+          const match = text.match(/\(([^)]+)\)/);
+          const countryName = match ? match[1] : 'India';
+          const isoCode = selectedOption.getAttribute('data-iso') || getISOCode(countryName);
+          countryCodeFlag.src = getFlagURL(isoCode);
+          countryCodeFlag.alt = countryName;
+          countryCodeDisplay.textContent = selectedOption.value;
+        }
+
+        // Toggle dropdown
+        const countryCodeWrapper = countryCodeButton.closest('.country-code-wrapper');
+        const inputGroup = countryCodeButton.closest('.input-group');
+        const formCard = countryCodeButton.closest('.fxc-card');
+        countryCodeButton.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isOpen = countryCodeDropdown.classList.contains('show');
+          countryCodeDropdown.classList.toggle('show');
+          if (countryCodeWrapper) {
+            if (countryCodeDropdown.classList.contains('show')) {
+              countryCodeWrapper.classList.add('dropdown-open');
+            } else {
+              countryCodeWrapper.classList.remove('dropdown-open');
+            }
+          }
+          if (inputGroup) {
+            if (countryCodeDropdown.classList.contains('show')) {
+              inputGroup.classList.add('dropdown-open');
+            } else {
+              inputGroup.classList.remove('dropdown-open');
+            }
+          }
+          if (formCard) {
+            if (countryCodeDropdown.classList.contains('show')) {
+              formCard.classList.add('dropdown-open');
+            } else {
+              formCard.classList.remove('dropdown-open');
+            }
+          }
+          if (!isOpen && countryCodeDropdown.classList.contains('show')) {
+            // Focus dropdown when opening for keyboard navigation
+            setTimeout(() => countryCodeDropdown.focus(), 10);
+          }
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!countryCodeButton.contains(e.target) && !countryCodeDropdown.contains(e.target)) {
+            countryCodeDropdown.classList.remove('show');
+            if (countryCodeWrapper) {
+              countryCodeWrapper.classList.remove('dropdown-open');
+            }
+            if (inputGroup) {
+              inputGroup.classList.remove('dropdown-open');
+            }
+            if (formCard) {
+              formCard.classList.remove('dropdown-open');
+            }
+          }
+        });
+
+        // Update button when select changes programmatically
+        countryCodeSelect.addEventListener('change', () => {
+          const selectedOption = countryCodeSelect.options[countryCodeSelect.selectedIndex];
+          if (selectedOption) {
+            const text = selectedOption.textContent.trim();
+            const match = text.match(/\(([^)]+)\)/);
+            const countryName = match ? match[1] : '';
+            const isoCode = selectedOption.getAttribute('data-iso') || getISOCode(countryName);
+            countryCodeFlag.src = getFlagURL(isoCode);
+            countryCodeFlag.alt = countryName;
+            countryCodeDisplay.textContent = selectedOption.value;
+          }
+        });
+
+        // Keyboard navigation
+        countryCodeButton.addEventListener('keydown', (e) => {
+          if (countryCodeDropdown.classList.contains('show')) {
+            // If dropdown is open, forward letter keys to dropdown
+            if (e.key.length === 1 && /[a-zA-Z]/.test(e.key)) {
+              e.preventDefault();
+              countryCodeDropdown.dispatchEvent(new KeyboardEvent('keydown', { key: e.key, bubbles: true }));
+              return;
+            }
+          }
+
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const isOpen = countryCodeDropdown.classList.contains('show');
+            countryCodeDropdown.classList.toggle('show');
+            if (countryCodeWrapper) {
+              if (countryCodeDropdown.classList.contains('show')) {
+                countryCodeWrapper.classList.add('dropdown-open');
+              } else {
+                countryCodeWrapper.classList.remove('dropdown-open');
+              }
+            }
+            if (inputGroup) {
+              if (countryCodeDropdown.classList.contains('show')) {
+                inputGroup.classList.add('dropdown-open');
+              } else {
+                inputGroup.classList.remove('dropdown-open');
+              }
+            }
+            if (formCard) {
+              if (countryCodeDropdown.classList.contains('show')) {
+                formCard.classList.add('dropdown-open');
+              } else {
+                formCard.classList.remove('dropdown-open');
+              }
+            }
+            if (!isOpen && countryCodeDropdown.classList.contains('show')) {
+              // Focus dropdown when opening for keyboard navigation
+              setTimeout(() => countryCodeDropdown.focus(), 10);
+            }
+          } else if (e.key === 'Escape') {
+            countryCodeDropdown.classList.remove('show');
+            if (countryCodeWrapper) {
+              countryCodeWrapper.classList.remove('dropdown-open');
+            }
+            if (inputGroup) {
+              inputGroup.classList.remove('dropdown-open');
+            }
+            if (formCard) {
+              formCard.classList.remove('dropdown-open');
+            }
+          }
+        });
+
+        // Keyboard navigation for country selection by letter
+        let lastKeyPress = '';
+        let lastKeyPressTime = 0;
+        let currentIndex = 0;
+
+        countryCodeDropdown.addEventListener('keydown', (e) => {
+          // Only handle letter keys (a-z, A-Z)
+          if (e.key.length === 1 && /[a-zA-Z]/.test(e.key)) {
+            e.preventDefault();
+            const now = Date.now();
+            const key = e.key.toLowerCase();
+
+            // Reset index if different key or more than 1 second passed
+            if (key !== lastKeyPress || now - lastKeyPressTime > 1000) {
+              currentIndex = 0;
+            } else {
+              currentIndex++;
+            }
+
+            lastKeyPress = key;
+            lastKeyPressTime = now;
+
+            // Find all country options
+            const options = countryCodeDropdown.querySelectorAll('.country-code-option');
+            const matchingOptions = [];
+
+            // Find countries starting with the pressed letter
+            options.forEach((option, index) => {
+              const text = option.textContent.trim();
+              // Extract country name from text like "+91 (India)"
+              const match = text.match(/\(([^)]+)\)/);
+              const countryName = match ? match[1] : '';
+              if (countryName.toLowerCase().startsWith(key)) {
+                matchingOptions.push({ option, index });
+              }
+            });
+
+            // If we found matches, scroll to the current index (cycling if needed)
+            if (matchingOptions.length > 0) {
+              const targetIndex = currentIndex % matchingOptions.length;
+              const targetOption = matchingOptions[targetIndex].option;
+
+              // Remove previous highlight
+              options.forEach(opt => opt.classList.remove('highlighted'));
+
+              // Highlight the target option
+              targetOption.classList.add('highlighted');
+
+              // Scroll into view
+              targetOption.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest'
+              });
+
+              // Auto-select after a brief delay (optional - you can remove this if you want manual selection)
+              // Or you can keep it and let users press Enter to confirm
+            }
+          } else if (e.key === 'Enter') {
+            // Select the highlighted option
+            const highlighted = countryCodeDropdown.querySelector('.country-code-option.highlighted');
+            if (highlighted) {
+              highlighted.click();
+            }
+          } else if (e.key === 'Escape') {
+            countryCodeDropdown.classList.remove('show');
+            const wrapper = countryCodeButton.closest('.country-code-wrapper');
+            const inputGroupEl = countryCodeButton.closest('.input-group');
+            const formCardEl = countryCodeButton.closest('.fxc-card');
+            if (wrapper) {
+              wrapper.classList.remove('dropdown-open');
+            }
+            if (inputGroupEl) {
+              inputGroupEl.classList.remove('dropdown-open');
+            }
+            if (formCardEl) {
+              formCardEl.classList.remove('dropdown-open');
+            }
+          } else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            const options = countryCodeDropdown.querySelectorAll('.country-code-option');
+            const highlighted = countryCodeDropdown.querySelector('.country-code-option.highlighted');
+            let nextIndex = 0;
+
+            if (highlighted) {
+              options.forEach((opt, idx) => {
+                if (opt === highlighted) {
+                  nextIndex = (idx + 1) % options.length;
+                }
+              });
+            }
+
+            options.forEach(opt => opt.classList.remove('highlighted'));
+            options[nextIndex].classList.add('highlighted');
+            options[nextIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            const options = countryCodeDropdown.querySelectorAll('.country-code-option');
+            const highlighted = countryCodeDropdown.querySelector('.country-code-option.highlighted');
+            let prevIndex = options.length - 1;
+
+            if (highlighted) {
+              options.forEach((opt, idx) => {
+                if (opt === highlighted) {
+                  prevIndex = (idx - 1 + options.length) % options.length;
+                }
+              });
+            }
+
+            options.forEach(opt => opt.classList.remove('highlighted'));
+            options[prevIndex].classList.add('highlighted');
+            options[prevIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        });
+
+      }
+
+      // Function to show toast notification
+      function showToast() {
+        const toast = document.getElementById('toastNotification');
+        if (toast) {
+          toast.classList.add('show');
+          setTimeout(() => {
+            toast.classList.remove('show');
+          }, 3000); // Hide after 3 seconds
+        }
+      }
+
+      // Copy HQ address with fallback method
+      const copyBtn = document.getElementById('copyAddressBtn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', async () => {
+          const addressText = document.getElementById('hqAddress').innerText.trim();
+          const old = copyBtn.innerHTML;
+
+          // Try modern clipboard API first
+          try {
+            if (navigator.clipboard && window.isSecureContext) {
+              await navigator.clipboard.writeText(addressText);
+              copyBtn.innerHTML = '<i class="bi bi-check2-circle me-1"></i> Copied!';
+              setTimeout(() => copyBtn.innerHTML = old, 1200);
+              showToast(); // Show pop-up notification
+              return;
+            }
+          } catch (err) {
+            // Fall through to fallback method
+          }
+
+          // Fallback: create temporary textarea element
+          try {
+            const textarea = document.createElement('textarea');
+            textarea.value = addressText;
+            textarea.style.position = 'fixed';
+            textarea.style.left = '-999999px';
+            textarea.style.top = '-999999px';
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+
+            const successful = document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            if (successful) {
+              copyBtn.innerHTML = '<i class="bi bi-check2-circle me-1"></i> Copied!';
+              setTimeout(() => copyBtn.innerHTML = old, 1200);
+              showToast(); // Show pop-up notification
+            } else {
+              throw new Error('execCommand failed');
+            }
+          } catch (err) {
+            // Last resort: show address in a prompt for manual copy
+            const userChoice = confirm('Could not copy automatically.\n\nAddress:\n' + addressText + '\n\nClick OK to copy manually, or Cancel to dismiss.');
+            if (userChoice) {
+              // Try one more time with clipboard API
+              try {
+                await navigator.clipboard.writeText(addressText);
+                copyBtn.innerHTML = '<i class="bi bi-check2-circle me-1"></i> Copied!';
+                setTimeout(() => copyBtn.innerHTML = old, 1200);
+                showToast(); // Show pop-up notification
+              } catch {
+                // User will need to copy manually
+              }
+            }
+          }
+        });
+      }
+
+      // Contact form submit
+      const form = document.getElementById('contactForm');
+      if (form) {
+        // Set redirect URL for fallback
+        const currentUrl = window.location.href.split('?')[0];
+        form.querySelector('input[name="_next"]').value = currentUrl + '?success=1';
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          if (!form.checkValidity()) {
+            form.classList.add('was-validated');
+            return;
+          }
+
+          const submitButton = form.querySelector('button[type="submit"]');
+          const originalButtonText = submitButton.innerHTML;
+          submitButton.disabled = true;
+          submitButton.innerHTML = '<i class="bi bi-hourglass-split me-1"></i> Sending...';
+
+          const cc = document.getElementById('countryCode')?.value || '';
+          const p = (form.querySelector('input[name="phone"]').value || '').trim();
+          document.getElementById('phoneFull').value = p ? `${cc} ${p}` : '';
+
+          try {
+            const formData = new FormData(form);
+
+            // Submit to FormSubmit.co using fetch with proper response handling
+            const response = await fetch(form.action, {
+              method: 'POST',
+              body: formData,
+              headers: {
+                'Accept': 'application/json'
+              }
+            });
+
+            // Check if submission was successful
+            if (response.ok || response.status === 200 || response.status === 302) {
+              // FormSubmit.co returns 200/302 on success
+              form.reset();
+              form.classList.remove('was-validated');
+              submitButton.innerHTML = '<i class="bi bi-check-circle me-1"></i> Sent!';
+
+              if (window.bootstrap?.Modal) {
+                const modal = new bootstrap.Modal(document.getElementById('thankYouModal'));
+                modal.show();
+                // Reset button after modal is shown
+                setTimeout(() => {
+                  submitButton.disabled = false;
+                  submitButton.innerHTML = originalButtonText;
+                }, 1000);
+              } else {
+                alert('Thank you! Your message was sent. We will get back to you shortly.');
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButtonText;
+              }
+            } else {
+              // Handle error response
+              throw new Error(`Form submission failed with status: ${response.status}`);
+            }
+          } catch (error) {
+            console.error('Form submission error:', error);
+
+            // Try fallback: direct form submission (works better with FormSubmit.co)
+            try {
+              // Create a temporary form for direct submission
+              const tempForm = document.createElement('form');
+              tempForm.method = 'POST';
+              tempForm.action = form.action;
+              tempForm.style.display = 'none';
+
+              // Copy all form data
+              const formData = new FormData(form);
+              for (const [key, value] of formData.entries()) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = value;
+                tempForm.appendChild(input);
+              }
+
+              document.body.appendChild(tempForm);
+              tempForm.submit();
+
+              // Show success message
+              form.reset();
+              form.classList.remove('was-validated');
+              submitButton.innerHTML = '<i class="bi bi-check-circle me-1"></i> Sent!';
+
+              if (window.bootstrap?.Modal) {
+                const modal = new bootstrap.Modal(document.getElementById('thankYouModal'));
+                modal.show();
+                setTimeout(() => {
+                  submitButton.disabled = false;
+                  submitButton.innerHTML = originalButtonText;
+                }, 1000);
+              } else {
+                alert('Thank you! Your message was sent. We will get back to you shortly.');
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButtonText;
+              }
+            } catch (fallbackError) {
+              console.error('Fallback submission also failed:', fallbackError);
+              // Show error to user
+              submitButton.disabled = false;
+              submitButton.innerHTML = originalButtonText;
+              alert('Sorry, there was an error sending your message. Please try again or contact us directly at info@futurexceltech.com');
+            }
+          }
+        });
+
+        // Check for success parameter in URL (fallback for non-JS users)
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === '1') {
+          if (window.bootstrap?.Modal) {
+            const modal = new bootstrap.Modal(document.getElementById('thankYouModal'));
+            modal.show();
+          }
+          // Clean URL
+          window.history.replaceState({}, document.title, currentUrl);
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

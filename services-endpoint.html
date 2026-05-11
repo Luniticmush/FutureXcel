@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description"
+    content="FutureXcel Technologies - Modern Endpoint Management: manage device lifecycle with MDM/MAM, app deployment, Windows patching, security baselines, and Entra integration." />
+  <meta name="keywords"
+    content="modern endpoint management, MDM, MAM, Microsoft Intune, Entra ID, Windows Autopilot, Defender for Endpoint, Windows Update for Business, endpoint security" />
+  <meta name="author" content="FutureXcel Technologies" />
+  <meta name="theme-color" content="#0d1b2a" />
+  <meta name="color-scheme" content="light dark" />
+
+  <title>Modern Endpoint Management | FutureXcel Technologies | Intune, MDM &amp; MAM</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./assets/Favico.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="./styles.css" rel="stylesheet" />
+
+  <style>
+    /* Clean card styling matching other service pages */
+    .ep-card {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, .06);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .06);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ep-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--fx-gradient);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+    }
+
+    .ep-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, .12);
+      border-color: rgba(0, 86, 210, .15);
+    }
+
+    .ep-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .ep-card .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(0, 86, 210, 0.1), rgba(0, 150, 136, 0.1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      transition: all .3s ease;
+    }
+
+    .ep-card .card-icon i {
+      font-size: 1.5rem;
+      color: var(--fx-blue);
+    }
+
+    .ep-card:hover .card-icon {
+      background: var(--fx-gradient);
+    }
+
+    .ep-card:hover .card-icon i {
+      color: #fff;
+    }
+
+    .ep-card h6 {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+
+    .ep-card p {
+      color: #64748b;
+      font-size: .925rem;
+      line-height: 1.65;
+      margin: 0;
+      flex-grow: 1;
+    }
+
+    .ep-card ul {
+      color: #64748b;
+      font-size: .925rem;
+      line-height: 1.65;
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+
+    .ep-card li {
+      margin-bottom: 6px;
+    }
+
+    .ep-card li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Step cards for lifecycle */
+    .step-card {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, .06);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .06);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, .12);
+      border-color: rgba(0, 86, 210, .15);
+    }
+
+    .step-card .step-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--fx-gradient);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      box-shadow: 0 6px 16px rgba(0, 86, 210, .25);
+    }
+
+    .step-card h6 {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+
+    .step-card p {
+      color: #64748b;
+      font-size: .925rem;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* Highlight box */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(0, 86, 210, 0.06), rgba(0, 150, 136, 0.06));
+      border: 1px solid rgba(0, 86, 210, .1);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .highlight-box p {
+      margin: 0;
+      color: #334155;
+      line-height: 1.7;
+    }
+
+    .highlight-box strong {
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    /* Tag pills */
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(0, 86, 210, 0.08);
+      border: 1px solid rgba(0, 86, 210, 0.12);
+      color: #0f172a;
+      font-weight: 600;
+      font-size: .9rem;
+    }
+
+    .tag i {
+      color: var(--fx-blue);
+      font-size: 1.1rem;
+    }
+
+    /* Two-column feature box */
+    .feature-box {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, .06);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .06);
+      height: 100%;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--fx-gradient);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, .12);
+      border-color: rgba(0, 86, 210, .15);
+    }
+
+    .feature-box:hover::before {
+      transform: scaleX(1);
+    }
+
+    .feature-box .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: var(--fx-blue);
+      margin-bottom: 12px;
+    }
+
+    .feature-box h5 {
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+      color: #0f172a;
+    }
+
+    .feature-box p {
+      color: #64748b;
+      font-size: .925rem;
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+
+    .feature-box ul {
+      color: #64748b;
+      font-size: .925rem;
+      line-height: 1.65;
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+
+    .feature-box li {
+      margin-bottom: 6px;
+    }
+
+    /* Dark mode */
+    html.theme-dark .ep-card,
+    html.theme-dark .step-card,
+    html.theme-dark .feature-box {
+      background: #0f1a2b;
+      border-color: rgba(255, 255, 255, .08);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .4);
+    }
+
+    html.theme-dark .ep-card:hover,
+    html.theme-dark .step-card:hover,
+    html.theme-dark .feature-box:hover {
+      border-color: rgba(255, 255, 255, .2);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, .6);
+    }
+
+    html.theme-dark .feature-box::before {
+      background: rgba(255, 255, 255, .9);
+    }
+
+    html.theme-dark .ep-card::before {
+      background: rgba(255, 255, 255, .9);
+    }
+
+    html.theme-dark .ep-card h6,
+    html.theme-dark .step-card h6,
+    html.theme-dark .feature-box h5 {
+      color: #fff;
+    }
+
+    html.theme-dark .ep-card p,
+    html.theme-dark .ep-card ul,
+    html.theme-dark .step-card p,
+    html.theme-dark .feature-box p,
+    html.theme-dark .feature-box ul {
+      color: #cbd5e1;
+    }
+
+    html.theme-dark .ep-card .card-icon {
+      background: linear-gradient(135deg, rgba(0, 102, 255, 0.2), rgba(0, 184, 163, 0.2));
+    }
+
+    html.theme-dark .ep-card .card-icon i {
+      color: #7dd3fc;
+    }
+
+    html.theme-dark .ep-card:hover .card-icon {
+      background: var(--fx-gradient);
+    }
+
+    html.theme-dark .ep-card:hover .card-icon i {
+      color: #fff;
+    }
+
+    html.theme-dark .highlight-box {
+      background: linear-gradient(135deg, rgba(0, 102, 255, 0.12), rgba(0, 184, 163, 0.08));
+      border-color: rgba(255, 255, 255, .1);
+    }
+
+    html.theme-dark .highlight-box p,
+    html.theme-dark .highlight-box strong {
+      color: #e5e7eb;
+    }
+
+    html.theme-dark .tag {
+      background: rgba(125, 211, 252, 0.12);
+      border-color: rgba(125, 211, 252, 0.18);
+      color: #e5e7eb;
+    }
+
+    html.theme-dark .tag i {
+      color: #7dd3fc;
+    }
+
+    html.theme-dark .feature-box .label {
+      color: #7dd3fc;
+    }
+
+    /* Keep the navbar consistent with other pages */
+    html.theme-dark .navbar,
+    html.theme-dark .navbar.bg-white {
+      background: rgba(10, 16, 28, .95) !important;
+    }
+
+    html.theme-dark .navbar .nav-link {
+      color: #fff !important;
+    }
+
+    html.theme-dark .navbar-brand img {
+      filter: brightness(0) invert(1);
+    }
+
+    html.theme-dark .dropdown-menu {
+      background: #111a2a;
+      color: #fff;
+    }
+
+    html.theme-dark .dropdown-item {
+      color: #fff !important;
+    }
+
+    html.theme-dark .dropdown-item:hover {
+      background: var(--fx-gradient);
+      color: #fff !important;
+    }
+
+    /* Animation delays for staggered reveal */
+    .row>[class*="col-"]:nth-child(1) .ep-card,
+    .row>[class*="col-"]:nth-child(1) .step-card {
+      animation-delay: 0s;
+    }
+
+    .row>[class*="col-"]:nth-child(2) .ep-card,
+    .row>[class*="col-"]:nth-child(2) .step-card {
+      animation-delay: .05s;
+    }
+
+    .row>[class*="col-"]:nth-child(3) .ep-card,
+    .row>[class*="col-"]:nth-child(3) .step-card {
+      animation-delay: .1s;
+    }
+
+    .row>[class*="col-"]:nth-child(4) .ep-card,
+    .row>[class*="col-"]:nth-child(4) .step-card {
+      animation-delay: .15s;
+    }
+
+    .row>[class*="col-"]:nth-child(5) .ep-card,
+    .row>[class*="col-"]:nth-child(5) .step-card {
+      animation-delay: .2s;
+    }
+
+    .row>[class*="col-"]:nth-child(6) .ep-card,
+    .row>[class*="col-"]:nth-child(6) .step-card {
+      animation-delay: .25s;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .ep-card,
+    .step-card,
+    .feature-box,
+    .highlight-box {
+      animation: fadeUp .5s ease both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .ep-card,
+      .step-card,
+      .feature-box,
+      .highlight-box {
+        animation: none;
+      }
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 767px) {
+
+      .ep-card,
+      .step-card,
+      .feature-box {
+        padding: 20px;
+      }
+
+      .tag {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Fix footer contact phone spacing */
+    footer address.mb-0 {
+      margin-bottom: 0.25rem !important;
+      line-height: 1.4;
+    }
+
+    footer address.mb-0 a {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      line-height: 1.4;
+    }
+
+    footer address.mb-0 br {
+      line-height: 1.4;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top" role="navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/" aria-label="FutureXcel Home">
+        <img src="./assets/logo.png" alt="FutureXcel Technologies Logo" decoding="async" fetchpriority="high" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="navbarNav" class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav fw-semibold">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">Services</a>
+            <ul class="dropdown-menu shadow border-0 rounded-3" aria-labelledby="servicesDropdown">
+              <li><a class="dropdown-item" href="/services-endpoint">Modern Endpoint Management</a></li>
+              <li><a class="dropdown-item" href="/services-helpdesk">IT Help Desk Outsourcing</a></li>
+              <li><a class="dropdown-item" href="/services-software">Custom Software Development</a></li>
+              <li><a class="dropdown-item" href="/services-research">Research &amp; Development</a></li>
+              <li><a class="dropdown-item" href="/services-consulting">IT Consulting &amp; Support</a></li>
+              <li><a class="dropdown-item" href="/services-data">Data Engineering &amp; Analytics</a></li>
+              <li><a class="dropdown-item" href="/services-ml">Machine Learning Solutions</a></li>
+              <li><a class="dropdown-item" href="/services-cloud">DevOps &amp; Cloud Services</a></li>
+              <li><a class="dropdown-item" href="/services-training">Training &amp; Placement</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/training">Training</a></li>
+          <li class="nav-item"><a class="nav-link" href="/careers">Careers</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
+          <button id="themeToggle" class="btn btn-sm btn-outline-dark rounded-pill d-inline-flex align-items-center"
+            type="button" aria-pressed="false" title="Toggle dark mode">
+            <i class="bi bi-moon-stars me-1" aria-hidden="true"></i><span class="visually-hidden">Toggle dark
+              mode</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- Hero -->
+    <header class="hero" style="--hero-image: url('./assets/hero4.jpg');">
+      <div class="container">
+        <div class="inner">
+          <span class="eyebrow">Services</span>
+          <h1 class="hero-title">Modern Endpoint Management</h1>
+          <p class="hero-sub">Manage the full device lifecycle with <strong>MDM</strong> and <strong>MAM</strong>:
+            secure
+            provisioning, app delivery, Windows patching, policy enforcement, and enterprise integration for both
+            <strong>hybrid</strong> and <strong>Entra-joined</strong> environments.
+          </p>
+
+          <div class="hero-highlights" aria-label="Service highlights">
+            <span class="hero-highlight"><i class="bi bi-pc-display"></i><span>Full Lifecycle (Enroll &rarr;
+                Retire)</span></span>
+            <span class="hero-highlight"><i class="bi bi-shield-check"></i><span>Security Baselines &amp;
+                Compliance</span></span>
+            <span class="hero-highlight"><i class="bi bi-cloud-check"></i><span>Azure / Entra Integration</span></span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="/contact" class="btn-pill btn-brand"><i class="bi bi-envelope"></i> Discuss Your Endpoint
+              Roadmap</a>
+            <a href="#capabilities" class="btn-pill btn-outline" data-scroll><i class="bi bi-diagram-3"></i> View
+              Capabilities</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Overview Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-bullseye me-2"></i>What This Service Delivers</h2>
+          <p class="section-sub mx-auto" style="max-width: 800px">A modern, cloud-first endpoint program that keeps
+            users productive and devices compliant-without heavy manual IT effort.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <div class="highlight-box h-100">
+              <p class="mb-3"><strong>Modern Endpoint Management</strong> means centrally managing company and BYOD
+                devices using policy, automation, and identity-driven controls (primarily Microsoft cloud services).
+                You get repeatable provisioning, predictable patching, stronger security posture, and clear reporting.
+              </p>
+              <p class="mb-0"><strong>Primary Microsoft stack:</strong> Microsoft Intune (Endpoint Manager),
+                Microsoft Entra ID, Windows Autopilot, Windows Update for Business,
+                Microsoft Defender for Endpoint, and optional co-management with Configuration Manager.</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="ep-card h-100">
+              <div class="card-icon"><i class="bi bi-check2-circle"></i></div>
+              <h6>Typical Outcomes</h6>
+              <ul>
+                <li><strong>Fast provisioning</strong> with consistent device builds</li>
+                <li><strong>App delivery at scale</strong> with controlled updates</li>
+                <li><strong>Patch compliance</strong> through update rings</li>
+                <li><strong>Security enforcement</strong> via configuration profiles</li>
+                <li><strong>Audit-ready reporting</strong> for compliance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section id="capabilities" class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-grid-1x2-fill me-2"></i>Capabilities</h2>
+          <p class="section-sub mx-auto" style="max-width: 800px">Deep coverage across enrollment, configuration,
+            security,
+            apps, updates, and operations.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-person-badge"></i></div>
+              <h6>Enrollment &amp; Provisioning</h6>
+              <p>Windows Autopilot, enrollment profiles, device naming, dynamic groups, role-based admin, and staged
+                rollout. Supports corporate devices, shared devices, kiosks, and BYOD patterns.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-sliders"></i></div>
+              <h6>Configuration Profiles</h6>
+              <p>Standardize Wi‑Fi/VPN, certificates, email, browser settings, firewall rules, BitLocker, local admin
+                controls, printers, and OS-level configuration-consistent across regions and teams.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-shield-lock"></i></div>
+              <h6>Security &amp; Compliance</h6>
+              <p>Security baselines, compliance policies, Conditional Access alignment, Defender onboarding, Attack
+                Surface Reduction guidance, and risk-based access patterns using Entra identity signals.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-box-seam"></i></div>
+              <h6>App Management</h6>
+              <p>Deploy Microsoft Store apps, Win32 apps, MSI/EXE packages, line-of-business apps, and mobile apps.
+                Control updates, dependencies, detection rules, and remediation flows.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-arrow-repeat"></i></div>
+              <h6>Windows Patching</h6>
+              <p>Update rings, feature update policies, quality update policies, deadlines, restart controls, and update
+                compliance reporting. Reduce patch drift while protecting business hours.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-clipboard-data"></i></div>
+              <h6>Monitoring &amp; Reporting</h6>
+              <p>Device compliance dashboards, application install status, update compliance, security posture
+                reporting, and operational alerting for failed deployments and non-compliant devices.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MDM + MAM Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-diagram-3 me-2"></i>MDM + MAM</h2>
+          <p class="section-sub mx-auto" style="max-width: 800px">We combine device controls (MDM) with app-level
+            protection
+            (MAM) so you can support both corporate devices and BYOD safely.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="feature-box">
+              <div class="label"><i class="bi bi-laptop"></i> MDM - Mobile Device Management</div>
+              <h5>Full Device Control</h5>
+              <p>MDM manages the <strong>device</strong>: enrollment, OS configuration, compliance checks,
+                security baselines, patching strategy, device encryption, firewall policies, and remote actions (lock,
+                wipe, retire).</p>
+              <ul>
+                <li><strong>Best for:</strong> corporate-owned Windows/macOS/iOS/Android devices</li>
+                <li><strong>Controls:</strong> configuration profiles, update rings, compliance policies, endpoint
+                  security policies</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="feature-box">
+              <div class="label"><i class="bi bi-app-indicator"></i> MAM - Mobile Application Management</div>
+              <h5>App &amp; Data Protection</h5>
+              <p>MAM protects the <strong>work apps and data</strong> even on personal devices. We use app
+                protection policies (e.g., for Microsoft 365 apps) to prevent data leakage while keeping privacy intact.
+              </p>
+              <ul>
+                <li><strong>Best for:</strong> BYOD (personal phones/tablets) and contractors</li>
+                <li><strong>Controls:</strong> PIN/biometric requirement, copy/paste restrictions, encryption, selective
+                  wipe</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <ul class="tag-list justify-content-center">
+            <li class="tag"><i class="bi bi-windows"></i>Windows 10/11</li>
+            <li class="tag"><i class="bi bi-apple"></i>iOS / iPadOS</li>
+            <li class="tag"><i class="bi bi-android2"></i>Android</li>
+            <li class="tag"><i class="bi bi-laptop"></i>macOS</li>
+            <li class="tag"><i class="bi bi-people"></i>BYOD + Corporate</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Device Lifecycle Section -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-arrow-right-circle me-2"></i>Device Lifecycle (End-to-End)</h2>
+          <p class="section-sub mx-auto" style="max-width: 800px">We design a repeatable, secure lifecycle so every
+            endpoint is governed from day one-and responsibly retired at end of life.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="step-card">
+              <div class="step-num">1</div>
+              <h6>Plan &amp; Standardize</h6>
+              <p>Define device standards, identity posture, baseline configurations, naming conventions, group strategy
+                (dynamic membership), and rollout waves. Align to security requirements and support model.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="step-card">
+              <div class="step-num">2</div>
+              <h6>Enroll &amp; Provision</h6>
+              <p>Implement enrollment paths (Autopilot, user-driven, pre-provisioning), and assign baseline profiles so
+                devices are configured automatically on first sign-in.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="step-card">
+              <div class="step-num">3</div>
+              <h6>Configure &amp; Secure</h6>
+              <p>Apply configuration profiles and security policies (encryption, Defender onboarding, firewall, ASR
+                guidance, local admin controls, device restrictions) with compliance checks and remediation.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="step-card">
+              <div class="step-num">4</div>
+              <h6>Deploy Apps</h6>
+              <p>Deliver required apps for new builds and make optional apps available for users. Standardize
+                packaging/detection, version control, and phased deployments with success metrics.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="step-card">
+              <div class="step-num">5</div>
+              <h6>Patch &amp; Maintain</h6>
+              <p>Roll out quality and feature updates with rings, deadlines, restart policies, and health monitoring.
+                Reduce drift while protecting productivity and business-critical applications.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="step-card">
+              <div class="step-num">6</div>
+              <h6>Monitor, Audit, Retire</h6>
+              <p>Track compliance, application install status, and device health. Retire end-of-life devices safely
+                (selective wipe vs full wipe), preserve evidence, and maintain accurate inventory.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hybrid & Entra-Joined Support Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-plug me-2"></i>Hybrid &amp; Entra-Joined Support</h2>
+          <p class="section-sub mx-auto" style="max-width: 800px">We support organizations transitioning from on-prem to
+            cloud and those already cloud-first.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-diagram-2"></i></div>
+              <h6>Hybrid Environments</h6>
+              <p>Coexistence strategy for Group Policy + modern management, hybrid join, and smooth transition plan
+                toward cloud-only.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-arrow-left-right"></i></div>
+              <h6>Co-Management</h6>
+              <p>Integrate with Configuration Manager for workloads that remain on-prem during migration while shifting
+                modern workloads to Intune.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-cloud-check"></i></div>
+              <h6>Entra-Joined Devices</h6>
+              <p>Identity-first posture for Conditional Access, SSO, and device-based trust signals with Azure AD
+                integration.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-hdd-network"></i></div>
+              <h6>Enterprise Integration</h6>
+              <p>Wi‑Fi, VPN, certificates, proxy, and line-of-business app dependencies with clear ownership and support
+                handoffs.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-bullseye"></i></div>
+              <h6>Least-Disruption Rollout</h6>
+              <p>Pilot groups, ring deployments, and rollback strategy to avoid impacting business-critical endpoints.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-shield-check"></i></div>
+              <h6>Conditional Access</h6>
+              <p>Device compliance signals integrated with identity policies for stronger access control across apps and
+                data.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security Posture Section -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-shield-fill-check me-2"></i>Security Posture</h2>
+          <p class="section-sub mx-auto" style="max-width: 800px">Controls you can keep running-not policies that look
+            good on paper but fail in real operations.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-lock"></i></div>
+              <h6>Hardening Baselines</h6>
+              <p>Security baselines, device restrictions, and policies aligned with your environment.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-fingerprint"></i></div>
+              <h6>Identity-driven Access</h6>
+              <p>Device compliance signals for stronger access decisions on sensitive apps and data.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-shield-plus"></i></div>
+              <h6>Defender Onboarding</h6>
+              <p>Endpoint protection onboarding, health monitoring, and remediation workflows.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-file-earmark-check"></i></div>
+              <h6>Compliance &amp; Evidence</h6>
+              <p>Audit-friendly reporting on encryption, update status, and configuration adherence.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engagement Patterns Section -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-box-arrow-in-right me-2"></i>Engagement Patterns</h2>
+          <p class="section-sub mx-auto" style="max-width: 800px">Pick a starting point-then expand as maturity grows.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-search"></i></div>
+              <h6>Assessment &amp; Roadmap</h6>
+              <p>Inventory current tooling, join state, policies, and gaps. Define a phased plan with pilots, production
+                rings, compliance targets, and operational ownership.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-rocket-takeoff"></i></div>
+              <h6>Pilot &rarr; Rollout</h6>
+              <p>Build your baseline, onboard a pilot group, iterate quickly, then scale using rings. Includes
+                documentation and admin handover.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-life-preserver"></i></div>
+              <h6>Operate &amp; Improve</h6>
+              <p>Ongoing monitoring, change management, patch cadence, app lifecycle, and reporting. Quarterly posture
+                reviews for continuous improvement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typical Deliverables Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="section-title"><i class="bi bi-list-check me-2"></i>Typical Deliverables</h2>
+          <p class="section-sub mx-auto" style="max-width: 800px">Concrete outputs you can reuse and operate.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-file-earmark-text"></i></div>
+              <h6>Blueprint &amp; Standards</h6>
+              <p>Device standards, group strategy, naming conventions, enrollment paths, policy catalog, and rollback
+                strategy.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-shield-lock"></i></div>
+              <h6>Security Baselines</h6>
+              <p>Configuration and compliance baselines (encryption, firewall, Defender onboarding, device restrictions)
+                aligned to your risk posture.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-box"></i></div>
+              <h6>App Catalog &amp; Packaging</h6>
+              <p>Packaged apps with detection rules, assignments, and deployment notes; standardized install success
+                metrics and remediation guidance.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-arrow-repeat"></i></div>
+              <h6>Update Rings</h6>
+              <p>Quality/feature update policies, restart controls, deadlines, and monitoring strategy for patch
+                compliance and reliability.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-graph-up"></i></div>
+              <h6>Dashboards &amp; Reporting</h6>
+              <p>Operational dashboards for enrollments, compliance, app deployment success, and update status; plus
+                executive-ready posture summaries.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="ep-card">
+              <div class="card-icon"><i class="bi bi-journal-check"></i></div>
+              <h6>Runbooks &amp; Handover</h6>
+              <p>Admin runbooks, support playbooks, escalation paths, and change management workflow so your team can
+                confidently operate the platform.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="fx-cta" aria-labelledby="fx-cta-title">
+      <div class="container">
+        <div class="fx-cta__inner">
+          <h2 id="fx-cta-title">Modernize your endpoint strategy</h2>
+          <p class="fx-cta__lead">Share your current setup (hybrid or Entra-joined) - we'll propose a practical roadmap
+            for
+            secure, automated device lifecycle management.</p>
+          <div class="fx-cta__actions">
+            <a href="/contact" class="btn-cta btn-cta--primary"><i class="bi bi-envelope"></i> Contact Us</a>
+            <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20Modern%20Endpoint%20Management."
+              target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta--secondary"><i
+                class="bi bi-whatsapp"></i> Chat on WhatsApp</a>
+          </div>
+          <p class="fx-cta__note">Response time: usually within 24 hours.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-md-4">
+          <h5>About Us</h5>
+          <p class="mb-2">FutureXcel Technologies is a technology services partner specializing in custom software
+            development, IT consulting &amp; support, data engineering &amp; AI, cloud/DevOps, and training &amp;
+            placement programs.</p>
+          <p class="mb-2">From 24/7 IT support and managed services to product engineering and cloud modernization, we
+            help teams ship faster and operate securely with measurable outcomes.</p>
+          <p class="mb-0">We serve startups and enterprises across the United States, Canada, and India with a focus on
+            reliability, security, and great customer experience.</p>
+        </div>
+
+        <div class="col-md-3">
+          <h5>Services</h5>
+          <a href="/services-endpoint">Modern Endpoint Management</a>
+          <a href="/services-helpdesk">IT Help Desk Outsourcing</a>
+          <a href="/services-software">Custom Software Development</a>
+          <a href="/services-research">Research &amp; Development</a>
+          <a href="/services-consulting">IT Consulting &amp; Support</a>
+          <a href="/services-data">Data Engineering &amp; Analytics</a>
+          <a href="/services-ml">Machine Learning Solutions</a>
+          <a href="/services-cloud">DevOps &amp; Cloud Services</a>
+          <a href="/services-training">Training &amp; Placement</a>
+        </div>
+
+        <div class="col-md-2">
+          <h5>Quick Links</h5>
+          <a href="/">Home</a>
+          <a href="/training">Training</a>
+          <a href="/careers">Careers</a>
+          <a href="/about">About Us</a>
+          <a href="/contact">Contact</a>
+          <hr class="footer-rule d-md-none" aria-hidden="true" />
+        </div>
+
+        <div class="col-md-3">
+          <h5>Contact</h5>
+          <address class="mb-1">Email: <a href="mailto:info@futurexceltech.com">info@futurexceltech.com</a></address>
+          <address class="mb-0">Phone:<br>
+            <a href="tel:+918625040777">+91 862-504-0777</a><br>
+            <a href="tel:+17177499910">+1 717-749-9910</a><br>
+            <a href="tel:+12172181585">+1 217-218-1585</a>
+          </address>
+          <address class="mb-2">H.No. 4-10-312, Abdul Kalam Road<br>Gali No. 1, Near Bus Stand, Ekbal Nagar<br>Purna, Parbhani, Maharashtra - 431511</address>
+          <div class="social mt-2" aria-label="Social links">
+            <a href="https://www.instagram.com/futurexcel_technologies/#" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/futurexcel-technologies/" target="_blank"
+              rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.facebook.com/share/16yvQLBep4/" target="_blank" rel="noopener noreferrer"
+              aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20your%20services."
+              target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <hr class="footer-rule" />
+      <p class="text-center mb-0 copyright">&copy; <span id="year"></span> FutureXcel Technologies. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+
+
+
+  <!-- WhatsApp Float Button -->
+  <a class="whatsapp-float"
+    href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I'm%20interested%20in%20Modern%20Endpoint%20Management%20services."
+    target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><i class="bi bi-whatsapp fs-3"></i></a>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="./main.js"></script>
+  
+  <!-- Chatbot Integration -->
+  <link rel="stylesheet" href="chatbot.css">
+  <script src="chatbot.js"></script>
+</body>
+
+</html>
