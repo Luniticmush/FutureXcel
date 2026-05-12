@@ -13,7 +13,7 @@
   <meta name="color-scheme" content="light dark" />
   <title>Custom Software Development | FutureXcel Technologies</title>
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./assets/Favico.png" />
+  <link rel="icon" type="image/png" href="./Favico.png" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
 
-  <link rel="preload" as="image" href="./assets/hero1.jpg" />
+  <link rel="preload" as="image" href="./hero1.jpg" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
@@ -197,21 +197,6 @@
       color: #ffffff !important;
     }
 
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .55rem;
-      margin-top: 1.1rem
-    }
-
-    .hero-badges .hb {
-      background: rgba(255, 255, 255, .12);
-      border: 1px solid rgba(255, 255, 255, .3);
-      color: #fff;
-      font-size: .7rem;
-      letter-spacing: .5px;
-      font-weight: 600;
-      padding: .45rem .75rem;
       border-radius: 999px;
       backdrop-filter: blur(6px)
     }
@@ -1099,16 +1084,6 @@
         color: #ffffff !important;
       }
 
-      .hero-badges {
-        gap: 0.4rem;
-        margin-top: 0.8rem;
-      }
-
-      .hero-badges .hb {
-        font-size: 0.65rem;
-        padding: 0.35rem 0.6rem;
-      }
-
       .hero-actions {
         gap: 0.6rem;
         margin-top: 1.2rem;
@@ -1584,15 +1559,6 @@
         color: #ffffff !important;
       }
 
-      .hero-badges {
-        gap: 0.35rem;
-      }
-
-      .hero-badges .hb {
-        font-size: 0.6rem;
-        padding: 0.3rem 0.5rem;
-      }
-
       .hero-actions {
         gap: 0.5rem;
       }
@@ -1767,9 +1733,9 @@
   <!-- Header -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top" role="navigation">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="/" aria-label="FutureXcel Home">
-        <img src="./assets/logo.png" alt="FutureXcel Technologies Logo" decoding="async" fetchpriority="high"
-          loading="eager" />
+      <a class="navbar-brand fw-bold" href="./index.html" aria-label="FutureXcel Home">
+        <img src="./logo.png" alt="FutureXcel Technologies Logo" decoding="async" fetchpriority="high"
+          loading="eager" data-logo-light="./logo.png" data-logo-dark="./logo.png" />
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -1777,26 +1743,26 @@
       </button>
       <div id="navbarNav" class="collapse navbar-collapse justify-content-end">
         <ul class="navbar-nav fw-semibold">
-          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">Services</a>
             <ul class="dropdown-menu shadow border-0 rounded-3" aria-labelledby="servicesDropdown">
-              <li><a class="dropdown-item" href="/services-endpoint">Modern Endpoint Management</a></li>
-              <li><a class="dropdown-item" href="/services-helpdesk">IT Help Desk Outsourcing</a></li>
-              <li><a class="dropdown-item" href="/services-software">Custom Software Development</a></li>
-              <li><a class="dropdown-item" href="/services-research">Research &amp; Development</a></li>
-              <li><a class="dropdown-item" href="/services-consulting">IT Consulting &amp; Support</a></li>
-              <li><a class="dropdown-item" href="/services-data">Data Engineering &amp; Analytics</a></li>
-              <li><a class="dropdown-item" href="/services-ml">Machine Learning Solutions</a></li>
-              <li><a class="dropdown-item" href="/services-cloud">DevOps &amp; Cloud Services</a></li>
-              <li><a class="dropdown-item" href="/services-training">Training &amp; Placement</a></li>
+              <li><a class="dropdown-item" href="./services-endpoint.html">Modern Endpoint Management</a></li>
+              <li><a class="dropdown-item" href="./services-helpdesk.html">IT Help Desk Outsourcing</a></li>
+              <li><a class="dropdown-item" href="./services-software.html">Custom Software Development</a></li>
+              <li><a class="dropdown-item" href="./services-research.html">Research &amp; Development</a></li>
+              <li><a class="dropdown-item" href="./services-consulting.html">IT Consulting &amp; Support</a></li>
+              <li><a class="dropdown-item" href="./services-data.html">Data Engineering &amp; Analytics</a></li>
+              <li><a class="dropdown-item" href="./services-ml.html">Machine Learning Solutions</a></li>
+              <li><a class="dropdown-item" href="./services-cloud.html">DevOps &amp; Cloud Services</a></li>
+              <li><a class="dropdown-item" href="./services-training.html">Training &amp; Placement</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="/training">Training</a></li>
-          <li class="nav-item"><a class="nav-link" href="/careers">Careers</a></li>
-          <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="./training.html">Training</a></li>
+          <li class="nav-item"><a class="nav-link" href="./careers.html">Careers</a></li>
+          <li class="nav-item"><a class="nav-link" href="./about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
         </ul>
         <div class="d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
           <button id="themeToggle" class="btn btn-sm btn-outline-dark rounded-pill d-inline-flex align-items-center"
@@ -1809,30 +1775,27 @@
     </div>
   </nav>
 
-  <main id="main">
-    <!-- HERO (Match index.html) -->
-    <header class="hero" style="--hero-image: url('./assets/hero1.jpg');">
-      <div class="container">
-        <div class="inner">
-          <span class="eyebrow">Services</span>
-          <div class="hero-badges">
-            <span class="hb">WEB APPLICATIONS</span><span class="hb">WINDOWS APPS</span><span class="hb">MOBILE &
-              CLOUD</span><span class="hb">ENTERPRISE SOFTWARE</span>
-          </div>
-          <h1 class="mt-1">Software Development Services</h1>
-          <p class="lead">We build custom software solutions across web, desktop, mobile, and cloud platforms. From
-            modern web applications to enterprise software, we deliver scalable, secure, and maintainable solutions
-            tailored to your needs.</p>
-          <div class="hero-actions">
-            <a href="#services" class="btn-pill btn-brand" data-scroll><i class="bi bi-layers"></i> Explore Services</a>
-            <a href="/contact" class="btn-pill btn-contrast"><i class="bi bi-envelope"></i> Get Started</a>
-            <a href="#approach" class="btn-pill btn-outline" data-scroll><i class="bi bi-arrow-down-circle"></i> Our
-              Approach</a>
-          </div>
+  <header class="service-hero" aria-labelledby="serviceHeroTitle">
+    <div class="container">
+      <div class="service-hero__content">
+        <span class="service-hero__eyebrow"><i class="bi bi-code-slash"></i> Engineering service</span>
+        <h1 id="serviceHeroTitle" class="service-hero__title">Custom Software Development</h1>
+        <p class="service-hero__lead">We design and build reliable web apps, APIs, integrations, automation, and
+          enterprise platforms that are secure from day one and ready to scale.</p>
+        <div class="service-hero__actions">
+          <a class="btn-pill btn-brand" href="./contact.html"><i class="bi bi-envelope"></i> Start a project</a>
+          <a class="btn-pill btn-contrast" href="#services"><i class="bi bi-grid-1x2-fill"></i> View solutions</a>
+        </div>
+        <div class="service-hero__meta" aria-label="Service highlights">
+          <span><i class="bi bi-shield-check"></i> Secure delivery</span>
+          <span><i class="bi bi-cloud-upload"></i> Cloud-ready builds</span>
+          <span><i class="bi bi-activity"></i> Observable systems</span>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
 
+  <main id="main">
     <!-- TYPES OF SOFTWARE WE BUILD -->
     <section id="services" class="py-5">
       <div class="container">
@@ -2212,7 +2175,7 @@
           <h2 id="fx-cta-title">Ready to build your next software solution?</h2>
           <p class="fx-cta__lead">Let’s discuss your project and map a secure, scalable build plan.</p>
           <div class="fx-cta__actions">
-            <a href="/contact" class="btn-cta btn-cta--primary"><i class="bi bi-envelope"></i> Contact Us</a>
+            <a href="./contact.html" class="btn-cta btn-cta--primary"><i class="bi bi-envelope"></i> Contact Us</a>
             <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20your%20services."
               target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta--secondary"><i
                 class="bi bi-whatsapp"></i> Chat on WhatsApp</a>
@@ -2240,24 +2203,24 @@
 
         <div class="col-md-3">
           <h5>Services</h5>
-          <a href="/services-endpoint">Modern Endpoint Management</a>
-          <a href="/services-helpdesk">IT Help Desk Outsourcing</a>
-          <a href="/services-software">Custom Software Development</a>
-          <a href="/services-research">Research &amp; Development</a>
-          <a href="/services-consulting">IT Consulting &amp; Support</a>
-          <a href="/services-data">Data Engineering &amp; Analytics</a>
-          <a href="/services-ml">Machine Learning Solutions</a>
-          <a href="/services-cloud">DevOps &amp; Cloud Services</a>
-          <a href="/services-training">Training &amp; Placement</a>
+          <a href="./services-endpoint.html">Modern Endpoint Management</a>
+          <a href="./services-helpdesk.html">IT Help Desk Outsourcing</a>
+          <a href="./services-software.html">Custom Software Development</a>
+          <a href="./services-research.html">Research &amp; Development</a>
+          <a href="./services-consulting.html">IT Consulting &amp; Support</a>
+          <a href="./services-data.html">Data Engineering &amp; Analytics</a>
+          <a href="./services-ml.html">Machine Learning Solutions</a>
+          <a href="./services-cloud.html">DevOps &amp; Cloud Services</a>
+          <a href="./services-training.html">Training &amp; Placement</a>
         </div>
 
         <div class="col-md-2">
           <h5>Quick Links</h5>
-          <a href="/">Home</a>
-          <a href="/training">Training</a>
-          <a href="/careers">Careers</a>
-          <a href="/about">About Us</a>
-          <a href="/contact">Contact</a>
+          <a href="./index.html">Home</a>
+          <a href="./training.html">Training</a>
+          <a href="./careers.html">Careers</a>
+          <a href="./about.html">About Us</a>
+          <a href="./contact.html">Contact</a>
           <hr class="footer-rule d-md-none" aria-hidden="true" />
         </div>
 
@@ -2301,8 +2264,10 @@
   <script defer src="./main.js"></script>
   
   <!-- Chatbot Integration -->
-  <link rel="stylesheet" href="chatbot.css">
-  <script src="chatbot.js"></script>
+  <link rel="stylesheet" href="./chatbot.css">
+  <script src="./chatbot.js"></script>
 </body>
 
 </html>
+
+

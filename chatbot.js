@@ -11,12 +11,7 @@
         position: 'bottom-right', // 'bottom-right' or 'bottom-left'
         primaryColor: '#0066cc',
         secondaryColor: '#f0f0f0',
-        quickActions: [
-            { text: 'Our Services', action: 'services' },
-            { text: 'Training Programs', action: 'training' },
-            { text: 'Contact Us', action: 'contact' },
-            { text: 'Careers', action: 'careers' }
-        ]
+        quickActions: []
     };
 
     // Knowledge base - questions and responses
@@ -373,12 +368,187 @@
         ]
     };
 
+    // AIML-style response modules for conversational matching
+    const aimlModules = [
+        {
+            id: 'smalltalk',
+            patterns: [
+                /\b(how are you|how r u|how r you|how are u|how is it going|what's up|what is up|how do you do|how ya doing|how are things|how are you doing)\b/,
+                /\b(tell me about yourself|who are you|are you a bot|what are you|what is your name|what's your name|your name|what do you do|what can you do|where are you from|where are you located)\b/
+            ],
+            response: 'I\'m FutureXcel Assistant, your website guide for FutureXcel Technologies. 😊 I can help you find information about our services, training, careers, contact details, and more. What would you like to ask next?'
+        },
+        {
+            id: 'services',
+            pageLink: 'services-endpoint.html',
+            patterns: [
+                /\b(service|services|offerings|capabilities|what do you do|what can you do)\b/,
+                /\btell me about your services\b/
+            ],
+            response: knowledgeBase.services.response
+        },
+        {
+            id: 'training',
+            pageLink: 'training.html',
+            patterns: [
+                /\b(training|course|program|placement|bootcamp|learn|certification)\b/,
+                /\btell me about training\b/
+            ],
+            response: knowledgeBase.training.response
+        },
+        {
+            id: 'contact',
+            pageLink: 'contact.html',
+            patterns: [
+                /\b(contact|email|phone|reach|talk|speak|address|where are you|how to contact)\b/
+            ],
+            response: knowledgeBase.contact.response
+        },
+        {
+            id: 'careers',
+            pageLink: 'careers.html',
+            patterns: [
+                /\b(job|career|hiring|position|vacancy|work|employment|openings|apply)\b/,
+                /\bdo you hire\b/
+            ],
+            response: knowledgeBase.careers.response
+        },
+        {
+            id: 'about',
+            pageLink: 'about.html',
+            patterns: [
+                /\b(about|who are you|company|background|story|mission|values|who we are)\b/
+            ],
+            response: knowledgeBase.about.response
+        },
+        {
+            id: 'cloud',
+            pageLink: 'services-cloud.html',
+            patterns: [
+                /\b(cloud|devops|ci\/cd|infrastructure|aws|azure|gcp|terraform|kubernetes|docker)\b/
+            ],
+            response: knowledgeBase.cloud.response
+        },
+        {
+            id: 'software',
+            pageLink: 'services-software.html',
+            patterns: [
+                /\b(software|web app|mobile app|api|custom software|web development|app development)\b/
+            ],
+            response: knowledgeBase.software.response
+        },
+        {
+            id: 'data',
+            pageLink: 'services-data.html',
+            patterns: [
+                /\b(data|data engineering|data analytics|data pipeline|data warehouse|bi|business intelligence|etl)\b/
+            ],
+            response: knowledgeBase.data.response
+        },
+        {
+            id: 'ml',
+            pageLink: 'services-ml.html',
+            patterns: [
+                /\b(machine learning|ml|ai|artificial intelligence|model|prediction|neural network|deep learning)\b/
+            ],
+            response: knowledgeBase.ml.response
+        },
+        {
+            id: 'helpdesk',
+            pageLink: 'services-helpdesk.html',
+            patterns: [
+                /\b(help desk|helpdesk|support desk|ticket|it support|customer support|technical support)\b/
+            ],
+            response: knowledgeBase.helpdesk.response
+        },
+        {
+            id: 'endpoint',
+            pageLink: 'services-endpoint.html',
+            patterns: [
+                /\b(endpoint|device management|mdm|intune|microsoft 365|office 365|device security)\b/
+            ],
+            response: knowledgeBase.endpoint.response
+        },
+        {
+            id: 'research',
+            pageLink: 'services-research.html',
+            patterns: [
+                /\b(research|r&d|development|innovation|prototype|proof of concept|poc)\b/
+            ],
+            response: knowledgeBase.research.response
+        },
+        {
+            id: 'pricing',
+            pageLink: 'contact.html',
+            patterns: [
+                /\b(price|cost|pricing|quote|how much|budget|affordable|rates|fee)\b/
+            ],
+            response: knowledgeBase.pricing.response
+        },
+        {
+            id: 'location',
+            pageLink: 'contact.html',
+            patterns: [
+                /\b(location|where|office|headquarters|india|usa|canada|based|address)\b/
+            ],
+            response: knowledgeBase.location.response
+        },
+        {
+            id: 'hours',
+            pageLink: 'contact.html',
+            patterns: [
+                /\b(hours|working hours|business hours|when|time|available|open)\b/
+            ],
+            response: knowledgeBase.hours.response
+        },
+        {
+            id: 'technologies',
+            pageLink: 'about.html',
+            patterns: [
+                /\b(technology|tech stack|tools|technologies|languages|frameworks|platforms|stack)\b/
+            ],
+            response: knowledgeBase.technologies.response
+        }
+    ];
+
+    function normalizeMessage(message) {
+        return message
+            .toLowerCase()
+            .replace(/[\u2018\u2019\u201c\u201d]/g, "'")
+            .replace(/[^a-z0-9\s\?]/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim();
+    }
+
+    function findAIMLResponse(userMessage) {
+        const normalized = normalizeMessage(userMessage);
+        for (const module of aimlModules) {
+            if (module.patterns.some(pattern => pattern.test(normalized))) {
+                let response = module.response;
+                if (module.pageLink && !response.includes(module.pageLink)) {
+                    response += `\n\nFor more details, visit: ${module.pageLink}`;
+                }
+                return response;
+            }
+        }
+        return null;
+    }
+
+    function getClarifyingResponse() {
+        return 'I\'m still learning, but I can help with FutureXcel website topics like services, training, careers, or contact information.\n\n' +
+            'Try asking something like:\n' +
+            '• "What services do you offer?"\n' +
+            '• "Tell me about your training programs"\n' +
+            '• "How can I contact FutureXcel?"';
+    }
+
     // Chatbot HTML structure
     function createChatbotHTML() {
-        const quickActionsHTML = config.quickActions.map(action => 
-            `<button class="chatbot-quick-action" data-action="${action.action}">${action.text}</button>`
-        ).join('');
-        
+        if (!document.body) {
+            console.error('Chatbot: document.body not available');
+            return false;
+        }
+
         const chatbotHTML = `
             <div id="futurexcel-chatbot-container">
                 <div id="futurexcel-chatbot-header">
@@ -404,9 +574,6 @@
                     </button>
                 </div>
                 <div id="futurexcel-chatbot-messages"></div>
-                <div id="futurexcel-chatbot-quick-actions" class="chatbot-quick-actions">
-                    ${quickActionsHTML}
-                </div>
                 <div id="futurexcel-chatbot-input-container">
                     <input 
                         type="text" 
@@ -431,11 +598,14 @@
         `;
         
         document.body.insertAdjacentHTML('beforeend', chatbotHTML);
+        return true;
     }
 
     // Initialize chatbot
     function initChatbot() {
-        createChatbotHTML();
+        if (!createChatbotHTML()) {
+            return;
+        }
         
         const container = document.getElementById('futurexcel-chatbot-container');
         const toggle = document.getElementById('futurexcel-chatbot-toggle');
@@ -444,10 +614,15 @@
         const send = document.getElementById('futurexcel-chatbot-send');
         const messages = document.getElementById('futurexcel-chatbot-messages');
 
+        // Safety check: ensure all elements exist
+        if (!container || !toggle || !close || !input || !send || !messages) {
+            console.error('Chatbot: Failed to initialize - required elements not found');
+            return;
+        }
+
         // Show welcome message
         setTimeout(() => {
             addMessage(config.welcomeMessage, 'bot');
-            showQuickActions();
         }, 300);
 
         // Toggle chatbot
@@ -479,7 +654,6 @@
 
             addMessage(userMessage, 'user');
             input.value = '';
-            hideQuickActions();
             
             // Show typing indicator
             const typingId = showTypingIndicator();
@@ -489,43 +663,7 @@
                 removeTypingIndicator(typingId);
                 const response = getBotResponse(userMessage);
                 addMessage(response, 'bot');
-                // Show quick actions after response
-                setTimeout(() => showQuickActions(), 300);
             }, 500 + Math.random() * 500); // Simulate typing delay
-        }
-        
-        // Handle quick action clicks
-        document.querySelectorAll('.chatbot-quick-action').forEach(button => {
-            button.addEventListener('click', () => {
-                const action = button.getAttribute('data-action');
-                const actionText = button.textContent;
-                addMessage(actionText, 'user');
-                hideQuickActions();
-                
-                const typingId = showTypingIndicator();
-                setTimeout(() => {
-                    removeTypingIndicator(typingId);
-                    const response = getBotResponse(action);
-                    addMessage(response, 'bot');
-                    setTimeout(() => showQuickActions(), 300);
-                }, 500);
-            });
-        });
-        
-        function showQuickActions() {
-            const quickActions = document.getElementById('futurexcel-chatbot-quick-actions');
-            if (quickActions) {
-                quickActions.style.display = 'flex';
-                setTimeout(() => quickActions.classList.add('visible'), 10);
-            }
-        }
-        
-        function hideQuickActions() {
-            const quickActions = document.getElementById('futurexcel-chatbot-quick-actions');
-            if (quickActions) {
-                quickActions.classList.remove('visible');
-                setTimeout(() => quickActions.style.display = 'none', 300);
-            }
         }
 
         function formatMessage(text) {
@@ -604,31 +742,33 @@
 
         function getBotResponse(userMessage) {
             const lowerMessage = userMessage.toLowerCase().trim();
-            
-            // Check for greetings
+
+            // Common conversational intents
             if (lowerMessage.match(/\b(hi|hello|hey|greetings|good morning|good afternoon|good evening|hi there|hey there)\b/)) {
                 return knowledgeBase.greetings[Math.floor(Math.random() * knowledgeBase.greetings.length)];
             }
-            
-            // Check for thanks/gratitude
+
             if (lowerMessage.match(/\b(thanks|thank you|thank|appreciate|grateful)\b/)) {
                 return 'You\'re welcome! 😊 Is there anything else I can help you with?';
             }
-            
-            // Check for goodbye
+
             if (lowerMessage.match(/\b(bye|goodbye|see you|farewell|exit|close)\b/)) {
                 return 'Thank you for chatting! 👋 Feel free to come back anytime if you have more questions. Have a great day!';
             }
 
-            // Check knowledge base - improved matching
+            const aimlResponse = findAIMLResponse(userMessage);
+            if (aimlResponse) {
+                return aimlResponse;
+            }
+
+            // Fallback to the existing knowledge base scoring if AIML patterns are not matched
             let bestMatch = null;
             let bestMatchScore = 0;
-            
+
             for (const [key, data] of Object.entries(knowledgeBase)) {
                 if (key === 'greetings' || key === 'default') continue;
-                
+
                 if (data.keywords) {
-                    // Calculate match score based on keyword matches
                     const matchCount = data.keywords.filter(keyword => lowerMessage.includes(keyword)).length;
                     if (matchCount > 0 && matchCount > bestMatchScore) {
                         bestMatchScore = matchCount;
@@ -636,32 +776,22 @@
                     }
                 }
             }
-            
+
             if (bestMatch) {
                 return bestMatch;
             }
 
-            // Default response
-            return knowledgeBase.default[Math.floor(Math.random() * knowledgeBase.default.length)];
+            return getClarifyingResponse();
         }
     }
 
-    // Load CSS
-    function loadCSS() {
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = 'chatbot.css';
-        document.head.appendChild(link);
-    }
-
     // Initialize when DOM is ready
+    // Note: chatbot.css is already loaded in all HTML pages, so no need to load it dynamically
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
-            loadCSS();
             initChatbot();
         });
     } else {
-        loadCSS();
         initChatbot();
     }
 

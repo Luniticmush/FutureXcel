@@ -13,7 +13,7 @@
   <title>IT Help Desk Outsourcing | FutureXcel Technologies | IT Support Services</title>
   <meta name="theme-color" content="#0d1b2a" />
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./assets/Favico.png" />
+  <link rel="icon" type="image/png" href="./Favico.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
@@ -152,30 +152,33 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" role="navigation">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="/"><img src="./assets/logo.png" height="50" alt="FutureXcel Logo" /></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav"
-        aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-      <div id="nav" class="collapse navbar-collapse justify-content-end">
+      <a class="navbar-brand fw-bold" href="./index.html" aria-label="FutureXcel Home">
+        <img src="./logo.png" alt="FutureXcel Technologies Logo" decoding="async" fetchpriority="high"
+          loading="eager" data-logo-light="./logo.png" data-logo-dark="./logo.png" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div id="navbarNav" class="collapse navbar-collapse justify-content-end">
         <ul class="navbar-nav fw-semibold">
-          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
           <li class="nav-item dropdown"><a class="nav-link dropdown-toggle active" href="#" id="servicesDropdown"
               role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
             <ul class="dropdown-menu border-0 rounded-3 shadow" aria-labelledby="servicesDropdown">
-              <li><a class="dropdown-item" href="/services-endpoint">Modern Endpoint Management</a></li>
-              <li><a class="dropdown-item" href="/services-helpdesk">IT Help Desk Outsourcing</a></li>
-              <li><a class="dropdown-item" href="/services-software">Custom Software Development</a></li>
-              <li><a class="dropdown-item" href="/services-research">Research &amp; Development</a></li>
-              <li><a class="dropdown-item" href="/services-consulting">IT Consulting &amp; Support</a></li>
-              <li><a class="dropdown-item" href="/services-data">Data Engineering &amp; Analytics</a></li>
-              <li><a class="dropdown-item" href="/services-ml">Machine Learning Solutions</a></li>
-              <li><a class="dropdown-item" href="/services-cloud">DevOps &amp; Cloud Services</a></li>
-              <li><a class="dropdown-item" href="/services-training">Training &amp; Placement</a></li>
+              <li><a class="dropdown-item" href="./services-endpoint.html">Modern Endpoint Management</a></li>
+              <li><a class="dropdown-item" href="./services-helpdesk.html">IT Help Desk Outsourcing</a></li>
+              <li><a class="dropdown-item" href="./services-software.html">Custom Software Development</a></li>
+              <li><a class="dropdown-item" href="./services-research.html">Research &amp; Development</a></li>
+              <li><a class="dropdown-item" href="./services-consulting.html">IT Consulting &amp; Support</a></li>
+              <li><a class="dropdown-item" href="./services-data.html">Data Engineering &amp; Analytics</a></li>
+              <li><a class="dropdown-item" href="./services-ml.html">Machine Learning Solutions</a></li>
+              <li><a class="dropdown-item" href="./services-cloud.html">DevOps &amp; Cloud Services</a></li>
+              <li><a class="dropdown-item" href="./services-training.html">Training &amp; Placement</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="/training">Training</a></li>
-          <li class="nav-item"><a class="nav-link" href="/careers">Careers</a></li>
-          <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="./training.html">Training</a></li>
+          <li class="nav-item"><a class="nav-link" href="./careers.html">Careers</a></li>
+          <li class="nav-item"><a class="nav-link" href="./about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
         </ul>
         <div class="d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
           <button id="themeToggle" class="btn btn-sm btn-outline-dark rounded-pill d-inline-flex align-items-center"
@@ -188,27 +191,25 @@
     </div>
   </nav>
 
-  <header class="hero" style="--hero-image: url('./assets/hero2.jpg');">
+  <header class="service-hero" aria-labelledby="serviceHeroTitle">
     <div class="container">
-      <div class="inner">
-        <span class="eyebrow">Services</span>
-        <h1 class="hero-title">IT Help Desk Outsourcing</h1>
-        <p class="hero-sub">Tier 1 &amp; Tier 2 support for internal users or customers - delivered through your tools,
-          your SLAs, and your brand.</p>
-        <div class="hero-highlights" aria-label="Service highlights">
-          <span class="hero-highlight"><i class="bi bi-headset"></i><span>Tier 1 &amp; Tier 2 Support</span></span>
-          <span class="hero-highlight"><i class="bi bi-chat-dots"></i><span>Omnichannel
-              (Phone/Chat/Tickets)</span></span>
-          <span class="hero-highlight"><i class="bi bi-clock-history"></i><span>24×7 Coverage Options</span></span>
+      <div class="service-hero__content">
+        <h1 id="serviceHeroTitle" class="service-hero__title">IT Help Desk Outsourcing</h1>
+        <p class="service-hero__lead">Extend your team with structured Tier 1 and Tier 2 support, clean ticket
+          handling, escalation packets, omnichannel intake, and measurable coverage plans.</p>
+        <div class="service-hero__actions">
+          <a class="btn-pill btn-brand" href="./contact.html"><i class="bi bi-envelope"></i> Request quote</a>
+          <a class="btn-pill btn-contrast" href="#levels"><i class="bi bi-layers-fill"></i> See support levels</a>
         </div>
-        <div class="hero-actions">
-          <a href="#levels" class="btn-pill btn-brand" data-scroll><i class="bi bi-layers"></i> Support Levels</a>
-          <a href="#plans" class="btn-pill btn-outline" data-scroll><i class="bi bi-calendar3"></i> Coverage Plans</a>
-          <a href="/contact" class="btn-pill btn-contrast"><i class="bi bi-envelope"></i> Request a Quote</a>
+        <div class="service-hero__meta" aria-label="Service highlights">
+          <span><i class="bi bi-headset"></i> Tier 1-2 support</span>
+          <span><i class="bi bi-chat-dots"></i> Omnichannel intake</span>
+          <span><i class="bi bi-clipboard-check"></i> SLA hygiene</span>
         </div>
       </div>
     </div>
   </header>
+
 
   <main class="py-5">
     <section class="py-5 bg-light" id="levels">
@@ -528,7 +529,7 @@
           <p class="fx-cta__lead">Tell us your coverage needs (hours, channels, Tier 1/2 scope). We’ll propose a clean
             onboarding plan with SLA targets and reporting.</p>
           <div class="fx-cta__actions">
-            <a href="/contact" class="btn-cta btn-cta--primary"><i class="bi bi-envelope"></i> Contact Us</a>
+            <a href="./contact.html" class="btn-cta btn-cta--primary"><i class="bi bi-envelope"></i> Contact Us</a>
             <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20help%20desk%20outsourcing."
               target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta--secondary"><i
                 class="bi bi-whatsapp"></i>
@@ -557,24 +558,24 @@
 
         <div class="col-md-3">
           <h5>Services</h5>
-          <a href="/services-endpoint">Modern Endpoint Management</a>
-          <a href="/services-helpdesk">IT Help Desk Outsourcing</a>
-          <a href="/services-software">Custom Software Development</a>
-          <a href="/services-research">Research &amp; Development</a>
-          <a href="/services-consulting">IT Consulting &amp; Support</a>
-          <a href="/services-data">Data Engineering &amp; Analytics</a>
-          <a href="/services-ml">Machine Learning Solutions</a>
-          <a href="/services-cloud">DevOps &amp; Cloud Services</a>
-          <a href="/services-training">Training &amp; Placement</a>
+          <a href="./services-endpoint.html">Modern Endpoint Management</a>
+          <a href="./services-helpdesk.html">IT Help Desk Outsourcing</a>
+          <a href="./services-software.html">Custom Software Development</a>
+          <a href="./services-research.html">Research &amp; Development</a>
+          <a href="./services-consulting.html">IT Consulting &amp; Support</a>
+          <a href="./services-data.html">Data Engineering &amp; Analytics</a>
+          <a href="./services-ml.html">Machine Learning Solutions</a>
+          <a href="./services-cloud.html">DevOps &amp; Cloud Services</a>
+          <a href="./services-training.html">Training &amp; Placement</a>
         </div>
 
         <div class="col-md-2">
           <h5>Quick Links</h5>
-          <a href="/">Home</a>
-          <a href="/training">Training</a>
-          <a href="/careers">Careers</a>
-          <a href="/about">About Us</a>
-          <a href="/contact">Contact</a>
+          <a href="./index.html">Home</a>
+          <a href="./training.html">Training</a>
+          <a href="./careers.html">Careers</a>
+          <a href="./about.html">About Us</a>
+          <a href="./contact.html">Contact</a>
           <hr class="footer-rule d-md-none" aria-hidden="true" />
         </div>
 
@@ -613,12 +614,14 @@
     href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I'm%20interested%20in%20help%20desk%20outsourcing."
     target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><i class="bi bi-whatsapp fs-3"></i></a>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="./main.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="./main.js"></script>
   
   <!-- Chatbot Integration -->
-  <link rel="stylesheet" href="chatbot.css">
-  <script src="chatbot.js"></script>
+  <link rel="stylesheet" href="./chatbot.css">
+  <script src="./chatbot.js"></script>
 </body>
 
 </html>
+
+

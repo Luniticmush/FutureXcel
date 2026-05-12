@@ -22,9 +22,9 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="./assets/hero1.jpg" />
+  <link rel="preload" as="image" href="./hero1.jpg" />
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./assets/Favico.png" />
+  <link rel="icon" type="image/png" href="./Favico.png" />
 
   <!-- Google Fonts - Professional Typography (Inter) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
@@ -35,80 +35,854 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link href="./styles.css" rel="stylesheet" />
   <style>
-    /* Index page specific styles - common styles are in styles.css */
+    /* Support Spotlight buttons — mobile-first
+       - Small screens: buttons stack/wrap and take full width so they never overflow the card
+       - Medium+ screens: buttons stay on one line and use fixed min-width for consistent alignment */
+    .support-spotlight-card .d-flex {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 8px !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin-top: auto !important;
+    }
+    .support-spotlight-card .support-mini {
+      display: inline-flex !important;
+      width: 100% !important;
+      min-width: 0 !important;
+      flex: 1 1 100% !important; /* full-width on small screens */
+      margin: 0 !important;
+      vertical-align: middle !important;
+    }
+    /* Ensure card shadows and button glows are not clipped by rounded container */
+    .support-spotlight-card,
+    .fxc-card {
+      overflow: hidden !important;
+    }
+    /* Make spotlight cards use column flex so actions can sit at the bottom */
+    .support-spotlight-card {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 16px !important;
+      align-items: center !important;
+      text-align: center !important;
+    }
+    /* Keep buttons above card surface so shadows/glow render correctly */
+    .support-spotlight-card .btn-pill {
+      position: relative !important;
+      z-index: 5 !important;
+    }
+    /* Standardize small pill padding so both buttons have same height */
+    .support-spotlight-card .btn-pill {
+      padding: 10px 18px !important;
+      box-sizing: border-box !important;
+      min-width: 0 !important;
+      flex: 1 1 100% !important;
+      max-width: 100% !important;
+      justify-content: center !important;
+    }
 
-    /* === LOGO ANIMATIONS - Continuous Live Animation (Always Visible) === */
-    .navbar-brand {
-      position: relative;
+    /* Desktop / tablet: keep buttons on one line with consistent sizes */
+    @media (min-width: 768px) {
+      .support-spotlight-card .d-flex {
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+      }
+      .support-spotlight-card .support-mini {
+        width: auto !important;
+        flex: 0 0 auto !important;
+      }
+      .support-spotlight-card .btn-pill {
+        flex: 0 0 auto !important;
+        min-width: 160px !important; /* consistent button width on larger viewports */
+        max-width: none !important;
+      }
+    }
+    .support-spotlight-card .btn-pill.btn-contrast {
+      /* keep contrast visual but same sizing */
+      padding: 10px 18px !important;
+    }
+    /* Center icon and heading within spotlight cards; keep lists readable */
+    .support-spotlight-card .icon {
       display: inline-flex;
       align-items: center;
-      animation: logoEntrance 0.6s ease-out;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      font-size: 1.6rem;
+      color: var(--fx-orange);
+      margin-bottom: 0.25rem;
     }
 
-    .navbar-brand img {
+    .support-spotlight-card ul {
+      text-align: left;
+      display: inline-block;
+      margin: 0.5rem 0;
+      padding-left: 1.15rem;
+    }
+    /* Index page specific styles - common styles are in styles.css */
+
+    /* ==========================
+       HERO (Index) - Premium Redesign
+       ========================== */
+    .fx-hero {
       position: relative;
-      animation: logoPulse 3s ease-in-out infinite, logoGlow 2.5s ease-in-out infinite alternate;
-      transition: transform 0.3s ease;
+      /* reduced height for a more compact hero */
+      min-height: clamp(480px, 60vh, 680px);
+      display: grid;
+      align-items: center;
+      isolation: isolate;
+      overflow: hidden;
+      /* cleaner, high-contrast base for hi-tech look */
+      background: linear-gradient(180deg, #071020 0%, #071827 55%, #05101a 100%);
+      color: #fff;
     }
 
-    /* Entrance animation on page load */
-    @keyframes logoEntrance {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
+    .fx-hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+    }
+
+    .fx-hero__video {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      transform: scale(1.03);
+    }
+
+    .fx-hero__media {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(1.15) contrast(1.08) brightness(0.75);
+    }
+
+    .fx-hero__overlay {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      /* darker overlay for improved text contrast */
+      background:
+        radial-gradient(circle 1000px at 18% 25%, rgba(0, 86, 210, 0.30), transparent 62%),
+        radial-gradient(circle 900px at 82% 18%, rgba(255, 111, 0, 0.22), transparent 60%),
+        linear-gradient(180deg, rgba(3, 8, 15, 0.92) 0%, rgba(7, 14, 24, 0.82) 40%, rgba(3, 8, 15, 0.96) 100%);
+    }
+
+    .fx-hero__grid {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      /* subtle geometric texture reduced for professional tone */
+      background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+      opacity: 0.12;
+      mask-image: radial-gradient(ellipse at 38% 32%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 75%);
+    }
+
+    /* remove large colored glows for a cleaner hi-tech aesthetic */
+    .fx-hero__glow { display: none; }
+    .fx-hero__glow--a { display: none; }
+    .fx-hero__glow--b { display: none; }
+
+    /* Additional premium glow effects */
+    /* reduce central pulse - very subtle */
+    .fx-hero::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(0, 110, 200, 0.06), transparent 60%);
+      filter: blur(18px);
+      opacity: 0.18;
+      z-index: -1;
+    }
+
+    @keyframes fx-hero-float {
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0) scale(1);
       }
 
+      50% {
+        transform: translate3d(32px, 24px, 0) scale(1.05);
+      }
+    }
+
+    @keyframes fx-hero-pulse {
+      0%,
+      100% {
+        opacity: 0.4;
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      50% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+    }
+
+    .fx-hero__content {
+      position: relative;
+      z-index: 2;
+      /* more compact vertical padding */
+      padding: clamp(28px, 4vw, 48px) 0;
+    }
+
+    .fx-hero__kicker {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+      animation: fx-hero-fade-up 0.8s ease 0.2s both;
+    }
+
+    @keyframes fx-hero-fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
-    /* Continuous pulse/breathing effect */
-    @keyframes logoPulse {
-
-      0%,
-      100% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.03);
-      }
+    .fx-hero__pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: none;
+      transition: all 0.25s ease;
     }
 
-    /* Continuous glow animation - Light Mode */
-    @keyframes logoGlow {
-      0% {
-        filter: drop-shadow(0 2px 6px rgba(0, 86, 210, 0.15)) drop-shadow(0 0 10px rgba(0, 86, 210, 0.1));
-      }
+    .fx-hero__pill:hover { transform: none; }
 
-      100% {
-        filter: drop-shadow(0 2px 12px rgba(0, 86, 210, 0.3)) drop-shadow(0 0 20px rgba(0, 150, 136, 0.2));
-      }
+    .fx-hero__pill i {
+      color: var(--fx-orange);
+      font-size: 1rem;
     }
 
-    /* Continuous glow animation - Dark Mode */
-    @keyframes logoGlowDark {
-      0% {
-        filter: brightness(0) invert(1) drop-shadow(0 2px 6px rgba(255, 255, 255, 0.15)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
-      }
-
-      100% {
-        filter: brightness(0) invert(1) drop-shadow(0 2px 12px rgba(255, 255, 255, 0.3)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.25));
-      }
+    .fx-hero__pill--ghost {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
-    /* Apply dark mode animation */
-    html.theme-dark .navbar-brand img {
-      animation: logoPulse 3s ease-in-out infinite, logoGlowDark 2.5s ease-in-out infinite alternate;
+    .fx-hero__pill--ghost:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.4);
     }
 
-    /* Hover enhancement (optional - adds extra effect on hover) */
-    .navbar-brand:hover img {
+    .fx-hero__pill--ghost i {
+      color: #fff;
+    }
+
+    .fx-hero__title {
+      font-weight: 800;
+      letter-spacing: -0.35px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      /* slightly larger, constrained width for better line breaks */
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.08;
+      margin: 0 0 10px;
+      color: #ffffff;
+      max-width: 58ch;
+      word-wrap: break-word;
+      -webkit-font-smoothing: antialiased;
+      animation: fx-hero-fade-up 0.7s ease 0.2s both;
+    }
+
+    .fx-hero__accent {
+      background: linear-gradient(90deg, #7be2ff 0%, #5ac0ff 60%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+
+    .fx-hero__lead {
+      max-width: 70ch;
+      margin: 0;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: rgba(235, 244, 255, 0.98);
+      margin-bottom: 14px;
+      animation: fx-hero-fade-up 0.7s ease 0.35s both;
+    }
+
+    .fx-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+      animation: fx-hero-fade-up 0.9s ease 0.6s both;
+    }
+
+    .fx-hero__actions .btn-pill {
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 12px;
+    }
+
+    .fx-hero__trust {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 14px;
+      max-width: 520px;
+      animation: fx-hero-fade-up 0.9s ease 0.7s both;
+    }
+
+    .fx-hero__trustitem {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: all 0.22s ease;
+    }
+
+    .fx-hero__trustitem:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .fx-hero__trustitem i {
+      color: #ffffff;
+      opacity: 1;
+      font-size: 1rem;
+    }
+
+    .fx-hero__trustitem span {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    /* New stats block - cleaner, compact card style */
+    .fx-hero__stats {
+      display: flex;
+      gap: 14px;
+      margin-top: 44px; /* Increased from 18px to 38px for more space below hero buttons */
+      max-width: 720px;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .fx-hero__stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      min-width: 117px;
+      box-shadow: 0 8px 22px rgba(3,8,15,0.35);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      text-align: center;
+    }
+
+    .fx-hero__stat:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 48px rgba(3,8,15,0.45);
+    }
+
+    .fx-hero__statnum {
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .fx-hero__statlabel {
+      font-size: 0.85rem;
+      color: rgba(235,244,255,0.92);
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .fx-hero__panel {
+      border-radius: 18px;
+      padding: 16px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.06));
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      animation: fx-hero-fade-up 0.9s ease 0.8s both;
+      transition: all 0.22s ease;
+    }
+
+    /* Showcase carousel - auto-rotating with smooth fade */
+    .fx-hero__showcase { margin-top: 18px; max-width: 720px; }
+    .fx-showcase__slides { position: relative; overflow: hidden; min-height: 72px; }
+    .fx-showcase__slide { position: absolute; inset: 0; opacity: 0; transform: translateY(6px); transition: opacity 600ms cubic-bezier(.2,.9,.2,1), transform 600ms cubic-bezier(.2,.9,.2,1); padding: 10px 6px; }
+    .fx-showcase__slide.active { opacity: 1; transform: translateY(0); z-index: 2; }
+    .fx-showcase__title { font-size: 1.05rem; font-weight: 800; color: #e6f7ff; margin: 0 0 6px }
+    .fx-showcase__desc { margin: 0; color: rgba(235,244,255,0.92); font-size: 0.95rem }
+    .fx-showcase__controls { display: flex; gap: 8px; margin-top: 10px }
+    .fx-showcase__prev, .fx-showcase__next { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); color: #fff; padding: 6px 10px; border-radius: 8px; cursor: pointer }
+    /* pause on hover for accessibility */
+    .fx-hero__showcase:hover .fx-showcase__slide { will-change: opacity, transform; }
+
+    /* Enhanced metrics panel styles */
+    .fx-hero__metricspanel {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      margin-top: 18px;
+      max-width: 820px;
+    }
+
+    .fx-hero__primary {
+      flex: 1.4 1 0;
+      background: linear-gradient(180deg, rgba(11,20,30,0.35), rgba(11,18,26,0.2));
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 8px 26px rgba(0,0,0,0.35);
+    }
+
+    .fx-hero__primary-num {
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: #7be2ff;
+      line-height: 1;
+    }
+
+    .fx-hero__primary-suffix { font-size: 1.1rem; margin-left: 4px; color: #7be2ff; }
+
+    .fx-hero__primary-label { font-size: 0.95rem; color: rgba(255,255,255,0.9); font-weight: 700; margin-top: 6px; }
+
+    .fx-hero__spark { width: 100%; height: 30px; margin-top: 8px; opacity: 0.9 }
+
+    .fx-hero__miniwrap { display: flex; gap: 12px; flex: .8 1 0; }
+
+    .fx-hero__mini-card { background: rgba(255,255,255,0.03); padding: 10px 12px; border-radius: 12px; display:flex; gap:10px; align-items:center; min-width: 120px; }
+
+    .fx-hero__radial { width: 44px; height: 44px; display:flex; align-items:center; justify-content:center }
+
+    .fx-hero__radial svg { width: 44px; height: 44px; }
+
+    .fx-hero__radial-bg { stroke-opacity: 0.12; }
+
+    .fx-hero__radial-bar { stroke-dasharray: 100; stroke-dashoffset: 100; transition: stroke-dashoffset 1.2s ease; }
+
+    .fx-hero__mini-title { font-size: 0.75rem; color: rgba(255,255,255,0.9); font-weight:700 }
+
+    .fx-hero__mini-value { font-size: 1rem; font-weight:900; color: #e6f7ff }
+
+    .fx-hero__pulse { width: 44px; height: 44px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, rgba(123,226,255,0.14), transparent 50%); }
+
+    .fx-hero__iconmap { font-size: 20px; width: 44px; height: 44px; display:flex; align-items:center; justify-content:center }
+
+    .fx-hero__panel:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .fx-hero__panelhead {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .fx-hero__panelicon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0056d2, #ff6f00);
+      box-shadow: 0 8px 22px rgba(0, 86, 210, 0.28);
+      color: #fff;
+      flex-shrink: 0;
+      font-size: 1.2rem;
+      animation: fx-icon-glow 2s ease-in-out infinite;
+    }
+
+    .fx-hero__paneltitle {
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      font-size: 1rem;
+      color: #fff;
+      line-height: 1.18;
+    }
+
+    .fx-hero__panelsub {
+      font-size: 0.9375rem;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.5;
+    }
+
+    .fx-hero__cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+
+    /* Mini cards: simplified hover — no bright colors or gradients */
+    .fx-hero__mini {
+      border-radius: 14px;
+      padding: 12px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(135deg, rgba(11, 18, 32, 0.22), rgba(11, 18, 32, 0.16));
+      box-shadow: 0 6px 18px rgba(3,8,15,0.28);
+      min-height: 100px;
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+      position: relative;
+      overflow: visible;
+    }
+
+    /* remove colorful pseudo-element used for glow
+       use content: none to ensure earlier gradient definitions are neutralized */
+    .fx-hero__mini::after { content: none !important; }
+
+    .fx-hero__mini:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 36px rgba(3,8,15,0.36);
+      border-color: rgba(255,255,255,0.10);
+    }
+
+    .fx-hero__minitop {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      margin-bottom: 6px;
+      font-size: 0.85rem;
+    }
+
+    .fx-hero__minitop i {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 1rem;
+      transition: all 0.22s ease;
+      animation: fx-icon-float 3s ease-in-out infinite;
+    }
+
+    .fx-hero__mini:hover .fx-hero__minitop i {
+      background: rgba(255, 255, 255, 0.18);
       transform: scale(1.05);
-      animation-duration: 1.5s, 1.5s;
     }
+
+    .fx-hero__mini p {
+      margin: 0;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    /* Ensure columns and panels align to top and keep consistent sizing */
+    .fx-hero .row.align-items-start {
+      align-items: flex-start !important;
+    }
+
+    .fx-hero .col-lg-7,
+    .fx-hero .col-lg-5 {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .fx-hero__panel {
+      margin-top: 0;
+      align-self: flex-start;
+      width: 100%;
+    }
+
+    .fx-hero__cards {
+      align-items: start;
+      grid-auto-rows: auto;
+    }
+
+    .fx-hero__metrics {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      padding: 14px 0 18px;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(13, 27, 42, 0.65) 35%, rgba(13, 27, 42, 0.92) 100%);
+    }
+
+    .fx-hero__metricsgrid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .fx-hero__metric {
+      border-radius: 14px;
+      padding: 10px 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      text-align: center;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .fx-hero__metric strong {
+      display: block;
+      font-weight: 900;
+      font-size: 1.15rem;
+      line-height: 1.1;
+      color: #fff;
+    }
+
+    .fx-hero__metric span {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    @media (max-width: 991.98px) {
+      .fx-hero {
+        min-height: auto;
+        padding-bottom: 84px;
+      }
+
+      .fx-hero__lead {
+        max-width: none;
+      }
+
+      .fx-hero__cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .fx-hero__content {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-left: max(16px, env(safe-area-inset-left));
+        padding-right: max(16px, env(safe-area-inset-right));
+      }
+
+      .fx-hero .row {
+        --bs-gutter-x: 0;
+      }
+
+      .fx-hero__trust {
+        grid-template-columns: 1fr;
+      }
+
+      .fx-hero__metricsgrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* Dark mode tuning: keep accent and text crisp */
+    html.theme-dark .fx-hero {
+      background: 
+        radial-gradient(ellipse 1400px 700px at 25% 15%, rgba(0, 86, 210, 0.32), transparent 65%),
+        radial-gradient(ellipse 1100px 600px at 75% 10%, rgba(255, 111, 0, 0.25), transparent 68%),
+        linear-gradient(155deg, #060d18 0%, #0a1525 45%, #060c15 100%);
+    }
+
+    html.theme-dark .fx-hero__pill {
+      color: #0a1628;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.92));
+    }
+
+    html.theme-dark .fx-hero__pill--ghost {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    html.theme-dark .fx-hero__accent {
+      -webkit-text-fill-color: transparent !important;
+    }
+
+    /* Animated Digital Graph Visualization */
+    .fx-hero__visual {
+      margin-top: 28px;
+      opacity: 0;
+      animation: fx-hero-fade-up 0.8s ease 1s both;
+    }
+
+    .fx-hero-graph {
+      filter: drop-shadow(0 4px 20px rgba(123, 226, 255, 0.3));
+    }
+
+    .fx-hero-graph__line {
+      stroke-dasharray: 500;
+      stroke-dashoffset: 500;
+      animation: fx-graph-draw 2s ease-in-out 1.2s forwards;
+      stroke-linecap: round;
+    }
+
+    .fx-hero-graph__node {
+      transform-origin: center;
+      animation: fx-graph-pulse 2s ease-in-out infinite;
+      filter: drop-shadow(0 0 8px rgba(123, 226, 255, 0.6));
+    }
+
+    .fx-hero-graph__node:nth-child(5) { animation-delay: 0.1s; }
+    .fx-hero-graph__node:nth-child(6) { animation-delay: 0.2s; }
+    .fx-hero-graph__node:nth-child(7) { animation-delay: 0.3s; }
+    .fx-hero-graph__node:nth-child(8) { animation-delay: 0.4s; }
+
+    @keyframes fx-graph-draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes fx-graph-pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.15);
+        opacity: 0.8;
+      }
+    }
+
+    /* Enhanced mini cards with hover glow */
+    .fx-hero__mini {
+      position: relative;
+      overflow: visible;
+    }
+
+    .fx-hero__mini::after {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, #0056d2, #ff6f00, #009688);
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.3s ease;
+      filter: blur(10px);
+    }
+
+    .fx-hero__mini:hover::after {
+      opacity: 0.4;
+    }
+
+    /* Icon pulse animation */
+    .fx-hero__minitop i {
+      animation: fx-icon-float 3s ease-in-out infinite;
+    }
+
+    .fx-hero__mini:nth-child(1) .fx-hero__minitop i { animation-delay: 0s; }
+    .fx-hero__mini:nth-child(2) .fx-hero__minitop i { animation-delay: 0.5s; }
+    .fx-hero__mini:nth-child(3) .fx-hero__minitop i { animation-delay: 1s; }
+    .fx-hero__mini:nth-child(4) .fx-hero__minitop i { animation-delay: 1.5s; }
+    .fx-hero__mini:nth-child(5) .fx-hero__minitop i { animation-delay: 2s; }
+    .fx-hero__mini:nth-child(6) .fx-hero__minitop i { animation-delay: 2.5s; }
+
+    @keyframes fx-icon-float {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-3px) scale(1.05);
+      }
+    }
+
+    /* Panel icon gradient glow */
+    .fx-hero__panelicon {
+      animation: fx-icon-glow 2s ease-in-out infinite;
+    }
+
+    @keyframes fx-icon-glow {
+      0%, 100% {
+        box-shadow: 0 8px 22px rgba(0, 86, 210, 0.28);
+      }
+      50% {
+        box-shadow: 0 12px 32px rgba(255, 111, 0, 0.45);
+      }
+    }
+
+    /* Dark mode graph adjustments */
+    html.theme-dark .fx-hero-graph {
+      filter: drop-shadow(0 4px 24px rgba(123, 226, 255, 0.5));
+    }
+
+    html.theme-dark .fx-hero-graph__node {
+      filter: drop-shadow(0 0 12px rgba(123, 226, 255, 0.8));
+    }
+
+    html.theme-dark .fx-hero__mini::after {
+      opacity: 0;
+    }
+
+    html.theme-dark .fx-hero__mini:hover::after {
+      opacity: 0.3;
+    }
+
+    /* Reduced motion: remove floating glows / heavy blur */
+    @media (prefers-reduced-motion: reduce) {
+      .fx-hero__glow,
+      .fx-hero::before {
+        animation: none !important;
+      }
+
+      .fx-hero__media {
+        filter: saturate(1.0) contrast(1.0) brightness(0.8);
+      }
+
+      .fx-hero__kicker,
+      .fx-hero__title,
+      .fx-hero__lead,
+      .fx-hero__actions,
+      .fx-hero__trust,
+      .fx-hero__panel {
+        animation: none !important;
+      }
+    }
+
+    /* If video fails/doesn't exist, ensure the hero still looks great (poster/gradient only) */
+    .fx-hero__media[poster] {
+      background: url('./hero1.jpg') center/cover no-repeat;
+    }
+
 
     /* === FINAL FIX: Remove all nav underline (normal, active, focus, dropdown, dark mode) === */
 
@@ -151,215 +925,9 @@
       box-shadow: none !important;
     }
 
-    /* Dark navbar logo - handled in animation above */
-
-    /* ========== HERO SECTION - Professional Design ========== */
-    .hero {
-      position: relative;
-      min-height: clamp(500px, 70vh, 750px);
-      height: auto;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    #heroCarousel {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    #heroCarousel .carousel-inner {
-      width: 100%;
-      height: 100%;
-    }
-
-    #heroCarousel .carousel-item {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      min-height: 100%;
-    }
-
-    #heroCarousel .carousel-item video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      object-position: center;
-      background: black;
-      filter: brightness(0.5);
-      display: block;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(0, 86, 210, 0.75) 0%, rgba(0, 150, 136, 0.6) 50%, rgba(13, 27, 42, 0.9) 100%);
-      z-index: 1;
-      opacity: 1;
-    }
-
-    .hero .inner {
-      position: relative;
-      z-index: 2;
-      color: #fff;
-      padding: clamp(100px, 8vh, 120px) 0 clamp(60px, 6vh, 80px) 0;
-      text-align: left;
-    }
-
-    .hero .eyebrow {
-      margin-bottom: 1rem;
-      display: inline-block;
-    }
-
-    .hero h1 {
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      font-size: clamp(2.25rem, 2rem + 2vw, 3.25rem);
-      margin-bottom: 1.25rem;
-      margin-top: 0;
-      color: #ffffff;
-      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5), 0 4px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .hero p.lead {
-      max-width: 720px;
-      font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-      line-height: 1.7;
-      color: #ffffff;
-      margin: 0 0 2rem 0;
-      text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4), 0 1px 5px rgba(0, 0, 0, 0.3);
-      font-weight: 400;
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-bottom: 1.5rem;
-      margin-top: 0;
-      justify-content: flex-start;
-    }
-
-    .hero-badges .hb {
-      background: rgba(255, 255, 255, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      color: #fff;
-      font-size: 0.8rem;
-      letter-spacing: 0.5px;
-      font-weight: 700;
-      padding: 0.6rem 1rem;
-      border-radius: 999px;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-    }
-
-    .hero-badges .hb:hover {
-      background: rgba(255, 255, 255, 0.28);
-      border-color: rgba(255, 255, 255, 0.5);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 0;
-      justify-content: flex-start;
-      align-items: center;
-    }
-
-    .btn-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      border-radius: 999px;
-      padding: 12px 28px;
-      font-weight: 600;
-      font-size: 0.9375rem;
-      text-decoration: none;
-      line-height: 1.5;
-      border: 0;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: pointer;
-    }
-
-    .btn-pill i {
-      font-size: 1.0625rem;
-      transition: transform 0.3s ease;
-    }
-
-    /* Button Style 1: Primary Gradient (Blue to Teal) - Light Mode */
-    .btn-brand {
-      background: var(--fx-gradient);
-      color: #fff;
-      border: none;
-      box-shadow: 0 4px 14px rgba(0, 86, 210, 0.3);
-    }
-
-    .btn-brand:hover {
-      background: linear-gradient(90deg, #0066e6, #00a896);
-      box-shadow: 0 6px 20px rgba(0, 86, 210, 0.4);
-      transform: translateY(-2px);
-    }
-
-    .btn-brand i {
-      color: #fff;
-    }
-
-    /* Button Style 2: White Background - Light Mode */
-    .btn-contrast {
-      background: #ffffff;
-      color: #0d1b2a;
-      border: none;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-    }
-
-    .btn-contrast:hover {
-      background: #f8f9fa;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-      transform: translateY(-2px);
-    }
-
-    .btn-contrast i {
-      color: #0d1b2a;
-    }
-
-    /* Button Style 3: Transparent with White Border - Light Mode */
-    .btn-outline {
-      background: transparent;
-      color: #fff;
-      border: 2px solid rgba(255, 255, 255, 0.9);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-    }
-
-    .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: #fff;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-      transform: translateY(-2px);
-    }
-
-    .btn-outline i {
-      color: #fff;
-    }
+    /* ========== HERO SECTION - Using new modern design from styles.css ========== */
+    /* All hero styles are now in styles.css for consistency across all pages */
+    /* Button styles (.btn-pill, .btn-brand, .btn-contrast, .btn-outline) are defined in styles.css */
 
     /* ========== VALUE / TRUST SECTIONS - Professional Design ========== */
     .trust {
@@ -393,6 +961,9 @@
       height: 100%;
       display: flex;
       flex-direction: column;
+      /* center icon and text */
+      align-items: center;
+      text-align: center;
     }
 
     .vcard::before {
@@ -700,25 +1271,33 @@
 
     .tech-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 18px;
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(9, 1fr); /* 18 items, 2 rows */
+      gap:16px 0px;
+      justify-items: center;
+      align-items: center;
+      margin: 0 auto;
+      max-width: 1100px;
     }
 
     .tech-card {
       background: #fff;
       border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 14px;
-      padding: 20px 16px;
+      border-radius: 50%;
+      width: 92px;
+      height: 92px;
+      padding: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 0.08rem;
       position: relative;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
       overflow: hidden;
+      text-align: center;
     }
 
     .tech-card::before {
@@ -746,30 +1325,32 @@
 
     .tech-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 12px 32px rgba(0, 86, 210, 0.2);
-      border-color: rgba(0, 86, 210, 0.25);
+      /* Remove blue glow and gradient on hover */
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      border-color: rgba(0, 0, 0, 0.12);
       background: #fff;
     }
 
     .tech-card:hover::before {
-      transform: scaleX(1);
+      /* Remove the top gradient line on hover */
+      transform: scaleX(0);
     }
 
     .tech-card img {
-      height: 42px;
-      width: 42px;
+      height: 38px;
+      width: 38px;
       object-fit: contain;
-      filter: grayscale(50%);
+      filter: none !important;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .tech-card[data-name="Microsoft 365"] img {
-      height: 50px;
-      width: 50px;
+      height: 22px;
+      width: 22px;
     }
 
     .tech-card:hover img {
-      filter: grayscale(0%);
+      filter: none !important;
       transform: scale(1.15) translateY(-2px);
     }
 
@@ -782,19 +1363,20 @@
     }
 
     .tech-card .name {
-      font-size: 0.75rem;
+      font-size: 0.58rem;
       font-weight: 700;
       letter-spacing: 0.3px;
       color: #0f172a;
       margin: 0;
       text-transform: uppercase;
+      line-height: 1.1;
     }
 
     .tech-card .desc {
-      font-size: 0.625rem;
+      font-size: 0.44rem;
       color: #64748b;
       margin: 0;
-      line-height: 1.3;
+      line-height: 1.1;
     }
 
     .tech-card.hidden {
@@ -830,11 +1412,11 @@
     /* Dark mode: ensure tech card images/logos are visible */
     html.theme-dark .tech-card img {
       opacity: 1 !important;
-      filter: brightness(1.2) contrast(1.1);
+      filter: none !important;
     }
 
     html.theme-dark .tech-card:hover img {
-      filter: brightness(1.4) contrast(1.2) drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+      filter: none !important;
     }
 
     html.theme-dark .tech-card span {
@@ -851,22 +1433,31 @@
 
     @media (max-width:520px) {
       .tech-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 14px
+        grid-template-columns: repeat(9, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 0 2px;
       }
-
       .tech-card {
-        padding: 14px 12px
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        min-height: 48px;
+        max-width: 48px;
+        max-height: 48px;
       }
-
       .tech-card img {
-        height: 32px;
-        width: 32px
+        height: 16px;
+        width: 16px;
       }
-
       .tech-card[data-name="Microsoft 365"] img {
-        height: 38px;
-        width: 38px;
+        height: 13px;
+        width: 13px;
+      }
+      .tech-card .name {
+        font-size: 0.44rem;
+      }
+      .tech-card .desc {
+        font-size: 0.34rem;
       }
     }
 
@@ -877,6 +1468,83 @@
     }
 
     /* Service cards - using styles.css */
+
+    /* Center service card content (icons, headings, text) on Services grid */
+    #services .fxc-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.5rem;
+    }
+
+    #services .fxc-card .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      font-size: 1.6rem;
+      margin-bottom: 0.25rem;
+      color: var(--fx-orange);
+    }
+
+    /* Training preview: center card content and action buttons */
+    .training-preview .fxc-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* vertically center inside full-height card */
+      text-align: center;
+      gap: 0.75rem;
+      padding: 20px;
+    }
+
+    .training-preview .fxc-card p {
+      margin: 0;
+      text-align: center;
+      color: #374151;
+    }
+
+    /* Target the action row (last child) so we don't affect other inner divs */
+    .training-preview .fxc-card > div:last-child {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .training-preview .btn-pill {
+      min-width: 140px;
+    }
+
+    /* Careers preview: center job card content and action link */
+    .careers-preview .fxc-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 0.6rem;
+      padding: 20px;
+    }
+
+    .careers-preview .fxc-card p {
+      margin: 0;
+      text-align: center;
+      color: #374151;
+    }
+
+    /* Make the action link appear centered and inline (avoid full-card stretch) */
+    .careers-preview .stretched-link {
+      position: static;
+      display: inline-block;
+      margin-top: 0.6rem;
+      color: var(--fx-orange);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
 
     html.theme-dark .fxc-card {
       background: #0f1a2b;
@@ -1259,10 +1927,6 @@
       color: #fff !important
     }
 
-    html.theme-dark .navbar-brand img {
-      filter: brightness(0) invert(1)
-    }
-
     html.theme-dark .navbar .navbar-toggler-icon {
       filter: none !important;
       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
@@ -1301,30 +1965,13 @@
       font-weight: 600
     }
 
-    /* Hero polish: animated ambient dots */
-    .hero::after {
-      animation: heroGlow 12s linear infinite
-    }
 
-    @keyframes heroGlow {
-      0% {
-        filter: brightness(.55) hue-rotate(0deg)
-      }
+    /* Base pill buttons keep relative positioning for overlays */
+    .btn-pill { position: relative; }
 
-      50% {
-        filter: brightness(.65) hue-rotate(25deg)
-      }
-
-      100% {
-        filter: brightness(.55) hue-rotate(0deg)
-      }
-    }
-
-    .btn-pill {
-      position: relative;
-    }
-
-    .btn-pill::after {
+    /* Only show the subtle sheen overlay for primary brand pills (exclude small/support/outline variants)
+       Avoid applying overlay to .btn-outline and tiny support buttons where it causes a white look on hover */
+    .btn-pill:not(.btn-outline):not(.support-mini)::after {
       content: "";
       position: absolute;
       inset: 0;
@@ -1337,41 +1984,55 @@
       mask-composite: exclude;
       pointer-events: none;
       opacity: 0;
-      transition: .35s
+      transition: .25s ease;
     }
 
-    .btn-pill:hover::after {
-      opacity: 1
+    .btn-pill:not(.btn-outline):not(.support-mini):hover::after { opacity: 1; }
+
+    /* Fix: Support Spotlight and small btn-brand buttons should use brand gradient with white text */
+    .support-spotlight-card .btn-pill.btn-brand,
+    .support-mini.btn-pill.btn-brand,
+    .fxc-card .btn-pill.btn-brand,
+    a.btn-pill.btn-brand {
+      background: linear-gradient(90deg, #0056d2 0%, #009688 100%) !important;
+      color: #ffffff !important;
+      border: none !important;
+      box-shadow: 0 6px 22px rgba(0,86,210,0.18) !important;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+    }
+    .support-spotlight-card .btn-pill.btn-brand:hover,
+    .support-mini.btn-pill.btn-brand:hover,
+    .fxc-card .btn-pill.btn-brand:hover,
+    a.btn-pill.btn-brand:hover {
+      background: linear-gradient(90deg, #009688 0%, #0056d2 100%) !important;
+      color: #fff !important;
+      transform: translateY(-2px);
     }
 
-    /* Capabilities - Professional Design */
-    .capabilities {
+    /* Remove all custom support-spotlight-card/support-mini/fxc-card outline button overrides.
+       Use only the default .btn-pill.btn-outline styles (same as 'Talk to us' button) */
+
+    /* Professional approach styles */
+    .approach-step {
       background: #fff;
-      padding: 40px 0;
-    }
-
-    .cap-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-      margin-top: 1rem;
-    }
-
-    .cap-card {
-      background: #f8fafc;
-      border: 1px solid rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(17, 24, 39, 0.08);
       border-radius: 16px;
-      padding: 18px 16px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      padding: 16px 14px;
+      box-shadow: 0 2px 8px rgba(17, 24, 39, 0.06);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
 
-    .cap-card::before {
+    .approach-step::before {
       content: "";
       position: absolute;
       top: 0;
@@ -1384,3334 +2045,176 @@
       transition: transform 0.3s ease;
     }
 
-    .cap-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-      background: #fff;
+    .approach-step:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(17, 24, 39, 0.12);
       border-color: rgba(0, 86, 210, 0.15);
     }
 
-    .cap-card:hover::before {
+    .approach-step:hover::before {
       transform: scaleX(1);
     }
 
-    .cap-card:hover .cap-icon {
-      transform: scale(1.05);
-    }
-
-    .cap-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: var(--fx-gradient);
+    .approach-head {
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      font-size: 1.25rem;
-      box-shadow: 0 4px 12px rgba(0, 86, 210, 0.25);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      gap: .55rem;
+      margin-bottom: .35rem
     }
 
-    .cap-card h6 {
-      font-weight: 600;
-      margin: 0;
-      font-size: 1rem;
-      color: #0f172a;
-    }
-
-    .cap-card p {
-      font-size: 0.875rem;
-      line-height: 1.5;
-      margin: 0;
-      color: #64748b;
-    }
-
-    html.theme-dark .capabilities {
-      background: #0b1220
-    }
-
-    html.theme-dark .cap-card {
-      background: #101c2d;
-      border-color: rgba(255, 255, 255, .08);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, .55)
-    }
-
-    html.theme-dark .cap-card:hover {
-      background: #16283e
-    }
-
-    html.theme-dark .cap-card p {
-      color: #b8c3d4
-    }
-
-    /* Toolkit Snapshot - compact circular badges, 2 rows, original icon colors */
-    .stack {
-      padding: 72px 0;
-      background: #f7f9fc
-    }
-
-    @media (max-width:720px) {
-      .stack {
-        padding: 50px 0;
-      }
-    }
-
-    .stack-head {
-      max-width: 860px;
-      margin: 0 auto 18px;
-      text-align: center
-    }
-
-    .stack-head .section-sub {
-      color: #4b5563
-    }
-
-    .stack-search {
-      max-width: 560px;
-      margin: 14px auto 2px
-    }
-
-    @media (max-width:720px) {
-      .stack-search {
-        max-width: 100%;
-        margin: 14px 10px 2px;
-        padding: 0 5px;
-      }
-    }
-
-    /* Responsive sizing for circles across desktop/iPad/mobile */
-    .stack {
-      --tech-size: 96px;
-      --tech-pad: 10px;
-      --tech-logo: 30px;
-      --tech-logo-lg: 34px;
-      /* e.g. M365 */
-      --tech-gap: 14px;
-    }
-
-    /* Toolkit Snapshot: show ALL tools, wrap into rows based on screen size (no horizontal scroll). */
-    .stack .tech-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--tech-gap);
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 12px;
-    }
-
-    .stack .tech-card {
-      width: var(--tech-size);
-      height: var(--tech-size);
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: .35rem;
-      padding: var(--tech-pad);
-      box-sizing: border-box;
-      background: #fff;
-      border: 2px solid rgba(17, 24, 39, .08);
-      box-shadow: 0 4px 12px rgba(17, 24, 39, .08);
-      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      flex: 0 0 auto;
-    }
-
-    /* When circles get very small, hide the desc to keep it clean */
-    .stack.stack--tiny .tech-card .desc {
-      display: none;
-    }
-
-    .stack.stack--tiny .tech-card .name {
-      font-size: 0.62rem;
-      letter-spacing: 0.2px;
-    }
-
-    /* Prevent ugly wrapping inside circles */
-    .stack .tech-card .name,
-    .stack .tech-card .desc {
-      max-width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    /* Mobile: keep it clean (no desc line) */
-    @media (max-width: 720px) {
-      .stack .tech-card .desc {
-        display: none;
-      }
-    }
-
-    .tech-card::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      border-radius: 50%;
-      background: var(--fx-gradient);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: -1;
-    }
-
-    /* Dark mode: white glow instead of blue gradient */
-    html.theme-dark .tech-card::before {
-      background: rgba(255, 255, 255, 0.3) !important;
-    }
-
-    html.theme-dark .tech-card:hover::before {
-      background: rgba(255, 255, 255, 0.5) !important;
-      opacity: 0.3 !important;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-    }
-
-    .tech-card:hover {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 12px 32px rgba(0, 86, 210, 0.25);
-      border-color: rgba(0, 86, 210, 0.3);
-    }
-
-    .tech-card:hover::before {
-      opacity: 0.15;
-    }
-
-    .tech-card img {
-      height: var(--tech-logo);
-      width: var(--tech-logo);
-      max-height: var(--tech-logo);
-      max-width: var(--tech-logo);
-      object-fit: contain;
-      display: block;
-      filter: grayscale(30%);
-      transition: filter 0.3s ease;
-      flex-shrink: 0;
-    }
-
-    .tech-card[data-name="Microsoft 365"] img {
-      height: var(--tech-logo-lg);
-      width: var(--tech-logo-lg);
-      max-height: var(--tech-logo-lg);
-      max-width: var(--tech-logo-lg);
-    }
-
-    .tech-card:hover img {
-      filter: grayscale(0%);
-      /* Removed transform to prevent cropping */
-    }
-
-    .tech-card .name {
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: .3px;
-      color: #0f172a;
-      margin: 0;
-      text-transform: uppercase;
-      transition: color 0.3s ease;
-      text-align: center;
-      line-height: 1.15;
-    }
-
-    .tech-card:hover .name {
-      color: #0056d2;
-    }
-
-    .tech-card .desc {
-      font-size: .58rem;
-      color: #64748b;
-      margin: 0;
-      text-align: center;
-      line-height: 1.2;
-    }
-
-    .tech-card.hidden {
-      opacity: .001;
-      pointer-events: none
-    }
-
-    html.theme-dark .stack {
-      background: #0f1a2b
-    }
-
-    html.theme-dark .tech-card {
-      background: #101c2d;
-      border-color: rgba(255, 255, 255, .08);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, .5)
-    }
-
-    html.theme-dark .tech-card:hover {
-      border-color: rgba(255, 255, 255, 0.5) !important;
-      box-shadow: 0 14px 32px rgba(0, 0, 0, .7), 0 0 25px rgba(255, 255, 255, 0.2) !important;
-    }
-
-    html.theme-dark .tech-card:hover .name {
-      color: #ffffff !important;
-    }
-
-    /* Dark mode: ensure tech card images/logos are visible */
-    html.theme-dark .tech-card img {
-      opacity: 1 !important;
-      filter: brightness(1.2) contrast(1.1);
-    }
-
-    html.theme-dark .tech-card:hover img {
-      filter: brightness(1.4) contrast(1.2) drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
-    }
-
-    html.theme-dark .tech-card .name {
-      color: #e5e7eb
-    }
-
-    html.theme-dark .tech-card .desc {
-      color: #94a3b8
-    }
-
-    /* iPad / medium screens */
-    @media (max-width: 1024px) {
-      .stack {
-        --tech-size: 88px;
-        --tech-pad: 9px;
-        --tech-logo: 28px;
-        --tech-logo-lg: 32px;
-      }
-
-      .stack .tech-grid {
-        gap: 14px;
-        padding: 0 12px;
-      }
-    }
-
-    /* Mobile */
-    @media (max-width: 720px) {
-      .stack {
-        --tech-size: 80px;
-        --tech-pad: 8px;
-        --tech-logo: 26px;
-        --tech-logo-lg: 30px;
-      }
-
-      .stack .tech-grid {
-        gap: 12px;
-        padding: 0 10px;
-      }
-    }
-
-    /* Small mobile */
-    @media (max-width: 480px) {
-      .stack {
-        --tech-size: 72px;
-        --tech-pad: 7px;
-        --tech-logo: 24px;
-        --tech-logo-lg: 28px;
-      }
-    }
-
-    /* Touch devices: prevent "stuck hover" zoom from cropping logos inside circles */
-    @media (hover: none) and (pointer: coarse) {
-      .tech-card:hover {
-        transform: none !important;
-      }
-
-      .tech-card:hover img {
-        transform: none !important;
-      }
-
-      .tech-card:hover::before {
-        opacity: 0 !important;
-      }
-    }
-
-    /* ========== SUPPORT & OPERATIONS SPOTLIGHT (SITE-CONSISTENT) ========== */
-    .support-spotlight-card ul {
-      padding-left: 1.05rem;
-      margin-bottom: 0;
-    }
-
-    .support-spotlight-card ul li {
-      margin: 0.35rem 0;
-    }
-
-    .support-mini {
-      padding: 10px 16px;
-      font-size: 0.85rem;
-      min-height: 40px;
-      width: auto;
-    }
-
-    /* Spotlight: make outline buttons readable on light backgrounds */
-    .support-spotlight-card .btn-pill.btn-outline.support-mini {
-      background: #ffffff !important;
-      color: #0d1b2a !important;
-      border: 1px solid rgba(13, 27, 42, 0.18) !important;
-    }
-
-    .support-spotlight-card .btn-pill.btn-outline.support-mini i {
-      color: #0d1b2a !important;
-    }
-
-    .support-spotlight-card .btn-pill.btn-outline.support-mini:hover,
-    .support-spotlight-card .btn-pill.btn-outline.support-mini:focus {
-      background: #ffffff !important;
-      border-color: rgba(0, 86, 210, 0.28) !important;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.10);
-    }
-
-    html.theme-dark .support-spotlight-card .btn-pill.btn-outline.support-mini {
-      background: rgba(255, 255, 255, 0.08) !important;
-      color: #ffffff !important;
-      border-color: rgba(255, 255, 255, 0.22) !important;
-    }
-
-    html.theme-dark .support-spotlight-card .btn-pill.btn-outline.support-mini i {
-      color: #ffffff !important;
-    }
-
-    @media (max-width: 991.98px) {
-      .support-mini {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-
-    /* --- Approach timeline redesign --- */
-    .fxc-timeline {
-      position: relative;
-      background: #fff;
-      border: 1px solid rgba(0, 0, 0, .06);
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, .06)
-    }
-
-    .tl-steps {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(120px, 1fr));
-      gap: 14px;
-      position: relative
-    }
-
-    .tl-step {
-      position: relative;
-      background: #f8fafc;
-      border: 1px solid rgba(0, 0, 0, .06);
-      border-radius: 16px;
-      padding: 16px 12px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: .35rem;
-      cursor: pointer;
-      transition: .22s;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, .06)
-    }
-
-    .tl-step .badge {
-      position: absolute;
-      top: 10px;
-      left: 10px
-    }
-
-    .tl-step i {
-      font-size: 1.35rem;
-      color: var(--fx-orange)
-    }
-
-    .tl-step .tl-name {
-      font-weight: 700;
-      font-size: .9rem
-    }
-
-    .tl-step .tl-desc {
-      font-size: .72rem;
-      color: #64748b
-    }
-
-    .tl-step:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 26px rgba(0, 0, 0, .12);
-      background: #fff
-    }
-
-    .tl-step.active {
-      background: #fff;
-      border-color: rgba(0, 86, 210, .35)
-    }
-
-    .tl-progress {
-      position: absolute;
-      left: 22px;
-      right: 22px;
-      top: calc(100% - 88px);
-      height: 6px;
-      background: rgba(0, 0, 0, .06);
-      border-radius: 999px;
-      overflow: hidden
-    }
-
-    .tl-progress .tl-bar {
-      height: 100%;
-      width: 100%;
-      transform-origin: left center;
-      transform: scaleX(0);
-      background: var(--fx-gradient)
-    }
-
-    .tl-detail {
-      margin-top: 16px;
-      background: #0d1b2a;
-      color: #fff;
-      border-radius: 16px;
-      padding: 16px;
-      box-shadow: 0 10px 22px rgba(0, 0, 0, .18)
-    }
-
-    .tl-detail.switch {
-      opacity: .65;
-      transition: opacity .14s ease
-    }
-
-    .tl-detail-inner {
-      display: flex;
-      gap: .9rem;
-      align-items: flex-start
-    }
-
-    .tl-detail-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      background: var(--fx-gradient);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, .18)
-    }
-
-    .tl-detail-icon i {
-      color: #fff;
-      font-size: 1.2rem
-    }
-
-    .fxc-timeline.in .tl-step {
-      animation: tlPop .35s ease backwards
-    }
-
-    .fxc-timeline.in .tl-step:nth-child(2) {
-      animation-delay: .05s
-    }
-
-    .fxc-timeline.in .tl-step:nth-child(3) {
-      animation-delay: .1s
-    }
-
-    .fxc-timeline.in .tl-step:nth-child(4) {
-      animation-delay: .15s
-    }
-
-    .fxc-timeline.in .tl-step:nth-child(5) {
-      animation-delay: .2s
-    }
-
-    @keyframes tlPop {
-      from {
-        opacity: 0;
-        transform: translateY(10px)
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0)
-      }
-    }
-
-    html.theme-dark .fxc-timeline {
-      background: #101c2d;
-      border-color: rgba(255, 255, 255, .08);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, .5)
-    }
-
-    html.theme-dark .tl-step {
-      background: #101c2d;
-      border-color: rgba(255, 255, 255, .08);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, .5)
-    }
-
-    html.theme-dark .tl-step:hover {
-      background: #16283e
-    }
-
-    html.theme-dark .tl-step .tl-desc {
-      color: #b8c3d4
-    }
-
-    html.theme-dark .tl-detail {
-      background: #111f34
-    }
-
-    html.theme-dark .tl-progress {
-      background: rgba(255, 255, 255, .08)
-    }
-
-    @media (max-width:992px) {
-      .tl-steps {
-        grid-template-columns: repeat(3, minmax(120px, 1fr))
-      }
-    }
-
-    @media (max-width:640px) {
-      .tl-steps {
-        grid-template-columns: repeat(2, minmax(120px, 1fr))
-      }
-
-      .tl-progress {
-        top: auto;
-        bottom: 18px
-      }
-    }
-
-    /* --- Approach timeline redesign --- */
-    .fxc-timeline {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 22px;
-      background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
-      border: 1px solid rgba(17, 24, 39, .08);
-      border-radius: 22px;
-      padding: 24px;
-      box-shadow: 0 10px 24px rgba(17, 24, 39, .08)
-    }
-
-    .fxc-timeline .tl-left {
-      position: relative
-    }
-
-    .fxc-timeline .tl-right {
-      position: relative
-    }
-
-    .tl-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 12px
-    }
-
-    .tl-step {
-      position: relative;
-      background: #fff;
-      border: 1px solid rgba(17, 24, 39, .08);
-      border-radius: 14px;
-      padding: 14px 12px;
-      display: flex;
-      align-items: center;
-      gap: .65rem;
-      cursor: pointer;
-      transition: .22s;
-      box-shadow: 0 6px 16px rgba(17, 24, 39, .06)
-    }
-
-    .tl-step:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 26px rgba(17, 24, 39, .12)
-    }
-
-    .tl-step.active {
-      border-color: rgba(0, 86, 210, .4);
-      box-shadow: 0 14px 32px rgba(0, 86, 210, .12)
-    }
-
-    .tl-chip {
+    .approach-head .num {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      background: var(--fx-gradient);
+      background: #0f172a;
       color: #fff;
       font-weight: 800;
-      font-size: .8rem;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, .14)
+      font-size: .8rem
     }
 
-    .tl-step i {
-      font-size: 1.2rem;
-      color: var(--fx-orange)
-    }
-
-    .tl-text {
-      display: flex;
-      flex-direction: column
-    }
-
-    .tl-name {
-      font-weight: 800;
-      color: #0f172a
-    }
-
-    .tl-desc {
-      font-size: .8rem;
-      color: #64748b
-    }
-
-    .tl-progress {
-      margin-top: 8px;
-      height: 8px;
-      background: rgba(17, 24, 39, .08);
-      border-radius: 999px;
-      overflow: hidden
-    }
-
-    .tl-bar {
-      height: 100%;
-      width: 100%;
-      transform-origin: left center;
-      transform: scaleX(0);
-      background: var(--fx-gradient)
-    }
-
-    .tl-detail {
-      background: #0d1b2a;
-      color: #fff;
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, .18)
-    }
-
-    .tl-detail.switch {
-      opacity: .65;
-      transition: opacity .14s ease
-    }
-
-    .tl-detail-inner {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start
-    }
-
-    .tl-detail-icon {
+    .approach-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 50px;
-      height: 50px;
-      border-radius: 12px;
-      background: var(--fx-gradient);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, .22)
+      background: transparent !important;
     }
 
-    .tl-detail-icon i {
-      color: #fff;
-      font-size: 1.25rem
+    .approach-icon svg {
+      display: block;
+      background: transparent !important;
     }
 
-    .tl-points {
-      padding-left: 1rem
+    html.theme-dark .approach-icon {
+      background: transparent !important;
     }
 
-    .fxc-timeline.in .tl-step {
-      animation: tlPop .35s ease backwards
+    .approach-step:hover .approach-icon svg circle {
+      animation: dash 1.2s ease forwards
     }
 
-    .fxc-timeline.in .tl-step:nth-child(2) {
-      animation-delay: .05s
-    }
-
-    .fxc-timeline.in .tl-step:nth-child(3) {
-      animation-delay: .1s
-    }
-
-    .fxc-timeline.in .tl-step:nth-child(4) {
-      animation-delay: .15s
-    }
-
-    .fxc-timeline.in .tl-step:nth-child(5) {
-      animation-delay: .2s
-    }
-
-    @keyframes tlPop {
+    @keyframes dash {
       from {
-        opacity: 0;
-        transform: translateY(10px)
+        stroke-dashoffset: 63
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0)
+        stroke-dashoffset: 0
       }
     }
 
-    html.theme-dark .fxc-timeline {
-      background: linear-gradient(180deg, #101c2d 0%, #0f1a2b 100%);
-      border-color: rgba(255, 255, 255, .08);
-      box-shadow: 0 8px 22px rgba(0, 0, 0, .5)
+    .approach-step .title {
+      font-weight: 800;
+      margin: .25rem 0;
+      color: #0f172a
     }
 
-    html.theme-dark .tl-step {
+    .approach-step .text {
+      font-size: .9rem;
+      color: #475569;
+      margin: 0
+    }
+
+    html.theme-dark .approach-step {
       background: #101c2d;
       border-color: rgba(255, 255, 255, .08);
       box-shadow: 0 6px 18px rgba(0, 0, 0, .5)
     }
 
-    html.theme-dark .tl-step:hover {
-      background: #16283e
+    html.theme-dark .approach-step:hover {
+      box-shadow: 0 14px 32px rgba(0, 0, 0, .6)
     }
 
-    html.theme-dark .tl-name {
+    html.theme-dark .approach-head .num {
+      background: var(--fx-gradient) !important;
+      background-image: var(--fx-gradient) !important;
+      color: #ffffff !important;
+      opacity: 1 !important;
+      border: none !important;
+      box-shadow: 0 4px 12px rgba(0, 86, 210, 0.4) !important;
+    }
+
+    html.theme-dark .approach-step .title {
       color: #e5e7eb
     }
 
-    html.theme-dark .tl-desc {
+    html.theme-dark .approach-step .text {
       color: #b8c3d4
     }
 
-    html.theme-dark .tl-detail {
-      background: #111f34
+    /* Dark mode: approach icons - ensure SVG icons are visible */
+    /* Override gradient stops in SVG defs to be white in dark mode */
+    html.theme-dark .approach-icon svg defs linearGradient stop {
+      stop-color: #ffffff !important;
     }
 
-    html.theme-dark .tl-progress {
-      background: rgba(255, 255, 255, .12)
+    /* Ensure SVG container itself doesn't get filled */
+    html.theme-dark .approach-icon svg {
+      fill: none !important;
+      background: transparent !important;
+      color: #ffffff !important;
     }
 
-    @media (max-width:992px) {
-      .fxc-timeline {
-        grid-template-columns: 1fr;
-      }
-
-      .tl-right {
-        order: 2
-      }
-
-      .tl-left {
-        order: 1
-      }
+    /* Apply white stroke to all SVG elements */
+    html.theme-dark .approach-icon svg path,
+    html.theme-dark .approach-icon svg circle,
+    html.theme-dark .approach-icon svg rect,
+    html.theme-dark .approach-icon svg line,
+    html.theme-dark .approach-icon svg polygon,
+    html.theme-dark .approach-icon svg polyline {
+      stroke: #ffffff !important;
+      opacity: 1 !important;
     }
 
-    /* Footer social icons layout fix: keep icons inline, compact, and consistent */
-    footer .social {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
+    /* Only fill elements that don't have fill="none" - respect transparency */
+    html.theme-dark .approach-icon svg path:not([fill="none"]):not([fill]),
+    html.theme-dark .approach-icon svg circle:not([fill="none"]):not([fill]),
+    html.theme-dark .approach-icon svg rect:not([fill="none"]):not([fill]) {
+      fill: #ffffff !important;
     }
 
-    footer .social a {
-      display: inline-flex !important;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      margin: 0;
-      text-decoration: none;
+    /* Keep fill="none" as none for transparent parts - this is critical */
+    html.theme-dark .approach-icon svg path[fill="none"],
+    html.theme-dark .approach-icon svg circle[fill="none"],
+    html.theme-dark .approach-icon svg rect[fill="none"],
+    html.theme-dark .approach-icon svg path[fill=""],
+    html.theme-dark .approach-icon svg circle[fill=""],
+    html.theme-dark .approach-icon svg rect[fill=""] {
+      fill: none !important;
+      stroke: #ffffff !important;
     }
 
-    footer .social a i {
-      font-size: 1.25rem;
-      line-height: 1;
+    html.theme-dark .approach-step:hover .approach-icon svg path,
+    html.theme-dark .approach-step:hover .approach-icon svg circle,
+    html.theme-dark .approach-step:hover .approach-icon svg rect,
+    html.theme-dark .approach-step:hover .approach-icon svg line,
+    html.theme-dark .approach-step:hover .approach-icon svg polygon,
+    html.theme-dark .approach-step:hover .approach-icon svg polyline {
+      stroke: #ffffff !important;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9)) !important;
+      opacity: 1 !important;
     }
 
-    /* Ensure generic footer links don’t force social icons to stack */
-    footer a {
-      display: block;
+    /* Only fill on hover if not fill="none" */
+    html.theme-dark .approach-step:hover .approach-icon svg path:not([fill="none"]):not([fill]),
+    html.theme-dark .approach-step:hover .approach-icon svg circle:not([fill="none"]):not([fill]),
+    html.theme-dark .approach-step:hover .approach-icon svg rect:not([fill="none"]):not([fill]) {
+      fill: #ffffff !important;
     }
 
-    footer .social a {
-      display: inline-flex !important;
-    }
-
-    /* ========== MOBILE RESPONSIVE STYLES ========== */
-    @media (max-width: 768px) {
-
-      /* Navbar */
-      .navbar {
-        padding: 0.5rem 0;
-      }
-
-      .navbar-brand img {
-        height: 40px;
-      }
-
-      .navbar .nav-link {
-        padding: 0.5rem 0.75rem;
-        margin: 0.15rem 0;
-        font-size: 0.9rem;
-      }
-
-      .dropdown-menu {
-        margin-top: 0.5rem;
-        border-radius: 8px;
-      }
-
-      .dropdown-item {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-      }
-
-      /* Hero Section */
-      .hero {
-        min-height: 45vh;
-        overflow: visible;
-      }
-
-      .hero .inner {
-        padding: 50px 0 60px;
-        min-height: auto;
-        overflow: visible;
-      }
-
-      .hero h1 {
-        font-size: clamp(1.8rem, 5vw, 2.5rem);
-        line-height: 1.2;
-      }
-
-      .hero p.lead {
-        font-size: clamp(0.95rem, 2.5vw, 1.1rem);
-        padding: 0 10px;
-      }
-
-      .hero-badges {
-        gap: 0.4rem;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .hero-badges .hb {
-        font-size: 0.6rem;
-        padding: 0.35rem 0.6rem;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.75rem;
-        padding: 0 10px;
-        margin-top: 1.5rem;
-      }
-
-      .btn-pill {
-        width: 100%;
-        justify-content: center;
-        padding: 14px 24px;
-        font-size: 0.9rem;
-        min-height: 48px;
-        display: flex;
-        flex-shrink: 0;
-      }
-
-      .btn-pill.btn-outline {
-        background: rgba(255, 255, 255, 0.15);
-        border: 2px solid rgba(255, 255, 255, 0.9);
-        color: #fff;
-        backdrop-filter: blur(4px);
-      }
-
-      .btn-pill.btn-outline:hover {
-        background: rgba(255, 255, 255, 0.25);
-        border-color: #fff;
-        color: #fff;
-      }
-
-      /* Video Carousel */
-      .hero {
-        min-height: 55vh;
-        position: relative;
-      }
-
-      #heroCarousel {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        min-height: 55vh;
-        z-index: 0;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-      }
-
-      #heroCarousel .carousel-inner {
-        width: 100%;
-        height: 100%;
-        min-height: 55vh;
-      }
-
-      #heroCarousel .carousel-item {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        min-height: 55vh;
-        display: block !important;
-      }
-
-      #heroCarousel .carousel-item video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100% !important;
-        height: 100% !important;
-        min-height: 55vh !important;
-        min-width: 100% !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        object-fit: cover !important;
-        object-position: center !important;
-      }
-
-      /* Sections */
-      .trust,
-      .process,
-      .capabilities,
-      .testimonials,
-      .stack {
-        padding: 50px 0;
-      }
-
-      .section-title {
-        font-size: clamp(1.4rem, 4vw, 1.9rem);
-        margin-bottom: 15px;
-      }
-
-      .section-sub {
-        font-size: 0.9rem;
-      }
-
-      /* Value Grid */
-      .value-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        padding: 0 10px;
-      }
-
-      .vcard {
-        padding: 20px 18px;
-      }
-
-      /* Metrics Band */
-      .metrics-band {
-        padding: 40px 0;
-      }
-
-      .metrics-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-        padding: 0 15px;
-      }
-
-      .metric h3 {
-        font-size: 1.6rem;
-      }
-
-      .metric p {
-        font-size: 0.7rem;
-      }
-
-      /* Approach Steps */
-      .approach-step {
-        padding: 14px 12px;
-      }
-
-      .approach-step .title {
-        font-size: 0.9rem;
-      }
-
-      .approach-step .text {
-        font-size: 0.8rem;
-      }
-
-      /* Capabilities Grid */
-      .cap-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 10px;
-      }
-
-      .cap-card {
-        padding: 22px 20px;
-      }
-
-      /* Services Grid */
-      .row.g-3.g-md-4 {
-        --bs-gutter-x: 0.75rem;
-        --bs-gutter-y: 0.75rem;
-      }
-
-      .fxc-card {
-        padding: 18px;
-      }
-
-      /* Testimonials */
-      .tgrid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 10px;
-      }
-
-      .testimonial {
-        padding: 22px 20px;
-      }
-
-      /* Footer */
-      footer {
-        padding: 24px 0;
-      }
-
-      footer .row {
-        --bs-gutter-y: 1.5rem;
-      }
-
-      /* Container padding */
-      .container {
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-
-      /* WhatsApp Float */
-      .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        right: 15px;
-        bottom: 15px;
-      }
-
-      .whatsapp-float i {
-        font-size: 1.5rem;
-      }
-
-      /* CTA Section */
-      .enroll {
-        padding: 50px 15px;
-      }
-
-      .enroll h2 {
-        font-size: clamp(1.5rem, 5vw, 2rem);
-      }
-
-      .enroll p {
-        font-size: 0.95rem;
-        padding: 0 10px;
-      }
-
-      .enroll .d-flex {
-        flex-direction: column;
-        gap: 0.75rem;
-        align-items: stretch;
-      }
-
-      .enroll .btn-cta {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 480px) {
-
-      /* Hero Section */
-      .hero {
-        min-height: auto;
-        padding-bottom: 20px;
-        overflow: visible;
-      }
-
-      .hero .inner {
-        padding: 40px 0 50px;
-        overflow: visible;
-      }
-
-      .hero h1 {
-        font-size: clamp(1.6rem, 6vw, 2.2rem);
-        margin-bottom: 1rem;
-      }
-
-      .hero p.lead {
-        margin-bottom: 1.5rem;
-        padding: 0 5px;
-      }
-
-      .hero-badges {
-        margin-bottom: 1rem;
-      }
-
-      .hero-badges .hb {
-        font-size: 0.55rem;
-        padding: 0.3rem 0.5rem;
-      }
-
-      .hero-actions {
-        margin-top: 1.5rem;
-        gap: 0.65rem;
-        padding: 0 5px;
-      }
-
-      .btn-pill {
-        padding: 12px 20px;
-        font-size: 0.85rem;
-        min-height: 46px;
-        display: flex;
-      }
-
-      .btn-pill.btn-outline {
-        background: rgba(255, 255, 255, 0.15);
-        border: 2px solid rgba(255, 255, 255, 0.9);
-        color: #fff;
-        backdrop-filter: blur(4px);
-      }
-
-      /* Sections */
-      .trust,
-      .process,
-      .capabilities,
-      .testimonials,
-      .stack {
-        padding: 40px 0;
-      }
-
-      /* Metrics */
-      .metrics-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      /* Container */
-      .container {
-        padding-left: 12px;
-        padding-right: 12px;
-      }
-
-      /* Buttons */
-      .btn-cta {
-        width: 100%;
-        justify-content: center;
-        padding: 10px 24px;
-        font-size: 0.9rem;
-      }
-
-      /* Approach Steps - Stack on very small screens */
-      .approach-step {
-        margin-bottom: 12px;
-      }
-    }
-
-    /* Fix horizontal overflow - Base constraints for all devices */
-    html {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    body {
-      overflow-x: hidden;
-      width: 100%;
-      max-width: 100%;
-      position: relative;
-      margin: 0;
-      padding: 0;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    /* Ensure images don't overflow */
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    /* Base constraints for main and sections */
-    main {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-
-    section {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-
-    /* ========== MOBILE RESPONSIVE STYLES ========== */
-    @media (max-width: 768px) {
-
-      /* Navbar */
-      .navbar {
-        padding: 0.5rem 0;
-      }
-
-      .navbar-brand img {
-        height: 40px;
-      }
-
-      .navbar .nav-link {
-        padding: 0.5rem 0.75rem;
-        margin: 0.15rem 0;
-        font-size: 0.9rem;
-      }
-
-      .dropdown-menu {
-        margin-top: 0.5rem;
-        border-radius: 8px;
-      }
-
-      .dropdown-item {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-      }
-
-      /* Hero Section */
-      .hero {
-        min-height: 50vh;
-        overflow: visible;
-        position: relative;
-      }
-
-      .hero .inner {
-        padding: 50px 15px 70px;
-        min-height: auto;
-        overflow: visible;
-        position: relative;
-        z-index: 10;
-      }
-
-      .hero h1 {
-        font-size: clamp(1.8rem, 5vw, 2.5rem);
-        line-height: 1.2;
-      }
-
-      .hero p.lead {
-        font-size: clamp(0.95rem, 2.5vw, 1.1rem);
-        padding: 0 10px;
-      }
-
-      .hero-badges {
-        gap: 0.4rem;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .hero-badges .hb {
-        font-size: 0.6rem;
-        padding: 0.35rem 0.6rem;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.75rem;
-        padding: 0 10px;
-        margin-top: 1.5rem;
-      }
-
-      .btn-pill {
-        width: 100%;
-        justify-content: center;
-        padding: 14px 24px;
-        font-size: 0.9rem;
-        min-height: 48px;
-        display: flex;
-        flex-shrink: 0;
-      }
-
-      .btn-pill.btn-outline {
-        background: rgba(255, 255, 255, 0.15);
-        border: 2px solid rgba(255, 255, 255, 0.9);
-        color: #fff;
-        backdrop-filter: blur(4px);
-      }
-
-      .btn-pill.btn-outline:hover {
-        background: rgba(255, 255, 255, 0.25);
-        border-color: #fff;
-        color: #fff;
-      }
-
-      /* Video Carousel */
-      .hero {
-        min-height: 55vh;
-        position: relative;
-      }
-
-      #heroCarousel {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        min-height: 55vh;
-        z-index: 0;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-      }
-
-      #heroCarousel .carousel-inner {
-        width: 100%;
-        height: 100%;
-        min-height: 55vh;
-      }
-
-      #heroCarousel .carousel-item {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        min-height: 55vh;
-        display: block !important;
-      }
-
-      #heroCarousel .carousel-item video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100% !important;
-        height: 100% !important;
-        min-height: 55vh !important;
-        min-width: 100% !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        object-fit: cover !important;
-        object-position: center !important;
-      }
-
-      /* Sections */
-      .trust,
-      .process,
-      .capabilities,
-      .testimonials,
-      .stack {
-        padding: 50px 0;
-      }
-
-      .section-title {
-        font-size: clamp(1.4rem, 4vw, 1.9rem);
-        margin-bottom: 15px;
-      }
-
-      .section-sub {
-        font-size: 0.9rem;
-      }
-
-      /* Value Grid */
-      .value-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        padding: 0 10px;
-      }
-
-      .vcard {
-        padding: 20px 18px;
-      }
-
-      /* Metrics Band */
-      .metrics-band {
-        padding: 40px 0;
-      }
-
-      .metrics-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-        padding: 0 15px;
-      }
-
-      .metric h3 {
-        font-size: 1.6rem;
-      }
-
-      .metric p {
-        font-size: 0.7rem;
-      }
-
-      /* Approach Steps */
-      .approach-step {
-        padding: 14px 12px;
-      }
-
-      .approach-step .title {
-        font-size: 0.9rem;
-      }
-
-      .approach-step .text {
-        font-size: 0.8rem;
-      }
-
-      /* Capabilities Grid */
-      .cap-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 10px;
-      }
-
-      .cap-card {
-        padding: 22px 20px;
-      }
-
-      /* Services Grid */
-      .row.g-3.g-md-4 {
-        --bs-gutter-x: 0.75rem;
-        --bs-gutter-y: 0.75rem;
-      }
-
-      .fxc-card {
-        padding: 18px;
-      }
-
-      /* Testimonials */
-      .tgrid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 10px;
-      }
-
-      .testimonial {
-        padding: 22px 20px;
-      }
-
-      /* Footer */
-      footer {
-        padding: 24px 0;
-      }
-
-      footer .row {
-        --bs-gutter-y: 1.5rem;
-      }
-
-      /* Container padding */
-      .container {
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-
-      /* WhatsApp Float */
-      .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        right: 15px;
-        bottom: 15px;
-      }
-
-      .whatsapp-float i {
-        font-size: 1.5rem;
-      }
-
-      /* CTA Section */
-      .enroll {
-        padding: 50px 15px;
-      }
-
-      .enroll h2 {
-        font-size: clamp(1.5rem, 5vw, 2rem);
-      }
-
-      .enroll p {
-        font-size: 0.95rem;
-        padding: 0 10px;
-      }
-
-      .enroll .d-flex {
-        flex-direction: column;
-        gap: 0.75rem;
-        align-items: stretch;
-      }
-
-      .enroll .btn-cta {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 480px) {
-
-      /* Hero Section */
-      .hero {
-        min-height: auto;
-        padding-bottom: 20px;
-        overflow: visible;
-      }
-
-      .hero .inner {
-        padding: 40px 0 50px;
-        overflow: visible;
-      }
-
-      .hero h1 {
-        font-size: clamp(1.6rem, 6vw, 2.2rem);
-        margin-bottom: 1rem;
-      }
-
-      .hero p.lead {
-        margin-bottom: 1.5rem;
-        padding: 0 5px;
-      }
-
-      .hero-badges {
-        margin-bottom: 1rem;
-      }
-
-      .hero-badges .hb {
-        font-size: 0.55rem;
-        padding: 0.3rem 0.5rem;
-      }
-
-      .hero-actions {
-        margin-top: 1.5rem;
-        gap: 0.65rem;
-        padding: 0 5px;
-      }
-
-      .btn-pill {
-        padding: 12px 20px;
-        font-size: 0.85rem;
-        min-height: 46px;
-        display: flex;
-      }
-
-      .btn-pill.btn-outline {
-        background: rgba(255, 255, 255, 0.15);
-        border: 2px solid rgba(255, 255, 255, 0.9);
-        color: #fff;
-        backdrop-filter: blur(4px);
-      }
-
-      /* Sections */
-      .trust,
-      .process,
-      .capabilities,
-      .testimonials,
-      .stack {
-        padding: 40px 0;
-      }
-
-      /* Metrics */
-      .metrics-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      /* Container */
-      .container {
-        padding-left: 12px;
-        padding-right: 12px;
-      }
-
-      /* Buttons */
-      .btn-cta {
-        width: 100%;
-        justify-content: center;
-        padding: 10px 24px;
-        font-size: 0.9rem;
-      }
-
-      /* Approach Steps - Stack on very small screens */
-      .approach-step {
-        margin-bottom: 12px;
-      }
-    }
-
-    /* Fix horizontal overflow */
-    body {
-      overflow-x: hidden;
-      width: 100%;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    /* Ensure images don't overflow */
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    /* Fix video carousel on mobile */
-    @media (max-width: 768px) {
-      #heroCarousel {
-        min-height: 45vh;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-      }
-
-      #heroCarousel .carousel-item {
-        min-height: 45vh;
-      }
-
-      /* Ensure hero content is above video */
-      .hero .container {
-        position: relative;
-        z-index: 10;
-      }
-
-      .hero .inner {
-        position: relative;
-        z-index: 10;
-      }
-    }
-
-    /* Ensure all buttons are visible on mobile - CRITICAL */
-    @media screen and (max-width: 991px) {
-      html {
-        -webkit-text-size-adjust: 100%;
-        -ms-text-size-adjust: 100%;
-      }
-
-      body {
-        font-size: 16px;
-        line-height: 1.5;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-
-      .container {
-        padding-left: 15px;
-        padding-right: 15px;
-        max-width: 100%;
-      }
-
-      /* Hero Section - Universal Mobile */
-      .hero {
-        min-height: auto;
-        padding: 0;
-        overflow: visible;
-      }
-
-      .hero .inner {
-        padding: 40px 15px 50px;
-        width: 100%;
-        max-width: 100%;
-        overflow: visible;
-      }
-
-      .hero h1 {
-        font-size: clamp(1.5rem, 6vw, 2.5rem);
-        line-height: 1.2;
-        margin-bottom: 1rem;
-        word-wrap: break-word;
-        hyphens: auto;
-      }
-
-      .hero p.lead {
-        font-size: clamp(0.9rem, 3vw, 1.1rem);
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-        padding: 0;
-        word-wrap: break-word;
-      }
-
-      .hero-badges {
-        gap: 0.4rem;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-bottom: 1rem;
-      }
-
-      .hero-badges .hb {
-        font-size: clamp(0.5rem, 2vw, 0.65rem);
-        padding: 0.35rem 0.6rem;
-        white-space: nowrap;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.75rem;
-        margin-top: 1.5rem;
-        width: 100%;
-        padding: 0;
-      }
-
-      .btn-pill {
-        width: 100%;
-        max-width: 100%;
-        justify-content: center;
-        padding: 14px 20px;
-        font-size: clamp(0.85rem, 2.5vw, 0.95rem);
-        min-height: 48px;
-        display: flex !important;
-        flex-shrink: 0;
-        white-space: nowrap;
-        box-sizing: border-box;
-      }
-
-      .btn-pill i {
-        font-size: 1rem;
-        flex-shrink: 0;
-      }
-
-      .btn-pill.btn-outline {
-        background: rgba(255, 255, 255, 0.15) !important;
-        border: 2px solid rgba(255, 255, 255, 0.9) !important;
-        color: #fff !important;
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
-      }
-
-      .btn-pill.btn-outline:hover,
-      .btn-pill.btn-outline:focus {
-        background: rgba(255, 255, 255, 0.25) !important;
-        border-color: #fff !important;
-        color: #fff !important;
-      }
-
-      /* Video Carousel - Ensure visibility */
-      .hero {
-        min-height: 55vh;
-        position: relative;
-        overflow: hidden;
-      }
-
-      #heroCarousel {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        min-height: 55vh;
-        z-index: 0;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        overflow: hidden;
-      }
-
-      #heroCarousel .carousel-inner {
-        width: 100%;
-        height: 100%;
-        min-height: 55vh;
-      }
-
-      #heroCarousel .carousel-item {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        min-height: 55vh;
-        display: block !important;
-      }
-
-      #heroCarousel .carousel-item video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100% !important;
-        height: 100% !important;
-        min-height: 55vh !important;
-        min-width: 100% !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        object-fit: cover !important;
-        object-position: center !important;
-        background: black;
-      }
-    }
-
-    /* Small phones (320px - 480px) */
-    @media screen and (max-width: 480px) {
-      .hero .inner {
-        padding: 35px 12px 45px;
-      }
-
-      .hero h1 {
-        font-size: clamp(1.4rem, 7vw, 2rem);
-        margin-bottom: 0.75rem;
-      }
-
-      .hero p.lead {
-        font-size: clamp(0.85rem, 3.5vw, 1rem);
-        margin-bottom: 1.25rem;
-      }
-
-      .hero-badges .hb {
-        font-size: 0.5rem;
-        padding: 0.3rem 0.5rem;
-      }
-
-      .hero-actions {
-        gap: 0.65rem;
-        margin-top: 1.25rem;
-      }
-
-      .btn-pill {
-        padding: 12px 18px;
-        font-size: 0.85rem;
-        min-height: 46px;
-      }
-
-      .container {
-        padding-left: 12px;
-        padding-right: 12px;
-      }
-    }
-
-    /* Very small phones (320px - 375px) */
-    @media screen and (max-width: 375px) {
-      .hero .inner {
-        padding: 30px 10px 40px;
-      }
-
-      .hero h1 {
-        font-size: clamp(1.3rem, 8vw, 1.8rem);
-      }
-
-      .hero p.lead {
-        font-size: 0.85rem;
-      }
-
-      .btn-pill {
-        padding: 11px 16px;
-        font-size: 0.8rem;
-        min-height: 44px;
-      }
-
-      .container {
-        padding-left: 10px;
-        padding-right: 10px;
-      }
-    }
-
-    /* iPhone 12 Pro - Exact dimensions (390px width, 844px height) */
-    @media screen and (width: 390px) and (height: 844px),
-    screen and (width: 390px) and (min-height: 800px) {
-
-      /* Base HTML and Body - Allow scrolling */
-      html,
-      body {
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      main {
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-        overflow-y: visible !important;
-      }
-
-      .hero {
-        min-height: auto !important;
-        height: auto !important;
-        max-height: none !important;
-        position: relative !important;
-        overflow: visible !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        display: flex !important;
-        align-items: flex-start !important;
-        padding-bottom: 40px !important;
-        padding-top: 0 !important;
-      }
-
-      /* CRITICAL: Override base overflow:hidden that cuts off buttons */
-      header.hero {
-        overflow: visible !important;
-        min-height: auto !important;
-        height: auto !important;
-      }
-
-      .hero .container {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-        position: relative !important;
-        z-index: 10 !important;
-        box-sizing: border-box !important;
-        overflow: visible !important;
-        max-height: none !important;
-      }
-
-      .hero .inner {
-        padding: 30px 15px 180px !important;
-        position: relative !important;
-        z-index: 10 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-        overflow: visible !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 0.35rem !important;
-        min-height: auto !important;
-        height: auto !important;
-      }
-
-      .hero .eyebrow {
-        font-size: 0.65rem !important;
-        margin-bottom: 0.3rem !important;
-        display: block !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-      }
-
-      .hero h1 {
-        font-size: 1.45rem !important;
-        line-height: 1.15 !important;
-        margin: 0 !important;
-        margin-bottom: 0.35rem !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-        hyphens: manual !important;
-      }
-
-      .hero h1 .d-block {
-        display: block !important;
-        margin-top: 0.1rem !important;
-      }
-
-      .hero p.lead {
-        font-size: 0.8rem !important;
-        line-height: 1.45 !important;
-        margin: 0 !important;
-        margin-bottom: 0.4rem !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-        hyphens: manual !important;
-        padding: 0 !important;
-      }
-
-      .hero-badges {
-        width: 100% !important;
-        max-width: 100% !important;
-        gap: 0.25rem !important;
-        margin: 0.15rem 0 0.3rem 0 !important;
-        flex-wrap: wrap !important;
-        justify-content: flex-start !important;
-        display: flex !important;
-        overflow: visible !important;
-      }
-
-      .hero-badges .hb {
-        font-size: 0.54rem !important;
-        padding: 0.28rem 0.5rem !important;
-        white-space: nowrap !important;
-        flex-shrink: 0 !important;
-        max-width: calc(50% - 0.15rem) !important;
-        box-sizing: border-box !important;
-      }
-
-      /* Hero Actions - ALL 3 buttons must be visible - CRITICAL FIX */
-      .hero-actions {
-        width: 100% !important;
-        max-width: 100% !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        gap: 0.55rem !important;
-        margin: 0 !important;
-        margin-top: 0.7rem !important;
-        margin-bottom: 0 !important;
-        padding: 0 !important;
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important;
-        z-index: 100 !important;
-        flex-shrink: 0 !important;
-      }
-
-      .hero-actions a,
-      .hero-actions .btn-pill {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 10px 16px !important;
-        font-size: 0.84rem !important;
-        box-sizing: border-box !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        min-height: 40px !important;
-        white-space: nowrap !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important;
-        z-index: 100 !important;
-        flex-shrink: 0 !important;
-        margin: 0 !important;
-      }
-
-      /* Ensure the third button (Talk to Us) is specifically visible */
-      .hero-actions .btn-outline,
-      .hero-actions a.btn-outline,
-      .hero-actions a[href*="contact"],
-      .hero-actions a:last-child,
-      .hero-actions a:nth-child(3) {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important;
-        z-index: 100 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        flex-shrink: 0 !important;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-        height: auto !important;
-        min-height: 40px !important;
-      }
-
-      /* Ensure hero section container doesn't cut off content */
-      .hero .container {
-        overflow: visible !important;
-        max-height: none !important;
-        height: auto !important;
-      }
-
-      /* Override any base hero styles that might hide content */
-      .hero::after {
-        height: auto !important;
-        min-height: 100% !important;
-        max-height: none !important;
-      }
-
-      .btn-pill i {
-        font-size: 1rem !important;
-        flex-shrink: 0 !important;
-      }
-
-      /* Video Carousel - Match hero content height dynamically - Don't cut off content */
-      #heroCarousel {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: auto !important;
-        width: 100% !important;
-        height: auto !important;
-        min-height: 100% !important;
-        max-height: none !important;
-        z-index: 0 !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        overflow: hidden !important;
-      }
-
-      #heroCarousel .carousel-inner {
-        width: 100% !important;
-        height: auto !important;
-        min-height: 100% !important;
-        position: relative !important;
-      }
-
-      #heroCarousel .carousel-item {
-        position: relative !important;
-        width: 100% !important;
-        height: auto !important;
-        min-height: 100% !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-      }
-
-      #heroCarousel .carousel-item.active {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-      }
-
-      #heroCarousel .carousel-item video {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: auto !important;
-        min-width: 100% !important;
-        min-height: 100% !important;
-        max-width: none !important;
-        max-height: none !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        object-fit: cover !important;
-        object-position: center !important;
-        background: #000 !important;
-        z-index: 1 !important;
-      }
-
-      /* Navbar - Bootstrap sticky-top handles positioning */
-
-      .navbar .container {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-        box-sizing: border-box !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-      }
-
-      .navbar-brand {
-        display: flex !important;
-        align-items: center !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        flex-shrink: 0 !important;
-      }
-
-      .navbar-brand img {
-        max-height: 34px !important;
-        width: auto !important;
-        height: auto !important;
-      }
-
-      .navbar-toggler {
-        padding: 0.25rem 0.5rem !important;
-        font-size: 1.2rem !important;
-        border: 1px solid rgba(0, 0, 0, 0.1) !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        flex-shrink: 0 !important;
-      }
-
-      html.theme-dark .navbar-toggler {
-        border-color: rgba(255, 255, 255, 0.3) !important;
-        background-color: rgba(255, 255, 255, 0.08) !important;
-      }
-
-      html.theme-dark .navbar-toggler-icon {
-        filter: none !important;
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-        opacity: 1 !important;
-      }
-
-      /* All sections - allow vertical overflow */
-      section {
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-        overflow-y: visible !important;
-        visibility: visible !important;
-      }
-    }
-
-    @media screen and (width: 390px) {
-
-      /* Base constraints */
-      html,
-      body {
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      main,
-      section {
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-        overflow-y: visible !important;
-      }
-
-      .container {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-        box-sizing: border-box;
-      }
-
-      .hero {
-        min-height: auto !important;
-        height: auto !important;
-        position: relative !important;
-        overflow: visible !important;
-        width: 100% !important;
-        max-width: 100% !important;
-      }
-
-      #heroCarousel {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        height: 100% !important;
-        min-height: 60vh !important;
-        max-height: none !important;
-        z-index: 0 !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        overflow: hidden;
-      }
-
-      #heroCarousel .carousel-inner {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: 100% !important;
-        min-height: 60vh !important;
-        position: relative;
-      }
-
-      #heroCarousel .carousel-item {
-        position: relative !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        height: 100% !important;
-        min-height: 60vh !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-      }
-
-      #heroCarousel .carousel-item.active {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-      }
-
-      #heroCarousel .carousel-item video {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        height: 100% !important;
-        min-width: 100% !important;
-        min-height: 60vh !important;
-        max-height: none !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        object-fit: cover !important;
-        object-position: center !important;
-        background: #000 !important;
-        z-index: 1;
-      }
-
-      .hero .inner {
-        padding: 48px 18px 70px !important;
-        position: relative;
-        z-index: 10;
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box;
-      }
-
-      .hero h1 {
-        font-size: 2.05rem !important;
-        line-height: 1.2 !important;
-        margin-bottom: 1rem !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        word-wrap: break-word;
-      }
-
-      .hero p.lead {
-        font-size: 1.02rem !important;
-        line-height: 1.6 !important;
-        margin-bottom: 1.5rem !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        word-wrap: break-word;
-      }
-
-      .hero-actions {
-        width: 100% !important;
-        max-width: 100% !important;
-        flex-direction: column !important;
-        gap: 0.75rem !important;
-        margin-top: 1.5rem !important;
-      }
-
-      .btn-pill {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 14px 24px !important;
-        font-size: 0.92rem !important;
-        min-height: 48px !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        box-sizing: border-box;
-      }
-
-      /* Ensure all content fits */
-      * {
-        max-width: 100% !important;
-        box-sizing: border-box;
-      }
-    }
-
-    /* iPhone 12 Pro and similar (390px - 428px) - Optimized */
-    @media screen and (min-width: 390px) and (max-width: 428px) {
-      .hero {
-        min-height: 55vh;
-      }
-
-      .hero .inner {
-        padding: 45px 18px 55px;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-        line-height: 1.15;
-        margin-bottom: 1rem;
-      }
-
-      .hero p.lead {
-        font-size: 1rem;
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-        padding: 0 5px;
-      }
-
-      .hero-badges {
-        gap: 0.45rem;
-        margin-bottom: 1rem;
-      }
-
-      .hero-badges .hb {
-        font-size: 0.6rem;
-        padding: 0.4rem 0.65rem;
-      }
-
-      .hero-actions {
-        gap: 0.75rem;
-        margin-top: 1.5rem;
-        padding: 0 5px;
-      }
-
-      .btn-pill {
-        padding: 14px 22px;
-        font-size: 0.9rem;
-        min-height: 48px;
-      }
-
-      .btn-pill i {
-        font-size: 1.05rem;
-      }
-
-      /* Video Carousel */
-      .hero {
-        min-height: 60vh;
-        position: relative;
-      }
-
-      #heroCarousel {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        min-height: 60vh;
-        z-index: 0;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-      }
-
-      #heroCarousel .carousel-inner {
-        width: 100%;
-        height: 100%;
-        min-height: 60vh;
-      }
-
-      #heroCarousel .carousel-item {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        min-height: 60vh;
-        display: block !important;
-      }
-
-      #heroCarousel .carousel-item video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100% !important;
-        height: 100% !important;
-        min-height: 60vh !important;
-        min-width: 100% !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        object-fit: cover !important;
-        object-position: center !important;
-      }
-
-      /* Sections spacing */
-      .trust,
-      .process,
-      .capabilities,
-      .testimonials,
-      .stack {
-        padding: 50px 0;
-      }
-
-      .section-title {
-        font-size: 1.7rem;
-        margin-bottom: 12px;
-      }
-
-      .section-sub {
-        font-size: 0.95rem;
-      }
-
-      /* Container */
-      .container {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
-
-      /* Cards and grids */
-      .value-grid,
-      .cap-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        padding: 0 10px;
-      }
-
-      .metrics-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        padding: 0 10px;
-      }
-
-      .vcard,
-      .cap-card,
-      .fxc-card {
-        padding: 20px 18px;
-      }
-
-      /* Buttons */
-      .btn-cta {
-        padding: 12px 26px;
-        font-size: 0.9rem;
-      }
-    }
-
-    /* Medium phones and small tablets (481px - 768px) */
-    @media screen and (min-width: 481px) and (max-width: 768px) {
-      .hero .inner {
-        padding: 45px 20px 55px;
-      }
-
-      .hero h1 {
-        font-size: clamp(1.8rem, 5vw, 2.3rem);
-      }
-
-      .hero p.lead {
-        font-size: clamp(1rem, 2.5vw, 1.15rem);
-      }
-
-      .btn-pill {
-        padding: 14px 24px;
-        font-size: 0.9rem;
-      }
-    }
-
-    /* Ensure all content sections are visible */
-    @media screen and (max-width: 991px) {
-
-      .trust,
-      .process,
-      .capabilities,
-      .testimonials,
-      .stack,
-      section {
-        padding-left: 0;
-        padding-right: 0;
-        overflow-x: hidden;
-      }
-
-      .section-title {
-        font-size: clamp(1.4rem, 4.5vw, 1.9rem);
-        padding: 0 15px;
-        word-wrap: break-word;
-      }
-
-      .section-sub {
-        font-size: clamp(0.85rem, 2.5vw, 1rem);
-        padding: 0 15px;
-      }
-
-      /* Grid layouts */
-      .value-grid,
-      .cap-grid,
-      .tgrid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        padding: 0 15px;
-      }
-
-      .metrics-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        padding: 0 15px;
-      }
-
-      /* Cards */
-      .vcard,
-      .cap-card,
-      .fxc-card,
-      .testimonial {
-        padding: 20px 18px;
-        margin: 0;
-      }
-    }
-
-    /* Fix for landscape orientation on mobile */
-    @media screen and (max-width: 991px) and (orientation: landscape) {
-      .hero {
-        min-height: auto;
-      }
-
-      .hero .inner {
-        padding: 30px 15px 40px;
-      }
-
-      .hero h1 {
-        font-size: clamp(1.6rem, 4vw, 2rem);
-        margin-bottom: 0.75rem;
-      }
-
-      .hero p.lead {
-        font-size: clamp(0.9rem, 2vw, 1rem);
-        margin-bottom: 1rem;
-      }
-
-      .hero-actions {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-
-      .btn-pill {
-        flex: 1 1 auto;
-        min-width: 140px;
-      }
-    }
-
-    /* Prevent text overflow */
-    * {
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-    }
-
-    /* Ensure buttons never get cut off */
-    .hero-actions,
-    .hero-actions * {
-      max-width: 100%;
-      box-sizing: border-box;
-    }
-
-    /* Fix for iOS Safari and iPhone 12 Pro */
-    @supports (-webkit-touch-callout: none) {
-      .hero {
-        -webkit-overflow-scrolling: touch;
-        padding-top: env(safe-area-inset-top);
-        padding-bottom: env(safe-area-inset-bottom);
-      }
-
-      .hero .inner {
-        padding-left: max(18px, env(safe-area-inset-left));
-        padding-right: max(18px, env(safe-area-inset-right));
-      }
-
-      .btn-pill {
-        -webkit-tap-highlight-color: rgba(255, 255, 255, 0.3);
-      }
-
-      body {
-        padding-top: env(safe-area-inset-top);
-        padding-bottom: env(safe-area-inset-bottom);
-      }
-
-      .navbar {
-        padding-top: max(0.5rem, env(safe-area-inset-top));
-      }
-
-      .whatsapp-float {
-        bottom: max(18px, env(safe-area-inset-bottom));
-      }
-    }
-
-    /* iPhone 12 Pro specific safe area adjustments */
-    @media screen and (width: 390px) and (-webkit-device-pixel-ratio: 3) {
-      .hero .inner {
-        padding-left: max(18px, env(safe-area-inset-left, 18px));
-        padding-right: max(18px, env(safe-area-inset-right, 18px));
-      }
-
-      .container {
-        padding-left: max(18px, env(safe-area-inset-left, 18px));
-        padding-right: max(18px, env(safe-area-inset-right, 18px));
-      }
-    }
-
-    /* ========== COMPREHENSIVE FIX FOR 390x844 MOBILE VIEWPORT ========== */
-    @media screen and (width: 390px) and (height: 844px),
-    screen and (width: 390px) and (min-height: 800px) and (max-height: 900px) {
-
-      /* Base HTML and Body - Prevent overflow */
-      html,
-      body {
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-        position: relative;
-        margin: 0;
-        padding: 0;
-      }
-
-      /* Main container */
-      main {
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-        margin: 0;
-        padding: 0;
-      }
-
-      /* All sections - prevent overflow */
-      section {
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-        box-sizing: border-box;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-      }
-
-      /* Container - ensure proper width */
-      .container {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        box-sizing: border-box;
-      }
-
-      /* Bootstrap rows and columns */
-      .row {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-      }
-
-      [class*="col-"] {
-        padding-left: 10px !important;
-        padding-right: 10px !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box;
-      }
-
-      /* Hero Section - Optimized for 390x844 */
-      .hero {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-height: 60vh !important;
-        height: auto !important;
-        overflow: hidden !important;
-        position: relative;
-        margin: 0;
-        padding: 0;
-      }
-
-      .hero .inner {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 45px 15px 50px !important;
-        box-sizing: border-box;
-        margin: 0;
-      }
-
-      .hero h1 {
-        font-size: 1.9rem !important;
-        line-height: 1.2 !important;
-        margin-bottom: 0.75rem !important;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        width: 100% !important;
-        max-width: 100% !important;
-      }
-
-      .hero p.lead {
-        font-size: 0.98rem !important;
-        line-height: 1.6 !important;
-        margin-bottom: 1.25rem !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        padding: 0 !important;
-      }
-
-      .hero-badges {
-        width: 100% !important;
-        max-width: 100% !important;
-        gap: 0.4rem !important;
-        margin-bottom: 1rem !important;
-        flex-wrap: wrap !important;
-        justify-content: flex-start !important;
-      }
-
-      .hero-badges .hb {
-        font-size: 0.6rem !important;
-        padding: 0.4rem 0.65rem !important;
-        white-space: nowrap;
-        flex-shrink: 0;
-      }
-
-      .hero-actions {
-        width: 100% !important;
-        max-width: 100% !important;
-        flex-direction: column !important;
-        gap: 0.7rem !important;
-        margin-top: 1.25rem !important;
-        padding: 0 !important;
-      }
-
-      .btn-pill {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 13px 20px !important;
-        font-size: 0.9rem !important;
-        box-sizing: border-box !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        min-height: 46px !important;
-        white-space: nowrap;
-      }
-
-      /* Video Carousel */
-      #heroCarousel {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: 60vh !important;
-        min-height: 60vh !important;
-        overflow: hidden !important;
-        position: absolute !important;
-        top: 0;
-        left: 0;
-        right: 0;
-      }
-
-      #heroCarousel .carousel-inner,
-      #heroCarousel .carousel-item {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: 100% !important;
-        overflow: hidden !important;
-      }
-
-      #heroCarousel .carousel-item video {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        object-position: center !important;
-      }
-
-      /* Navbar - Bootstrap sticky-top handles positioning */
-
-      .navbar .container {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-        box-sizing: border-box;
-      }
-
-      .navbar-brand img {
-        max-height: 36px !important;
-        width: auto !important;
-      }
-
-      .navbar-nav {
-        width: 100% !important;
-        padding: 10px 0 !important;
-      }
-
-      .navbar-nav .nav-link {
-        padding: 0.5rem 0 !important;
-        font-size: 0.95rem !important;
-      }
-
-      /* Hero eyebrow text */
-      .hero .eyebrow {
-        font-size: 0.75rem !important;
-        margin-bottom: 0.75rem !important;
-        display: block;
-        width: 100% !important;
-      }
-
-      /* All cards and content blocks */
-      .vcard,
-      .cap-card,
-      .fxc-card,
-      .testimonial,
-      .step {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        margin-bottom: 20px !important;
-        padding: 18px 15px !important;
-      }
-
-      /* Card icons */
-      .cap-icon,
-      .icon {
-        width: 48px !important;
-        height: 48px !important;
-        font-size: 1.5rem !important;
-        margin-bottom: 12px !important;
-      }
-
-      /* Card headings */
-      .vcard h6,
-      .cap-card h6,
-      .fxc-card h6 {
-        font-size: 1rem !important;
-        line-height: 1.4 !important;
-        margin-bottom: 0.75rem !important;
-        word-wrap: break-word;
-      }
-
-      /* Card text */
-      .vcard p,
-      .cap-card p,
-      .fxc-card p {
-        font-size: 0.875rem !important;
-        line-height: 1.6 !important;
-        word-wrap: break-word;
-      }
-
-      /* Grid layouts */
-      .value-grid,
-      .metrics-grid,
-      .stack-grid,
-      .process-grid,
-      .cap-grid {
-        width: 100% !important;
-        max-width: 100% !important;
-        grid-template-columns: 1fr !important;
-        gap: 20px !important;
-        padding: 0 15px !important;
-        box-sizing: border-box;
-      }
-
-      /* Trust/Value Proposition Section */
-      .trust {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 40px 0 !important;
-        overflow-x: hidden !important;
-      }
-
-      .trust .container {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-      }
-
-      /* Metrics Band */
-      .metrics-band {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 30px 0 !important;
-        overflow-x: hidden !important;
-      }
-
-      .metrics-band .container {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-      }
-
-      /* Process Section */
-      .process {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 40px 0 !important;
-        overflow-x: hidden !important;
-      }
-
-      .process .container {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-      }
-
-      /* Capabilities Section */
-      .capabilities {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 40px 0 !important;
-        overflow-x: hidden !important;
-      }
-
-      .capabilities .container {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-      }
-
-      /* Services Section */
-      #services {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 40px 0 !important;
-        overflow-x: hidden !important;
-      }
-
-      #services .container {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-      }
-
-      #services .row {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-      }
-
-      #services .col-md-4 {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-bottom: 15px !important;
-      }
-
-      /* Stack/Tech Section */
-      .stack {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 40px 0 !important;
-        overflow-x: hidden !important;
-      }
-
-      .stack .container {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-      }
-
-      .stack-filters {
-        width: 100% !important;
-        max-width: 100% !important;
-        flex-wrap: wrap !important;
-        gap: 8px !important;
-        padding: 0 15px !important;
-        justify-content: center !important;
-      }
-
-      .stack-filters .filter-btn {
-        font-size: 0.75rem !important;
-        padding: 8px 14px !important;
-        white-space: nowrap;
-      }
-
-      /* Testimonials Section */
-      .testimonials {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 40px 0 !important;
-        overflow-x: hidden !important;
-      }
-
-      .testimonials .container {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-      }
-
-      /* CTA Section */
-      .cta-section {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 40px 15px !important;
-        overflow-x: hidden !important;
-        box-sizing: border-box;
-      }
-
-      .cta-section .container {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-      }
-
-      /* About Preview Section */
-      section.py-5 {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 40px 0 !important;
-        overflow-x: hidden !important;
-      }
-
-      section.py-5 .container {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-      }
-
-      section.py-5 .row {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-      }
-
-      section.py-5 .col-lg-7,
-      section.py-5 .col-lg-5 {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-bottom: 20px !important;
-      }
-
-      /* Images */
-      img {
-        max-width: 100% !important;
-        height: auto !important;
-        width: auto !important;
-      }
-
-      /* Text content */
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      p,
-      span,
-      div,
-      a {
-        word-wrap: break-word !important;
-        overflow-wrap: break-word !important;
-        max-width: 100% !important;
-      }
-
-      /* Section titles */
-      .section-title {
-        font-size: clamp(1.4rem, 4.5vw, 1.8rem) !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        word-wrap: break-word;
-        padding: 0 !important;
-        margin-bottom: 1rem !important;
-        box-sizing: border-box;
-        line-height: 1.3 !important;
-      }
-
-      .section-sub {
-        font-size: clamp(0.85rem, 2.8vw, 1rem) !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        word-wrap: break-word;
-        padding: 0 !important;
-        margin-bottom: 1.5rem !important;
-        box-sizing: border-box;
-        line-height: 1.5 !important;
-      }
-
-      /* Text center wrapper */
-      .text-center {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 15px !important;
-        box-sizing: border-box;
-      }
-
-      /* Footer */
-      footer {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-        box-sizing: border-box;
-      }
-
-      /* WhatsApp float button */
-      .whatsapp-float {
-        right: 15px !important;
-        bottom: 20px !important;
-        width: 50px !important;
-        height: 50px !important;
-      }
-
-      /* Ensure no element exceeds viewport width */
-      * {
-        max-width: 100% !important;
-        box-sizing: border-box;
-      }
-
-      /* Tables if any */
-      table {
-        width: 100% !important;
-        max-width: 100% !important;
-        table-layout: auto;
-        word-wrap: break-word;
-      }
-
-      /* Forms */
-      form,
-      input,
-      textarea,
-      select {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box;
-      }
-
-      /* Spacing adjustments for better mobile view */
-      .mb-4 {
-        margin-bottom: 1.5rem !important;
-      }
-
-      .mb-2 {
-        margin-bottom: 1rem !important;
-      }
-
-      .mt-1 {
-        margin-top: 0.5rem !important;
-      }
-
-      /* Ensure proper spacing between sections */
-      section+section {
-        margin-top: 0 !important;
-      }
-
-      /* Lists */
-      ul,
-      ol {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-left: 20px !important;
-        box-sizing: border-box;
-      }
-
-      /* Links */
-      a {
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-      }
-
-      /* Ensure dropdown menus fit */
-      .dropdown-menu {
-        width: calc(100% - 30px) !important;
-        max-width: calc(100% - 30px) !important;
-        left: 15px !important;
-        right: 15px !important;
-        box-sizing: border-box;
-      }
-
-      /* Metrics items */
-      .metrics-grid .metric-item {
-        padding: 15px !important;
-        text-align: center !important;
-      }
-
-      /* Process steps */
-      .step {
-        margin-bottom: 25px !important;
-      }
-
-      /* Ensure buttons in sections are properly sized */
-      .btn-pill,
-      .btn-cta,
-      .btn-brand {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-bottom: 10px !important;
-      }
-
-      /* Last button in a group shouldn't have bottom margin */
-      .hero-actions .btn-pill:last-child,
-      .btn-pill:last-child {
-        margin-bottom: 0 !important;
-      }
-    }
-
-    /* ==========================================================
-       Mobile navbar scroll rendering fix + clean mobile menu
-       (prevents sticky/backdrop-filter artifacts on mobile scroll)
-       ========================================================== */
-    @media (max-width: 991.98px) {
-      .navbar {
-        z-index: 2000 !important;
-        background: #fff !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-      }
-
-      /* Sticky can fail on some mobile browsers when overflow/filters are involved.
-         Force a fixed header so the navbar is always visible while scrolling. */
-      .navbar.sticky-top {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        width: 100% !important;
-      }
-
-      /* Offset page content so it doesn't slide under the fixed navbar */
-      body {
-        padding-top: calc(env(safe-area-inset-top, 0px) + 68px) !important;
-      }
-
-      .navbar.scrolled {
-        background: #fff !important;
-      }
-
-      html.theme-dark .navbar,
-      html.theme-dark .navbar.bg-white,
-      html.theme-dark .navbar.scrolled {
-        background: rgba(10, 16, 28, 0.98) !important;
-      }
-
-      /* When expanded on mobile, give the menu a solid surface */
-      .navbar .navbar-collapse.show,
-      .navbar .navbar-collapse.collapsing {
-        background: #fff;
-        border-radius: 12px;
-        padding: 0.5rem 0.75rem;
-        margin-top: 0.5rem;
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-      }
-
-      html.theme-dark .navbar .navbar-collapse.show,
-      html.theme-dark .navbar .navbar-collapse.collapsing {
-        background: #0b1220;
-        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
-      }
-    }
-
-    /* Toolkit Snapshot: keep the grid compact/clean on small screens */
-    @media (max-width: 720px) {
-      .stack .tech-card {
-        margin-bottom: 0 !important;
-      }
+    /* Keep fill="none" transparent even on hover */
+    html.theme-dark .approach-step:hover .approach-icon svg path[fill="none"],
+    html.theme-dark .approach-step:hover .approach-icon svg circle[fill="none"],
+    html.theme-dark .approach-step:hover .approach-icon svg rect[fill="none"],
+    html.theme-dark .approach-step:hover .approach-icon svg path[fill=""],
+    html.theme-dark .approach-step:hover .approach-icon svg circle[fill=""],
+    html.theme-dark .approach-step:hover .approach-icon svg rect[fill=""] {
+      fill: none !important;
+      stroke: #ffffff !important;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9)) !important;
     }
   </style>
 </head>
@@ -4722,9 +2225,9 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top" role="navigation">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="/" aria-label="FutureXcel Home">
-        <img src="./assets/logo.png" alt="FutureXcel Technologies Logo" decoding="async" fetchpriority="high"
-          loading="eager" data-logo-light="./assets/logo.png" data-logo-dark="./assets/logo.png" />
+      <a class="navbar-brand fw-bold" href="index.html" aria-label="FutureXcel Home">
+        <img src="./logo.png" alt="FutureXcel Technologies Logo" decoding="async" fetchpriority="high"
+          loading="eager" data-logo-light="./logo.png" data-logo-dark="./logo.png" />
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -4733,29 +2236,29 @@
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav fw-semibold">
-          <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
 
           <!-- Dropdown -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">Services</a>
             <ul class="dropdown-menu shadow border-0 rounded-3" aria-labelledby="servicesDropdown">
-              <li><a class="dropdown-item" href="/services-endpoint">Modern Endpoint Management</a></li>
-              <li><a class="dropdown-item" href="/services-helpdesk">IT Help Desk Outsourcing</a></li>
-              <li><a class="dropdown-item" href="/services-software">Custom Software Development</a></li>
-              <li><a class="dropdown-item" href="/services-research">Research &amp; Development</a></li>
-              <li><a class="dropdown-item" href="/services-consulting">IT Consulting &amp; Support</a></li>
-              <li><a class="dropdown-item" href="/services-data">Data Engineering &amp; Analytics</a></li>
-              <li><a class="dropdown-item" href="/services-ml">Machine Learning Solutions</a></li>
-              <li><a class="dropdown-item" href="/services-cloud">DevOps &amp; Cloud Services</a></li>
-              <li><a class="dropdown-item" href="/services-training">Training &amp; Placement</a></li>
+              <li><a class="dropdown-item" href="services-endpoint.html">Modern Endpoint Management</a></li>
+              <li><a class="dropdown-item" href="services-helpdesk.html">IT Help Desk Outsourcing</a></li>
+              <li><a class="dropdown-item" href="services-software.html">Custom Software Development</a></li>
+              <li><a class="dropdown-item" href="services-research.html">Research &amp; Development</a></li>
+              <li><a class="dropdown-item" href="services-consulting.html">IT Consulting &amp; Support</a></li>
+              <li><a class="dropdown-item" href="services-data.html">Data Engineering &amp; Analytics</a></li>
+              <li><a class="dropdown-item" href="services-ml.html">Machine Learning Solutions</a></li>
+              <li><a class="dropdown-item" href="services-cloud.html">DevOps &amp; Cloud Services</a></li>
+              <li><a class="dropdown-item" href="services-training.html">Training &amp; Placement</a></li>
             </ul>
           </li>
 
-          <li class="nav-item"><a class="nav-link" href="/training">Training</a></li>
-          <li class="nav-item"><a class="nav-link" href="/careers">Careers</a></li>
-          <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="training.html">Training</a></li>
+          <li class="nav-item"><a class="nav-link" href="careers.html">Careers</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
 
         <!-- Dark mode toggle -->
@@ -4771,28 +2274,122 @@
   </nav>
 
   <main id="home">
-    <!-- HERO -->
-    <header class="hero" style="--hero-image: url('./assets/hero1.jpg');">
-      <div class="container">
-        <div class="inner">
-          <span class="eyebrow">Enterprise engineering &amp; operations</span>
-          <div class="hero-badges">
-            <span class="hb">SOFTWARE</span><span class="hb">DATA / AI</span><span class="hb">CLOUD & DEVOPS</span><span
-              class="hb">SUPPORT</span><span class="hb">TRAINING</span>
+    <!-- HERO (new) -->
+    <header class="fx-hero" aria-labelledby="heroTitle">
+      <div class="fx-hero__bg" aria-hidden="true">
+        <div class="fx-hero__video" id="heroCarousel">
+          <img class="fx-hero__media" src="./hero1.jpg" alt="" decoding="async" fetchpriority="high" />
+        </div>
+        <div class="fx-hero__overlay"></div>
+        <div class="fx-hero__grid"></div>
+        <div class="fx-hero__glow fx-hero__glow--a"></div>
+        <div class="fx-hero__glow fx-hero__glow--b"></div>
+      </div>
+
+      <div class="container fx-hero__content">
+        <div class="row align-items-start gx-4 gy-4">
+          <div class="col-lg-7">
+            <!-- kicker pills removed as requested -->
+
+              <h1 id="heroTitle" class="fx-hero__title">
+               Empower your business with FutureXcel Technologies.
+              </h1>
+
+            <p class="fx-hero__lead">
+              Our team builds modern software, secures your cloud platforms, and ensures 24×7 dependable operations. We deliver solutions that launch fast, run reliably, and scale with your ambitions. Experience measurable results from day one: enhanced performance, full observability, and an exceptional customer experience.
+            </p>
+
+            <div class="fx-hero__actions" role="group" aria-label="Primary actions">
+              <a class="btn-pill btn-brand" href="contact.html"><i class="bi bi-envelope"></i> Get a quote</a>
+              <a class="btn-pill btn-contrast" href="#services"><i class="bi bi-grid-1x2-fill"></i> Explore services</a>
+              <a class="btn-pill btn-outline" href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20your%20services."
+                target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"></i> Talk to us</a>
+            </div>
+            <!-- Quick Stats Row: Modern, animated numbers for credibility -->
+            <div class="fx-hero__stats" aria-label="Key stats">
+              <div class="fx-hero__stat fx-hero__stat--card">
+                <span class="fx-hero__staticon"><i class="bi bi-rocket-takeoff"></i></span>
+                <span class="fx-hero__statnum" data-target="50" data-suffix="+">0+</span>
+                <span class="fx-hero__statlabel">Projects</span>
+              </div>
+              <div class="fx-hero__stat fx-hero__stat--card">
+                <span class="fx-hero__staticon"><i class="bi bi-activity"></i></span>
+                <span class="fx-hero__statnum" data-target="99.9" data-suffix="%" data-decimals="1">0%</span>
+                <span class="fx-hero__statlabel">Uptime</span>
+              </div>
+              <div class="fx-hero__stat fx-hero__stat--card">
+                <span class="fx-hero__staticon"><i class="bi bi-headset"></i></span>
+                <span class="fx-hero__statnum" data-target="24" data-suffix="×7">0×7</span>
+                <span class="fx-hero__statlabel">Support</span>
+              </div>
+              <div class="fx-hero__stat fx-hero__stat--card">
+                <span class="fx-hero__staticon"><i class="bi bi-globe2"></i></span>
+                <span class="fx-hero__statnum" data-target="5" data-suffix="+">0+</span>
+                <span class="fx-hero__statlabel">Countries</span>
+              </div>
+            </div>
           </div>
-          <h1 class="mt-1">Build digital platforms that scale.<span class="d-block">Run them with confidence.</span>
-          </h1>
-          <p class="lead">FutureXcel partners with organizations to deliver secure software, data &amp; AI platforms,
-            and cloud/DevOps capabilities-backed by dependable 24×7 technical operations and structured training &amp;
-            placement programs.</p>
-          <div class="hero-actions">
-            <a href="#services" class="btn-pill btn-brand" data-scroll><i class="bi bi-layers"></i> Explore Services</a>
-            <a href="training.html#placement" class="btn-pill btn-contrast"><i class="bi bi-mortarboard"></i> Training &
-              Placement</a>
-            <a href="/contact" class="btn-pill btn-outline"><i class="bi bi-envelope"></i> Talk to Us</a>
+
+          <div class="col-lg-5">
+            <div class="fx-hero__panel" role="region" aria-label="Highlights">
+              <div class="fx-hero__panelhead">
+                <div class="fx-hero__panelicon" aria-hidden="true"><i class="bi bi-cpu-fill"></i></div>
+                <div>
+                  <div class="fx-hero__paneltitle">Engineering + Operations, together</div>
+                  <div class="fx-hero__panelsub">From discovery to runbooks, we stay accountable.</div>
+                </div>
+              </div>
+
+              <div class="fx-hero__cards">
+                <div class="fx-hero__mini">
+                  <div class="fx-hero__minitop">
+                    <i class="bi bi-code-slash" aria-hidden="true"></i>
+                    <span>Build</span>
+                  </div>
+                  <p>APIs, web apps, integrations, automation and product MVPs.</p>
+                </div>
+                <div class="fx-hero__mini">
+                  <div class="fx-hero__minitop">
+                    <i class="bi bi-cloud" aria-hidden="true"></i>
+                    <span>Platform</span>
+                  </div>
+                  <p>IaC, CI/CD, cloud governance, SRE, monitoring & incident readiness.</p>
+                </div>
+                <div class="fx-hero__mini">
+                  <div class="fx-hero__minitop">
+                    <i class="bi bi-headset" aria-hidden="true"></i>
+                    <span>Support</span>
+                  </div>
+                  <p>24×7 service desk, endpoint management, and SLAs you can measure.</p>
+                </div>
+                <div class="fx-hero__mini">
+                  <div class="fx-hero__minitop">
+                    <i class="bi bi-mortarboard-fill" aria-hidden="true"></i>
+                    <span>Training</span>
+                  </div>
+                  <p>Hands-on cohorts, mentoring, mock interviews, placement support.</p>
+                </div>
+                <div class="fx-hero__mini">
+                  <div class="fx-hero__minitop">
+                    <i class="bi bi-shield-lock" aria-hidden="true"></i>
+                    <span>Security</span>
+                  </div>
+                  <p>Threat modeling, policy-as-code, and secure delivery pipelines.</p>
+                </div>
+                <div class="fx-hero__mini">
+                  <div class="fx-hero__minitop">
+                    <i class="bi bi-bar-chart-line" aria-hidden="true"></i>
+                    <span>Observability</span>
+                  </div>
+                  <p>SLIs/SLOs, tracing, logs and centralized dashboards for reliability.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- fx-hero__metrics removed as requested -->
     </header>
 
     <!-- WHY / VALUE PROPOSITION -->
@@ -4957,7 +2554,7 @@
               <p class="text">Automated deploys, progressive rollout, baselines and gates.</p>
             </div>
           </div>
-          <div class="col-12 col-md">
+          <div class="col-6 col-md">
             <div class="approach-step h-100">
               <div class="approach-head"><span class="num">05</span>
                 <span class="approach-icon" aria-hidden="true">
@@ -4984,47 +2581,206 @@
     <!-- END PROCESS -->
 
     <!-- CAPABILITIES (new) -->
-    <section class="capabilities" id="capabilities">
+
+    <section class="capabilities fx-capabilities" id="capabilities">
       <div class="container">
         <div class="text-center mb-2">
-          <h2 class="section-title"><i class="bi bi-stars me-2"></i>Capabilities</h2>
-          <p class="section-sub mx-auto" style="max-width:720px">Depth across architecture, delivery, operations &
-            experience - inspired by standards
-            used at Microsoft, Amazon & Google.</p>
+          <h2 id="stackTitle" class="section-title mb-2"><i class="bi bi-stars me-2"></i>Capabilities</h2>
+          <p class="section-sub mb-0">Depth across architecture, delivery, operations & experience – inspired by standards used at Microsoft, Amazon & Google.</p>
         </div>
-        <div class="cap-grid">
-          <div class="cap-card">
-            <div class="cap-icon"><i class="bi bi-diagram-3"></i></div>
-            <h6>Architecture & Modernization</h6>
-            <p>Event-driven, microservices, modular monoliths; migration roadmaps & quality gates.</p>
+        <div class="fx-capabilities-list" role="list">
+          <div class="fx-capability" role="listitem">
+            <div class="fx-capability-accent"></div>
+            <div class="fx-capability-icon fx-capability-arch"><i class="bi bi-diagram-3"></i></div>
+            <div class="fx-capability-content">
+              <div class="fx-capability-title">Architecture & Modernization</div>
+              <div class="fx-capability-desc">Event-driven, microservices, modular monoliths; migration roadmaps & quality gates.</div>
+            </div>
           </div>
-          <div class="cap-card">
-            <div class="cap-icon"><i class="bi bi-cloud-check"></i></div>
-            <h6>Cloud & Platform Engineering</h6>
-            <p>IaC, golden paths, cost / performance guardrails, secure supply chains, zero-downtime deploys.</p>
+          <div class="fx-capability" role="listitem">
+            <div class="fx-capability-accent"></div>
+            <div class="fx-capability-icon fx-capability-cloud"><i class="bi bi-cloud-check"></i></div>
+            <div class="fx-capability-content">
+              <div class="fx-capability-title">Cloud & Platform Engineering</div>
+              <div class="fx-capability-desc">IaC, golden paths, cost / performance guardrails, secure supply chains, zero-downtime deploys.</div>
+            </div>
           </div>
-          <div class="cap-card">
-            <div class="cap-icon"><i class="bi bi-lock-fill"></i></div>
-            <h6>Security & Compliance</h6>
-            <p>Threat modeling, secrets hygiene, automated evidence, policy-as-code & least privilege.</p>
+          <div class="fx-capability" role="listitem">
+            <div class="fx-capability-accent"></div>
+            <div class="fx-capability-icon fx-capability-sec"><i class="bi bi-lock-fill"></i></div>
+            <div class="fx-capability-content">
+              <div class="fx-capability-title">Security & Compliance</div>
+              <div class="fx-capability-desc">Threat modeling, secrets hygiene, automated evidence, policy-as-code & least privilege.</div>
+            </div>
           </div>
-          <div class="cap-card">
-            <div class="cap-icon"><i class="bi bi-bar-chart-line"></i></div>
-            <h6>Data & AI Engineering</h6>
-            <p>Lakehouse, streaming, semantic layers, retrieval augmented generation & safe evals.</p>
+          <div class="fx-capability" role="listitem">
+            <div class="fx-capability-accent"></div>
+            <div class="fx-capability-icon fx-capability-data"><i class="bi bi-bar-chart-line"></i></div>
+            <div class="fx-capability-content">
+              <div class="fx-capability-title">Data & AI Engineering</div>
+              <div class="fx-capability-desc">Lakehouse, streaming, semantic layers, retrieval augmented generation & safe evals.</div>
+            </div>
           </div>
-          <div class="cap-card">
-            <div class="cap-icon"><i class="bi bi-people"></i></div>
-            <h6>Support & Reliability</h6>
-            <p>SRE practices, SLIs/SLOs, runbooks, incident response, tiered BPO & technical support.</p>
+          <div class="fx-capability" role="listitem">
+            <div class="fx-capability-accent"></div>
+            <div class="fx-capability-icon fx-capability-support"><i class="bi bi-people"></i></div>
+            <div class="fx-capability-content">
+              <div class="fx-capability-title">Support & Reliability</div>
+              <div class="fx-capability-desc">SRE practices, SLIs/SLOs, runbooks, incident response, tiered BPO & technical support.</div>
+            </div>
           </div>
-          <div class="cap-card">
-            <div class="cap-icon"><i class="bi bi-mortarboard-fill"></i></div>
-            <h6>Training & Placement</h6>
-            <p>Hands-on cohorts, mentoring, mock interviews, career acceleration across regions.</p>
+          <div class="fx-capability" role="listitem">
+            <div class="fx-capability-accent"></div>
+            <div class="fx-capability-icon fx-capability-train"><i class="bi bi-mortarboard-fill"></i></div>
+            <div class="fx-capability-content">
+              <div class="fx-capability-title">Training & Placement</div>
+              <div class="fx-capability-desc">Hands-on cohorts, mentoring, mock interviews, career acceleration across regions.</div>
+            </div>
           </div>
         </div>
       </div>
+      <style>
+        .fx-capabilities-list {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 32px 36px;
+          margin: 2.5rem 0 0 0;
+        }
+        .fx-capability {
+          display: flex;
+          align-items: flex-start;
+          gap: 22px;
+          position: relative;
+          min-height: 88px;
+          padding-left: 0.5rem;
+          transition: box-shadow 0.22s, background 0.22s;
+        }
+        .fx-capability-accent {
+          width: 5px;
+          height: 56px;
+          border-radius: 6px;
+          background: linear-gradient(180deg, #009688 0%, #0056d2 100%);
+          margin-top: 8px;
+          flex-shrink: 0;
+          box-shadow: 0 0 12px 0 rgba(0,86,210,0.10);
+          transition: background 0.22s;
+        }
+        .fx-capability-icon {
+          font-size: 2.1rem;
+          color: #fff;
+          border-radius: 50%;
+          width: 54px;
+          height: 54px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 18px rgba(0,86,210,0.10);
+          margin-top: 2px;
+          transition: background 0.22s, color 0.22s, box-shadow 0.22s;
+        }
+        .fx-capability-icon i {
+          color: #fff !important;
+          background: none;
+          transition: color 0.22s;
+        }
+        .fx-capability-arch {
+          background: linear-gradient(135deg, #0056d2 0%, #009688 100%);
+        }
+        .fx-capability-cloud {
+          background: linear-gradient(135deg, #009688 0%, #5ac0ff 100%);
+        }
+        .fx-capability-sec {
+          background: linear-gradient(135deg, #ff6f00 0%, #0056d2 100%);
+        }
+        .fx-capability-data {
+          background: linear-gradient(135deg, #5ac0ff 0%, #009688 100%);
+        }
+        .fx-capability-support {
+          background: linear-gradient(135deg, #7be2ff 0%, #0056d2 100%);
+        }
+        .fx-capability-train {
+          background: linear-gradient(135deg, #ff6f00 0%, #009688 100%);
+        }
+        .fx-capability-content {
+          flex: 1 1 0;
+          min-width: 0;
+        }
+        .fx-capability-title {
+          font-weight: 800;
+          font-size: 1.13rem;
+          color: #0f172a;
+          margin-bottom: 0.18rem;
+          letter-spacing: 0.01em;
+        }
+        .fx-capability-desc {
+          color: #475569;
+          font-size: 0.98rem;
+          line-height: 1.5;
+        }
+        .fx-capability:hover .fx-capability-accent {
+          background: linear-gradient(180deg, #ff6f00 0%, #0056d2 100%);
+        }
+        .fx-capability:hover .fx-capability-icon {
+          filter: brightness(1.08);
+          transform: scale(1.13);
+          transition: transform 0.22s cubic-bezier(.36,.07,.19,.97);
+        }
+
+        .fx-capability-sec .fx-capability-icon,
+        .fx-capability-sec.fx-capability:hover .fx-capability-icon {
+          box-shadow: none !important;
+        }
+        .fx-capability:hover .fx-capability-title {
+          background: linear-gradient(90deg, #009688 0%, #0056d2 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          -webkit-text-fill-color: transparent;
+        }
+        @media (max-width: 991.98px) {
+          .fx-capabilities-list {
+            grid-template-columns: 1fr;
+            gap: 28px;
+          }
+        }
+        @media (max-width: 575.98px) {
+          .fx-capability-icon {
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+          }
+          .fx-capability-accent {
+            height: 38px;
+          }
+          .fx-capability-title {
+            font-size: 1rem;
+          }
+          .fx-capability-desc {
+            font-size: 0.92rem;
+          }
+        }
+        html.theme-dark .fx-capability-title {
+          color: #e5e7eb;
+        }
+        html.theme-dark .fx-capability-desc {
+          color: #b8c3d4;
+        }
+        html.theme-dark .fx-capability-icon {
+          box-shadow: 0 4px 18px rgba(123,226,255,0.10);
+        }
+        html.theme-dark .fx-capability-icon i {
+          color: #fff !important;
+        }
+        html.theme-dark .fx-capability {
+          background: none;
+        }
+        html.theme-dark .fx-capability-accent {
+          background: linear-gradient(180deg, #7be2ff 0%, #0056d2 100%);
+        }
+        html.theme-dark .fx-capability:hover .fx-capability-accent {
+          background: linear-gradient(180deg, #ff6f00 0%, #7be2ff 100%);
+        }
+      </style>
     </section>
 
     <!-- SERVICES (existing) -->
@@ -5040,7 +2796,7 @@
               <div class="icon mb-2"><i class="fa-solid fa-code"></i></div>
               <h6 class="fw-bold">Custom Software Development</h6>
               <p class="small mb-2">Web/mobile apps, APIs, integrations, automation (.NET, Node, Python).</p><a
-                class="stretched-link" href="/services-software">Learn more</a>
+                class="stretched-link" href="services-software.html">Learn more</a>
             </div>
           </div>
           <div class="col-md-4">
@@ -5048,7 +2804,7 @@
               <div class="icon mb-2"><i class="fa-solid fa-user-tie"></i></div>
               <h6 class="fw-bold">IT Consulting &amp; Support</h6>
               <p class="small mb-2">Architecture reviews, SRE, SLAs, incident response, managed services.</p><a
-                class="stretched-link" href="/services-consulting">Learn more</a>
+                class="stretched-link" href="services-consulting.html">Learn more</a>
             </div>
           </div>
           <div class="col-md-4">
@@ -5056,7 +2812,7 @@
               <div class="icon mb-2"><i class="fa-solid fa-brain"></i></div>
               <h6 class="fw-bold">Data Engineering &amp; AI</h6>
               <p class="small mb-2">Pipelines, warehousing, analytics; RAG/agents with safe evals.</p><a
-                class="stretched-link" href="/services-data">Learn more</a>
+                class="stretched-link" href="services-data.html">Learn more</a>
             </div>
           </div>
           <div class="col-md-4">
@@ -5064,7 +2820,7 @@
               <div class="icon mb-2"><i class="fa-solid fa-cloud"></i></div>
               <h6 class="fw-bold">Cloud &amp; DevOps</h6>
               <p class="small mb-2">AWS/Azure, IaC, APIM, CI/CD, platform engineering, FinOps.</p><a
-                class="stretched-link" href="/services-cloud">Learn more</a>
+                class="stretched-link" href="services-cloud.html">Learn more</a>
             </div>
           </div>
           <div class="col-md-4">
@@ -5072,7 +2828,7 @@
               <div class="icon mb-2"><i class="fa-solid fa-laptop"></i></div>
               <h6 class="fw-bold">Modern Endpoint Management</h6>
               <p class="small mb-2">MDM/MAM, app deployment, Windows patching, provisioning, and security via
-                Entra/Intune.</p><a class="stretched-link" href="/services-endpoint">Learn more</a>
+                Entra/Intune.</p><a class="stretched-link" href="services-endpoint.html">Learn more</a>
             </div>
           </div>
           <div class="col-md-4">
@@ -5080,7 +2836,7 @@
               <div class="icon mb-2"><i class="fa-solid fa-headset"></i></div>
               <h6 class="fw-bold">IT Help Desk Outsourcing</h6>
               <p class="small mb-2">24×7 L1–L3 support, ticketing workflows, onboarding, SLAs, and knowledge base.</p><a
-                class="stretched-link" href="/services-helpdesk">Learn more</a>
+                class="stretched-link" href="services-helpdesk.html">Learn more</a>
             </div>
           </div>
           <div class="col-md-4">
@@ -5088,7 +2844,7 @@
               <div class="icon mb-2"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></div>
               <h6 class="fw-bold">Training &amp; Placement</h6>
               <p class="small mb-2">Cohort programs, mentoring, mock interviews, placement support.</p><a
-                class="stretched-link" href="/training"><i class="bi bi-arrow-right-circle me-1"
+                class="stretched-link" href="training.html"><i class="bi bi-arrow-right-circle me-1"
                   aria-hidden="true"></i>See programs</a>
             </div>
           </div>
@@ -5097,7 +2853,7 @@
               <div class="icon mb-2"><i class="fa-solid fa-robot"></i></div>
               <h6 class="fw-bold">Machine Learning Solutions</h6>
               <p class="small mb-2">Model development, MLOps, forecasting, NLP, and production-grade AI features.</p><a
-                class="stretched-link" href="/services-ml">Learn more</a>
+                class="stretched-link" href="services-ml.html">Learn more</a>
             </div>
           </div>
           <div class="col-md-4">
@@ -5105,7 +2861,7 @@
               <div class="icon mb-2"><i class="fa-solid fa-flask"></i></div>
               <h6 class="fw-bold">Research &amp; Development</h6>
               <p class="small mb-2">Prototyping, feasibility studies, experiments, and roadmap validation with speed.
-              </p><a class="stretched-link" href="/services-research">Learn more</a>
+              </p><a class="stretched-link" href="services-research.html">Learn more</a>
             </div>
           </div>
         </div>
@@ -5134,12 +2890,9 @@
                 <li>SLA-driven response &amp; escalation</li>
                 <li>50–70% potential cost savings vs. in-house</li>
               </ul>
-
               <div class="d-flex gap-2 flex-wrap">
-                <a class="btn-pill btn-brand support-mini" href="/services-consulting"><i
-                    class="bi bi-arrow-right-circle"></i> Learn more</a>
-                <a class="btn-pill btn-outline support-mini" href="/contact"><i class="bi bi-envelope"></i> Request
-                  quote</a>
+                <a class="btn-pill btn-brand support-mini" href="services-consulting.html"><i class="bi bi-arrow-right-circle"></i> Learn more</a>
+                <a class="btn-pill btn-contrast support-mini" href="contact.html"><i class="bi bi-envelope"></i> Request quote</a>
               </div>
             </div>
           </div>
@@ -5155,12 +2908,9 @@
                 <li>Azure/Entra integration + Conditional Access alignment</li>
                 <li>Windows patch compliance with update rings</li>
               </ul>
-
               <div class="d-flex gap-2 flex-wrap">
-                <a class="btn-pill btn-brand support-mini" href="/services-endpoint"><i
-                    class="bi bi-arrow-right-circle"></i> Learn more</a>
-                <a class="btn-pill btn-outline support-mini" href="/contact"><i class="bi bi-envelope"></i> Discuss
-                  roadmap</a>
+                <a class="btn-pill btn-brand support-mini" href="services-endpoint.html"><i class="bi bi-arrow-right-circle"></i> Learn more</a>
+                <a class="btn-pill btn-contrast support-mini" href="contact.html"><i class="bi bi-envelope"></i> Discuss roadmap</a>
               </div>
             </div>
           </div>
@@ -5169,20 +2919,16 @@
             <div class="fxc-card h-100 support-spotlight-card">
               <div class="icon mb-2"><i class="fa-solid fa-headset"></i></div>
               <h6 class="fw-bold">IT Help Desk Outsourcing</h6>
-              <p class="small mb-2">Tier 1–2 service desk in your tools &amp; brand-clean tickets, KB use, escalation.
-              </p>
+              <p class="small mb-2">Tier 1–2 service desk in your tools &amp; brand-clean tickets, KB use, escalation.</p>
               <ul class="small mb-3" aria-label="Key highlights">
                 <li>Tier 1–2 support with Tier 3 escalation packets</li>
                 <li>Omnichannel: phone, chat, email, tickets</li>
                 <li>24×7 coverage plans available</li>
                 <li>KB-driven workflows, SLA reporting &amp; governance</li>
               </ul>
-
               <div class="d-flex gap-2 flex-wrap">
-                <a class="btn-pill btn-brand support-mini" href="/services-helpdesk"><i
-                    class="bi bi-arrow-right-circle"></i> Learn more</a>
-                <a class="btn-pill btn-outline support-mini" href="/contact"><i class="bi bi-envelope"></i> Request
-                  quote</a>
+                <a class="btn-pill btn-brand support-mini" href="services-helpdesk.html"><i class="bi bi-arrow-right-circle"></i> Learn more</a>
+                <a class="btn-pill btn-contrast support-mini" href="contact.html"><i class="bi bi-envelope"></i> Request quote</a>
               </div>
             </div>
           </div>
@@ -5198,7 +2944,7 @@
             <h2 class="section-title mb-1"><i class="bi bi-people-fill me-2"></i>Who we are</h2>
             <p class="mb-2">FutureXcel is a software development company specializing in custom solutions, IT
               consulting, BPO/technical support, and comprehensive training with placement.</p>
-            <a class="btn-pill btn-brand" href="/about"><i class="bi bi-arrow-right-circle"></i> Learn about us</a>
+            <a class="btn-pill btn-brand" href="about.html"><i class="bi bi-arrow-right-circle"></i> Learn about us</a>
           </div>
           <div class="col-lg-5">
             <div class="fxc-card">
@@ -5215,7 +2961,7 @@
     </section>
 
     <!-- TRAINING PREVIEW -->
-    <section class="py-5 bg-light">
+    <section class="py-5 bg-light training-preview">
       <div class="container">
         <div class="text-center mb-4">
           <h2 class="section-title"><i class="bi bi-mortarboard-fill me-2"></i>Training &amp; Placement</h2>
@@ -5228,7 +2974,7 @@
               <p class="small">APIs, front-end frameworks, testing, CI/CD. Portfolio-ready projects.</p>
               <div><a class="btn-pill btn-brand me-2"
                   href="mailto:info@futurexceltech.com?subject=Apply%20-%20Software%20Engineering%20Cohort"><i
-                    class="bi bi-send"></i> Apply now</a><a class="btn-pill btn-contrast" href="/training"><i
+                    class="bi bi-send"></i> Apply now</a><a class="btn-pill btn-contrast" href="training.html"><i
                     class="bi bi-journal"></i> View syllabus</a></div>
             </div>
           </div>
@@ -5238,7 +2984,7 @@
               <p class="small">IaC, observability, pipelines, lakehouse/warehouse, BI &amp; AI basics.</p>
               <div><a class="btn-pill btn-brand me-2"
                   href="mailto:info@futurexceltech.com?subject=Apply%20-%20Cloud%2FData%20Cohort"><i
-                    class="bi bi-send"></i> Apply now</a><a class="btn-pill btn-contrast" href="/training"><i
+                    class="bi bi-send"></i> Apply now</a><a class="btn-pill btn-contrast" href="training.html"><i
                     class="bi bi-journal"></i> View syllabus</a></div>
             </div>
           </div>
@@ -5247,7 +2993,7 @@
     </section>
 
     <!-- CAREERS PREVIEW -->
-    <section class="py-5">
+    <section class="py-5 careers-preview">
       <div class="container">
         <div class="text-center mb-4">
           <h2 class="section-title"><i class="bi bi-briefcase-fill me-2"></i>Careers</h2>
@@ -5258,13 +3004,13 @@
             <div class="fxc-card h-100">
               <h6 class="fw-bold">Software Engineer</h6>
               <p class="small">Build APIs & user experiences that scale.</p><a class="stretched-link"
-                href="/careers">See details</a>
+                href="careers.html">See details</a>
             </div>
           </div>
           <div class="col-md-4">
             <div class="fxc-card h-100">
               <h6 class="fw-bold">Cloud/DevOps Engineer</h6>
-              <p class="small">Automate delivery and pave golden paths.</p><a class="stretched-link" href="/careers">See
+              <p class="small">Automate delivery and pave golden paths.</p><a class="stretched-link" href="careers.html">See
                 details</a>
             </div>
           </div>
@@ -5272,7 +3018,7 @@
             <div class="fxc-card h-100">
               <h6 class="fw-bold">Data Engineer</h6>
               <p class="small">Pipelines, warehousing, and BI for decisions.</p><a class="stretched-link"
-                href="/careers">See details</a>
+                href="careers.html">See details</a>
             </div>
           </div>
         </div>
@@ -5405,12 +3151,12 @@
             <p class="desc mb-0">CI/CD</p>
           </div>
           <div class="tech-card" role="listitem" data-tier="support" data-name="Intune"><img loading="lazy"
-              src="./assets/intune.png" alt="Microsoft Intune" />
+              src="./intune.png" alt="Microsoft Intune" />
             <p class="name mb-0">Intune</p>
             <p class="desc mb-0">MDM / MAM</p>
           </div>
           <div class="tech-card" role="listitem" data-tier="support" data-name="Microsoft 365"><img loading="lazy"
-              src="./assets/M365[1].png" alt="Microsoft 365" />
+              src="./M365.png" alt="Microsoft 365" />
             <p class="name mb-0">M365</p>
             <p class="desc mb-0">Office Suite</p>
           </div>
@@ -5427,7 +3173,7 @@
           <h2 id="fx-cta-title">Let’s build something great</h2>
           <p class="fx-cta__lead">Tell us about your goals. We’ll propose a practical path in days, not months.</p>
           <div class="fx-cta__actions">
-            <a href="/contact" class="btn-cta btn-cta--primary"><i class="bi bi-envelope"></i> Contact Us</a>
+            <a href="contact.html" class="btn-cta btn-cta--primary"><i class="bi bi-envelope"></i> Contact Us</a>
             <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20your%20services."
               target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta--secondary"><i
                 class="bi bi-whatsapp"></i> Chat on WhatsApp</a>
@@ -5455,24 +3201,24 @@
 
         <div class="col-md-3">
           <h5>Services</h5>
-          <a href="/services-endpoint">Modern Endpoint Management</a>
-          <a href="/services-helpdesk">IT Help Desk Outsourcing</a>
-          <a href="/services-software">Custom Software Development</a>
-          <a href="/services-research">Research &amp; Development</a>
-          <a href="/services-consulting">IT Consulting &amp; Support</a>
-          <a href="/services-data">Data Engineering &amp; Analytics</a>
-          <a href="/services-ml">Machine Learning Solutions</a>
-          <a href="/services-cloud">DevOps &amp; Cloud Services</a>
-          <a href="/services-training">Training &amp; Placement</a>
+          <a href="services-endpoint.html">Modern Endpoint Management</a>
+          <a href="services-helpdesk.html">IT Help Desk Outsourcing</a>
+          <a href="services-software.html">Custom Software Development</a>
+          <a href="services-research.html">Research &amp; Development</a>
+          <a href="services-consulting.html">IT Consulting &amp; Support</a>
+          <a href="services-data.html">Data Engineering &amp; Analytics</a>
+          <a href="services-ml.html">Machine Learning Solutions</a>
+          <a href="services-cloud.html">DevOps &amp; Cloud Services</a>
+          <a href="services-training.html">Training &amp; Placement</a>
         </div>
 
         <div class="col-md-2">
           <h5>Quick Links</h5>
-          <a href="/">Home</a>
-          <a href="/training">Training</a>
-          <a href="/careers">Careers</a>
-          <a href="/about">About Us</a>
-          <a href="/contact">Contact</a>
+          <a href="index.html">Home</a>
+          <a href="training.html">Training</a>
+          <a href="careers.html">Careers</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact</a>
           <hr class="footer-rule d-md-none" aria-hidden="true" />
         </div>
 
@@ -5735,207 +3481,79 @@
           }
         });
       }
+
+      // Animate hero stats numbers (simple counter)
+      function animateCounter(el, target, duration = 1200, suffix = '', decimals = 0) {
+        const start = 0;
+        const startTime = performance.now();
+        function tick(now) {
+          const elapsed = now - startTime;
+          const t = Math.min(elapsed / duration, 1);
+          const value = start + (target - start) * t;
+          el.textContent = (decimals ? value.toFixed(decimals) : Math.round(value)) + (suffix || '');
+          if (t < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+
+      const statEls = document.querySelectorAll('.fx-hero__statnum');
+      if (statEls.length) {
+        statEls.forEach(el => {
+          const target = parseFloat(el.getAttribute('data-target') || '0');
+          const suffix = el.getAttribute('data-suffix') || '';
+          const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+          animateCounter(el, target, 1400, suffix, decimals);
+        });
+      }
+
+      // enhanced KPI animations - trigger when visible
+      const metricPanel = document.querySelector('.fx-hero__metricspanel');
+      function runMetricAnimations() {
+        const projEl = document.getElementById('projCount');
+        const uptimeEl = document.getElementById('uptimeVal');
+        const countriesEl = document.getElementById('countriesVal');
+        if (projEl) animateCounter(projEl, 50, 1400, '+', 0);
+        if (uptimeEl) animateCounter(uptimeEl, 99.9, 1400, '%', 1);
+        // animate radial using precise dashoffset calculation
+        const radialBar = document.querySelector('.fx-hero__radial-bar');
+        if (radialBar) {
+          const total = radialBar.getTotalLength();
+          radialBar.style.strokeDasharray = total;
+          // show 99.9% -> offset = total * (1 - 0.999)
+          const offset = Math.max(1, Math.round(total * (1 - 0.999)));
+          radialBar.style.strokeDashoffset = total;
+          setTimeout(() => { radialBar.style.transition = 'stroke-dashoffset 1.2s ease'; radialBar.style.strokeDashoffset = offset; }, 200);
+        }
+        if (countriesEl) countriesEl.textContent = '5+';
+      }
+
+      // Remove metric animations; initialize showcase carousel
+      (function initShowcase() {
+        const slides = document.querySelectorAll('.fx-showcase__slide');
+        if (!slides || slides.length === 0) return;
+        let idx = 0;
+        function show(i) { slides.forEach((s, j) => s.classList.toggle('active', j === i)); }
+        function advance(delta = 1) { idx = (idx + delta + slides.length) % slides.length; show(idx); }
+        // auto-advance with pause on hover
+        let timer = setInterval(() => advance(1), 4200);
+        const container = document.querySelector('.fx-hero__showcase');
+        if (container) {
+          container.addEventListener('mouseenter', () => { clearInterval(timer); });
+          container.addEventListener('mouseleave', () => { timer = setInterval(() => advance(1), 4200); });
+        }
+        // Initialize first slide
+        show(0);
+      })();
     });
   </script>
 
-  <style>
-    /* Professional approach styles */
-    .approach-step {
-      background: #fff;
-      border: 1px solid rgba(17, 24, 39, 0.08);
-      border-radius: 16px;
-      padding: 16px 14px;
-      box-shadow: 0 2px 8px rgba(17, 24, 39, 0.06);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
 
-    .approach-step::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--fx-gradient);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-
-    .approach-step:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(17, 24, 39, 0.12);
-      border-color: rgba(0, 86, 210, 0.15);
-    }
-
-    .approach-step:hover::before {
-      transform: scaleX(1);
-    }
-
-    .approach-head {
-      display: flex;
-      align-items: center;
-      gap: .55rem;
-      margin-bottom: .35rem
-    }
-
-    .approach-head .num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: #0f172a;
-      color: #fff;
-      font-weight: 800;
-      font-size: .8rem
-    }
-
-    .approach-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: transparent !important;
-    }
-
-    .approach-icon svg {
-      display: block;
-      background: transparent !important;
-    }
-
-    html.theme-dark .approach-icon {
-      background: transparent !important;
-    }
-
-    .approach-step:hover .approach-icon svg circle {
-      animation: dash 1.2s ease forwards
-    }
-
-    @keyframes dash {
-      from {
-        stroke-dashoffset: 63
-      }
-
-      to {
-        stroke-dashoffset: 0
-      }
-    }
-
-    .approach-step .title {
-      font-weight: 800;
-      margin: .25rem 0;
-      color: #0f172a
-    }
-
-    .approach-step .text {
-      font-size: .9rem;
-      color: #475569;
-      margin: 0
-    }
-
-    html.theme-dark .approach-step {
-      background: #101c2d;
-      border-color: rgba(255, 255, 255, .08);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, .5)
-    }
-
-    html.theme-dark .approach-step:hover {
-      box-shadow: 0 14px 32px rgba(0, 0, 0, .6)
-    }
-
-    html.theme-dark .approach-head .num {
-      background: var(--fx-gradient) !important;
-      background-image: var(--fx-gradient) !important;
-      color: #ffffff !important;
-      opacity: 1 !important;
-      border: none !important;
-      box-shadow: 0 4px 12px rgba(0, 86, 210, 0.4) !important;
-    }
-
-    html.theme-dark .approach-step .title {
-      color: #e5e7eb
-    }
-
-    html.theme-dark .approach-step .text {
-      color: #b8c3d4
-    }
-
-    /* Dark mode: approach icons - ensure SVG icons are visible */
-    /* Override gradient stops in SVG defs to be white in dark mode */
-    html.theme-dark .approach-icon svg defs linearGradient stop {
-      stop-color: #ffffff !important;
-    }
-
-    /* Ensure SVG container itself doesn't get filled */
-    html.theme-dark .approach-icon svg {
-      fill: none !important;
-      background: transparent !important;
-      color: #ffffff !important;
-    }
-
-    /* Apply white stroke to all SVG elements */
-    html.theme-dark .approach-icon svg path,
-    html.theme-dark .approach-icon svg circle,
-    html.theme-dark .approach-icon svg rect,
-    html.theme-dark .approach-icon svg line,
-    html.theme-dark .approach-icon svg polygon,
-    html.theme-dark .approach-icon svg polyline {
-      stroke: #ffffff !important;
-      opacity: 1 !important;
-    }
-
-    /* Only fill elements that don't have fill="none" - respect transparency */
-    html.theme-dark .approach-icon svg path:not([fill="none"]):not([fill]),
-    html.theme-dark .approach-icon svg circle:not([fill="none"]):not([fill]),
-    html.theme-dark .approach-icon svg rect:not([fill="none"]):not([fill]) {
-      fill: #ffffff !important;
-    }
-
-    /* Keep fill="none" as none for transparent parts - this is critical */
-    html.theme-dark .approach-icon svg path[fill="none"],
-    html.theme-dark .approach-icon svg circle[fill="none"],
-    html.theme-dark .approach-icon svg rect[fill="none"],
-    html.theme-dark .approach-icon svg path[fill=""],
-    html.theme-dark .approach-icon svg circle[fill=""],
-    html.theme-dark .approach-icon svg rect[fill=""] {
-      fill: none !important;
-      stroke: #ffffff !important;
-    }
-
-    html.theme-dark .approach-step:hover .approach-icon svg path,
-    html.theme-dark .approach-step:hover .approach-icon svg circle,
-    html.theme-dark .approach-step:hover .approach-icon svg rect,
-    html.theme-dark .approach-step:hover .approach-icon svg line,
-    html.theme-dark .approach-step:hover .approach-icon svg polygon,
-    html.theme-dark .approach-step:hover .approach-icon svg polyline {
-      stroke: #ffffff !important;
-      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9)) !important;
-      opacity: 1 !important;
-    }
-
-    /* Only fill on hover if not fill="none" */
-    html.theme-dark .approach-step:hover .approach-icon svg path:not([fill="none"]):not([fill]),
-    html.theme-dark .approach-step:hover .approach-icon svg circle:not([fill="none"]):not([fill]),
-    html.theme-dark .approach-step:hover .approach-icon svg rect:not([fill="none"]):not([fill]) {
-      fill: #ffffff !important;
-    }
-
-    /* Keep fill="none" transparent even on hover */
-    html.theme-dark .approach-step:hover .approach-icon svg path[fill="none"],
-    html.theme-dark .approach-step:hover .approach-icon svg circle[fill="none"],
-    html.theme-dark .approach-step:hover .approach-icon svg rect[fill="none"],
-    html.theme-dark .approach-step:hover .approach-icon svg path[fill=""],
-    html.theme-dark .approach-step:hover .approach-icon svg circle[fill=""],
-    html.theme-dark .approach-step:hover .approach-icon svg rect[fill=""] {
-      fill: none !important;
-      stroke: #ffffff !important;
-      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9)) !important;
-    }
-  </style>
 
   <!-- Chatbot Integration -->
-  <link rel="stylesheet" href="chatbot.css">
-  <script src="chatbot.js"></script>
+  <link rel="stylesheet" href="./chatbot.css">
+  <script src="./chatbot.js"></script>
+</body>
+
+</html>
+
+

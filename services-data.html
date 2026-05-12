@@ -13,7 +13,7 @@
   <title>Data Engineering & Analytics | FutureXcel Technologies</title>
   <meta name="theme-color" content="#0d1b2a" />
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./assets/Favico.png" />
+  <link rel="icon" type="image/png" href="./Favico.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -638,30 +638,33 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" role="navigation">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="/"><img src="./assets/logo.png" height="50" alt="FutureXcel Logo" /></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav"
-        aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-      <div id="nav" class="collapse navbar-collapse justify-content-end">
+      <a class="navbar-brand fw-bold" href="./index.html" aria-label="FutureXcel Home">
+        <img src="./logo.png" alt="FutureXcel Technologies Logo" decoding="async" fetchpriority="high"
+          loading="eager" data-logo-light="./logo.png" data-logo-dark="./logo.png" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div id="navbarNav" class="collapse navbar-collapse justify-content-end">
         <ul class="navbar-nav fw-semibold">
-          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
           <li class="nav-item dropdown"><a class="nav-link dropdown-toggle active" href="#" id="servicesDropdown"
               role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
             <ul class="dropdown-menu border-0 rounded-3 shadow" aria-labelledby="servicesDropdown">
-              <li><a class="dropdown-item" href="/services-endpoint">Modern Endpoint Management</a></li>
-              <li><a class="dropdown-item" href="/services-helpdesk">IT Help Desk Outsourcing</a></li>
-              <li><a class="dropdown-item" href="/services-software">Custom Software Development</a></li>
-              <li><a class="dropdown-item" href="/services-research">Research &amp; Development</a></li>
-              <li><a class="dropdown-item" href="/services-consulting">IT Consulting &amp; Support</a></li>
-              <li><a class="dropdown-item" href="/services-data">Data Engineering &amp; Analytics</a></li>
-              <li><a class="dropdown-item" href="/services-ml">Machine Learning Solutions</a></li>
-              <li><a class="dropdown-item" href="/services-cloud">DevOps &amp; Cloud Services</a></li>
-              <li><a class="dropdown-item" href="/services-training">Training &amp; Placement</a></li>
+              <li><a class="dropdown-item" href="./services-endpoint.html">Modern Endpoint Management</a></li>
+              <li><a class="dropdown-item" href="./services-helpdesk.html">IT Help Desk Outsourcing</a></li>
+              <li><a class="dropdown-item" href="./services-software.html">Custom Software Development</a></li>
+              <li><a class="dropdown-item" href="./services-research.html">Research &amp; Development</a></li>
+              <li><a class="dropdown-item" href="./services-consulting.html">IT Consulting &amp; Support</a></li>
+              <li><a class="dropdown-item" href="./services-data.html">Data Engineering &amp; Analytics</a></li>
+              <li><a class="dropdown-item" href="./services-ml.html">Machine Learning Solutions</a></li>
+              <li><a class="dropdown-item" href="./services-cloud.html">DevOps &amp; Cloud Services</a></li>
+              <li><a class="dropdown-item" href="./services-training.html">Training &amp; Placement</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="/training">Training</a></li>
-          <li class="nav-item"><a class="nav-link" href="/careers">Careers</a></li>
-          <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="./training.html">Training</a></li>
+          <li class="nav-item"><a class="nav-link" href="./careers.html">Careers</a></li>
+          <li class="nav-item"><a class="nav-link" href="./about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
         </ul>
         <div class="d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
           <button id="themeToggle" class="btn btn-sm btn-outline-dark rounded-pill d-inline-flex align-items-center"
@@ -673,27 +676,26 @@
       </div>
     </div>
   </nav>
-  <header class="hero" style="--hero-image: url('./assets/hero2.jpg');">
+
+  <header class="service-hero" aria-labelledby="serviceHeroTitle">
     <div class="container">
-      <div class="inner">
-        <span class="eyebrow">Services</span>
-        <h1 class="hero-title">Data Engineering &amp; Analytics</h1>
-        <p class="hero-sub">High-quality, governed data pipelines & insights-optimized for reliability, scale, and cost.
-        </p>
-        <div class="hero-highlights" aria-label="Service highlights">
-          <span class="hero-highlight"><i class="bi bi-cloud-download"></i><span>Ingestion &amp;
-              Integration</span></span>
-          <span class="hero-highlight"><i class="bi bi-shield-check"></i><span>Governance &amp; Quality</span></span>
-          <span class="hero-highlight"><i class="bi bi-bar-chart-line"></i><span>BI &amp; Self‑Service</span></span>
+      <div class="service-hero__content">
+        <h1 id="serviceHeroTitle" class="service-hero__title">Data Engineering &amp; Analytics</h1>
+        <p class="service-hero__lead">Turn raw operational data into trusted pipelines, governed warehouses,
+          self-service analytics, and reliable reporting that teams can act on.</p>
+        <div class="service-hero__actions">
+          <a class="btn-pill btn-brand" href="./contact.html"><i class="bi bi-envelope"></i> Discuss data strategy</a>
+          <a class="btn-pill btn-contrast" href="#capabilities"><i class="bi bi-database"></i> View capabilities</a>
         </div>
-        <div class="hero-actions">
-          <a href="/contact" class="btn-pill btn-brand"><i class="bi bi-database-fill-gear"></i> Start a Project</a>
-          <a href="#capabilities" class="btn-pill btn-outline" data-scroll><i class="bi bi-graph-up"></i> See
-            Capabilities</a>
+        <div class="service-hero__meta" aria-label="Service highlights">
+          <span><i class="bi bi-cloud-download"></i> Ingestion</span>
+          <span><i class="bi bi-shield-check"></i> Quality + lineage</span>
+          <span><i class="bi bi-bar-chart-line"></i> BI enablement</span>
         </div>
       </div>
     </div>
   </header>
+
   <main class="py-5">
     <div class="container">
       <div class="text-center mb-4">
@@ -756,7 +758,7 @@
           <h2 id="fx-cta-title">Discuss your data strategy</h2>
           <p class="fx-cta__lead">We’ll help map pragmatic modernization and analytics adoption journeys.</p>
           <div class="fx-cta__actions">
-            <a href="/contact" class="btn-cta btn-cta--primary"><i class="bi bi-envelope"></i> Contact Us</a>
+            <a href="./contact.html" class="btn-cta btn-cta--primary"><i class="bi bi-envelope"></i> Contact Us</a>
             <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20your%20services."
               target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta--secondary"><i
                 class="bi bi-whatsapp"></i> Chat on WhatsApp</a>
@@ -784,24 +786,24 @@
 
         <div class="col-md-3">
           <h5>Services</h5>
-          <a href="/services-endpoint">Modern Endpoint Management</a>
-          <a href="/services-helpdesk">IT Help Desk Outsourcing</a>
-          <a href="/services-software">Custom Software Development</a>
-          <a href="/services-research">Research &amp; Development</a>
-          <a href="/services-consulting">IT Consulting &amp; Support</a>
-          <a href="/services-data">Data Engineering &amp; Analytics</a>
-          <a href="/services-ml">Machine Learning Solutions</a>
-          <a href="/services-cloud">DevOps &amp; Cloud Services</a>
-          <a href="/services-training">Training &amp; Placement</a>
+          <a href="./services-endpoint.html">Modern Endpoint Management</a>
+          <a href="./services-helpdesk.html">IT Help Desk Outsourcing</a>
+          <a href="./services-software.html">Custom Software Development</a>
+          <a href="./services-research.html">Research &amp; Development</a>
+          <a href="./services-consulting.html">IT Consulting &amp; Support</a>
+          <a href="./services-data.html">Data Engineering &amp; Analytics</a>
+          <a href="./services-ml.html">Machine Learning Solutions</a>
+          <a href="./services-cloud.html">DevOps &amp; Cloud Services</a>
+          <a href="./services-training.html">Training &amp; Placement</a>
         </div>
 
         <div class="col-md-2">
           <h5>Quick Links</h5>
-          <a href="/">Home</a>
-          <a href="/training">Training</a>
-          <a href="/careers">Careers</a>
-          <a href="/about">About Us</a>
-          <a href="/contact">Contact</a>
+          <a href="./index.html">Home</a>
+          <a href="./training.html">Training</a>
+          <a href="./careers.html">Careers</a>
+          <a href="./about.html">About Us</a>
+          <a href="./contact.html">Contact</a>
           <hr class="footer-rule d-md-none" aria-hidden="true" />
         </div>
 
@@ -835,42 +837,12 @@
 
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const yearEl = document.getElementById('year'); if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-      const THEME_KEY = 'fx-theme';
-      const themeBtn = document.getElementById('themeToggle');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-      const applyTheme = (mode) => { const isDark = mode === 'dark'; const root = document.documentElement; root.classList.toggle('theme-dark', isDark); root.style.colorScheme = isDark ? 'dark' : 'light'; root.setAttribute('data-bs-theme', isDark ? 'dark' : 'light'); const meta = document.querySelector('meta[name="theme-color"]'); if (meta) meta.setAttribute('content', isDark ? '#0b1220' : '#0d1b2a'); const nav = document.querySelector('nav.navbar'); if (nav) { nav.classList.toggle('navbar-dark', isDark); nav.classList.toggle('navbar-light', !isDark); } if (themeBtn) { themeBtn.setAttribute('aria-pressed', String(isDark)); themeBtn.classList.toggle('btn-outline-dark', !isDark); themeBtn.classList.toggle('btn-outline-light', isDark); const icon = themeBtn.querySelector('i'); if (icon) { icon.classList.toggle('bi-moon-stars', !isDark); icon.classList.toggle('bi-sun', isDark); } themeBtn.title = isDark ? 'Switch to light mode' : 'Switch to dark mode'; } };
-      const stored = localStorage.getItem(THEME_KEY); applyTheme(stored || (prefersDark.matches ? 'dark' : 'light'));
-      if (!stored) prefersDark.addEventListener('change', e => applyTheme(e.matches ? 'dark' : 'light'));
-      themeBtn?.addEventListener('click', () => { const next = document.documentElement.classList.contains('theme-dark') ? 'light' : 'dark'; localStorage.setItem(THEME_KEY, next); applyTheme(next); });
-
-      window.addEventListener('scroll', () => { const nav = document.querySelector('.navbar'); if (nav) nav.classList.toggle('scrolled', window.scrollY > 30); }, { passive: true });
-
-      // Desktop hover
-      if (window.matchMedia('(hover: hover)').matches) {
-        document.querySelectorAll('.navbar .dropdown').forEach(function (dropdown) {
-          dropdown.addEventListener('mouseenter', function () { const toggle = this.querySelector('.dropdown-toggle'); const menu = this.querySelector('.dropdown-menu'); toggle.classList.add('show'); menu.classList.add('show'); toggle.setAttribute('aria-expanded', 'true'); });
-          dropdown.addEventListener('mouseleave', function () { const toggle = this.querySelector('.dropdown-toggle'); const menu = this.querySelector('.dropdown-menu'); toggle.classList.remove('show'); menu.classList.remove('show'); toggle.setAttribute('aria-expanded', 'false'); });
-        });
-      }
-
-      const normalizePath = (href) => { if (!href) return ''; const [path] = href.split('#'); if (path === '' || path === '/' || path === window.location.origin + '/') return 'index.html'; return path.split('/').pop(); };
-      const currentPage = normalizePath(window.location.pathname);
-      const currentHash = window.location.hash.replace('#', '');
-      document.querySelectorAll('.navbar .nav-link').forEach(link => { const href = link.getAttribute('href'); const [path, hash] = (href || '').split('#'); const pathMatch = normalizePath(path) === currentPage; const hashMatch = hash && currentHash && hash === currentHash && (path === '' || path === '#' || normalizePath(path) === currentPage); if (pathMatch || hashMatch) { link.classList.add('active'); link.setAttribute('aria-current', 'page'); } });
-      document.querySelectorAll('.navbar .dropdown').forEach(drop => { const toggle = drop.querySelector('.dropdown-toggle'); drop.querySelectorAll('.dropdown-item').forEach(item => { const href = item.getAttribute('href') || ''; if (href.startsWith('#')) return; const n = normalizePath(href); const isServicePage = n.startsWith('services-') && n !== 'services-training.html'; if (isServicePage && n === currentPage) { toggle.classList.add('active'); toggle.setAttribute('aria-current', 'page'); item.classList.add('active'); item.setAttribute('aria-current', 'page'); } }); });
-
-      // Carousel (respect reduced motion)
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const carouselEl = document.getElementById('heroCarousel');
-      if (carouselEl && window.bootstrap) {
-        const instance = bootstrap.Carousel.getOrCreateInstance(carouselEl, { interval: reduceMotion ? false : 4000, ride: reduceMotion ? false : 'carousel' });
-        if (reduceMotion) instance.pause();
-        carouselEl.querySelectorAll('video').forEach(v => v.addEventListener('ended', () => instance.next()));
+      const yearEl = document.getElementById('year');
+      if (yearEl && !yearEl.textContent) {
+        yearEl.textContent = new Date().getFullYear();
       }
     });
   </script>
@@ -879,10 +851,14 @@
   <a class="whatsapp-float"
     href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I'm%20interested%20in%20Data%20Engineering%20and%20Analytics%20services."
     target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><i class="bi bi-whatsapp fs-3"></i></a>
+
+  <script defer src="./main.js"></script>
   
   <!-- Chatbot Integration -->
-  <link rel="stylesheet" href="chatbot.css">
-  <script src="chatbot.js"></script>
+  <link rel="stylesheet" href="./chatbot.css">
+  <script src="./chatbot.js"></script>
 </body>
 
 </html>
+
+

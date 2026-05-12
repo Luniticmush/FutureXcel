@@ -153,6 +153,40 @@
     }
   }
 
+  function initLegacyRouteLinks() {
+    const routeMap = {
+      '/training': 'training.html',
+      '/careers': 'careers.html',
+      '/about': 'about.html',
+      '/contact': 'contact.html',
+      '/services-endpoint': 'services-endpoint.html',
+      '/services-helpdesk': 'services-helpdesk.html',
+      '/services-software': 'services-software.html',
+      '/services-research': 'services-research.html',
+      '/services-consulting': 'services-consulting.html',
+      '/services-data': 'services-data.html',
+      '/services-ml': 'services-ml.html',
+      '/services-cloud': 'services-cloud.html',
+      '/services-training': 'services-training.html',
+    };
+
+    document.addEventListener('click', event => {
+      const anchor = event.target.closest('a');
+      if (!anchor || anchor.target || anchor.hasAttribute('download')) return;
+      const href = anchor.getAttribute('href');
+      if (!href || !href.startsWith('/')) return;
+      if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+
+      const [path, hash] = href.split('#');
+      const mapped = routeMap[path];
+      if (!mapped) return;
+
+      event.preventDefault();
+      const destination = mapped + (hash ? `#${hash}` : '');
+      window.location.href = destination;
+    });
+  }
+
   // (Hero carousel removed: heroes are static across all pages)
 
   // ========== SMOOTH SCROLL ==========
@@ -260,6 +294,7 @@
     // Initialize all features
     initThemeToggle();
     initNavbar();
+    initLegacyRouteLinks();
     initSmoothScroll();
     initLazyLoading();
     updateYear();

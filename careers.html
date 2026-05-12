@@ -16,9 +16,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="preload" as="image" href="./assets/hero1.jpg" />
+    <link rel="preload" as="image" href="./hero1.jpg" />
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./assets/Favico.png" />
+    <link rel="icon" type="image/png" href="./Favico.png" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
@@ -152,33 +152,6 @@
             margin: 0.5rem 0;
             text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4), 0 1px 5px rgba(0, 0, 0, 0.3);
             font-weight: 400;
-        }
-
-        .hero-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 0.75rem;
-            margin-top: 0;
-            justify-content: flex-start;
-        }
-
-        .hero-badges .hb {
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: #fff;
-            font-size: 0.75rem;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-            padding: 0.5rem 0.875rem;
-            border-radius: 999px;
-            backdrop-filter: blur(8px);
-            transition: all 0.3s ease;
-        }
-
-        .hero-badges .hb:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
         }
 
         .hero-actions {
@@ -694,17 +667,6 @@
                 font-size: clamp(1.8rem, 5vw, 2.5rem);
             }
 
-            .hero-badges {
-                gap: 0.4rem;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            .hero-badges .hb {
-                font-size: 0.6rem;
-                padding: 0.35rem 0.6rem;
-            }
-
             .hero-actions {
                 flex-direction: column;
                 align-items: stretch;
@@ -770,8 +732,9 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top" role="navigation">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="/" aria-label="FutureXcel Home">
-                <img src="./assets/logo.png" alt="FutureXcel Logo" decoding="async" fetchpriority="high" />
+            <a class="navbar-brand fw-bold" href="index.html" aria-label="FutureXcel Home">
+                <img src="./logo.png" alt="FutureXcel Technologies Logo" decoding="async" fetchpriority="high"
+                  loading="eager" data-logo-light="./logo.png" data-logo-dark="./logo.png" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -780,27 +743,27 @@
 
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav fw-semibold">
-                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                         <ul class="dropdown-menu shadow border-0 rounded-3" aria-labelledby="servicesDropdown">
-                            <li><a class="dropdown-item" href="/services-endpoint">Modern Endpoint Management</a></li>
-                            <li><a class="dropdown-item" href="/services-helpdesk">IT Help Desk Outsourcing</a></li>
-                            <li><a class="dropdown-item" href="/services-software">Custom Software Development</a></li>
-                            <li><a class="dropdown-item" href="/services-research">Research &amp; Development</a></li>
-                            <li><a class="dropdown-item" href="/services-consulting">IT Consulting &amp; Support</a>
+                            <li><a class="dropdown-item" href="services-endpoint.html">Modern Endpoint Management</a></li>
+                            <li><a class="dropdown-item" href="services-helpdesk.html">IT Help Desk Outsourcing</a></li>
+                            <li><a class="dropdown-item" href="services-software.html">Custom Software Development</a></li>
+                            <li><a class="dropdown-item" href="services-research.html">Research &amp; Development</a></li>
+                            <li><a class="dropdown-item" href="services-consulting.html">IT Consulting &amp; Support</a>
                             </li>
-                            <li><a class="dropdown-item" href="/services-data">Data Engineering &amp; Analytics</a></li>
-                            <li><a class="dropdown-item" href="/services-ml">Machine Learning Solutions</a></li>
-                            <li><a class="dropdown-item" href="/services-cloud">DevOps &amp; Cloud Services</a></li>
-                            <li><a class="dropdown-item" href="/services-training">Training &amp; Placement</a></li>
+                            <li><a class="dropdown-item" href="services-data.html">Data Engineering &amp; Analytics</a></li>
+                            <li><a class="dropdown-item" href="services-ml.html">Machine Learning Solutions</a></li>
+                            <li><a class="dropdown-item" href="services-cloud.html">DevOps &amp; Cloud Services</a></li>
+                            <li><a class="dropdown-item" href="services-training.html">Training &amp; Placement</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="/training">Training</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/careers">Careers</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="training.html">Training</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="careers.html">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
 
                 <div class="d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
@@ -815,45 +778,30 @@
         </div>
     </nav>
 
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section class="hero" style="--hero-image: url('./assets/hero2.jpg');">
-            <div class="container">
-                <div class="inner">
-                    <span class="eyebrow">Careers</span>
-                    <div class="hero-badges">
-                        <span class="hb">REMOTE</span><span class="hb">FULL-TIME</span><span
-                            class="hb">PART-TIME</span><span class="hb">FLEXIBLE</span><span class="hb">GROWTH</span>
-                    </div>
-                    <h1 data-aos="fade-up" class="mt-1">Join FutureXcel<br class="d-none d-md-block" />Build Your Career
-                        with Us</h1>
-                    <p class="lead" data-aos="fade-up" data-aos-delay="100">
-                        Explore exciting career opportunities that empower growth, continuous learning, and innovation.
-                        Join a team that's shaping tomorrow's digital landscape.
-                    </p>
-                    <div class="hero-actions" data-aos="fade-up" data-aos-delay="200">
-                        <a href="mailto:hr@futurexceltech.com?subject=Resume%20Submission%20-%20FutureXcel%20Careers"
-                            class="btn-pill btn-brand">
-                            <i class="bi bi-envelope-at"></i> Send Resume
-                        </a>
-                        <a href="#careers" class="btn-pill btn-contrast" data-scroll>
-                            <i class="bi bi-briefcase"></i> View Open Positions
-                        </a>
-                        <a href="/contact" class="btn-pill btn-outline">
-                            <i class="bi bi-envelope"></i> Talk to Us
-                        </a>
-                    </div>
-                </div>
+    <header class="service-hero" aria-labelledby="heroTitle">
+        <div class="container service-hero__content">
+            <span class="service-hero__eyebrow">Careers at FutureXcel</span>
+            <h1 id="heroTitle" class="service-hero__title"><span>Join a high-growth engineering team</span><span>building modern software and AI.</span></h1>
+            <p class="service-hero__lead">We hire people who want strong mentorship, purposeful projects, and a flexible path to technical mastery.</p>
+            <div class="service-hero__actions">
+                <a class="btn-pill btn-brand" href="#careers">View open roles</a>
+                <a class="btn-pill btn-contrast" href="contact.html">Contact recruiting</a>
             </div>
-        </section>
+            <div class="service-hero__meta">
+                <span><i class="bi bi-clock-history"></i>Fast resume review process</span>
+                <span><i class="bi bi-globe2"></i>Hybrid work & learning culture</span>
+            </div>
+        </div>
+    </header>
 
+    <main id="main-content">
         <!-- Careers Section -->
         <section id="careers" class="py-5">
             <div class="container">
-                <h2 class="section-title section-title-icons" data-aos="fade-up">
+                <h1 class="section-title section-title-icons" data-aos="fade-up">
                     <i class="bi bi-briefcase-fill sti-icon" aria-hidden="true"></i>
                     <span>Open Positions</span>
-                </h2>
+                </h1>
                 <p class="section-sub" data-aos="fade-up" data-aos-delay="80">
                     Join our global engineering team to build secure, scalable, and modern enterprise solutions.
                 </p>
@@ -1273,7 +1221,7 @@
                     <h2 id="fx-cta-title">Looking for your next opportunity?</h2>
                     <p class="fx-cta__lead">Share your profile and we’ll reach out when a role matches your skills.</p>
                     <div class="fx-cta__actions">
-                        <a href="/contact" class="btn-cta btn-cta--primary"><i class="bi bi-envelope"></i> Contact
+                        <a href="contact.html" class="btn-cta btn-cta--primary"><i class="bi bi-envelope"></i> Contact
                             Us</a>
                         <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20your%20services."
                             target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta--secondary"><i
@@ -1301,24 +1249,24 @@
 
                     <div class="col-md-3">
                         <h5>Services</h5>
-                        <a href="/services-endpoint">Modern Endpoint Management</a>
-                        <a href="/services-helpdesk">IT Help Desk Outsourcing</a>
-                        <a href="/services-software">Custom Software Development</a>
-                        <a href="/services-research">Research &amp; Development</a>
-                        <a href="/services-consulting">IT Consulting &amp; Support</a>
-                        <a href="/services-data">Data Engineering &amp; Analytics</a>
-                        <a href="/services-ml">Machine Learning Solutions</a>
-                        <a href="/services-cloud">DevOps &amp; Cloud Services</a>
-                        <a href="/services-training">Training &amp; Placement</a>
+                        <a href="services-endpoint.html">Modern Endpoint Management</a>
+                        <a href="services-helpdesk.html">IT Help Desk Outsourcing</a>
+                        <a href="services-software.html">Custom Software Development</a>
+                        <a href="services-research.html">Research &amp; Development</a>
+                        <a href="services-consulting.html">IT Consulting &amp; Support</a>
+                        <a href="services-data.html">Data Engineering &amp; Analytics</a>
+                        <a href="services-ml.html">Machine Learning Solutions</a>
+                        <a href="services-cloud.html">DevOps &amp; Cloud Services</a>
+                        <a href="services-training.html">Training &amp; Placement</a>
                     </div>
 
                     <div class="col-md-2">
                         <h5>Quick Links</h5>
-                        <a href="/">Home</a>
-                        <a href="/training">Training</a>
-                        <a href="/careers">Careers</a>
-                        <a href="/about">About Us</a>
-                        <a href="/contact">Contact</a>
+                        <a href="index.html">Home</a>
+                        <a href="training.html">Training</a>
+                        <a href="careers.html">Careers</a>
+                        <a href="about.html">About Us</a>
+                        <a href="contact.html">Contact</a>
                         <hr class="footer-rule d-md-none" aria-hidden="true" />
                     </div>
 
@@ -1368,8 +1316,8 @@
     <script defer src="./main.js"></script>
     
     <!-- Chatbot Integration -->
-    <link rel="stylesheet" href="chatbot.css">
-    <script src="chatbot.js"></script>
+    <link rel="stylesheet" href="./chatbot.css">
+    <script src="./chatbot.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -1416,3 +1364,5 @@
 </body>
 
 </html>
+
+

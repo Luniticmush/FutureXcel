@@ -13,7 +13,7 @@
   <title>IT Consulting & Support | FutureXcel Technologies | 24/7 Technical Support Services</title>
   <meta name="theme-color" content="#0d1b2a" />
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./assets/Favico.png" />
+  <link rel="icon" type="image/png" href="./Favico.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
@@ -1019,8 +1019,9 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top" role="navigation">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="/" aria-label="FutureXcel Home">
-        <img src="./assets/logo.png" alt="FutureXcel Technologies Logo" decoding="async" fetchpriority="high" />
+      <a class="navbar-brand fw-bold" href="./index.html" aria-label="FutureXcel Home">
+        <img src="./logo.png" alt="FutureXcel Technologies Logo" decoding="async" fetchpriority="high"
+          loading="eager" data-logo-light="./logo.png" data-logo-dark="./logo.png" />
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -1029,26 +1030,26 @@
 
       <div id="navbarNav" class="collapse navbar-collapse justify-content-end">
         <ul class="navbar-nav fw-semibold">
-          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">Services</a>
             <ul class="dropdown-menu shadow border-0 rounded-3" aria-labelledby="servicesDropdown">
-              <li><a class="dropdown-item" href="/services-endpoint">Modern Endpoint Management</a></li>
-              <li><a class="dropdown-item" href="/services-helpdesk">IT Help Desk Outsourcing</a></li>
-              <li><a class="dropdown-item" href="/services-software">Custom Software Development</a></li>
-              <li><a class="dropdown-item" href="/services-research">Research &amp; Development</a></li>
-              <li><a class="dropdown-item" href="/services-consulting">IT Consulting &amp; Support</a></li>
-              <li><a class="dropdown-item" href="/services-data">Data Engineering &amp; Analytics</a></li>
-              <li><a class="dropdown-item" href="/services-ml">Machine Learning Solutions</a></li>
-              <li><a class="dropdown-item" href="/services-cloud">DevOps &amp; Cloud Services</a></li>
-              <li><a class="dropdown-item" href="/services-training">Training &amp; Placement</a></li>
+              <li><a class="dropdown-item" href="./services-endpoint.html">Modern Endpoint Management</a></li>
+              <li><a class="dropdown-item" href="./services-helpdesk.html">IT Help Desk Outsourcing</a></li>
+              <li><a class="dropdown-item" href="./services-software.html">Custom Software Development</a></li>
+              <li><a class="dropdown-item" href="./services-research.html">Research &amp; Development</a></li>
+              <li><a class="dropdown-item" href="./services-consulting.html">IT Consulting &amp; Support</a></li>
+              <li><a class="dropdown-item" href="./services-data.html">Data Engineering &amp; Analytics</a></li>
+              <li><a class="dropdown-item" href="./services-ml.html">Machine Learning Solutions</a></li>
+              <li><a class="dropdown-item" href="./services-cloud.html">DevOps &amp; Cloud Services</a></li>
+              <li><a class="dropdown-item" href="./services-training.html">Training &amp; Placement</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="/training">Training</a></li>
-          <li class="nav-item"><a class="nav-link" href="/careers">Careers</a></li>
-          <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="./training.html">Training</a></li>
+          <li class="nav-item"><a class="nav-link" href="./careers.html">Careers</a></li>
+          <li class="nav-item"><a class="nav-link" href="./about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
         </ul>
 
         <div class="d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
@@ -1062,32 +1063,28 @@
     </div>
   </nav>
 
-  <main id="main">
-    <!-- Hero -->
-    <header class="hero" style="--hero-image: url('./assets/hero2.jpg');">
-      <div class="container">
-        <div class="inner">
-          <span class="eyebrow">Services</span>
-          <h1 class="hero-title">24/7 IT Consulting &amp; Support</h1>
-          <p class="hero-sub">Outsource your IT support with confidence. Our <strong>24/7 technical support</strong>
-            covers weekdays, weekends, and holidays &mdash; backed by strict SLA adherence and experienced
-            professionals.</p>
-
-          <div class="hero-highlights" aria-label="Service highlights">
-            <span class="hero-highlight"><i class="bi bi-clock-history"></i><span>24/7/365 Coverage</span></span>
-            <span class="hero-highlight"><i class="bi bi-headset"></i><span>Omnichannel Support</span></span>
-            <span class="hero-highlight"><i class="bi bi-shield-check"></i><span>SLA Guaranteed</span></span>
-          </div>
-
-          <div class="hero-actions">
-            <a href="/contact" class="btn-pill btn-brand"><i class="bi bi-envelope"></i> Request Custom Quote</a>
-            <a href="#services" class="btn-pill btn-outline" data-scroll><i class="bi bi-grid-3x3-gap"></i> View
-              Services</a>
-          </div>
+  <header class="service-hero" aria-labelledby="serviceHeroTitle">
+    <div class="container">
+      <div class="service-hero__content">
+        <span class="service-hero__eyebrow"><i class="bi bi-headset"></i> Managed support</span>
+        <h1 id="serviceHeroTitle" class="service-hero__title">IT Consulting &amp; Support</h1>
+        <p class="service-hero__lead">Keep users supported around the clock with SLA-backed technical help desk,
+          incident response, service desk operations, and practical IT consulting.</p>
+        <div class="service-hero__actions">
+          <a class="btn-pill btn-brand" href="./contact.html"><i class="bi bi-envelope"></i> Request coverage</a>
+          <a class="btn-pill btn-contrast" href="#services"><i class="bi bi-grid-1x2-fill"></i> View support options</a>
+        </div>
+        <div class="service-hero__meta" aria-label="Service highlights">
+          <span><i class="bi bi-clock-history"></i> 24/7 options</span>
+          <span><i class="bi bi-ticket-perforated"></i> Ticket workflows</span>
+          <span><i class="bi bi-graph-up-arrow"></i> SLA reporting</span>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
 
+  <main id="main">
+    <!-- Hero -->
     <!-- Intro Section -->
     <section class="py-5">
       <div class="container">
@@ -1646,7 +1643,7 @@
           <p class="fx-cta__lead">Request a custom quote today. We'll propose a tailored solution that fits your
             business needs and budget.</p>
           <div class="fx-cta__actions">
-            <a href="/contact" class="btn-cta btn-cta--primary"><i class="bi bi-envelope"></i> Request Quote</a>
+            <a href="./contact.html" class="btn-cta btn-cta--primary"><i class="bi bi-envelope"></i> Request Quote</a>
             <a href="https://wa.me/917822865734?text=Hi%20FutureXcel%2C%20I%27m%20interested%20in%20your%2024/7%20IT%20Support%20services."
               target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta--secondary"><i
                 class="bi bi-whatsapp"></i> Chat on WhatsApp</a>
@@ -1674,24 +1671,24 @@
 
         <div class="col-md-3">
           <h5>Services</h5>
-          <a href="/services-endpoint">Modern Endpoint Management</a>
-          <a href="/services-helpdesk">IT Help Desk Outsourcing</a>
-          <a href="/services-software">Custom Software Development</a>
-          <a href="/services-research">Research &amp; Development</a>
-          <a href="/services-consulting">IT Consulting &amp; Support</a>
-          <a href="/services-data">Data Engineering &amp; Analytics</a>
-          <a href="/services-ml">Machine Learning Solutions</a>
-          <a href="/services-cloud">DevOps &amp; Cloud Services</a>
-          <a href="/services-training">Training &amp; Placement</a>
+          <a href="./services-endpoint.html">Modern Endpoint Management</a>
+          <a href="./services-helpdesk.html">IT Help Desk Outsourcing</a>
+          <a href="./services-software.html">Custom Software Development</a>
+          <a href="./services-research.html">Research &amp; Development</a>
+          <a href="./services-consulting.html">IT Consulting &amp; Support</a>
+          <a href="./services-data.html">Data Engineering &amp; Analytics</a>
+          <a href="./services-ml.html">Machine Learning Solutions</a>
+          <a href="./services-cloud.html">DevOps &amp; Cloud Services</a>
+          <a href="./services-training.html">Training &amp; Placement</a>
         </div>
 
         <div class="col-md-2">
           <h5>Quick Links</h5>
-          <a href="/">Home</a>
-          <a href="/training">Training</a>
-          <a href="/careers">Careers</a>
-          <a href="/about">About Us</a>
-          <a href="/contact">Contact</a>
+          <a href="./index.html">Home</a>
+          <a href="./training.html">Training</a>
+          <a href="./careers.html">Careers</a>
+          <a href="./about.html">About Us</a>
+          <a href="./contact.html">Contact</a>
           <hr class="footer-rule d-md-none" aria-hidden="true" />
         </div>
 
@@ -1735,8 +1732,10 @@
   <script defer src="./main.js"></script>
   
   <!-- Chatbot Integration -->
-  <link rel="stylesheet" href="chatbot.css">
-  <script src="chatbot.js"></script>
+  <link rel="stylesheet" href="./chatbot.css">
+  <script src="./chatbot.js"></script>
 </body>
 
 </html>
+
+
